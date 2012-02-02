@@ -1,5 +1,15 @@
 secret_token:
 
+#mail
+mail_host:
+mail_user:
+mail_pwd:
+mail_addr:
+
+#facebook
+fb_id:
+fb_secret:
+
 #unicorn
 unicorn_working_directory:
 unicorn_user:

@@ -20,6 +20,24 @@ Swap::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => APP_CONFIG['mail_host'] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    :tls => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => APP_CONFIG['mail_host'],
+    :authentication => :plain,
+    :user_name => APP_CONFIG['mail_user'],
+    :password => APP_CONFIG['mail_pwd']
+  }
+
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 

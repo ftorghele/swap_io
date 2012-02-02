@@ -4,6 +4,10 @@ gem 'rails', '3.2.1'
 gem 'jquery-rails'
 gem 'mysql2'
 
+gem 'devise', '2.0.0'
+gem 'omniauth-facebook'
+
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -15,6 +19,7 @@ group :assets do
 end
 
 group :development do
+  gem 'haml-rails'
   gem 'capistrano'
   #gem 'ruby-debug19', :require => 'ruby-debug'
 end
