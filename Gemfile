@@ -22,3 +22,11 @@ end
 group :production do
   gem 'unicorn'
 end
+
+group :test do
+  gem 'factory_girl'
+  gem 'shoulda'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'mocha'
+end
