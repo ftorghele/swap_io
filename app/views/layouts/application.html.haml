@@ -18,8 +18,8 @@
         .container
           %a.brand{:href => "#"}Swap.io
           %ul.nav
-            %li.active= link_to "test1", "#"
-            %li= link_to "test1", "#"
+            %li= link_to "Course", courses_path
+            %li= link_to "Course Request", course_requests_path
           %ul.nav.pull-right
             - if user_signed_in?
               %p
