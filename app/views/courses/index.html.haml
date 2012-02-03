@@ -1,7 +1,6 @@
 %h1
-  lala
+  Begegnungen
 
 - @courses.each do |course|
-  = course.title
+  = link_to course.title, course_path(course)
   = course.description
-

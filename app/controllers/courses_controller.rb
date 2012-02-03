@@ -1,7 +1,5 @@
 class CoursesController < ApplicationController
 
-  before_filter :authenticate_user!
-
   def new
   end
 
@@ -9,10 +7,11 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.get_courses
+    @courses = Course.find(:all)
   end
 
   def show
+    @course = Course.find(params[:id])
   end
 
   def destroy

@@ -4,6 +4,7 @@ require 'rails/test_help'
 require 'mocha'
 require 'factory_girl'
 require 'capybara/rails'
+require 'turn'
 
 FactoryGirl.find_definitions
 
@@ -12,7 +13,7 @@ class ActiveSupport::TestCase
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
-  fixtures :all
+  # fixtures :all
 
   # Add more helper methods to be used by all tests here...
 end
