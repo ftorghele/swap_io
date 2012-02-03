@@ -32,6 +32,8 @@ group :test do
   gem 'factory_girl'
   gem 'shoulda'
   gem 'capybara'
+  gem 'launchy'
   gem 'database_cleaner'
   gem 'mocha'
+  gem 'turn', :require => false
 end
