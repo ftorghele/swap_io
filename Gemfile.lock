@@ -54,6 +54,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    commonjs (0.2.0)
+      therubyracer (~> 0.9.9)
     database_cleaner (0.7.1)
     devise (2.0.0)
       bcrypt-ruby (~> 3.0)
@@ -86,6 +88,12 @@ GEM
       thor (~> 0.14)
     json (1.6.5)
     kgio (2.7.2)
+    less (2.0.9)
+      commonjs (~> 0.2.0)
+      therubyracer (~> 0.9.9)
+    less-rails (2.1.5)
+      actionpack (>= 3.1)
+      less (~> 2.0.7)
     libv8 (3.3.10.4)
     mail (2.4.1)
       i18n (>= 0.4.0)
@@ -168,6 +176,10 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.0)
+      actionpack (>= 3.2.1)
+      less-rails (~> 2.1.2)
+      railties (>= 3.2.1)
     tzinfo (0.3.31)
     uglifier (1.2.3)
       execjs (>= 0.3.0)
@@ -201,5 +213,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   shoulda
   therubyracer
+  twitter-bootstrap-rails (~> 2.0rc0)
   uglifier (>= 1.0.3)
   unicorn
