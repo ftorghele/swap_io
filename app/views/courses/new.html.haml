@@ -1,0 +1,11 @@
+%h1
+  Begegnung erstellen
+
+=form_for @course do |f|
+  Titel:
+  =f.text_field :title 
+  %br
+  Beschreibung:
+  =f.text_area :description
+  %br
+  =f.submit :Abschicken
