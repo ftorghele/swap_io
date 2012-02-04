@@ -2,7 +2,7 @@
 %html{:lang => "de"}
   %head
     %meta{:charset => "utf-8"}/
-    %title= content_for?(:title) ? yield(:title) : "Swap"
+    %title= content_for?(:title) ? yield(:title) : I18n.t('app.headline')    
     = stylesheet_link_tag :application
     %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
     %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
@@ -16,18 +16,18 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          %a.brand{:href => "#"}Swap.io
+          %a.brand{:href => "#"} #{I18n.t('app.brand')}
           %ul.nav
-            %li= link_to "Course", courses_path
-            %li= link_to "Course Request", course_requests_path
+            %li= link_to I18n.t('app.course_link'), courses_path
+            %li= link_to I18n.t('app.course_request_link'), course_requests_path
           %ul.nav.pull-right
             - if user_signed_in?
               %p
-                Signed in as #{current_user.email} . Not you?
-                = link_to "Sign out", destroy_user_session_path, :method => :delete
+                = I18n.t('app.signed_in_as') + current_user.email + I18n.t('app.not_you')
+                = link_to I18n.t('app.sign_out_link'), destroy_user_session_path, :method => :delete
             - else
-              %li= link_to "Sign up", new_user_registration_path
-              %li= link_to "sign in", new_user_session_path
+              %li= link_to I18n.t('app.sign_up_link'), new_user_registration_path
+              %li= link_to I18n.t('app.sign_in_link'), new_user_session_path
 
     .container
       .content
@@ -39,6 +39,6 @@
             = yield
 
       %footer
-        %p &copy; Company 2012
+        %p &copy; #{I18n.t('app.footer_text')}
 
     = javascript_include_tag :application

@@ -8,7 +8,7 @@ class CourseTest < ActionDispatch::IntegrationTest
 
     visit "/course_requests"
 
-
+    assert page.has_content?(I18n.t('course_request.index.headline'))
     assert page.has_content?(course_request1.title)
     assert page.has_content?(course_request1.description)
     assert page.has_content?(course_request2.title)

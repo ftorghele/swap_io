@@ -8,7 +8,7 @@ class CourseTest < ActionDispatch::IntegrationTest
 
     visit "/courses"
 
-    assert page.has_content?('Begegnungen')
+    assert page.has_content?(I18n.t('course.index.headline'))
     assert page.has_content?(course1.title)
     assert page.has_content?(course1.description)
     assert page.has_content?(course2.title)
@@ -25,8 +25,9 @@ class CourseTest < ActionDispatch::IntegrationTest
 
   should 'show course new action' do
     visit "/courses/new"
-    assert page.has_content?("Titel")
-    assert page.has_content?("Beschreibung")
+    assert page.has_content?(I18n.t('course.new.headline'))
+    assert page.has_content?(I18n.t('course.new.title'))
+    assert page.has_content?(I18n.t('course.new.description'))
   end
 
   should 'create new course' do
@@ -34,10 +35,10 @@ class CourseTest < ActionDispatch::IntegrationTest
     assert_difference("Course.count") do
       fill_in('course_title', :with => 'Java programmierung')
       fill_in('course_description', :with => 'Applikationsprogrammierung mit Java')
-      click_on('Abschicken')
+      click_on(I18n.t('course.new.submit'))
     end
     current_path.to_s == courses_path
-    assert page.has_content?("Course created successfully")
+    assert page.has_content?(I18n.t('course.create.success'))
   end
 
 end
