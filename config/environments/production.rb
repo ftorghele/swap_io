@@ -21,7 +21,7 @@ Swap::Application.configure do
   config.assets.digest = true
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => APP_CONFIG['mail_host'] }
+  config.action_mailer.default_url_options = { :host => "" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
@@ -31,10 +31,10 @@ Swap::Application.configure do
     :tls => true,
     :address => "smtp.gmail.com",
     :port => 587,
-    :domain => APP_CONFIG['mail_host'],
+    :domain => "",
     :authentication => :plain,
-    :user_name => APP_CONFIG['mail_user'],
-    :password => APP_CONFIG['mail_pwd']
+    :user_name => "",
+    :password => ""
   }
 
 

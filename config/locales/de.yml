@@ -1,0 +1,36 @@
+
+de:
+  app:
+    headline: Swap
+    brand: Swap.io
+    course_link: Begegnung
+    course_request_link: Begegnungsanfrage
+    signed_in_as: Angemeldet als
+    not_you: Falscher Benutzer?
+    sign_out_link: Ausloggen
+    sign_up_link: Registrieren
+    sign_in_link: Einloggen
+    footer_text: Company 2012
+  course:
+    create:
+      success: Begegnung wurde erfolgreich erstellt
+      fail: Beim Erstellen der Begegnung ist ein Fehler aufgetreten
+    destroy:
+      success: Begegnung wurde erfolgreich gelöscht
+      fail: Beim Löschen der Begegnung ist ein Fehler aufgetreten
+    index:
+      headline: Begegnungen
+    new:
+      headline: Begegnung erstellen
+      title: Titel
+      description: Beschreibung
+      submit: Abschicken
+
+  course_request:
+    create:
+      success: Begegnungsanfrage wurde erfolgreich erstellt
+      fail: Beim Erstellen der Begegnungsanfrage ist ein Fehler aufgetreten
+    destroy:
+
+    index:
+      headline: Begegnungsanfrage

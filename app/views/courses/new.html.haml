@@ -1,11 +1,11 @@
 %h1
-  Begegnung erstellen
+  = I18n.t('course.new.headline')
 
 =form_for @course do |f|
-  Titel:
+  = I18n.t('course.new.title')
   =f.text_field :title 
   %br
-  Beschreibung:
+  = I18n.t('course.new.description')
   =f.text_area :description
   %br
-  =f.submit :Abschicken
+  =f.submit I18n.t('course.new.submit')

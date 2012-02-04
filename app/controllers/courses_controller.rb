@@ -7,10 +7,10 @@ class CoursesController < ApplicationController
   def create
     @new_course = Course.create(params[:course])
     if @new_course.valid?
-      flash[:message] = "Course created successfully"
+      flash[:message] = I18n.t('course.create.success')
       redirect_to courses_path
     else
-      flash[:warning] = "Failed to create course"
+      flash[:warning] = I18n.t('course.create.fail')
       redirect_to new_course_path
     end
   end
