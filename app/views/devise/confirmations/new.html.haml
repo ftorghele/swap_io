@@ -1,9 +1,14 @@
-%h2 Resend confirmation instructions
-= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email
-  %div= f.submit "Resend confirmation instructions"
-= render "links"
+%h2= I18n.t('devise.confirmations.title')
+= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => 'form-horizontal' }) do |f|
+
+  %fieldset
+    %div.control-group{ :class => form_status(@user, :email) }
+      = f.label :email, :class => 'control-label'
+      .controls
+        = f.email_field :email
+        %span.help-inline=  form_status_msg(@user, :email)
+
+  %div.form-actions
+    = f.submit I18n.t('devise.confirmations.submit'), :class => 'btn-primary'
+
+  = render "links"

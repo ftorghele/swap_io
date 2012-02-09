@@ -1,5 +1,5 @@
-%h2= I18n.t('devise.registrations.title')
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-horizontal' }) do |f|
+%h2= I18n.t('user.edit.title')
+= form_for(@user, :html => { :method => :put, :class => 'form-horizontal' }) do |f|
 
   %fieldset
     %div.control-group{ :class => form_status(@user, :first_name) }
@@ -26,13 +26,8 @@
         = f.email_field :email
         %span.help-inline=  form_status_msg(@user, :email)
 
-    %div.control-group{ :class => @user.errors.any? ? 'error' : '' }
-      = f.label :password, :class => 'control-label'
-      .controls
-        = f.password_field :password
-        %span.help-inline=  @user.errors.any? ? @user.errors[:password].first : ''
+
 
   %div.form-actions
-    = link_to I18n.t('devise.registrations.cancel'), root_path, :class => 'btn'
-    = f.submit I18n.t('devise.registrations.submit'), :class => 'btn-primary'
-  = render "links"
+    = link_to I18n.t('user.edit.cancel_account'), registration_path(@user), :confirm => I18n.t('user.edit.cancel_account_confirm'), :method => :delete, :class => 'btn-danger'
+    = f.submit I18n.t('user.edit.submit'), :class => 'btn-primary'
