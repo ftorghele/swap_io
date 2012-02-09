@@ -1,12 +1,15 @@
 class CoursesController < ApplicationController
 
+  before_filter :login_required, :only => [:new, :create]
+
   def new
     @course = Course.new
   end
 
   def create
-    @new_course = Course.create(params[:course])
-    if @new_course.valid?
+    new_course = Course.new(params[:course])
+    new_course.user_id = current_user.id if current_user
+    if new_course.save
       flash[:message] = I18n.t('course.create.success')
       redirect_to courses_path
     else
@@ -24,6 +27,12 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def login_required
+    true if current_user
   end
 
 end

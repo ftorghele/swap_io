@@ -17,7 +17,6 @@ class CourseTest < ActionDispatch::IntegrationTest
 
   should 'show course show action' do
     course = Factory.create(:course)
-
     visit "/courses/#{course.id}"
     assert page.has_content?(course.title)
     assert page.has_content?(course.description)
@@ -30,15 +29,25 @@ class CourseTest < ActionDispatch::IntegrationTest
     assert page.has_content?(I18n.t('course.new.description'))
   end
 
-  should 'create new course' do
+  should 'be able to create new course with user session' do
+    login_as
     visit "/courses/new"
     assert_difference("Course.count") do
       fill_in('course_title', :with => 'Java programmierung')
       fill_in('course_description', :with => 'Applikationsprogrammierung mit Java')
       click_on(I18n.t('course.new.submit'))
     end
-    current_path.to_s == courses_path
+    assert current_path.to_s == courses_path
     assert page.has_content?(I18n.t('course.create.success'))
   end
 
+  should 'not be able to create new course without user session' do
+    visit "/courses/new"
+    assert_no_difference("Course.count") do
+      fill_in('course_title', :with => 'Java programmierung')
+      fill_in('course_description', :with => 'Applikationsprogrammierung mit Java')
+      click_on(I18n.t('course.new.submit'))
+    end
+    assert page.has_content?(I18n.t('course.create.fail'))
+  end
 end

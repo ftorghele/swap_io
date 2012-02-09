@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name
   validates_presence_of :zip
 
+  has_many :courses
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info

@@ -41,6 +41,11 @@ de:
     index:
       headline: Begegnungsanfrage
 
+  activerecord:
+    errors:
+      messages:
+        record_invalid: Eintrag konnte nicht gespeichert werden
+
   devise:
     failure:
       already_authenticated: "Du bist schon angemeldet."

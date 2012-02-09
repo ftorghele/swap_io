@@ -37,5 +37,5 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'mocha'
-  gem 'turn', :require => false
+  gem 'mynyml-redgreen'
 end
