@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates_presence_of :gender
 
   has_many :courses
+  has_many :course_requests
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info

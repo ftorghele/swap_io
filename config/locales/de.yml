@@ -15,6 +15,7 @@ de:
       as: Begegnung
     course_requests:
       as: Begegnungsanfrage
+
   course:
     create:
       success: Begegnung wurde erfolgreich erstellt
@@ -24,20 +25,32 @@ de:
       fail: Beim Löschen der Begegnung ist ein Fehler aufgetreten
     index:
       headline: Begegnungen
+      create_course_button: Neue Begegnung erstellen
     new:
       headline: Begegnung erstellen
       title: Titel
       description: Beschreibung
       submit: Abschicken
+    show:
+      headline: '%{course_title}'
 
   course_request:
     create:
       success: Begegnungsanfrage wurde erfolgreich erstellt
       fail: Beim Erstellen der Begegnungsanfrage ist ein Fehler aufgetreten
     destroy:
-
+      success: Begegnungsanfrage wurde erfolgreich gelöscht
+      fail: Beim Löschen der Begegnungsanfrage ist ein Fehler aufgetreten
     index:
       headline: Begegnungsanfrage
+      create_course_request_button: Neue Begegnungsanfrage erstellen
+    new:
+      headline: Begegnungsanfrage erstellen
+      title: Titel
+      description: Beschreibung
+      submit: Abschicken
+    show:
+      headline: '%{course_request_title}'
 
   activerecord:
     errors:

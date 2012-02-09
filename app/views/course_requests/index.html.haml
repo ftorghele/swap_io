@@ -1,7 +1,10 @@
 %h1
   = I18n.t('course_request.index.headline')
+  - if signed_in?
+    = link_to I18n.t('course_request.index.create_course_request_button'), new_course_request_path, :id => "create_course_request_button", :class => "btn"
+
 
 - @course_requests.each do |course_request|
-  = course_request.title
+  = link_to course_request.title, course_request_path(course_request)
   = course_request.description
 

@@ -1,0 +1,11 @@
+%h1
+  = I18n.t('course_request.new.headline')
+
+=form_for @course_request do |f|
+  = I18n.t('course_request.new.title')
+  =f.text_field :title 
+  %br
+  = I18n.t('course_request.new.description')
+  =f.text_area :description
+  %br
+  =f.submit I18n.t('course_request.new.submit')
