@@ -1,16 +1,27 @@
 %h2 Sign in
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-  - if devise_mapping.rememberable?
-    %div
-      = f.check_box :remember_me
-      = f.label :remember_me
-  %div= f.submit "Sign in"
-= render "links"
+= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f|
+
+  %fieldset
+    %div.control-group{ :class => form_status(@user, :email) }
+      = f.label :email, :class => 'control-label'
+      .controls
+        = f.email_field :email
+        %span.help-inline=  form_status_msg(@user, :email)
+
+    %div.control-group{ :class => form_status(@user, :password) }
+      = f.label :password, :class => 'control-label'
+      .controls
+        = f.password_field :password, :value => resource.password
+        %span.help-inline=  form_status_msg(@user, :password)
+    - if devise_mapping.rememberable?
+      %div.control-group{ :class => form_status(@user, :remember_me) }
+        = f.label :remember_me, :class => 'control-label'
+        .controls
+          = f.check_box :remember_me
+          %span.help-inline=  form_status_msg(@user, :remember_me)
+
+  %div.form-actions
+    = link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => 'btn'
+    = f.submit I18n.t('app.sign_in_link'), :class => 'btn-primary'
+
+  = render "links"

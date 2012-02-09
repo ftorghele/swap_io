@@ -1,22 +1,19 @@
 %h2
   Daten verfollständigen
-= form_for @user, :url =>  fb_finish_path do |f|
-  = devise_error_messages!
+= form_for @user, :url =>  user_fb_create_path, :html => { :class => 'form-horizontal' } do |f|
 
-  = f.hidden_field :first_name
-  = f.hidden_field :last_name
-  = f.hidden_field :email
+  %fieldset
+    = f.hidden_field :first_name
+    = f.hidden_field :last_name
+    = f.hidden_field :email
+    = f.hidden_field :password
 
-  %div
-    = f.label :zip
-    %br/
-    = f.text_field :zip
+    %div.control-group{ :class => form_status(@user, :zip) }
+      = f.label :zip, :class => 'control-label'
+      .controls
+        = f.text_field :zip
+        %span.help-inline=  form_status_msg(@user, :zip)
 
-
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-
-
-  %div= f.submit "Weiter"
+  %div.form-actions
+    = link_to "Registrierung abbrechen", root_path, :class => 'btn'
+    = f.submit "Weiter", :class => 'btn-primary'

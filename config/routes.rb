@@ -6,13 +6,13 @@ Swap::Application.routes.draw do
 
   localized(I18n.available_locales) do
     resources :users do
-
+      collection do
+        post 'fb_create'
+      end
     end
     resources :course_requests
     resources :courses
   end
-
-  match 'fb_finish', :to => 'users#fb_finish', :as => 'fb_finish'
 
   root :to => 'courses#index'
 end

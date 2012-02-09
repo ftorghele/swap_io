@@ -9,7 +9,8 @@ de:
     sign_out_link: Ausloggen
     sign_up_link: Registrieren
     sign_in_link: Einloggen
-    footer_text: Company 2012
+    fb_sign_in_link: Einloggen mit Facebook
+    footer_text: swap.io 2012
   routes:
     users:
       as: Begegner

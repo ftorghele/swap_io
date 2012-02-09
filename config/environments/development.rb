@@ -35,4 +35,6 @@ Swap::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_view.field_error_proc = proc {|html, instance| html }
 end
