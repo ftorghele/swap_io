@@ -10,9 +10,9 @@
     %br/
     = f.text_field :last_name
   %div
-    = f.label :gender
+    = f.label :zip
     %br/
-    = f.select :gender, {'männlich' => 'male', 'weiblich' => 'female'}, :include_blank => true
+    = f.text_field :zip
   %div
     = f.label :email
     %br/
@@ -21,9 +21,5 @@
     = f.label :password
     %br/
     = f.password_field :password
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
   %div= f.submit "Sign up"
 = render "links"

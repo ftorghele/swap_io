@@ -6,7 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :encrypted_password, :null => false, :default => ""
 
       ## Custom
-      t.boolean :complete,          :default => true
+      t.boolean :fb_complete,          :default => true
       t.string :first_name,         :null => false, :default => ""
       t.string :last_name,          :null => false, :default => ""
       t.string :gender,             :default => ""

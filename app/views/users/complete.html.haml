@@ -1,0 +1,22 @@
+%h2
+  Daten verfollständigen
+= form_for @user, :url =>  fb_finish_path do |f|
+  = devise_error_messages!
+
+  = f.hidden_field :first_name
+  = f.hidden_field :last_name
+  = f.hidden_field :email
+
+  %div
+    = f.label :zip
+    %br/
+    = f.text_field :zip
+
+
+  %div
+    = f.label :password
+    %br/
+    = f.password_field :password
+
+
+  %div= f.submit "Weiter"
