@@ -45,7 +45,7 @@ class CourseTest < ActionDispatch::IntegrationTest
 
   should 'not be able to create new course without user session' do
     visit "/courses/new"
-    flunk "Tha Funk"
-    assert page.has_content?(I18n.t('devise.new_session.headline'))
+    assert page.has_content?(I18n.t('devise.sessions.title'))
+    assert page.has_content?(I18n.t('devise.failure.unauthenticated'))
   end
 end
