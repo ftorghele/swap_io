@@ -4,7 +4,7 @@ require 'rails/test_help'
 require 'mocha'
 require 'factory_girl'
 require 'capybara/rails'
-require 'turn'
+require 'redgreen'
 
 FactoryGirl.find_definitions
 
