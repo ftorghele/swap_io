@@ -8,7 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:info] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
       sign_in_and_redirect @user, :event => :authentication
     else
-      render :template => "users/complete", :locals => {:user => @user}
+      render :template => "users/complete_registration", :locals => {:user => @user}
     end
   end
 

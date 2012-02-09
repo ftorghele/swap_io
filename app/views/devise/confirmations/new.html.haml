@@ -1,4 +1,4 @@
-%h2 Resend confirmation instructions
+%h2= I18n.t('devise.confirmations.title')
 = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => 'form-horizontal' }) do |f|
 
   %fieldset
@@ -9,6 +9,6 @@
         %span.help-inline=  form_status_msg(@user, :email)
 
   %div.form-actions
-    = f.submit 'Resend confirmation instructions', :class => 'btn-primary'
+    = f.submit I18n.t('devise.confirmations.submit'), :class => 'btn-primary'
 
   = render "links"

@@ -1,5 +1,4 @@
-%h2
-  Daten verfollständigen
+%h2= I18n.t('devise.complete_registration.title')
 = form_for @user, :url =>  user_fb_create_path, :html => { :class => 'form-horizontal' } do |f|
 
   %fieldset
@@ -15,5 +14,5 @@
         %span.help-inline=  form_status_msg(@user, :zip)
 
   %div.form-actions
-    = link_to "Registrierung abbrechen", root_path, :class => 'btn'
-    = f.submit "Weiter", :class => 'btn-primary'
+    = link_to I18n.t('devise.complete_registration.cancel'), root_path, :class => 'btn'
+    = f.submit I18n.t('devise.complete_registration.submit'), :class => 'btn-primary'

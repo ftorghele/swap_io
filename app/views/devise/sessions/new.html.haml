@@ -1,4 +1,4 @@
-%h2 Sign in
+%h2= I18n.t('devise.sessions.title')
 = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f|
 
   %fieldset
@@ -21,7 +21,7 @@
           %span.help-inline=  form_status_msg(@user, :remember_me)
 
   %div.form-actions
-    = link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => 'btn'
-    = f.submit I18n.t('app.sign_in_link'), :class => 'btn-primary'
+    = link_to I18n.t('devise.sessions.cancel'), new_user_registration_path, :class => 'btn'
+    = f.submit I18n.t('devise.sessions.submit'), :class => 'btn-primary'
 
   = render "links"

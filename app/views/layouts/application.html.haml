@@ -24,12 +24,13 @@
               %p
                 = I18n.t('app.signed_in_as')
                 = link_to username(current_user), user_path(current_user)
+                = link_to I18n.t('user.edit.title'), edit_user_path(current_user)
                 = I18n.t('app.not_you')
                 = link_to I18n.t('app.sign_out_link'), destroy_user_session_path, :method => :delete
             - else
               = link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => 'btn'
               = link_to I18n.t('app.sign_in_link'), new_user_session_path, :class => 'btn'
-              = link_to I18n.t('app.fb_sign_in_link'), user_omniauth_authorize_path(:facebook), :class => 'btn'
+              = link_to I18n.t('app.sign_in_with_link', :provider => "Facebook"), user_omniauth_authorize_path(:facebook), :class => 'btn'
 
     .container
       .content

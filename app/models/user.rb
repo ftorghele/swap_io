@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_presence_of :zip
+  validates :zip, :numericality => { :only_integer => true }
 
   has_many :courses
 

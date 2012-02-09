@@ -9,7 +9,7 @@ de:
     sign_out_link: Ausloggen
     sign_up_link: Registrieren
     sign_in_link: Einloggen
-    fb_sign_in_link: Einloggen mit Facebook
+    sign_in_with_link: 'Einloggen mit %{provider}'
     footer_text: swap.io 2012
   routes:
     users:
@@ -18,6 +18,13 @@ de:
       as: Begegnung
     course_requests:
       as: Begegnungsanfrage
+
+  user:
+    edit:
+      title: Benutzer Bearbeiten
+      submit: Speichern
+      cancel_account: Benutzer löschen
+      cancel_account_confirm: Sind Sie sicher?
   course:
     create:
       success: Begegnung wurde erfolgreich erstellt
@@ -46,6 +53,25 @@ de:
     errors:
       messages:
         record_invalid: Eintrag konnte nicht gespeichert werden
+        not_a_number: Nur Zahlen erlaubt
+        blank: Darf nicht leer sein
+        too_short: Zu kurz
+      models:
+        user:
+          attributes:
+            password:
+              too_short: mindestens 6 Zeichen
+
+
+  helpers:
+    label:
+      user:
+        first_name: Vorname
+        last_name: Nachname
+        zip: Postleitzahl
+        email: E-Mail Adresse
+        password: Passwort
+        remember_me: Login merken
 
   devise:
     failure:
@@ -58,16 +84,28 @@ de:
       timeout: "Deine Anmeldung ist abgelaufen, bitte melde Dich erneut an."
       inactive: "Du hast Deine Anmeldung noch nicht bestätigt."
     sessions:
+      title: Einloggen
+      submit: Einloggen
+      cancel: Neu registrieren
       signed_in: "Hallo, Du bist jetzt angemeldet."
       signed_out: "Auf wiedersehen, Du bist jetzt abgemeldet."
     passwords:
+      title_edit: "Passwort ändern"
+      title_resend: "Passwort vergessen?"
+      submit_edit: "Passwort ändern"
+      submit_resend: "Passwort zurücksetzen"
       send_instructions: "Eine E-Mail zum Ändern Deines Passworts ist zu Dir unterwegs."
       updated: "Du hast Dein Passwort soeben geändert. Du bist nun angemeldet."
       invalid_token: "Dieser Link zum Ändern Deines Passworts ist ungültig oder wurde bereits genutzt."
     confirmations:
+      title: "Bestätigungs-Code erneut zusenden?"
+      submit: "Bestätigungs-Code erneut zusenden"
       send_instructions: "Eine E-Mail ist zu Dir unterwegs, mit der Du Deine Registrierung bestätigen kannst."
       confirmed: "Vielen Dank für die Deine Registrierung. Du bist nun angemeldet."
     registrations:
+      title: Registrieren
+      submit: Weiter
+      cancel: Registrierung abbrechen
       signed_up_but_unconfirmed: "Vielen Dank. Eine E-Mail ist zu Dir unterwegs, mit der Du Deine Registrierung bestätigen kannst."
       signed_up_but_inactive: "Vielen Dank. Eine E-Mail ist zu Dir unterwegs, mit der Du Deine Registrierung bestätigen kannst."
       signed_up_but_locked: "Dieser Account wurde leider gesperrt"
@@ -86,3 +124,7 @@ de:
         subject: "Passwort ändern"
       unlock_instructions:
         subject: "Nutzerkonto freischalten"
+    complete_registration:
+      title: Daten verfollständigen
+      submit: Weiter
+      cancel: Registrierung abbrechen

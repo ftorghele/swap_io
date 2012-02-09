@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.password = Devise.friendly_token[0,20]
     unless @user.valid?
-      render :complete
+      render :complete_registration
     else
       flash[:info] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
       @user.confirm!

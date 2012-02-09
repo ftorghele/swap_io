@@ -1,0 +1,15 @@
+%h2= I18n.t('devise.passwords.title_resend')
+
+=form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => 'form-horizontal' }) do |f|
+  %fieldset
+
+    %div.control-group{ :class => form_status(@user, :email) }
+      = f.label :email, :class => 'control-label'
+      .controls
+        = f.email_field :email
+        %span.help-inline=  form_status_msg(@user, :email)
+
+  %div.form-actions
+    = f.submit I18n.t('devise.passwords.submit_resend'), :class => 'btn-primary'
+
+  = render "links"

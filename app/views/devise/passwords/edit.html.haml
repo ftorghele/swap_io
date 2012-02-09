@@ -1,0 +1,22 @@
+%h2= I18n.t('devise.passwords.title_edit')
+= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' }) do |f|
+
+  %fieldset
+    = f.hidden_field :reset_password_token
+
+    %div.control-group{ :class => form_status(@user, :password) }
+      = f.label :password, :class => 'control-label'
+      .controls
+        = f.password_field :password, :value => resource.password
+        %span.help-inline=  form_status_msg(@user, :password)
+
+    %div.control-group{ :class => form_status(@user, :password_confirmation) }
+      = f.label :password_confirmation, :class => 'control-label'
+      .controls
+        = f.password_field :password_confirmation, :value => resource.password
+        %span.help-inline=  form_status_msg(@user, :password_confirmation)
+
+  %div.form-actions
+    = f.submit I18n.t('devise.passwords.submit_edit'), :class => 'btn-primary'
+
+  = render "links"
