@@ -5,6 +5,11 @@ Swap::Application.routes.draw do
   }
 
   localized(I18n.available_locales) do
+    resources :users do
+      collection do
+        post 'fb_create'
+      end
+    end
     resources :course_requests
     resources :courses
   end
