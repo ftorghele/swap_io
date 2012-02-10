@@ -1,5 +1,5 @@
 class AddUserIdToCourses < ActiveRecord::Migration
-  change_table :courses do |t|
-    t.integer :user_id
+  def change
+    add_column :courses, :user_id, :integer, :null => false
   end
 end
