@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :first_name, :last_name, :zip, :confirmed_at
+                  :first_name, :last_name, :zip, :confirmed_at, :assets_attributes,
+                  :description
 
   validates_presence_of :first_name
   validates_presence_of :last_name
@@ -15,6 +16,9 @@ class User < ActiveRecord::Base
 
   has_many :courses
   has_many :course_requests
+
+  has_many :assets, :dependent => :destroy
+  accepts_nested_attributes_for :assets, :allow_destroy => true
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info

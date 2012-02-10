@@ -1,33 +1,63 @@
 %h2= I18n.t('user.edit.title')
-= form_for(@user, :html => { :method => :put, :class => 'form-horizontal' }) do |f|
-
+= form_for(@user, :html => { :method => :put, :multipart => true, :class => 'form-horizontal' }) do |f|
   %fieldset
-    %div.control-group{ :class => form_status(@user, :first_name) }
-      = f.label :first_name, :class => 'control-label'
-      .controls
-        = f.text_field :first_name
-        %span.help-inline=  form_status_msg(@user, :first_name)
+    .tabbable
+      %ul.nav-tabs
+        %li.nav.active{:style =>"padding: 10px 0"}= link_to I18n.t('user.edit.tabs.common'), "#common", "data-toggle" => "tab"
+        %li.nav{:style =>"padding: 10px 0 "}= link_to I18n.t('user.edit.tabs.about'), "#about", "data-toggle" => "tab"
+        %li.nav{:style =>"padding: 10px 0"}= link_to I18n.t('user.edit.tabs.account'), "#account", "data-toggle" => "tab"
 
-    %div.control-group{ :class => form_status(@user, :last_name) }
-      = f.label :last_name, :class => 'control-label'
-      .controls
-        = f.text_field :last_name
-        %span.help-inline=  form_status_msg(@user, :last_name)
+      .tab-content
+        .tab-pane.active#common
+          %div.control-group{ :class => form_status(@user, :first_name) }
+            = f.label :first_name, :class => 'control-label'
+            .controls
+              = f.text_field :first_name
+              %span.help-inline=  form_status_msg(@user, :first_name)
 
-    %div.control-group{ :class => form_status(@user, :zip) }
-      = f.label :zip, :class => 'control-label'
-      .controls
-        = f.text_field :zip
-        %span.help-inline=  form_status_msg(@user, :zip)
+          %div.control-group{ :class => form_status(@user, :last_name) }
+            = f.label :last_name, :class => 'control-label'
+            .controls
+              = f.text_field :last_name
+              %span.help-inline=  form_status_msg(@user, :last_name)
 
-    %div.control-group{ :class => form_status(@user, :email) }
-      = f.label :email, :class => 'control-label'
-      .controls
-        = f.email_field :email
-        %span.help-inline=  form_status_msg(@user, :email)
+          %div.control-group{ :class => form_status(@user, :zip) }
+            = f.label :zip, :class => 'control-label'
+            .controls
+              = f.text_field :zip
+              %span.help-inline=  form_status_msg(@user, :zip)
+
+          %div.control-group{ :class => form_status(@user, :email) }
+            = f.label :email, :class => 'control-label'
+            .controls
+              = f.email_field :email
+              %span.help-inline=  form_status_msg(@user, :email)
 
 
+
+        .tab-pane#about
+          = f.fields_for :assets do |asset|
+            - unless asset.object.new_record?
+              .span9
+                .thumbnail
+                  %div.control-group.pull-right
+                    = asset.label :_destroy, :class => 'control-label'
+                    .controls
+                      = asset.check_box :_destroy
+                  = image_tag userpic(@user, :medium), :alt => username(@user)
+            - else
+              %div.control-group
+                = asset.label :image, :class => 'control-label'
+                .controls
+                  = asset.file_field :image
+
+          %div.control-group
+            = f.label :description, :class => 'control-label'
+            .controls
+              = f.text_area :description
+
+        .tab-pane#account
+          = link_to I18n.t('user.edit.cancel_account'), registration_path(@user), :confirm => I18n.t('user.edit.cancel_account_confirm'), :method => :delete, :class => 'btn-large btn-danger'
 
   %div.form-actions
-    = link_to I18n.t('user.edit.cancel_account'), registration_path(@user), :confirm => I18n.t('user.edit.cancel_account_confirm'), :method => :delete, :class => 'btn-danger'
     = f.submit I18n.t('user.edit.submit'), :class => 'btn-primary'

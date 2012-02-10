@@ -1,8 +1,11 @@
 .container
   .row
     .span3
-      .thumbnail
-        = image_tag "http://placehold.it/260x180", :alt => username(@user)
+      .thumbnail= image_tag userpic(@user, :medium), :alt => username(@user)
     .span9
-      %h1
-        = username(@user)
+      %h1= username(@user)
+
+  .row
+    .span12
+      %h2= I18n.t('user.show.about', :name => @user.first_name)
+      %p= @user.description
