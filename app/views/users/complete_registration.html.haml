@@ -1,5 +1,5 @@
 %h2= I18n.t('devise.complete_registration.title')
-= form_for @user, :url =>  user_fb_create_path, :html => { :class => 'form-horizontal' } do |f|
+= form_for @user, :url => fb_create_users_path, :html => { :class => 'form-horizontal' } do |f|
 
   %fieldset
     = f.hidden_field :first_name

@@ -25,6 +25,14 @@ de:
       submit: Speichern
       cancel_account: Benutzer löschen
       cancel_account_confirm: Sind Sie sicher?
+      msg:
+        success: Deine Daten wurden erfolgreich aktualisiert
+      tabs:
+        common: Allgemeine Daten
+        about: Über mich
+        account: Account-Verwaltung
+    show:
+      about: 'Über %{name}'
   course:
     create:
       success: Begegnung wurde erfolgreich erstellt
@@ -72,6 +80,9 @@ de:
         email: E-Mail Adresse
         password: Passwort
         remember_me: Login merken
+        assets:
+          image: neues Benutzerbild
+          _destroy: Benutzerbild entfernen
 
   devise:
     failure:

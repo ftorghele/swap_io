@@ -5,7 +5,16 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by_id(params[:id])
+    @user.assets.build
   end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    @user.update_attributes(params[:user])
+    flash[:info] = I18n.t('user.edit.msg.success')
+    redirect_to user_path(@user)
+  end
+
 
   def fb_create
     @user = User.new(params[:user])
