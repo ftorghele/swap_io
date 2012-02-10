@@ -7,7 +7,7 @@ FactoryGirl.define do
   end
 
   factory :course_request do |cr|
-   # c.association :user
+    cr.association :user
     sequence(:title){|n| "Kurs Nr. #{n}" }
     sequence(:description){|n| "Beschreibung Nr. #{n}" }
   end

@@ -16,11 +16,8 @@ class CourseTest < ActiveSupport::TestCase
   end
 
   should 'not be valid without user_id' do
-    assert_no_difference "Course.count" do
-      course = Factory.build(:course, :user => nil)
-      course.save
-      assert !course.valid?
-      assert course.errors.count == 1
+    assert_raise ActiveRecord::StatementInvalid do
+      Factory.create(:course, :user => nil)
     end
   end
 
