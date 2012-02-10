@@ -13,10 +13,12 @@ class ActionDispatch::IntegrationTest
   def login_as
     user = Factory.create(:user)
     user.confirm!
-    visit '/users/sign_in'
+    visit '/'
+    click_link(I18n.t('devise.sessions.submit'))
     fill_in 'user_email', :with => user.email
     fill_in 'user_password', :with => user.password
-    click_on("Sign in")
+    click_button(I18n.t('devise.sessions.submit'))
+
   end
 
   teardown do

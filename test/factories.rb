@@ -7,7 +7,7 @@ FactoryGirl.define do
   end
 
   factory :course_request do |cr|
-   # c.association :user
+    cr.association :user
     sequence(:title){|n| "Kurs Nr. #{n}" }
     sequence(:description){|n| "Beschreibung Nr. #{n}" }
   end
@@ -16,7 +16,7 @@ FactoryGirl.define do
     sequence(:email){|n| "Josef#{n}@haunsberg.at" }
     sequence(:first_name){|n| "Josef#{n}" }
     sequence(:last_name){|n| "Haunsberger#{n}" }
-    sequence(:gender){"male"}
+    sequence(:zip){5020}
     sequence(:password){"000000"}
     sequence(:password_confirmation){"000000"}
   end

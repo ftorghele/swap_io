@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   validates :zip, :numericality => { :only_integer => true }
 
   has_many :courses
+  has_many :course_requests
 
   has_many :assets, :dependent => :destroy
   accepts_nested_attributes_for :assets, :allow_destroy => true
