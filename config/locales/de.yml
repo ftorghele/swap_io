@@ -44,6 +44,7 @@ de:
     index:
       headline: Begegnungen
       create_course_button: Neue Begegnung erstellen
+      created_from: Erstellt von
     new:
       headline: Begegnung erstellen
       title: Titel
@@ -51,6 +52,8 @@ de:
       submit: Abschicken
     show:
       headline: '%{course_title}'
+      attend_course_button: Teilnehmen
+      created_from: Erstellt von
 
   course_request:
     create:

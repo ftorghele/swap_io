@@ -1,8 +1,15 @@
-%h1
-  = I18n.t('course.index.headline')
-  - if signed_in?
-    = link_to I18n.t('course.index.create_course_button'), new_course_path, :id => "create_course_button", :class => "btn"
+%h1 #{I18n.t('course.index.headline')}
+- if signed_in?
+  = link_to I18n.t('course.index.create_course_button'), new_course_path, :id => "create_course_button", :class => "btn"
 
+%br
 - @courses.each do |course|
-  = link_to course.title, course_path(course)
-  = course.description
+  .container
+    .row
+      .span3
+        .thumbnail= image_tag userpic(course.user, :medium), :alt => username(course.user)
+      .span9
+        %h1= link_to course.title, course_path(course)
+        %h2= course.description
+        = "#{I18n.t('course.index.created_from')}"
+        = link_to(username(course.user), user_path(course.user))

@@ -10,15 +10,14 @@ class ActionDispatch::IntegrationTest
   # Stop ActiveRecord from wrapping tests in transactions
   self.use_transactional_fixtures = false
 
-  def login_as
-    user = Factory.create(:user)
+  def login_as user=nil
+    user = Factory.create(:user) || user
     user.confirm!
     visit '/'
     click_link(I18n.t('devise.sessions.submit'))
     fill_in 'user_email', :with => user.email
     fill_in 'user_password', :with => user.password
     click_button(I18n.t('devise.sessions.submit'))
-
   end
 
   teardown do

@@ -8,19 +8,27 @@ class CourseTest < ActionDispatch::IntegrationTest
 
     visit "/courses"
 
+    assert page.has_selector?('img')
+    assert page.has_content?(I18n.t('course.index.created_from'))
     assert page.has_content?(I18n.t('course.index.headline'))
     assert page.has_content?(course1.title)
     assert page.has_content?(course1.description)
+    assert find_link("#{course1.user.first_name} #{course1.user.last_name}")
     assert page.has_content?(course2.title)
     assert page.has_content?(course2.description)
+    assert find_link("#{course2.user.first_name} #{course2.user.last_name}")
   end
 
-  should 'show course show action' do
+  should 'show course show action for logged in user' do
+    login_as
     course = Factory.create(:course)
     visit "/"
     click_on course.title.to_s
+    assert page.has_selector?('img')
     assert page.has_content?(course.title)
     assert page.has_content?(course.description)
+    assert page.has_content?(I18n.t('course.show.created_from'))
+    assert find_link("#{course.user.first_name} #{course.user.last_name}")
   end
 
   should 'show course new action' do
@@ -48,4 +56,5 @@ class CourseTest < ActionDispatch::IntegrationTest
     assert page.has_content?(I18n.t('devise.sessions.title'))
     assert page.has_content?(I18n.t('devise.failure.unauthenticated'))
   end
+
 end

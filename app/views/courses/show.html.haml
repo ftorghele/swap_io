@@ -1,4 +1,19 @@
 %h1 #{I18n.t('course.show.headline', :course_title => @course.title)}
+.container
+  .row
+    .span3
+      .thumbnail= image_tag userpic(@course.user, :medium), :alt => username(@course.user)
+    .span9
+      = @course.description
+      %br
+      = "#{I18n.t('course.show.created_from')}"
+      %br
+      = link_to(username(@course.user), user_path(@course.user))
 
-= @course.title
-= @course.description
+/* TODO refactor with actual content for owner/logged_in user/visitor*/
+/* TODO put into helper
+- if signed_in?
+  - unless attend_course_link current_user.id, @course.id 
+    = form_tag({:controller => "attend_courses", :action => :create}, :method => :post) do 
+      = hidden_field_tag 'course_id', @course.id
+      = submit_tag I18n.t('course.show.attend_course_button')
