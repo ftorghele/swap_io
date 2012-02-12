@@ -1,24 +1,29 @@
 FactoryGirl.define do
 
-  factory :course do |c|
-    c.association :user
+  factory :course do |f|
+    f.association :user
     sequence(:title){|n| "Photography tut #{n}" }
     sequence(:description){|n| "Landscape photography tutorial with somebody else than me... #{n}" }
   end
 
-  factory :course_request do |cr|
-    cr.association :user
+  factory :course_request do |f|
+    f.association :user
     sequence(:title){|n| "Kurs Nr. #{n}" }
     sequence(:description){|n| "Beschreibung Nr. #{n}" }
   end
 
-  factory :user do |u|
+  factory :user do |f|
     sequence(:email){|n| "Josef#{n}@haunsberg.at" }
     sequence(:first_name){|n| "Josef#{n}" }
     sequence(:last_name){|n| "Haunsberger#{n}" }
     sequence(:zip){5020}
     sequence(:password){"000000"}
     sequence(:password_confirmation){"000000"}
+  end
+
+  factory :attend_course do |f|
+    f.association :user
+    f.association :course
   end
 
 end
