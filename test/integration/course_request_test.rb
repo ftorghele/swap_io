@@ -40,7 +40,6 @@ class CourseTest < ActionDispatch::IntegrationTest
       fill_in('course_request_title', :with => 'Java programmierung')
       fill_in('course_request_description', :with => 'Applikationsprogrammierung mit Java')
       click_on I18n.t('course_request.new.submit')
-      save_and_open_page
     end
     assert current_path.to_s == course_requests_path
     assert page.has_content?(I18n.t('course_request.create.success'))

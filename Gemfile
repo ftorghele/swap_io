@@ -39,4 +39,5 @@ group :test do
   gem 'database_cleaner'
   gem 'mocha'
   gem 'mynyml-redgreen'
+  gem 'simplecov'
 end
