@@ -18,6 +18,23 @@ de:
       as: Begegnung
     course_requests:
       as: Begegnungsanfrage
+  pages:
+    about:
+      title: Über uns
+    contact:
+      title: Kontake
+    coverage:
+      title: Berichterstattung
+    help:
+      title: Hilfe
+    home:
+      title: Home
+    imprint:
+      title: Impressum
+    overview:
+      title: Überblick
+    terms:
+      title: AGB
 
   user:
     edit:
