@@ -19,7 +19,15 @@ Swap::Application.routes.draw do
     end
 
     resources :courses
+
+    get 'home',     :to => 'pages#home'
+    get 'terms',    :to => 'pages#home'
+    get 'help',     :to => 'pages#home'
+    get 'coverage', :to => 'pages#home'
+    get 'contact',  :to => 'pages#home'
+    get 'about',    :to => 'pages#home'
+    get 'imprint',  :to => 'pages#home'
   end
 
-  root :to => 'courses#index'
+  root :to => 'pages#overview'
 end

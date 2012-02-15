@@ -41,7 +41,6 @@
           .span9
             = yield
 
-      %footer
-        %p &copy; #{I18n.t('app.footer_text')}
+      = render('layouts/footer')
 
     = javascript_include_tag :application
