@@ -8,17 +8,8 @@ class CourseRequestTest < ActiveSupport::TestCase
   end
 
   should 'belong to user' do
-    assert_difference "CourseRequest.count" do
-      user = Factory.create(:user)
-      course_request = Factory.create(:course_request, :user => user)
-      assert_equal user.id, course_request.user_id
-    end
-  end
-
-  should 'not be valid without user_id' do
-    assert_raise ActiveRecord::StatementInvalid do
-      Factory.create(:course_request, :user => nil)
-    end
+    user = Factory.create(:user)
+    assert_respond_to user, :course_requests
   end
 
   should 'not be valid without title' do
@@ -35,4 +26,5 @@ class CourseRequestTest < ActiveSupport::TestCase
       course_request.save
     end
   end
+
 end

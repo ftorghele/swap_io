@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211092224) do
+ActiveRecord::Schema.define(:version => 20120214010014) do
 
   create_table "assets", :force => true do |t|
     t.integer  "user_id"
@@ -34,8 +34,14 @@ ActiveRecord::Schema.define(:version => 20120211092224) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "user_id",     :null => false
   end
+
+  create_table "course_requests_users", :id => false, :force => true do |t|
+    t.integer "user_id",           :null => false
+    t.integer "course_request_id", :null => false
+  end
+
+  add_index "course_requests_users", ["user_id", "course_request_id"], :name => "index_course_requests_users_on_user_id_and_course_request_id", :unique => true
 
   create_table "courses", :force => true do |t|
     t.string   "title"

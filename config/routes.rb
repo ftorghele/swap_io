@@ -12,7 +12,12 @@ Swap::Application.routes.draw do
         post 'fb_create'
       end
     end
-    resources :course_requests
+    resources :course_requests do
+      collection do
+        post 'join'
+      end
+    end
+
     resources :courses
   end
 

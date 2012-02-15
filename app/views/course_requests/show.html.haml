@@ -2,3 +2,11 @@
 
 = @course_request.title
 = @course_request.description
+
+/* TODO refactor with actual content for owner/logged_in user/visitor*/
+/* TODO put into helper
+- if signed_in?
+  - unless current_user.course_requests.include?(@course_request)
+    = form_tag({:controller => "course_requests", :action => :join}, :method => :post) do 
+      = hidden_field_tag 'course_request_id', @course_request.id
+      = submit_tag I18n.t('course_request.show.join_course_request_button')

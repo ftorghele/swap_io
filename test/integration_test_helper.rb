@@ -11,7 +11,7 @@ class ActionDispatch::IntegrationTest
   self.use_transactional_fixtures = false
 
   def login_as user=nil
-    user = Factory.create(:user) || user
+    user = user || Factory.create(:user)
     user.confirm!
     visit '/'
     click_link(I18n.t('devise.sessions.submit'))

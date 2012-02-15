@@ -1,6 +1,6 @@
 class CourseRequestsController < ApplicationController
 
-  before_filter :authenticate_user!, :only => [:new, :create]
+  before_filter :authenticate_user!, :only => [:new, :create, :join]
 
   def show
     @course_request = CourseRequest.find(params[:id])
@@ -14,9 +14,16 @@ class CourseRequestsController < ApplicationController
     @course_request = CourseRequest.new
   end
 
+  def join
+    #TODO handle fail
+    @course_request = CourseRequest.find(params[:course_request_id])
+    current_user.course_requests << @course_request if signed_in?
+    flash[:message] = I18n.t('course_request.join.success')
+    redirect_to :back
+  end
+
   def create
-    new_course_request = CourseRequest.new(params[:course_request])
-    new_course_request.user_id = current_user.id if signed_in?
+    new_course_request = current_user.course_requests.create(params[:course_request]) if signed_in?
 
     if new_course_request.save
       flash[:message] = I18n.t('course_request.create.success')
