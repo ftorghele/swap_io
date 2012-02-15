@@ -6,6 +6,7 @@ class UserTest < ActionDispatch::IntegrationTest
     user = Factory.create(:user, :description => "blabla")
     course = Factory.create(:course, :user => user)
     visit "/"
+    click_on I18n.t('app.course_link')
     click_on "#{course.user.first_name} #{course.user.last_name}"
 
     assert page.has_selector?('img')
