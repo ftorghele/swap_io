@@ -36,20 +36,20 @@
 
 
         .tab-pane#about
-          = f.fields_for :assets do |asset|
-            - unless asset.object.new_record?
+          = f.fields_for :user_images do |image|
+            - unless image.object.new_record?
               .span9
                 .thumbnail
                   %div.control-group.pull-right
-                    = asset.label :_destroy, :class => 'control-label'
+                    = image.label :_destroy, :class => 'control-label'
                     .controls
-                      = asset.check_box :_destroy
+                      = image.check_box :_destroy
                   = image_tag userpic(@user, :medium), :alt => username(@user)
             - else
               %div.control-group
-                = asset.label :image, :class => 'control-label'
+                = image.label :image, :class => 'control-label'
                 .controls
-                  = asset.file_field :image
+                  = image.file_field :image
 
           %div.control-group
             = f.label :description, :class => 'control-label'

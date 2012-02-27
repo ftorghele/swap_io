@@ -5,8 +5,8 @@ module ApplicationHelper
   end
 
   def userpic(user, size)
-    unless user.nil? || user.assets.empty?
-      user.assets.first.image.nil? ? "http://placehold.it/260x180" : user.assets.first.image.url(size)
+    unless user.nil? || user.user_images.empty?
+      user.user_images.first.image.nil? ? "http://placehold.it/260x180" : user.user_images.first.image.url(size)
     else
       "http://placehold.it/260x180"
     end
