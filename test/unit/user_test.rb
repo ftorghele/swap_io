@@ -43,8 +43,12 @@ class UserTest < ActiveSupport::TestCase
   should "have many course_requests" do
     assert_difference "CourseRequest.count", 2 do
       user =  Factory.create(:user)
-              Factory.create(:course_request, :user_id => user.id)
-              Factory.create(:course_request, :user_id => user.id)
+      user.course_requests.create(:title => "test", :description => "bli")
+      user.course_requests.create(:title => "test", :description => "bliep")
+      user.course_requests.each do |f|
+        assert_equal f.title, "test"
+      end
     end
   end
+
 end

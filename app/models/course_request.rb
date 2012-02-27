@@ -1,6 +1,6 @@
 class CourseRequest < ActiveRecord::Base
 
-  belongs_to :user, :foreign_key => 'user_id'
+  has_and_belongs_to_many :users
 
   validates_presence_of :title, :description
 end

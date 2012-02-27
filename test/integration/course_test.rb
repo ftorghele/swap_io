@@ -23,6 +23,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     login_as
     course = Factory.create(:course)
     visit "/"
+    click_on I18n.t('app.course_link')
     click_on course.title.to_s
     assert page.has_selector?('img')
     assert page.has_content?(course.title)
@@ -41,6 +42,7 @@ class CourseTest < ActionDispatch::IntegrationTest
 
   should 'be able to create new course with user session' do
     login_as
+    click_on I18n.t('app.course_link')
     click_on "create_course_button"
     assert_difference("Course.count") do
       fill_in('course_title', :with => 'Java programmierung')

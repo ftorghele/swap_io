@@ -89,6 +89,10 @@ de:
       submit: Abschicken
     show:
       headline: '%{course_request_title}'
+      join_course_request_button: Bin interessiert
+    join:
+      success: Sie interessieren sich nun auch für diese Anfrage
+      fail: Ihre Anfrage konnte leider nicht bearbeitet werden
 
   activerecord:
     errors:
