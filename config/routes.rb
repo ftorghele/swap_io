@@ -1,5 +1,7 @@
 Swap::Application.routes.draw do
 
+  resources :categories
+
   resources :attend_courses
 
   devise_for :users, :controllers => {

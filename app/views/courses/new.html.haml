@@ -8,4 +8,7 @@
   = I18n.t('course.new.description')
   =f.text_area :description
   %br
+  = I18n.t('course.new.category')
+  =f.select(:category_id, Category.all.collect {|f| [ f.title, f.id ] } , {:include_blank => I18n.t('course.new.select')} )
+  %br
   =f.submit I18n.t('course.new.submit')

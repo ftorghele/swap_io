@@ -7,9 +7,8 @@ class CoursesController < ApplicationController
   end
 
   def create
-    new_course = Course.new(params[:course])
-    new_course.user_id = current_user.id if signed_in?
-    if new_course.save
+    new_course = Course.create_course params[:course], current_user.id if signed_in?
+    if new_course.valid?
       flash[:message] = I18n.t('course.create.success')
       redirect_to courses_path
     else

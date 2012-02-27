@@ -67,6 +67,8 @@ de:
       title: Titel
       description: Beschreibung
       submit: Abschicken
+      category: Kategorie
+      select: Select
     show:
       headline: '%{course_title}'
       attend_course_button: Teilnehmen
