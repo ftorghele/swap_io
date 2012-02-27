@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by_id(params[:id])
-    @user.assets.build
+    @user.user_images.build
   end
 
   def update

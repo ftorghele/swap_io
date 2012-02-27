@@ -1,7 +1,7 @@
 de:
   app:
-    headline: Swap
-    brand: Swap.io
+    headline: Wissen Teilen Können
+    brand: wissenteilen.com
     course_link: Begegnung
     course_request_link: Begegnungsanfrage
     signed_in_as: Angemeldet als
@@ -10,7 +10,7 @@ de:
     sign_up_link: Registrieren
     sign_in_link: Einloggen
     sign_in_with_link: 'Einloggen mit %{provider}'
-    footer_text: swap.io 2012
+    footer_text: wissenteilen.com 2012
   routes:
     users:
       as: Begegner
