@@ -14,6 +14,6 @@
 /* TODO put into helper
 - if signed_in?
   - unless attend_course_link
-    = form_tag({:controller => "attend_courses", :action => :create}, :method => :post) do 
+    = form_tag({:controller => "course_members", :action => :create}, :method => :post) do
       = hidden_field_tag 'course_id', @course.id
-      = submit_tag I18n.t('course.show.attend_course_button')
+      = submit_tag I18n.t('course.show.course_member_button')

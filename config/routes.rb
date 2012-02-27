@@ -1,7 +1,5 @@
 Swap::Application.routes.draw do
 
-  resources :attend_courses
-
   devise_for :users, :controllers => {
       :omniauth_callbacks => 'users/omniauth_callbacks'
   }
@@ -19,6 +17,7 @@ Swap::Application.routes.draw do
     end
 
     resources :courses
+    resources :course_members
 
     get 'home',     :to => 'pages#home'
     get 'terms',    :to => 'pages#home'

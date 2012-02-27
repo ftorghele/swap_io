@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227122304) do
+ActiveRecord::Schema.define(:version => 20120227142701) do
 
-  create_table "attend_courses", :force => true do |t|
+  create_table "course_members", :force => true do |t|
     t.integer  "user_id",                       :null => false
     t.integer  "course_id",                     :null => false
     t.boolean  "accepted",   :default => false

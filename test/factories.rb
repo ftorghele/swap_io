@@ -20,7 +20,7 @@ FactoryGirl.define do
     sequence(:password_confirmation){"000000"}
   end
 
-  factory :attend_course do |f|
+  factory :course_member do |f|
     f.association :user
     f.association :course
   end
