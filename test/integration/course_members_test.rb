@@ -1,6 +1,6 @@
 require 'integration_test_helper'
 
-class AttendCourseTest < ActionDispatch::IntegrationTest
+class CourseMembersTest < ActionDispatch::IntegrationTest
 
   should 'be able to attend course' do
     user = Factory.create(:user)
@@ -9,9 +9,9 @@ class AttendCourseTest < ActionDispatch::IntegrationTest
     visit "/"
     click_on I18n.t('app.course_link')
     click_on course.title
-    assert_difference "AttendCourse.count" do
-      click_on I18n.t('course.show.attend_course_button')
-      assert page.has_content?(I18n.t('attend_course.create.success'))
+    assert_difference "CourseMember.count" do
+      click_on I18n.t('course.show.course_member_button')
+      assert page.has_content?(I18n.t('course_member.create.success'))
     end
   end
 
@@ -22,7 +22,7 @@ class AttendCourseTest < ActionDispatch::IntegrationTest
     visit "/"
     click_on I18n.t('app.course_link')
     click_on course.title
-    assert page.has_no_button?(I18n.t('course.show.attend_course_button'))
+    assert page.has_no_button?(I18n.t('course.show.course_member_button'))
   end
 
   should 'not be able to attend course without login' do
@@ -31,7 +31,7 @@ class AttendCourseTest < ActionDispatch::IntegrationTest
     visit "/"
     click_on I18n.t('app.course_link')
     click_on course.title
-    assert page.has_no_button?(I18n.t('course.show.attend_course_button'))
+    assert page.has_no_button?(I18n.t('course.show.course_member_button'))
   end
 
   should 'be able to attend more than one course' do
@@ -42,15 +42,15 @@ class AttendCourseTest < ActionDispatch::IntegrationTest
     visit "/"
     click_on I18n.t('app.course_link')
     click_on course1.title
-    click_on(I18n.t('course.show.attend_course_button'))
-    assert page.has_content?(I18n.t('attend_course.create.success'))
+    click_on(I18n.t('course.show.course_member_button'))
+    assert page.has_content?(I18n.t('course_member.create.success'))
     click_on course1.title
-    assert page.has_no_button?(I18n.t('course.show.attend_course_button'))
+    assert page.has_no_button?(I18n.t('course.show.course_member_button'))
     click_on I18n.t('app.course_link')
     click_on course2.title
-    click_on(I18n.t('course.show.attend_course_button'))
-    assert page.has_content?(I18n.t('attend_course.create.success'))
+    click_on(I18n.t('course.show.course_member_button'))
+    assert page.has_content?(I18n.t('course_member.create.success'))
     click_on course2.title
-    assert page.has_no_button?(I18n.t('course.show.attend_course_button'))
+    assert page.has_no_button?(I18n.t('course.show.course_member_button'))
   end
 end

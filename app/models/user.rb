@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates :zip, :numericality => { :only_integer => true }
 
   has_many :courses
-  has_many :attend_course, :through => :courses
+  has_many :course_member, :through => :courses
   has_and_belongs_to_many :course_requests
 
   has_many :user_images, :dependent => :destroy

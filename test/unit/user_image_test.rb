@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AttendCoursesControllerTest < ActionController::TestCase
+class UserImageTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

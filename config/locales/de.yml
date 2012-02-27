@@ -71,7 +71,7 @@ de:
       select: Select
     show:
       headline: '%{course_title}'
-      attend_course_button: Teilnehmen
+      course_member_button: Teilnehmen
       created_from: Erstellt von
 
   course_request:
