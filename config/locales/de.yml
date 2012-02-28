@@ -94,6 +94,14 @@ de:
       success: Sie interessieren sich nun auch für diese Anfrage
       fail: Ihre Anfrage konnte leider nicht bearbeitet werden
 
+  course_member:
+    create:
+      success: Ihre Anfrage wurde versandt
+      fail: Bei Ihrer Anfrage ist es zu einem Fehler gekommen
+    destroy:
+      success: Die Anfrage wurde erfolgreich gelöscht
+      fail: Beim Löschen der Anfrage ist ein Fehler aufgetreten
+
   activerecord:
     errors:
       messages:
