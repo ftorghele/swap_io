@@ -18,6 +18,8 @@ Swap::Application.routes.draw do
 
     resources :courses
     resources :course_members
+    resources :categories
+
 
     get 'home',     :to => 'pages#home'
     get 'terms',    :to => 'pages#home'

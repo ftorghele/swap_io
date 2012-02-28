@@ -2,6 +2,7 @@ FactoryGirl.define do
 
   factory :course do |f|
     f.association :user
+    f.association :category
     sequence(:title){|n| "Photography tut #{n}" }
     sequence(:description){|n| "Landscape photography tutorial with somebody else than me... #{n}" }
   end
@@ -23,6 +24,10 @@ FactoryGirl.define do
   factory :course_member do |f|
     f.association :user
     f.association :course
+  end
+
+  factory :category do |f|
+    sequence(:title){|n| "Category #{n}" }
   end
 
 end

@@ -38,15 +38,19 @@ class CourseTest < ActionDispatch::IntegrationTest
     assert page.has_content?(I18n.t('course.new.headline'))
     assert page.has_content?(I18n.t('course.new.title'))
     assert page.has_content?(I18n.t('course.new.description'))
+    assert page.has_content?(I18n.t('course.new.select'))
+    assert page.has_content?(I18n.t('course.new.category'))
   end
 
   should 'be able to create new course with user session' do
+    category = Factory.create(:category, :title => "Cooking")
     login_as
     click_on I18n.t('app.course_link')
     click_on "create_course_button"
     assert_difference("Course.count") do
       fill_in('course_title', :with => 'Java programmierung')
       fill_in('course_description', :with => 'Applikationsprogrammierung mit Java')
+      select(category.title, :from => 'course_category_id')
       click_on(I18n.t('course.new.submit'))
     end
     assert current_path.to_s == courses_path
