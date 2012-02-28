@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   has_many :courses
   has_many :course_member, :through => :courses
+  has_many :user_sills
   has_and_belongs_to_many :course_requests
 
   has_many :user_images, :dependent => :destroy

@@ -30,4 +30,9 @@ FactoryGirl.define do
     sequence(:title){|n| "Category #{n}" }
   end
 
+  factory :user_skills do |f|
+    f.association :user
+    sequence(:title){|n| "Skill #{n}" }
+  end
+
 end

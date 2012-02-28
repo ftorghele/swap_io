@@ -120,7 +120,11 @@ de:
 
   helpers:
     label:
+      
       user:
+        image: Bild
+        description: Über mich
+        skills: Fähigkeiten
         first_name: Vorname
         last_name: Nachname
         zip: Postleitzahl
