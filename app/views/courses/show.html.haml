@@ -1,14 +1,16 @@
 %h1 #{I18n.t('course.show.headline', :course_title => @course.title)}
+%p= I18n.t('course.show.category', :category => @course.category.title) unless @course.category.nil?
 .container
   .row
     .span3
       .thumbnail= image_tag userpic(@course.user, :medium), :alt => username(@course.user)
     .span9
-      = @course.description
-      %br
-      = "#{I18n.t('course.show.created_from')}"
-      %br
-      = link_to(username(@course.user), user_path(@course.user))
+      %h2= I18n.t('course.show.description')
+      %p= @course.description
+      %p
+        = I18n.t('course.show.created_from')
+        = link_to(username(@course.user), user_path(@course.user))
+
 
 /* TODO refactor with actual content for owner/logged_in user/visitor*/
 /* TODO put into helper

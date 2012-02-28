@@ -36,10 +36,10 @@ class CourseTest < ActionDispatch::IntegrationTest
     login_as
     visit "/courses/new"
     assert page.has_content?(I18n.t('course.new.headline'))
-    assert page.has_content?(I18n.t('course.new.title'))
-    assert page.has_content?(I18n.t('course.new.description'))
+    assert page.has_content?(I18n.t('helpers.label.course.title'))
+    assert page.has_content?(I18n.t('helpers.label.course.description'))
     assert page.has_content?(I18n.t('course.new.select'))
-    assert page.has_content?(I18n.t('course.new.category'))
+    assert page.has_content?(I18n.t('helpers.label.course.category_id'))
   end
 
   should 'be able to create new course with user session' do
@@ -53,7 +53,7 @@ class CourseTest < ActionDispatch::IntegrationTest
       select(category.title, :from => 'course_category_id')
       click_on(I18n.t('course.new.submit'))
     end
-    assert current_path.to_s == courses_path
+    assert current_path.to_s == course_path(Course.last)
     assert page.has_content?(I18n.t('course.create.success'))
   end
 

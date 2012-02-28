@@ -22,12 +22,12 @@ Swap::Application.routes.draw do
 
 
     get 'home',     :to => 'pages#home'
-    get 'terms',    :to => 'pages#home'
-    get 'help',     :to => 'pages#home'
-    get 'coverage', :to => 'pages#home'
-    get 'contact',  :to => 'pages#home'
-    get 'about',    :to => 'pages#home'
-    get 'imprint',  :to => 'pages#home'
+    get 'terms',    :to => 'pages#terms'
+    get 'help',     :to => 'pages#help'
+    get 'coverage', :to => 'pages#coverage'
+    get 'contact',  :to => 'pages#contact'
+    get 'about',    :to => 'pages#about'
+    get 'imprint',  :to => 'pages#imprint'
   end
 
   root :to => 'pages#overview'

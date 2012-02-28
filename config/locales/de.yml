@@ -64,14 +64,13 @@ de:
       created_from: Erstellt von
     new:
       headline: Begegnung erstellen
-      title: Titel
-      description: Beschreibung
       submit: Abschicken
-      category: Kategorie
       select: Select
     show:
-      headline: '%{course_title}'
+      headline: 'Begegnung: %{course_title}'
       course_member_button: Teilnehmen
+      category: 'Kategorie: %{category}'
+      description: Beschreibung
       created_from: Erstellt von
 
   course_request:
@@ -86,11 +85,9 @@ de:
       create_course_request_button: Neue Begegnungsanfrage erstellen
     new:
       headline: Begegnungsanfrage erstellen
-      title: Titel
-      description: Beschreibung
       submit: Abschicken
     show:
-      headline: '%{course_request_title}'
+      headline: 'Begegnungsanfrage: %{course_request_title}'
       join_course_request_button: Bin interessiert
     join:
       success: Sie interessieren sich nun auch für diese Anfrage
@@ -116,6 +113,10 @@ de:
           attributes:
             password:
               too_short: mindestens 6 Zeichen
+        course:
+          attributes:
+            category_id:
+              blank: Sie müssen eine Kategorie wählen
 
   helpers:
     label:
@@ -126,9 +127,16 @@ de:
         email: E-Mail Adresse
         password: Passwort
         remember_me: Login merken
-        assets:
+        user_images:
           image: neues Benutzerbild
           _destroy: Benutzerbild entfernen
+      course:
+        title: Titel
+        description: Beschreibung
+        category_id: Kategorie
+      course_request:
+        title: Titel
+        description: Beschreibung
 
   devise:
     failure:

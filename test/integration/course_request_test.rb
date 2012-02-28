@@ -28,8 +28,8 @@ class CourseTest < ActionDispatch::IntegrationTest
     login_as
     visit "/course_requests/new"
     assert page.has_content?(I18n.t('course_request.new.headline'))
-    assert page.has_content?(I18n.t('course_request.new.title'))
-    assert page.has_content?(I18n.t('course_request.new.description'))
+    assert page.has_content?(I18n.t('helpers.label.course_request.title'))
+    assert page.has_content?(I18n.t('helpers.label.course_request.description'))
   end
 
   should 'be able to create course_request' do

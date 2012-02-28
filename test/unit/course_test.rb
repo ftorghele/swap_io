@@ -16,7 +16,7 @@ class CourseTest < ActiveSupport::TestCase
   end
 
   should 'not be valid without user_id' do
-    assert_raise ActiveRecord::StatementInvalid do
+    assert_raise ActiveRecord::RecordInvalid do
       Factory.create(:course, :user => nil)
     end
   end
@@ -52,29 +52,8 @@ class CourseTest < ActiveSupport::TestCase
     user = Factory.create(:user)
     category = Factory.create(:category)
     params = {"title" => "bli", "description" => "bla", "category_id" => category.id.to_s}
-    course = Course.create_course params, user.id
+    course = user.courses.new params
     assert course.valid?
-  end
-
-  should 'validate course' do
-    user = Factory.create(:user)
-    category = Factory.create(:category)
-    assert_raise ActiveRecord::RecordInvalid do
-      params = {"title" => "bli", "description" => "bla", "category_id" => ""}
-      Course.create_course params, user.id
-    end
-    assert_raise ActiveRecord::RecordInvalid do
-      params = {"title" => "bli", "description" => "", "category_id" => category.id.to_s}
-      Course.create_course params, user.id
-    end
-    assert_raise ActiveRecord::RecordInvalid do
-      params = {"title" => "", "description" => "WTF", "category_id" => category.id.to_s}
-      Course.create_course params, user.id
-    end
-    assert_nothing_raised ActiveRecord::RecordInvalid do
-      params = {"title" => "white rabbit", "description" => "WTF", "category_id" => category.id.to_s}
-      Course.create_course params, user.id
-    end
   end
 
 end

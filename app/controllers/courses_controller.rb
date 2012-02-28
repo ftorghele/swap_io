@@ -7,22 +7,22 @@ class CoursesController < ApplicationController
   end
 
   def create
-    new_course = Course.create_course params[:course], current_user.id if signed_in?
-    if new_course.valid?
-      flash[:message] = I18n.t('course.create.success')
-      redirect_to courses_path
+    @course = current_user.courses.create params[:course]
+    if @course.save
+      flash[:info] = I18n.t('course.create.success')
+      redirect_to course_path(@course)
     else
       flash[:error] = I18n.t('course.create.fail')
-      redirect_to new_course_path
+      render :action => :new
     end
   end
 
   def index
-    @courses = Course.find(:all)
+    @courses = Course.all
   end
 
   def show
-    @course = Course.find(params[:id])
+    @course = Course.find_by_id(params[:id])
   end
 
   def destroy

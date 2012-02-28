@@ -1,10 +1,15 @@
-%h1
-  = I18n.t('course_request.index.headline')
-  - if signed_in?
-    = link_to I18n.t('course_request.index.create_course_request_button'), new_course_request_path, :id => "create_course_request_button", :class => "btn"
-
-
-- @course_requests.each do |course_request|
-  = link_to course_request.title, course_request_path(course_request)
-  = course_request.description
-
+.container
+  .row
+    .span
+      %h1 #{I18n.t('course_request.index.headline')}
+    .span.pull-right
+      - if signed_in?
+        = link_to I18n.t('course_request.index.create_course_request_button'), new_course_request_path, :id => "create_course_request_button", :class => "btn"
+  %br
+  .row
+    - @course_requests.each do |course_request|
+      .span1
+        .thumbnail Bild
+      .span11
+        %h1= link_to course_request.title, course_request_path(course_request)
+        %h2= course_request.description

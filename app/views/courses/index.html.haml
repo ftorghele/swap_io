@@ -1,11 +1,13 @@
-%h1 #{I18n.t('course.index.headline')}
-- if signed_in?
-  = link_to I18n.t('course.index.create_course_button'), new_course_path, :id => "create_course_button", :class => "btn"
-
-%br
-- @courses.each do |course|
-  .container
-    .row
+.container
+  .row
+    .span
+      %h1 #{I18n.t('course.index.headline')}
+    .span.pull-right
+      - if signed_in?
+        = link_to I18n.t('course.index.create_course_button'), new_course_path, :id => "create_course_button", :class => "btn"
+  %br
+  .row
+    - @courses.each do |course|
       .span1
         .thumbnail= link_to image_tag(userpic(course.user, :thumb), :alt => username(course.user)), user_path(course.user)
       .span11
