@@ -1,6 +1,6 @@
 class CourseRequestsController < ApplicationController
 
-  before_filter :authenticate_user!, :only => [:new, :create, :join]
+  before_filter :authenticate_user!, :only => [:new, :create, :join, :disjoin]
 
   def show
     @course_request = CourseRequest.find(params[:id])
@@ -17,7 +17,7 @@ class CourseRequestsController < ApplicationController
   def create
     @course_request = current_user.course_requests.create(params[:course_request])
     if @course_request.save
-      flash[:message] = I18n.t('course_request.create.success')
+      flash[:info] = I18n.t('course_request.create.success')
       redirect_to course_requests_path
     else
       flash[:error] = I18n.t('course_request.create.fail')
@@ -26,11 +26,29 @@ class CourseRequestsController < ApplicationController
   end
 
   def join
-    #TODO handle fail
-    @course_request = CourseRequest.find(params[:course_request_id])
-    current_user.course_requests << @course_request if signed_in?
-    flash[:message] = I18n.t('course_request.join.success')
-    redirect_to :back
+    if course_request = CourseRequest.find_by_id(params[:course_request_id])
+      if current_user.join_course_request course_request
+        flash[:info] = I18n.t('course_request.join.success')
+      else
+        flash[:error] = I18n.t('course_request.join.fail')
+      end
+    else
+      flash[:error] = I18n.t('course_request.join.fail')
+    end
+    redirect_to CourseRequest.find_by_id(course_request) ? :back : course_requests_path
+  end
+
+  def disjoin
+    if course_request = CourseRequest.find_by_id(params[:course_request_id])
+      if current_user.disjoin_course_request course_request
+        flash[:info] = I18n.t('course_request.disjoin.success')
+      else
+        flash[:error] = I18n.t('course_request.disjoin.fail')
+      end
+    else
+      flash[:error] = I18n.t('course_request.disjoin.fail')
+    end
+    redirect_to CourseRequest.find_by_id(course_request) ? :back : course_requests_path
   end
 
 end

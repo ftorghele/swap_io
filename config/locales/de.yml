@@ -88,10 +88,15 @@ de:
       submit: Abschicken
     show:
       headline: 'Begegnungsanfrage: %{course_request_title}'
+      members: bisherige Interessenten
       join_course_request_button: Bin interessiert
+      disjoin_course_request_button: Bin nicht mehr interessirt
     join:
       success: Sie interessieren sich nun auch für diese Anfrage
       fail: Ihre Anfrage konnte leider nicht bearbeitet werden
+    disjoin:
+      success: Sie interessieren sich nun nicht mehr für diese Anfrage
+      fail: Ihre Anfrage konnte leider nicht entfernt werden
 
   course_member:
     create:

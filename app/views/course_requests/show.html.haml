@@ -6,7 +6,18 @@
 /* TODO refactor with actual content for owner/logged_in user/visitor*/
 /* TODO put into helper
 - if signed_in?
-  - unless current_user.course_requests.include?(@course_request)
+  - if current_user.course_requests.include?(@course_request)
+    = form_tag({:controller => "course_requests", :action => :disjoin}, :method => :post) do
+      = hidden_field_tag 'course_request_id', @course_request.id
+      = submit_tag I18n.t('course_request.show.disjoin_course_request_button')
+  - else
     = form_tag({:controller => "course_requests", :action => :join}, :method => :post) do 
       = hidden_field_tag 'course_request_id', @course_request.id
       = submit_tag I18n.t('course_request.show.join_course_request_button')
+
+- unless @course_request.users.blank?
+  %h2= I18n.t('course_request.show.members')
+  %ul
+    - @course_request.users.each do |user|
+      %li= link_to username(user), user_path(user)
+

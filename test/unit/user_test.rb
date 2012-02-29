@@ -51,4 +51,28 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  context "course_request_exist?" do
+    should "find existing course_request" do
+      user =  Factory.create(:user)
+      course_request = user.course_requests.create(:title => "test", :description => "bli")
+      assert_equal true, user.course_request_exist?(course_request)
+    end
+
+    should "not find course_requests of other users" do
+      user =  Factory.create(:user)
+      user2 =  Factory.create(:user)
+      course_request = user.course_requests.create(:title => "test", :description => "bli")
+      assert_equal false, user2.course_request_exist?(course_request)
+    end
+  end
+
+  context "join_course_request" do
+    should "join_course_request if not already joined" do
+      user =  Factory.create(:user)
+      course_request = Factory(:course_request)
+      assert_equal [course_request], user.join_course_request(course_request)
+      assert_equal false, user.join_course_request(course_request)
+    end
+  end
+
 end

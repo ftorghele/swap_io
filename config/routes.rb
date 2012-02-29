@@ -13,6 +13,7 @@ Swap::Application.routes.draw do
     resources :course_requests do
       collection do
         post 'join'
+        post 'disjoin'
       end
     end
 

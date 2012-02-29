@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   has_many :courses
   has_many :course_member, :through => :courses
-  has_and_belongs_to_many :course_requests
+  has_and_belongs_to_many :course_requests, :uniq => true
 
   has_many :user_images, :dependent => :destroy
   accepts_nested_attributes_for :user_images, :allow_destroy => true
@@ -30,6 +30,22 @@ class User < ActiveRecord::Base
                       :first_name => data.first_name,
                       :last_name => data.last_name)
       user
+    end
+  end
+
+  def course_request_exist?(course_request)
+    self.course_requests.find_by_id(course_request.id) ? true : false
+  end
+
+  def join_course_request(course_request)
+    self.course_request_exist?(course_request) ? false : self.course_requests << course_request
+  end
+
+  def disjoin_course_request(course_request)
+    if CourseRequest.find_by_id(course_request.id).users.count > 1
+      self.course_requests.delete(course_request)
+    else
+      CourseRequest.find_by_id(course_request.id).destroy if self.course_request_exist?(course_request)
     end
   end
 
