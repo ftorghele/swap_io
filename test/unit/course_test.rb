@@ -34,7 +34,7 @@ class CourseTest < ActiveSupport::TestCase
 
   should 'not be valid without title' do
     assert_no_difference "Course.count" do
-      course = Factory.build(:course, :title = "")
+      course = Factory.build(:course, :title => "")
       course.save
     end
   end

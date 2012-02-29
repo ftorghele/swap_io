@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :authenticate_user! , :only => [:new, :create]
+
   def show
     @user = User.find_by_id(params[:id])
   end
@@ -6,6 +9,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by_id(params[:id])
     @user.user_images.build
+    @user.user_skills.build
   end
 
   def update

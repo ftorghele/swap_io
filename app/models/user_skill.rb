@@ -1,4 +1,4 @@
-class UserSkills < ActiveRecord::Base
+class UserSkill < ActiveRecord::Base
 
   belongs_to :user
 

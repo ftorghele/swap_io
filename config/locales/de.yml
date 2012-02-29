@@ -38,6 +38,7 @@ de:
 
   user:
     edit:
+      skills: Fähigkeiten
       title: Benutzer Bearbeiten
       submit: Speichern
       cancel_account: Benutzer löschen
@@ -120,8 +121,9 @@ de:
 
   helpers:
     label:
-      
       user:
+        motivation: Motivation
+        job: Job
         image: Bild
         description: Über mich
         skills: Fähigkeiten
