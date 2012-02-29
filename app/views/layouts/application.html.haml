@@ -21,12 +21,9 @@
             %li= link_to I18n.t('app.course_request_link'), course_requests_path
           %ul.nav.pull-right
             - if user_signed_in?
-              %p
-                = I18n.t('app.signed_in_as')
-                = link_to username(current_user), user_path(current_user)
-                = link_to I18n.t('user.edit.title'), edit_user_path(current_user)
-                = I18n.t('app.not_you')
-                = link_to I18n.t('app.sign_out_link'), destroy_user_session_path, :method => :delete
+              %li= link_to username(current_user), user_path(current_user)
+              %li= link_to I18n.t('user.edit.title'), edit_user_path(current_user)
+              =link_to I18n.t('app.sign_out_link'), destroy_user_session_path, :method => :delete, :class => 'btn'
             - else
               = link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => 'btn'
               = link_to I18n.t('app.sign_in_link'), new_user_session_path, :class => 'btn'
