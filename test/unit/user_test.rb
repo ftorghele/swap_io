@@ -32,6 +32,20 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  should "have job field" do
+    assert_difference "User.count" do
+      user = Factory.create(:user, :job => "Computerer")
+      assert_equal user.job, "Computerer"
+    end
+  end
+
+  should "have motivation field" do
+    assert_difference "User.count" do
+      user = Factory.create(:user, :motivation => "motivation...field")
+      assert_equal user.motivation, "motivation...field"
+    end
+  end
+
   should "have many courses" do
     assert_difference "Course.count", 2 do
       user   = Factory.create(:user)

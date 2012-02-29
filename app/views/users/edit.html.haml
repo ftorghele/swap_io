@@ -33,8 +33,6 @@
               = f.email_field :email
               %span.help-inline=  form_status_msg(@user, :email)
 
-
-
         .tab-pane#about
           = f.fields_for :user_images do |image|
             - unless image.object.new_record?
@@ -55,6 +53,32 @@
             = f.label :description, :class => 'control-label'
             .controls
               = f.text_area :description
+
+          %div.control-group 
+            = f.label :job, :class => 'control-label'
+            .controls
+              = f.text_field :job
+
+          %div.control-group
+            = f.label :motivation, :class => 'control-label'
+            .controls
+              = f.text_field :motivation
+
+          = f.fields_for :user_skills do |skill|
+            - unless skill.object.new_record?
+              %div.control-group
+                = skill.label I18n.t('user.edit.skills'), :class => 'control-label'
+                .controls.span2
+                  = skill.label :title
+                .controls
+                  = skill.check_box :_destroy
+                  .controls.pull-right
+                    = skill.label :_destroy
+            - else
+              %div.control-group
+                = skill.label I18n.t('user.edit.skills'), :class => 'control-label'
+                .controls
+                  = skill.text_field :title
 
         .tab-pane#account
           = link_to I18n.t('user.edit.cancel_account'), registration_path(@user), :confirm => I18n.t('user.edit.cancel_account_confirm'), :method => :delete, :class => 'btn-large btn-danger'

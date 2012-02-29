@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227165818) do
+ActiveRecord::Schema.define(:version => 20120229003411) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(:version => 20120227165818) do
     t.datetime "image_updated_at"
   end
 
+  create_table "user_skills", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",   :null => false
     t.string   "encrypted_password",     :default => "",   :null => false
@@ -80,6 +87,8 @@ ActiveRecord::Schema.define(:version => 20120227165818) do
     t.datetime "updated_at",                               :null => false
     t.text     "description"
     t.integer  "zip"
+    t.string   "job"
+    t.string   "motivation"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

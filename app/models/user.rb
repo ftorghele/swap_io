@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -7,7 +8,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :first_name, :last_name, :zip, :confirmed_at, :user_images_attributes,
-                  :description
+                  :description, :user_skills_attributes, :job, :motivation
 
   validates_presence_of :first_name
   validates_presence_of :last_name
@@ -16,10 +17,16 @@ class User < ActiveRecord::Base
 
   has_many :courses
   has_many :course_member, :through => :courses
+
   has_and_belongs_to_many :course_requests, :uniq => true
+
+  has_many :user_skills, :dependent => :destroy
+  accepts_nested_attributes_for :user_skills, :reject_if => proc {|attributes| attributes[:title].blank?}, :allow_destroy => true
 
   has_many :user_images, :dependent => :destroy
   accepts_nested_attributes_for :user_images, :allow_destroy => true
+
+  has_and_belongs_to_many :course_requests
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
