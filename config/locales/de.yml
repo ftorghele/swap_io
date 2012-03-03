@@ -1,6 +1,6 @@
 de:
   app:
-    headline: Wissen Teilen Können
+    headline: "Wissen Teilen Können"
     brand: wissenteilen.com
     course_link: Begegnung
     course_request_link: Begegnungsanfrage
@@ -64,7 +64,7 @@ de:
       create_course_button: Neue Begegnung erstellen
       created_from: Erstellt von
     new:
-      headline: Begegnung erstellen
+      headline: "Begegnung erstellen"
       submit: Abschicken
       select: Select
     show:
@@ -91,7 +91,8 @@ de:
       headline: 'Begegnungsanfrage: %{course_request_title}'
       members: bisherige Interessenten
       join_course_request_button: Bin interessiert
-      disjoin_course_request_button: Bin nicht mehr interessirt
+      disjoin_course_request_button: Bin nicht mehr interessiert
+      provide_course_request_button: Begegnung anbieten
     join:
       success: Sie interessieren sich nun auch für diese Anfrage
       fail: Ihre Anfrage konnte leider nicht bearbeitet werden
@@ -148,6 +149,17 @@ de:
       course_request:
         title: Titel
         description: Beschreibung
+
+  mailer:
+    provide_course_message: "Ein Benutzer auf wissenteilen.com hat auf deine Begegnungsanfrage reagiert. Details zur Person und der Begegnung findest du unter folgenden Links: "
+    join_course_message: "Du hast eine Begegnungsanfrage auf wissenteilen.com erhalten. " 
+    newsletter_message: "Was gibt es neues bei wissenteilen.com"
+    greeting_message: "Hallo"
+    unsubscribe_link: "Um dich vom Newsletter abzumelden klicke den folgenden link"
+    subject:
+      news: "News zu Wissenteilen"
+      request_course: Begegnungsanfrage
+      provide_course: Begegnungsangebot
 
   devise:
     failure:

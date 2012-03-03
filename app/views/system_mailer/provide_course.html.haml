@@ -1,0 +1,26 @@
+!!! 5
+%html
+  %head
+    %title
+  %body
+    %table{:width => "100%"}
+      %tr
+        %td
+          %h2= I18n.t('mailer.subject.provide_course')
+      %tr
+        %td
+          = I18n.t('mailer.greeting_message')
+      %tr
+        %td
+          = @user.first_name
+      %tr
+        %td
+          = I18n.t('mailer.provide_course_message')
+      %tr
+        %td
+          = "Benutzerprofil:"
+          = @user_profile_link
+      %tr
+        %td
+          = "Begegnung:"
+          = @course_request_link

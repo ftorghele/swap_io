@@ -1,0 +1,21 @@
+!!! 5
+%html
+  %head
+    %title
+      = I18n.t('mailer.subject.news')
+  %body
+    %table{:width => "100%"}
+      %tr
+        %td{:bgcolor=>"#ff0000"}
+          %h2
+            = I18n.t('mailer.greeting_message')
+      %tr
+        %td
+          -if @body.nil?
+            %h3= I18n.t('mailer.newsletter_message')
+          -else
+            %h3= @body
+      %tr
+        %td= I18n.t('mailer.unsubscribe_link')
+      %tr
+        %td= @delete_user_abbo_link

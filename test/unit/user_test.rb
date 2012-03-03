@@ -69,14 +69,14 @@ class UserTest < ActiveSupport::TestCase
     should "find existing course_request" do
       user =  Factory.create(:user)
       course_request = user.course_requests.create(:title => "test", :description => "bli")
-      assert_equal true, user.course_request_exist?(course_request)
+      assert_equal true, user.has_course_request?(course_request)
     end
 
     should "not find course_requests of other users" do
       user =  Factory.create(:user)
       user2 =  Factory.create(:user)
       course_request = user.course_requests.create(:title => "test", :description => "bli")
-      assert_equal false, user2.course_request_exist?(course_request)
+      assert_equal false, user2.has_course_request?(course_request)
     end
   end
 
@@ -86,6 +86,38 @@ class UserTest < ActiveSupport::TestCase
       course_request = Factory(:course_request)
       assert_equal [course_request], user.join_course_request(course_request)
       assert_equal false, user.join_course_request(course_request)
+    end
+  end
+
+  context 'disjoin_course_request' do
+    should 'disjoin course request for last user correct' do
+      user = Factory.create(:user)
+      course_request = Factory(:course_request)
+      user.join_course_request(course_request)
+      assert_not_nil course_request
+      user.disjoin_course_request(course_request)
+      assert CourseRequest.find_by_id(course_request.id).nil?
+    end
+
+    should 'not delete course request for last user' do
+      user1 = Factory.create(:user)
+      user2 = Factory.create(:user)
+      course_request = Factory(:course_request)
+      user1.join_course_request(course_request)
+      user2.join_course_request(course_request)
+      user1.disjoin_course_request(course_request)
+      assert_not_nil CourseRequest.find_by_id(course_request.id)
+    end
+
+    should 'not be able to disjoin course request twice' do
+      user1 = Factory.create(:user)
+      user2 = Factory.create(:user)
+      course_request = Factory(:course_request)
+      user1.join_course_request(course_request)
+      user2.join_course_request(course_request)
+      user1.disjoin_course_request(course_request)
+      user1.disjoin_course_request(course_request)
+      assert_not_nil CourseRequest.find_by_id(course_request.id)
     end
   end
 

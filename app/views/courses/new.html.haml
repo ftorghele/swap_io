@@ -1,7 +1,7 @@
 %h1
   = I18n.t('course.new.headline')
 
-=form_for @course do |f|
+=form_for @course, :url => {:controller => :courses, :action => :create, :type => @course_request} do |f|
   %fieldset
     %div.control-group{ :class => form_status(@course, :title) }
       = f.label :title, :class => 'control-label'

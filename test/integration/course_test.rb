@@ -63,4 +63,13 @@ class CourseTest < ActionDispatch::IntegrationTest
     assert page.has_content?(I18n.t('devise.failure.unauthenticated'))
   end
 
+  should 'fill in course_request data if exist for course provider' do
+    user = Factory.create(:user)
+    user2 = Factory.create(:user)
+    course_request = Factory.create(:course_request)
+    user.join_course_request(course_request)
+    login_as user2
+    visit course_request_path(course_request.id)
+    click_on I18n.t('course_request.show.provide_course_request_button')
+  end
 end

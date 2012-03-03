@@ -1,4 +1,4 @@
-%h1 #{I18n.t('course.show.headline', :course_title => @course.title)}
+%h1= I18n.t('course.show.headline', :course_title => @course.title)
 %p= I18n.t('course.show.category', :category => @course.category.title) unless @course.category.nil?
 .container
   .row

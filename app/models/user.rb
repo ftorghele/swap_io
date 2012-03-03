@@ -40,19 +40,19 @@ class User < ActiveRecord::Base
     end
   end
 
-  def course_request_exist?(course_request)
+  def has_course_request?(course_request)
     self.course_requests.find_by_id(course_request.id) ? true : false
   end
 
   def join_course_request(course_request)
-    self.course_request_exist?(course_request) ? false : self.course_requests << course_request
+    self.has_course_request?(course_request) ? false : self.course_requests << course_request
   end
 
   def disjoin_course_request(course_request)
     if CourseRequest.find_by_id(course_request.id).users.count > 1
       self.course_requests.delete(course_request)
     else
-      CourseRequest.find_by_id(course_request.id).destroy if self.course_request_exist?(course_request)
+      CourseRequest.find_by_id(course_request.id).destroy if self.has_course_request?(course_request)
     end
   end
 

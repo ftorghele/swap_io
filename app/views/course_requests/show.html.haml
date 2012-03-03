@@ -6,6 +6,7 @@
 /* TODO refactor with actual content for owner/logged_in user/visitor*/
 /* TODO put into helper
 - if signed_in?
+  = link_to I18n.t('course_request.show.provide_course_request_button'), new_course_path(:id => @course_request.id), :method => :get
   - if current_user.course_requests.include?(@course_request)
     = form_tag({:controller => "course_requests", :action => :disjoin}, :method => :post) do
       = hidden_field_tag 'course_request_id', @course_request.id

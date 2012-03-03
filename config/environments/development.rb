@@ -1,4 +1,21 @@
 Swap::Application.configure do
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'wissenteilen.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "wissenteilen.com",
+    :authentication => :plain,
+    :user_name => "info@wissenteilen.com",
+    :password => ""
+  }
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

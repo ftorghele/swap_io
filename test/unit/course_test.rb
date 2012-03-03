@@ -55,4 +55,24 @@ class CourseTest < ActiveSupport::TestCase
     assert course.valid?
   end
 
+  should 'send email to users which joined course_request' do
+    user1 = Factory.create(:user)
+    user2 = Factory.create(:user)
+    course = Factory.create(:course)
+    course_request = user1.course_requests.create(:title => "bli", :description => "blup")
+    user2.join_course_request(course_request)
+    assert_difference "ActionMailer::Base.deliveries.count", 2 do
+      course.provide_course_mailer(course_request.id)
+    end
+  end
+
+  should 'send email to course_request_member' do
+    user = Factory.create(:user)
+    course = Factory.create(:course)
+    assert_difference "ActionMailer::Base.deliveries.count" do
+      email_delivery = course.course_member_request(user)
+      assert_equal ActionMailer::Base.deliveries.last, email_delivery
+    end
+  end
+
 end

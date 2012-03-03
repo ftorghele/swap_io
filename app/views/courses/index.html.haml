@@ -1,7 +1,7 @@
 .container
   .row
     .span
-      %h1 #{I18n.t('course.index.headline')}
+      %h1= I18n.t('course.index.headline')
     .span.pull-right
       - if signed_in?
         = link_to I18n.t('course.index.create_course_button'), new_course_path, :id => "create_course_button", :class => "btn"
@@ -13,5 +13,5 @@
       .span11
         %h1= link_to course.title, course_path(course)
         %h2= course.description
-        = "#{I18n.t('course.index.created_from')}"
+        = I18n.t('course.index.created_from')
         = link_to(username(course.user), user_path(course.user))
