@@ -1,1 +1,5 @@
 %h1= I18n.t('pages.home.title')
+
+= form_tag('/subscribers', :html => {:method => :post} ) do
+  = text_field_tag 'email'
+  = submit_tag I18n.t('pages.home.newsletter_sign_up_button')

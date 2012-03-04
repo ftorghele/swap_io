@@ -17,6 +17,13 @@ Swap::Application.routes.draw do
       end
     end
 
+    resources :subscribers do
+      collection do
+        get 'unsubscribe'
+      end
+    end
+
+    resources :newsletters
     resources :courses
     resources :course_members
     resources :categories

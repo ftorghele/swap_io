@@ -18,4 +18,5 @@
       %tr
         %td= I18n.t('mailer.unsubscribe_link')
       %tr
-        %td= @delete_user_abbo_link
+        %td
+          %a= "http://wissenteilen.com/subscribers/unsubscribe/?token=#{@unsubscribe_token}"

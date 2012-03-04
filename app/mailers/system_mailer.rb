@@ -1,5 +1,7 @@
 class SystemMailer < ActionMailer::Base
-  default from: "from@example.com"
+  require 'hash'
+
+  default from: "info@wissenteilen.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -24,6 +26,7 @@ class SystemMailer < ActionMailer::Base
 
   def news(email, body)
     @body = body
+    @unsubscribe_token = Subscriber.find_by_email(email).signout_hash
     mail to: email, subject: "#{I18n.t('mailer.subject.news')}"
   end
 

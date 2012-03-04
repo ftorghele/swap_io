@@ -11,6 +11,7 @@ de:
     sign_in_link: Einloggen
     sign_in_with_link: 'Einloggen mit %{provider}'
     footer_text: wissenteilen.com 2012
+
   routes:
     users:
       as: Begegner
@@ -18,6 +19,7 @@ de:
       as: Begegnung
     course_requests:
       as: Begegnungsanfrage
+
   pages:
     about:
       title: Über uns
@@ -29,6 +31,7 @@ de:
       title: Hilfe
     home:
       title: Home
+      newsletter_sign_up_button: Anmelden
     imprint:
       title: Impressum
     overview:
@@ -160,6 +163,14 @@ de:
       news: "News zu Wissenteilen"
       request_course: Begegnungsanfrage
       provide_course: Begegnungsangebot
+
+  subscriber:
+    create:
+      success: "Sie haben den wissenteilen.com Newsletter erfolgreich abonniert"
+      fail: "Bei Ihrer Anmeldung zum Newsletter ist ein Fehler aufgetreten"
+    unsubscribe:
+      success: "Sie haben sich erfolgreich vom wissenteilen.com Newsletter abgemeldet"
+      fail: "Bei Ihrer Abmeldung vom wissenteilen.com Newsletter ist ein Fehler aufgetreten"
 
   devise:
     failure:

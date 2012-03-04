@@ -6,7 +6,6 @@ class SystemMailerTest < ActionMailer::TestCase
     mail = SystemMailer.provide_course( user, "profile_link", "course_link")
     assert_equal I18n.t('mailer.subject.provide_course'), mail.subject
     assert_equal ["#{user.email}"], mail.to
-    #assert_equal ["from@example.com"], mail.from
     assert_match "Benutzer", mail.body.encoded
     assert_match "wissenteilen", mail.body.encoded
   end
@@ -16,16 +15,16 @@ class SystemMailerTest < ActionMailer::TestCase
     mail = SystemMailer.request_course(user, "profile_link", "course_link")
     assert_equal I18n.t('mailer.subject.request_course'), mail.subject
     assert_equal ["#{user.email}"], mail.to
-    assert_equal ["from@example.com"], mail.from
+    assert_equal ["info@wissenteilen.com"], mail.from
     assert_match "Benutzer", mail.body.encoded
     assert_match "wissenteilen", mail.body.encoded
   end
 
   test "news" do
-    user = Factory.create(:user)
-    mail = SystemMailer.news(user.email, "Some stupid content")
+    subscriber = Factory.create(:subscriber)
+    mail = SystemMailer.news(subscriber.email, "Some stupid content")
     assert_equal I18n.t('mailer.subject.news'), mail.subject
-    assert_equal ["#{user.email}"], mail.to
+    assert_equal ["#{subscriber.email}"], mail.to
     assert_match "Some stupid content", mail.body.encoded
   end
 
