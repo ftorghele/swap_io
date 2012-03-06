@@ -26,7 +26,7 @@ class SystemMailer < ActionMailer::Base
 
   def news(email, body)
     @body = body
-    @unsubscribe_token = Subscriber.find_by_email(email).signout_hash
+    @unsubscribe_token = NewsletterSubscriber.find_by_email(email).signout_hash
     mail to: email, subject: "#{I18n.t('mailer.subject.news')}"
   end
 

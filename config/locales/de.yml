@@ -35,6 +35,8 @@ de:
       as: Überblick
     terms:
       as: AGB
+    newsletter_subscribers:
+      as: Newsletter
 
   pages:
     about:
@@ -145,6 +147,11 @@ de:
           attributes:
             category_id:
               blank: Sie müssen eine Kategorie wählen
+        newsletter_subscriber:
+          attributes:
+            email:
+              blank: Sie müssen Ihre Email Adresse angeben!
+              taken: Sie haben sich bereits für diesen Newsletter registriert.
 
   helpers:
     label:
@@ -182,7 +189,7 @@ de:
       request_course: Begegnungsanfrage
       provide_course: Begegnungsangebot
 
-  subscriber:
+  newsletter_subscriber:
     create:
       success: "Sie haben den wissenteilen.com Newsletter erfolgreich abonniert"
       fail: "Bei Ihrer Anmeldung zum Newsletter ist ein Fehler aufgetreten"

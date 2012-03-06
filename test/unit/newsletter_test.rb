@@ -21,8 +21,8 @@ class NewsletterTest < ActiveSupport::TestCase
   end
 
   should 'send email to subscribers' do
-    subscriber1 = Factory.create(:subscriber)
-    subscriber2 = Factory.create(:subscriber, :newsletter_id => subscriber1.newsletter_id)
+    subscriber1 = Factory.create(:newsletter_subscriber)
+    subscriber2 = Factory.create(:newsletter_subscriber)
     assert_difference "ActionMailer::Base.deliveries.count", 2 do
       Newsletter.spread_newsletter
     end

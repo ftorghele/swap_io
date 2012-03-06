@@ -5,11 +5,13 @@ Swap::Application.routes.draw do
   }
 
   localized(I18n.available_locales) do
+
     resources :users do
       collection do
         post 'fb_create'
       end
     end
+
     resources :course_requests do
       collection do
         post 'join'
@@ -17,7 +19,7 @@ Swap::Application.routes.draw do
       end
     end
 
-    resources :subscribers do
+    resources :newsletter_subscribers do
       collection do
         get 'unsubscribe'
       end
@@ -29,7 +31,7 @@ Swap::Application.routes.draw do
     resources :categories
 
 
-    get 'welcome',     :to => 'pages#welcome'
+    get 'welcome',  :to => 'pages#welcome'
     get 'terms',    :to => 'pages#terms'
     get 'help',     :to => 'pages#help'
     get 'coverage', :to => 'pages#coverage'

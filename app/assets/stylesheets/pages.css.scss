@@ -3,26 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap.css.scss";
 
-.pull-right {
+.with-margin {
     margin: 10px 0;
 }
 
-#logo {
-    margin: 0 auto;
-    width: 450px;
-    height: 343px;
-}
+#welcome-page {
 
-#newsletter-box {
-    form {
-        @extend .well;
-        @extend .form-inline;
-        #newsletter-center {
-            margin: 5px auto;
-            width: 500px;
-        }
+    #logo {
+        margin: 0 auto;
+        width: 450px;
+        height: 343px;
     }
-    .submit_btn {
-        @extend .btn-success;
+
+    #newsletter-box {
+        form {
+            @extend .well;
+            @extend .form-inline;
+            #newsletter-center {
+                margin: 5px auto;
+                width: 500px;
+            }
+        }
+        .submit_btn {
+            @extend .btn-success;
+        }
+
+        .help-inline {
+            text-align:center;
+            width: 500px;
+            margin: 10px auto 0 auto;
+        }
     }
 }

@@ -1,3 +1,4 @@
+
 FactoryGirl.define do
   require 'hash'
 
@@ -41,8 +42,7 @@ FactoryGirl.define do
     sequence(:body){|n| "Newsletter content and so ...........#{n}" }
   end
 
-  factory :subscriber do |f|
-    f.association :newsletter
+  factory :newsletter_subscriber do |f|
     sequence(:email){|n| "email@bla.at#{n}" }
     f.signout_hash Hash.create_token("email@bla.at")
   end

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def welcome
-    @subscriber = Subscriber.new
+    @subscriber = NewsletterSubscriber.new
     render :layout => 'welcome'
   end
 end

@@ -21,7 +21,7 @@ class SystemMailerTest < ActionMailer::TestCase
   end
 
   test "news" do
-    subscriber = Factory.create(:subscriber)
+    subscriber = Factory.create(:newsletter_subscriber)
     mail = SystemMailer.news(subscriber.email, "Some stupid content")
     assert_equal I18n.t('mailer.subject.news'), mail.subject
     assert_equal ["#{subscriber.email}"], mail.to

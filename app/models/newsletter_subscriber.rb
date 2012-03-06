@@ -1,9 +1,8 @@
-class Subscriber < ActiveRecord::Base
+class NewsletterSubscriber < ActiveRecord::Base
 
-  belongs_to :newsletter
-
-  validates_presence_of :email, :signout_hash, :newsletter_id
+  validates_presence_of :email, :signout_hash
   validates :email, :presence => true, :email => true
+  validates_uniqueness_of :email
 
   def self.unsubscribe(token)
     subscriber = self.find_by_signout_hash(token)
