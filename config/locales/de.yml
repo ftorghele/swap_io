@@ -1,4 +1,22 @@
 de:
+
+  ###########################################################################
+  # from standard content file under:                                       #
+  # https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/de.yml #
+  ###########################################################################
+
+  time:
+    am: vormittags
+    formats:
+      default: ! '%A, %d. %B %Y, %H:%M Uhr'
+      long: ! '%A, %d. %B %Y, %H:%M Uhr'
+      short: ! '%d. %B, %H:%M Uhr'
+    pm: nachmittags
+
+  ###########################################################################
+  # begin customized content                                                #
+  ###########################################################################
+
   app:
     headline: "Wissen Teilen Können"
     brand: wissenteilen.com

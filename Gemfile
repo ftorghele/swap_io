@@ -9,6 +9,8 @@ gem "paperclip", "~> 2.5"
 gem 'devise', '2.0.0'
 gem 'omniauth-facebook'
 
+gem 'activeadmin'
+
 gem 'haml'
 gem 'twitter-bootstrap-rails', '2.0.2'
 

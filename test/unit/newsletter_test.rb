@@ -28,4 +28,17 @@ class NewsletterTest < ActiveSupport::TestCase
     end
   end
 
+  should 'send email to subscribers only once' do
+    newsletter = Factory.create(:newsletter)
+    subscriber = Factory.create(:subscriber, :newsletter_id => newsletter.id)
+    assert_difference "ActionMailer::Base.deliveries.count" do
+      Newsletter.spread_newsletter
+    end
+    newsletter.sent = true
+    newsletter.save
+    assert_no_difference "ActionMailer::Base.deliveries.count" do
+      Newsletter.spread_newsletter
+    end
+  end
+
 end
