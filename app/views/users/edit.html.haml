@@ -27,12 +27,6 @@
               = f.text_field :zip
               %span.help-inline=  form_status_msg(@user, :zip)
 
-          %div.control-group{ :class => form_status(@user, :email) }
-            = f.label :email, :class => 'control-label'
-            .controls
-              = f.email_field :email
-              %span.help-inline=  form_status_msg(@user, :email)
-
         .tab-pane#about
           = f.fields_for :user_images do |image|
             - unless image.object.new_record?
