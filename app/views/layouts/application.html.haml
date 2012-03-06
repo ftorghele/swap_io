@@ -3,7 +3,7 @@
   %head
     %meta{:charset => "utf-8"}/
     %title= content_for?(:title) ? yield(:title) : I18n.t('app.headline')    
-    = stylesheet_link_tag :application
+    = stylesheet_link_tag :wtk
     = csrf_meta_tags
     :css
       body {
