@@ -9,12 +9,6 @@
 
 #welcome-page {
 
-    #logo {
-        margin: 0 auto;
-        width: 450px;
-        height: 343px;
-    }
-
     #newsletter-box {
         form {
             @extend .well;

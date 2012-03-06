@@ -8,8 +8,7 @@ class Newsletter < ActiveRecord::Base
     NewsletterSubscriber.all.each do |subscriber|
       SystemMailer.news(subscriber.email, newsletter.body).deliver
     end
-    newsletter.sent = true
-    newsletter.save
+    newsletter.update_attribute(:sent, true)
   end
 
 end

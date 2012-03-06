@@ -215,6 +215,11 @@ de:
       success: "Sie haben sich erfolgreich vom wissenteilen.com Newsletter abgemeldet"
       fail: "Bei Ihrer Abmeldung vom wissenteilen.com Newsletter ist ein Fehler aufgetreten"
 
+  newsletter:
+    update:
+      success: "Newsletter erfolgreich versendet"
+      fail: "Newsletter versendung fehlgeschlagen"
+
   devise:
     failure:
       already_authenticated: "Du bist schon angemeldet."
