@@ -1,3 +1,37 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap.css.scss";
+
+.with-margin {
+    margin: 10px 0;
+}
+
+#welcome-page {
+
+    #logo {
+        margin: 0 auto;
+        width: 450px;
+        height: 343px;
+    }
+
+    #newsletter-box {
+        form {
+            @extend .well;
+            @extend .form-inline;
+            #newsletter-center {
+                margin: 5px auto;
+                width: 500px;
+            }
+        }
+        .submit_btn {
+            @extend .btn-success;
+        }
+
+        .help-inline {
+            text-align:center;
+            width: 500px;
+            margin: 10px auto 0 auto;
+        }
+    }
+}

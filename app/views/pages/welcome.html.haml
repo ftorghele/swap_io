@@ -1,0 +1,13 @@
+#welcome-page
+  #logo
+    = image_tag 'logo.jpg'
+
+  #newsletter-box
+    =form_for @subscriber do |f|
+      #newsletter-center
+        = f.label :email, I18n.t('pages.welcome.newsletter_sign_up_label'), :class => 'control-label'
+        %span.control-group{ :class => form_status(@subscriber, :email) }
+          = f.email_field :email, :placeholder=> I18n.t('pages.welcome.newsletter_sign_up_placeholder')
+          = submit_tag I18n.t('pages.welcome.newsletter_sign_up_button'), :class => "submit_btn"
+          - if @subscriber.errors.any?
+            %span.help-inline=  form_status_msg(@subscriber, :email)

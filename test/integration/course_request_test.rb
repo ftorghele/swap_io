@@ -6,7 +6,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     course_request1 = Factory.create(:course_request)
     course_request2 = Factory.create(:course_request)
 
-    visit "/course_requests"
+    visit course_requests_path
 
     assert page.has_content?(I18n.t('course_request.index.headline'))
     assert page.has_content?(course_request1.title)
@@ -17,7 +17,7 @@ class CourseTest < ActionDispatch::IntegrationTest
 
   should 'show course_request show action' do
     course_request = Factory.create(:course_request)
-    visit "/"
+    visit course_requests_path
     click_on I18n.t('app.course_request_link')
     click_on course_request.title
     assert page.has_content?(course_request.title)
@@ -26,7 +26,7 @@ class CourseTest < ActionDispatch::IntegrationTest
 
   should 'show course_request new action' do
     login_as
-    visit "/course_requests/new"
+    visit new_course_request_path
     assert page.has_content?(I18n.t('course_request.new.headline'))
     assert page.has_content?(I18n.t('helpers.label.course_request.title'))
     assert page.has_content?(I18n.t('helpers.label.course_request.description'))
@@ -46,7 +46,7 @@ class CourseTest < ActionDispatch::IntegrationTest
   end
 
   should 'not be able to create course_request without login' do
-    visit "/course_requests/new"
+    visit new_course_request_path
     assert page.has_content?(I18n.t('devise.sessions.title'))
     assert page.has_content?(I18n.t('devise.failure.unauthenticated'))
   end
@@ -55,7 +55,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     user = Factory.create(:user)
     course_request = user.course_requests.create(:title => "bli", :description => "blup")
     login_as
-    visit "/"
+    visit courses_path
     click_on I18n.t('app.course_request_link')
     click_on course_request.title
 
@@ -71,7 +71,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     user = Factory.create(:user)
     course_request = user.course_requests.create(:title => "bli", :description => "blup")
     login_as(user)
-    visit "/"
+    visit courses_path
     click_on I18n.t('app.course_request_link')
     click_on course_request.title
 
@@ -84,7 +84,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     user = Factory.create(:user)
     course_request = user.course_requests.create(:title => "bli", :description => "blup")
     login_as(user)
-    visit "/"
+    visit courses_path
     click_on I18n.t('app.course_request_link')
     click_on course_request.title
 
@@ -104,7 +104,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     user2.join_course_request(course_request)
     login_as
 
-    visit "/"
+    visit courses_path
     click_on I18n.t('app.course_request_link')
     click_on course_request.title
     assert_difference "ActionMailer::Base.deliveries.count", 2 do

@@ -1,0 +1,30 @@
+!!! 5
+%html{:lang => "de"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title= content_for?(:title) ? yield(:title) : I18n.t('app.headline')
+    = stylesheet_link_tag :application
+    = csrf_meta_tags
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+  %body
+    .container
+      .content
+        .row
+          .span12
+            .pull-right.with-margin
+              = link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => 'btn'
+              = link_to I18n.t('app.sign_in_link'), new_user_session_path, :class => 'btn'
+              = link_to I18n.t('app.sign_in_with_link', :provider => "Facebook"), user_omniauth_authorize_path(:facebook), :class => 'btn'
+
+        .row
+          .span12
+            - flash.each do |name, msg|
+              = content_tag :div, msg, :class => "alert alert-#{name}" if msg.is_a?(String)
+        .row
+          .span12
+            = yield
+
+      = render('layouts/footer')
+
+    = javascript_include_tag :application

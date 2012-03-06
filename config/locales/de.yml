@@ -37,19 +37,39 @@ de:
       as: Begegnung
     course_requests:
       as: Begegnungsanfrage
+    welcome:
+      as: Willkommen
+    about:
+      as: Idee
+    contact:
+      as: Kontake
+    coverage:
+      as: Berichterstattung
+    help:
+      as: Hilfe
+    imprint:
+      as: Impressum
+    overview:
+      as: Überblick
+    terms:
+      as: AGB
+    newsletter_subscribers:
+      as: Newsletter
 
   pages:
     about:
-      title: Über uns
+      title: Die Idee
     contact:
       title: Kontake
     coverage:
       title: Berichterstattung
     help:
       title: Hilfe
-    home:
-      title: Home
-      newsletter_sign_up_button: Anmelden
+    welcome:
+      title: Willkommen
+      newsletter_sign_up_label: Für Newsletter anmelden
+      newsletter_sign_up_placeholder: Ihre Email Adresse
+      newsletter_sign_up_button: Jetzt anmelden
     imprint:
       title: Impressum
     overview:
@@ -145,6 +165,11 @@ de:
           attributes:
             category_id:
               blank: Sie müssen eine Kategorie wählen
+        newsletter_subscriber:
+          attributes:
+            email:
+              blank: Sie müssen Ihre Email Adresse angeben!
+              taken: Sie haben sich bereits für diesen Newsletter registriert.
 
   helpers:
     label:
@@ -182,7 +207,7 @@ de:
       request_course: Begegnungsanfrage
       provide_course: Begegnungsangebot
 
-  subscriber:
+  newsletter_subscriber:
     create:
       success: "Sie haben den wissenteilen.com Newsletter erfolgreich abonniert"
       fail: "Bei Ihrer Anmeldung zum Newsletter ist ein Fehler aufgetreten"
