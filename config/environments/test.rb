@@ -14,6 +14,13 @@ Swap::Application.configure do
   # Log error messages when you accidentally call methods on nil
   config.whiny_nils = true
 
+
+  #Workaround for active_admin
+  config.before_eager_load do
+    I18n.locale = :de
+    I18n.load_path += Dir[Rails.root.join('config', 'locales', 'de.yml').to_s]
+    I18n.reload!
+  end
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false

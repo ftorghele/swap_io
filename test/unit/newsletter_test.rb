@@ -21,6 +21,7 @@ class NewsletterTest < ActiveSupport::TestCase
   end
 
   should 'send email to subscribers' do
+    newsletter = Factory.create(:newsletter)
     subscriber1 = Factory.create(:newsletter_subscriber)
     subscriber2 = Factory.create(:newsletter_subscriber)
     assert_difference "ActionMailer::Base.deliveries.count", 2 do
@@ -30,7 +31,7 @@ class NewsletterTest < ActiveSupport::TestCase
 
   should 'send email to subscribers only once' do
     newsletter = Factory.create(:newsletter)
-    subscriber = Factory.create(:subscriber, :newsletter_id => newsletter.id)
+    subscriber = Factory.create(:newsletter_subscriber)
     assert_difference "ActionMailer::Base.deliveries.count" do
       Newsletter.spread_newsletter
     end

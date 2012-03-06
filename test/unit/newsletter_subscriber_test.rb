@@ -28,18 +28,22 @@ class NewsletterSubscriberTest < ActiveSupport::TestCase
   end
 
   should 'be able to signout from newsletter' do
-    newsletter = Factory.create(:newsletter)
+    newsletter1 = Factory.create(:newsletter)
     subscriber1 = Factory.create(:newsletter_subscriber)
     subscriber2 = Factory.create(:newsletter_subscriber)
     assert_difference "ActionMailer::Base.deliveries.count", 2 do
-      Newsletter.spread_newsletter(newsletter.id)
+      Newsletter.spread_newsletter(newsletter1.id)
     end
+
     assert_difference "NewsletterSubscriber.count", -1 do
       NewsletterSubscriber.unsubscribe(subscriber2.signout_hash)
     end
+
     assert_difference "ActionMailer::Base.deliveries.count" do
+      newsletter2 = Factory.create(:newsletter)
       Newsletter.spread_newsletter
     end
+
   end
 
 end

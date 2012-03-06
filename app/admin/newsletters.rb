@@ -5,10 +5,6 @@ ActiveAdmin.register Newsletter do
     column :body
     column :sent
 
-    # do
-    #   strong { link_to "Send Newsletter", update_newsletter_path()  }
-    # end
-
     default_actions
   end
 end
