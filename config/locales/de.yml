@@ -19,19 +19,37 @@ de:
       as: Begegnung
     course_requests:
       as: Begegnungsanfrage
+    welcome:
+      as: Willkommen
+    about:
+      as: Idee
+    contact:
+      as: Kontake
+    coverage:
+      as: Berichterstattung
+    help:
+      as: Hilfe
+    imprint:
+      as: Impressum
+    overview:
+      as: Überblick
+    terms:
+      as: AGB
 
   pages:
     about:
-      title: Über uns
+      title: Die Idee
     contact:
       title: Kontake
     coverage:
       title: Berichterstattung
     help:
       title: Hilfe
-    home:
-      title: Home
-      newsletter_sign_up_button: Anmelden
+    welcome:
+      title: Willkommen
+      newsletter_sign_up_label: Für Newsletter anmelden
+      newsletter_sign_up_placeholder: Ihre Email Adresse
+      newsletter_sign_up_button: Jetzt anmelden
     imprint:
       title: Impressum
     overview:

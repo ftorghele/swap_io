@@ -29,7 +29,7 @@ Swap::Application.routes.draw do
     resources :categories
 
 
-    get 'home',     :to => 'pages#home'
+    get 'welcome',     :to => 'pages#welcome'
     get 'terms',    :to => 'pages#terms'
     get 'help',     :to => 'pages#help'
     get 'coverage', :to => 'pages#coverage'

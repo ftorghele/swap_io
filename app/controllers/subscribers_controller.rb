@@ -3,15 +3,20 @@ class SubscribersController < ApplicationController
   require 'hash'
 
   def create
-    email = params[:email]
-    if Newsletter.first.present?
-      newsletter = Newsletter.first
-      Subscriber.create(:email => email, :signout_hash => Hash.create_token(email), :newsletter_id => newsletter.id )
+    newsletter = Newsletter.first if Newsletter.first.present?
+    email = params[:subscriber][:email]
+
+
+    @subscriber = Subscriber.new(:email => email, :signout_hash => Hash.create_token(email), :newsletter => newsletter )
+
+    if @subscriber.valid?
+      @subscriber.save!
       flash[:info] = I18n.t('subscriber.create.success')
       redirect_to :back
+
     else
       flash[:error] = I18n.t('subscriber.create.fail')
-      redirect_to :back
+      render 'pages/welcome', :layout => 'welcome'
     end
   end
 

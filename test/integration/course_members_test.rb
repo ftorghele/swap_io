@@ -6,7 +6,7 @@ class CourseMembersTest < ActionDispatch::IntegrationTest
     user = Factory.create(:user)
     course = Factory.create(:course, :user => user)
     login_as
-    visit "/"
+    visit I18n.t('routes.courses.as')
     click_on I18n.t('app.course_link')
     click_on course.title
     assert_difference "CourseMember.count" do
@@ -21,7 +21,7 @@ class CourseMembersTest < ActionDispatch::IntegrationTest
     user = Factory.create(:user)
     course = Factory.create(:course, :user => user)
     login_as(user)
-    visit "/"
+    visit courses_path
     click_on I18n.t('app.course_link')
     click_on course.title
     assert page.has_no_button?(I18n.t('course.show.course_member_button'))
@@ -30,7 +30,7 @@ class CourseMembersTest < ActionDispatch::IntegrationTest
   should 'not be able to attend course without login' do
     user = Factory.create(:user)
     course = Factory.create(:course, :user => user)
-    visit "/"
+    visit courses_path
     click_on I18n.t('app.course_link')
     click_on course.title
     assert page.has_no_button?(I18n.t('course.show.course_member_button'))
@@ -41,7 +41,7 @@ class CourseMembersTest < ActionDispatch::IntegrationTest
     course1 = Factory.create(:course, :user => user1)
     course2 = Factory.create(:course, :user => user1)
     login_as
-    visit "/"
+    visit courses_path
     click_on I18n.t('app.course_link')
     click_on course1.title
     click_on(I18n.t('course.show.course_member_button'))

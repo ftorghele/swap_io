@@ -25,10 +25,9 @@ class PagesTest < ActionDispatch::IntegrationTest
   should 'show landing page' do
     Factory.create(:newsletter)
     visit "/"
-    assert page.has_content?(I18n.t('pages.home.title'))
     assert_no_difference "ActionMailer::Base.deliveries.count" do
-      fill_in('email', :with => 'tester@testmail.com')
-      click_on I18n.t('pages.home.newsletter_sign_up_button')
+      fill_in('subscriber_email', :with => 'tester@testmail.com')
+      click_on I18n.t('pages.welcome.newsletter_sign_up_button')
     end
     assert page.has_content?(I18n.t('subscriber.create.success'))
   end
@@ -41,10 +40,9 @@ class PagesTest < ActionDispatch::IntegrationTest
   end
 
   should 'be able to show fail message if no newsletter exists' do
-    visit "/"
-    assert page.has_content?(I18n.t('pages.home.title'))
-    fill_in('email', :with => 'tester@testmail.com')
-    click_on I18n.t('pages.home.newsletter_sign_up_button')
+    visit welcome_path
+    fill_in('subscriber_email', :with => 'tester@testmail.com')
+    click_on I18n.t('pages.welcome.newsletter_sign_up_button')
     assert page.has_content?(I18n.t('subscriber.create.fail'))
   end
 end
