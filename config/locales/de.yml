@@ -24,27 +24,27 @@ de:
     course_request_link: Begegnungsanfrage
     signed_in_as: Angemeldet als
     not_you: Falscher Benutzer?
-    sign_out_link: Ausloggen
+    sign_out_link: Abmelden
     sign_up_link: Registrieren
-    sign_in_link: Einloggen
+    sign_in_link: Anmelden
     sign_in_with_link: 'Einloggen mit %{provider}'
     footer_text: wissenteilen.com 2012
 
   routes:
     users:
-      as: Begegner
+      as: Menschen
     courses:
       as: Begegnung
     course_requests:
-      as: Begegnungsanfrage
+      as: Begegnungswunsch
     welcome:
       as: Willkommen
     about:
       as: Idee
     contact:
-      as: Kontake
+      as: Kontakt
     coverage:
-      as: Berichterstattung
+      as: Presse
     help:
       as: Hilfe
     imprint:
@@ -60,20 +60,22 @@ de:
     about:
       title: Die Idee
     contact:
-      title: Kontake
+      title: Kontakt
     coverage:
-      title: Berichterstattung
+      title: Presse
     help:
       title: Hilfe
     welcome:
       title: Willkommen
       newsletter_sign_up_label: Für Newsletter anmelden
-      newsletter_sign_up_placeholder: Ihre Email Adresse
+      newsletter_sign_up_placeholder: Deine Email Adresse
       newsletter_sign_up_button: Jetzt anmelden
     imprint:
       title: Impressum
     overview:
       title: Überblick
+      course_member_list: Folgende Kursmitglieder haben sich bei Deinen Begegnungen angemeldet
+      accept_course_member: Begegnung bestätigen
     terms:
       title: AGB
 
@@ -83,7 +85,7 @@ de:
       title: Benutzer Bearbeiten
       submit: Speichern
       cancel_account: Benutzer löschen
-      cancel_account_confirm: Sind Sie sicher?
+      cancel_account_confirm: Bist Du sicher?
       msg:
         success: Deine Daten wurden erfolgreich aktualisiert
       tabs:
@@ -103,48 +105,51 @@ de:
     index:
       headline: Begegnungen
       create_course_button: Neue Begegnung erstellen
-      created_from: Erstellt von
+      created_from: Mit
     new:
       headline: "Begegnung erstellen"
       submit: Abschicken
       select: Select
     show:
       headline: 'Begegnung: %{course_title}'
-      course_member_button: Teilnehmen
+      course_member_button: Anfrage
       category: 'Kategorie: %{category}'
       description: Beschreibung
-      created_from: Erstellt von
+      created_from: Mit
 
   course_request:
     create:
-      success: Begegnungsanfrage wurde erfolgreich erstellt
-      fail: Beim Erstellen der Begegnungsanfrage ist ein Fehler aufgetreten
+      success: Begegnungswunsch wurde erfolgreich erstellt
+      fail: Beim Erstellen des Begegnungswunsches ist ein Fehler aufgetreten
     destroy:
-      success: Begegnungsanfrage wurde erfolgreich gelöscht
-      fail: Beim Löschen der Begegnungsanfrage ist ein Fehler aufgetreten
+      success: Begegnungswunsch wurde erfolgreich gelöscht
+      fail: Beim Löschen des Begegnungswunsches ist ein Fehler aufgetreten
     index:
-      headline: Begegnungsanfrage
-      create_course_request_button: Neue Begegnungsanfrage erstellen
+      headline: Begegnungswunsch
+      create_course_request_button: Neuen Begegnungswunsch erstellt
     new:
-      headline: Begegnungsanfrage erstellen
+      headline: Begegnungswunsch erstellen
       submit: Abschicken
     show:
-      headline: 'Begegnungsanfrage: %{course_request_title}'
-      members: bisherige Interessenten
-      join_course_request_button: Bin interessiert
-      disjoin_course_request_button: Bin nicht mehr interessiert
-      provide_course_request_button: Begegnung anbieten
+      headline: 'Begegnungswunsch: %{course_request_title}'
+      members: Dafür interessieren sich auch
+      join_course_request_button: Interessiert mich auch
+      disjoin_course_request_button: Interessiert mich nicht mehr
+      provide_course_request_button: Wunsch erfüllen
     join:
-      success: Sie interessieren sich nun auch für diese Anfrage
-      fail: Ihre Anfrage konnte leider nicht bearbeitet werden
+      success: Du interessierst Dich nun auch für eine solche Begegnung
+      fail: Deine Anfrage konnte leider nicht bearbeitet werden
     disjoin:
-      success: Sie interessieren sich nun nicht mehr für diese Anfrage
-      fail: Ihre Anfrage konnte leider nicht entfernt werden
+      success: Du interessierst dich nicht mehr für diese Begegnung
+      fail: Deine Begegnungswunsch konnte leider nicht entfernt werden
 
   course_member:
+    update:
+      success: Du hast erfolgreich Bestätigt
+      fail: Bei Deiner Bestätigung ist es zu einem Fehler gekommen
     create:
-      success: Ihre Anfrage wurde versandt
-      fail: Bei Ihrer Anfrage ist es zu einem Fehler gekommen
+      success: Deine Begegnungsanfrage wurde versandt
+      fail: Bei Deiner Anfrage ist es zu einem Fehler gekommen
     destroy:
       success: Die Anfrage wurde erfolgreich gelöscht
       fail: Beim Löschen der Anfrage ist ein Fehler aufgetreten
@@ -152,10 +157,10 @@ de:
   activerecord:
     errors:
       messages:
-        record_invalid: Eintrag konnte nicht gespeichert werden
-        not_a_number: Nur Zahlen erlaubt
+        record_invalid: Dein Eintrag konnte nicht gespeichert werden
+        not_a_number: Es sind nur Zahlen erlaubt
         blank: Darf nicht leer sein
-        too_short: Zu kurz
+        too_short: zu kurz
       models:
         user:
           attributes:
@@ -164,18 +169,18 @@ de:
         course:
           attributes:
             category_id:
-              blank: Sie müssen eine Kategorie wählen
+              blank: Wähle bitte eine Kategorie
         newsletter_subscriber:
           attributes:
             email:
-              blank: Sie müssen Ihre Email Adresse angeben!
-              taken: Sie haben sich bereits für diesen Newsletter registriert.
+              blank: bitte gib Deine e-mail Adresse an
+              taken: Du hast Dich bereits für diesen Newsletter registriert.
 
   helpers:
     label:
       user:
         motivation: Motivation
-        job: Job
+        job: Beruf
         image: Bild
         description: Über mich
         skills: Fähigkeiten
@@ -186,8 +191,8 @@ de:
         password: Passwort
         remember_me: Login merken
         user_images:
-          image: neues Benutzerbild
-          _destroy: Benutzerbild entfernen
+          image: neues Profilbild
+          _destroy: Profilbild entfernen
       course:
         title: Titel
         description: Beschreibung
@@ -197,23 +202,23 @@ de:
         description: Beschreibung
 
   mailer:
-    provide_course_message: "Ein Benutzer auf wissenteilen.com hat auf deine Begegnungsanfrage reagiert. Details zur Person und der Begegnung findest du unter folgenden Links: "
+    provide_course_message: "Jemand hat auf wissenteilen.com auf Deinen Begegnungswunsch reagiert. Details zur Person und der Begegnung findest du unter folgenden Links: "
     join_course_message: "Du hast eine Begegnungsanfrage auf wissenteilen.com erhalten. " 
-    newsletter_message: "Was gibt es neues bei wissenteilen.com"
+    newsletter_message: "Was gibt es Neues bei wissenteilen.com"
     greeting_message: "Hallo"
-    unsubscribe_link: "Um dich vom Newsletter abzumelden klicke den folgenden link"
+    unsubscribe_link: "Um dich vom Newsletter abzumelden klicke auf folgenden link"
     subject:
       news: "News zu Wissenteilen"
-      request_course: Begegnungsanfrage
-      provide_course: Begegnungsangebot
+      request_course: Begegnungswünsche
+      provide_course: Begegnungen
 
   newsletter_subscriber:
     create:
-      success: "Sie haben den wissenteilen.com Newsletter erfolgreich abonniert"
-      fail: "Bei Ihrer Anmeldung zum Newsletter ist ein Fehler aufgetreten"
+      success: "Du hast den wissenteilen.com - Newsletter erfolgreich abonniert"
+      fail: "Bei Deiner Anmeldung zum Newsletter ist ein Fehler aufgetreten"
     unsubscribe:
-      success: "Sie haben sich erfolgreich vom wissenteilen.com Newsletter abgemeldet"
-      fail: "Bei Ihrer Abmeldung vom wissenteilen.com Newsletter ist ein Fehler aufgetreten"
+      success: "Du hast Dich erfolgreich vom Wissen.Teilen.Können Newsletter abgemeldet"
+      fail: "Bei Deiner Abmeldung vom Wissen.Teilen.Können - Newsletter ist ein Fehler aufgetreten"
 
   newsletter:
     update:
