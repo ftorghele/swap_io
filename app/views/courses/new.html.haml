@@ -1,25 +1,2 @@
-%h1
-  = I18n.t('course.new.headline')
-
-=form_for @course, :url => {:controller => :courses, :action => :create, :type => @course_request} do |f|
-  %fieldset
-    %div.control-group{ :class => form_status(@course, :title) }
-      = f.label :title, :class => 'control-label'
-      .controls
-        = f.text_field :title
-        %span.help-inline=  form_status_msg(@course, :title)
-
-    %div.control-group{ :class => form_status(@course, :description) }
-      = f.label :description, :class => 'control-label'
-      .controls
-        = f.text_area :description, :size => "30x10"
-        %span.help-inline=  form_status_msg(@course, :description)
-
-    %div.control-group{ :class => form_status(@course, :category_id) }
-      = f.label :category_id, :class => 'control-label'
-      .controls
-        = f.select(:category_id, Category.all.collect {|f| [ f.title, f.id ] } , {:include_blank => I18n.t('course.new.select')} )
-        %span.help-inline=  form_status_msg(@course, :category_id)
-
-  %div.form-actions
-    = f.submit I18n.t('course.new.submit'), :class => 'btn-primary'
+%h1= I18n.t('course.new.headline')
+= render :partial => 'form'

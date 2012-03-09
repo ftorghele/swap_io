@@ -1,0 +1,7 @@
+.span1
+  .thumbnail= link_to image_tag(userpic(course.user, :thumb), :alt => username(course.user)), user_path(course.user)
+.span11
+  %h1= link_to course.title, course_path(course)
+  %h2= course.description
+  = I18n.t('course.index.created_from')
+  = link_to(username(course.user), user_path(course.user))

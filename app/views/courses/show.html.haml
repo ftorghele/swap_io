@@ -11,11 +11,5 @@
         = I18n.t('course.show.created_from')
         = link_to(username(@course.user), user_path(@course.user))
 
-
-/* TODO refactor with actual content for owner/logged_in user/visitor*/
-/* TODO put into helper
 - if signed_in?
-  - unless attend_course_link
-    = form_tag({:controller => "course_members", :action => :create}, :method => :post) do
-      = hidden_field_tag 'course_id', @course.id
-      = submit_tag I18n.t('course.show.course_member_button')
+  = render 'join_course_button'
