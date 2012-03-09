@@ -1,0 +1,16 @@
+= form_for @course_request do |f|
+  %fieldset
+    %div.control-group{ :class => form_status(@course_request, :title) }
+      = f.label :title, :class => 'control-label'
+      .controls
+        = f.text_field :title
+        %span.help-inline=  form_status_msg(@course_request, :title)
+
+    %div.control-group{ :class => form_status(@course_request, :description) }
+      = f.label :description, :class => 'control-label'
+      .controls
+        = f.text_area :description, :size => "30x10"
+        %span.help-inline=  form_status_msg(@course_request, :description)
+
+  %div.form-actions
+    = f.submit I18n.t('course_request.new.submit'), :class => 'btn-primary'
