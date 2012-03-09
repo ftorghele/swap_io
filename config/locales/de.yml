@@ -76,6 +76,7 @@ de:
       title: Überblick
       course_member_list: Folgende Kursmitglieder haben sich bei Deinen Begegnungen angemeldet
       accept_course_member: Begegnung bestätigen
+      reject_course_member: Begegnung ablehnen
     terms:
       title: AGB
 
@@ -146,6 +147,7 @@ de:
   course_member:
     update:
       success: Du hast erfolgreich Bestätigt
+      rejected: Du hast den User erfolgreich abgelehnt
       fail: Bei Deiner Bestätigung ist es zu einem Fehler gekommen
     create:
       success: Deine Begegnungsanfrage wurde versandt

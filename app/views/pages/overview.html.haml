@@ -1,1 +1,18 @@
 %h1= I18n.t('pages.overview.title')
+%h2= I18n.t('pages.overview.course_member_list')
+
+- if current_user
+  - current_user.get_courses.each do |course|
+    %h2= course.title
+    - course.get_course_members.each do |member|
+      -#TODO put to helper
+      = "#{member.user.first_name} " "#{member.user.last_name}" if member.accepted == 1
+      - if member.accepted == 2
+        = link_to ("#{member.user.first_name} " "#{member.user.last_name}"), user_path(member.user)
+        = form_tag(course_member_path(member), :method => :put) do |f|
+          = hidden_field_tag 'acceptance', 1
+          = submit_tag I18n.t('pages.overview.accept_course_member')
+        = form_tag(course_member_path(member), :method => :put) do |f|
+          = hidden_field_tag 'acceptance', 0
+          = submit_tag I18n.t('pages.overview.reject_course_member')
+        %br

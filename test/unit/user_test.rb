@@ -121,4 +121,11 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  should 'get all courses of a user' do
+    user = Factory.create(:user)
+    course1 = Factory.create(:course, :user => user)
+    course2 = Factory.create(:course, :user => user)
+    assert_equal user.get_courses.count, 2
+  end
+
 end

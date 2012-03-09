@@ -2,7 +2,7 @@ class Course < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
-  has_many :course_members, :through => :courses
+  has_many :course_members
 
   validates_presence_of :title, :description, :category_id, :user_id
 
@@ -19,5 +19,9 @@ class Course < ActiveRecord::Base
     user_link = "http://wissenteilen.com/#{I18n.t('routes.users.as')}/#{user.id}"
     course_link = "http://wissenteilen.com/#{I18n.t('routes.courses.as')}/#{self.id}"
     SystemMailer.request_course(self.user, user_link, course_link).deliver
+  end
+
+  def get_course_members
+    self.course_members.all
   end
 end

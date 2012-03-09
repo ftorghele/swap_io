@@ -15,4 +15,8 @@ class CourseMember < ActiveRecord::Base
     self.exists?(self.find_by_user_id_and_course_id(user_id, course_id))
   end
 
+  def self.update_user_acceptance id, acceptance
+    self.find(id).update_attribute(:accepted, acceptance)
+    acceptance == "1" ? true : false
+  end
 end

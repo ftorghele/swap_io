@@ -14,7 +14,7 @@ class ActionDispatch::IntegrationTest
     user = user || Factory.create(:user)
     user.confirm!
     visit '/'
-    click_link(I18n.t('devise.sessions.submit'))
+    click_link(I18n.t('app.sign_in_link'))
     fill_in 'user_email', :with => user.email
     fill_in 'user_password', :with => user.password
     click_button(I18n.t('devise.sessions.submit'))

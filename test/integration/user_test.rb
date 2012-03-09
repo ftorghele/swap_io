@@ -29,4 +29,32 @@ class UserTest < ActionDispatch::IntegrationTest
     assert page.has_content? I18n.t('user.edit.msg.success')
   end
 
+  should 'be able to accept user for course' do
+    user1 = Factory.create(:user)
+    user2 = Factory.create(:user)
+    course = Factory.create(:course, :user => user2)
+    course_member = Factory.create(:course_member, :user_id => user1.id, :course_id => course.id)
+    login_as user2
+    visit "/"
+    assert page.has_content?(I18n.t('pages.overview.course_member_list'))
+    click_on I18n.t('pages.overview.accept_course_member')
+  end
+
+  should 'show course_members on overview' do
+    user1 = Factory.create(:user)
+    user2 = Factory.create(:user)
+    user3 = Factory.create(:user)
+    course = Factory.create(:course, :user => user1)
+    Factory.create(:course_member, :user_id => user2.id, :course_id => course.id)
+    Factory.create(:course_member, :user_id => user3.id, :course_id => course.id)
+    login_as user1
+    visit "/"
+    assert page.has_link?(user2.first_name << " " << user2.last_name)
+    assert page.has_link?(user3.first_name << " " << user3.last_name)
+    click_on I18n.t('pages.overview.accept_course_member')
+    assert page.has_content?(I18n.t('course_member.update.success'))
+    click_on I18n.t('pages.overview.reject_course_member')
+    assert page.has_content?(I18n.t('course_member.update.rejected'))
+  end
+
 end
