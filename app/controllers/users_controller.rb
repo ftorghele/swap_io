@@ -13,9 +13,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_id(params[:id])
-    @user.update_attributes(params[:user])
-    flash[:info] = I18n.t('user.edit.msg.success')
+    if User.find_by_id(params[:id]).update_attributes(params[:user])
+      flash[:info] = I18n.t('user.edit.msg.success')
+    else
+      flash[:info] = I18n.t('user.edit.msg.fail')
+    end
     redirect_to user_path(@user)
   end
 

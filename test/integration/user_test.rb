@@ -29,6 +29,18 @@ class UserTest < ActionDispatch::IntegrationTest
     assert page.has_content? I18n.t('user.edit.msg.success')
   end
 
+  should 'not be able to create skills' do
+    visit "/"
+    user = Factory.create(:user)
+    login_as user
+    click_on I18n.t('user.edit.title')
+    click_on I18n.t('user.edit.tabs.about')
+    fill_in('user_user_skills_attributes_0_title', :with => 'Rails Programmierung')
+    User.any_instance.stubs(:update_attributes).returns(false)
+    click_on I18n.t('user.edit.submit')
+    assert page.has_content? I18n.t('user.edit.msg.fail')
+  end
+
   should 'be able to accept user for course' do
     user1 = Factory.create(:user)
     user2 = Factory.create(:user)

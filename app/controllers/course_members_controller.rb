@@ -2,16 +2,13 @@ class CourseMembersController < ApplicationController
 
   def create
     course_id = params[:course_id]
-    course_member = CourseMember.new(:course_id => course_id, :user_id => current_user.id)
-    course = Course.find(course_id)
-
-    if course_member.save
-      redirect_to courses_path
+    if CourseMember.create(:course_id => course_id, :user_id => current_user.id)
+      Course.course_member_request current_user, course_id
       flash[:message] = I18n.t('course_member.create.success')
-      course.course_member_request current_user
+      redirect_to courses_path
     else
-      redirect_to :back
       flash[:error] = I18n.t('course_member.create.fail')
+      redirect_to :back
     end
   end
 

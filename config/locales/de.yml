@@ -89,6 +89,7 @@ de:
       cancel_account_confirm: Bist Du sicher?
       msg:
         success: Deine Daten wurden erfolgreich aktualisiert
+        fail: Beim Aktualisieren Deiner Daten ist ein Fehler aufgetreten
       tabs:
         common: Allgemeine Daten
         about: Über mich

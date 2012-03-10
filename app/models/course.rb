@@ -15,10 +15,11 @@ class Course < ActiveRecord::Base
     end
   end
 
-  def course_member_request user
+  def self.course_member_request user, id
+    course = self.find_by_id(id)
     user_link = "http://wissenteilen.com/#{I18n.t('routes.users.as')}/#{user.id}"
-    course_link = "http://wissenteilen.com/#{I18n.t('routes.courses.as')}/#{self.id}"
-    SystemMailer.request_course(self.user, user_link, course_link).deliver
+    course_link = "http://wissenteilen.com/#{I18n.t('routes.courses.as')}/#{course.id}"
+    SystemMailer.request_course(course.user, user_link, course_link).deliver
   end
 
   def get_course_members

@@ -4,14 +4,9 @@ class NewsletterSubscribersController < ApplicationController
 
   def create
     email = params[:newsletter_subscriber][:email]
-
-    @subscriber = NewsletterSubscriber.new(:email => email, :signout_hash => Hash.create_token(email) )
-
-    if @subscriber.valid?
-      @subscriber.save!
+    if @subscriber = NewsletterSubscriber.create(:email => email, :signout_hash => Hash.create_token(email) )
       flash[:info] = I18n.t('newsletter_subscriber.create.success')
       redirect_to welcome_path
-
     else
       flash[:error] = I18n.t('newsletter_subscriber.create.fail')
       render 'pages/welcome', :layout => 'welcome'

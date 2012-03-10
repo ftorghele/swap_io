@@ -70,7 +70,7 @@ class CourseTest < ActiveSupport::TestCase
     user = Factory.create(:user)
     course = Factory.create(:course)
     assert_difference "ActionMailer::Base.deliveries.count" do
-      email_delivery = course.course_member_request(user)
+      email_delivery = Course.course_member_request(user, course.id)
       assert_equal ActionMailer::Base.deliveries.last, email_delivery
     end
   end

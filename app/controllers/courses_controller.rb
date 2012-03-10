@@ -3,8 +3,7 @@ class CoursesController < ApplicationController
   before_filter :authenticate_user! , :only => [:new, :create]
 
   def new
-    @course_request = CourseRequest.find_by_id(params[:id])
-    unless @course_request.nil?
+    if @course_request = CourseRequest.find_by_id(params[:id])
       @course = Course.new( :title => @course_request.title, :description => @course_request.description)
     else
       @course = Course.new
@@ -12,7 +11,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = current_user.courses.create params[:course]
+    @course = current_user.courses.new( params[:course] )
     if @course.save
       flash[:info] = I18n.t('course.create.success')
       @course.provide_course_mailer params[:type] if params[:type]
