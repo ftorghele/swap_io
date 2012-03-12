@@ -80,6 +80,16 @@ de:
     terms:
       title: AGB
 
+  error:
+    error_404:
+      headline: Seite nicht gefunden (404)
+      msg: Die von Ihnen gewünschte Seite konnte nicht gefunden werden.
+    error_500:
+      headline: Es ist ein Fehler Aufgetreten (500)
+      msg: Unsere Techniker wurden verständigt und werden sich darum kümmern.
+    backlink: Zurück zur Startseite
+
+
   user:
     edit:
       skills: Fähigkeiten

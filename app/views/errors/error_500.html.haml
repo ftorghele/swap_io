@@ -1,9 +1,4 @@
-%h2 500
-%div
-  %h3 We're sorry
-  %p
-    Something went wrong )=
-  %p
-    Want to
-    %a{href: root_path} go back to our home page
-    and try again?
+%h2= I18n.t('error.error_500.headline')
+.well
+  %p= I18n.t('error.error_500.msg')
+  %p= link_to I18n.t('error.backlink'), root_path
