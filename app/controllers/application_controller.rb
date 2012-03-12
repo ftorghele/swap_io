@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   private
   def render_404(exception)
+    notify_airbrake(exception)
     @not_found_path = exception.message
     respond_to do |format|
       format.html { render template: 'errors/error_404', status: 404 }
@@ -19,6 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def render_500(exception)
+    notify_airbrake(exception)
     @error = exception
     respond_to do |format|
       format.html { render template: 'errors/error_500', status: 500 }
