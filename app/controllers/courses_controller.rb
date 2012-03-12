@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find_by_id(params[:id])
+    @course = Course.find(params[:id])
   end
 
   def destroy

@@ -8,7 +8,7 @@ class CourseMembersController < ApplicationController
       redirect_to courses_path
     else
       flash[:error] = I18n.t('course_member.create.fail')
-      redirect_to :back
+      redirect_to course_path(course_id)
     end
   end
 
@@ -20,6 +20,6 @@ class CourseMembersController < ApplicationController
     else
       flash[:error] = I18n.t('course_member.update.fail')
     end
-    redirect_to :back
+    redirect_to root_path
   end
 end
