@@ -39,4 +39,13 @@ class PagesTest < ActionDispatch::IntegrationTest
     end
   end
 
+  should 'be able to send email via contact_form' do
+    visit "/#{I18n.t('routes.contact.as')}"
+    fill_in('email_field', :with => "tester@testmail.com")
+    fill_in('subject', :with => "Some content on your site...")
+    fill_in('body', :with => "I want to inform you about sth...")
+    click_on I18n.t('pages.contact.submit')
+    assert page.has_content?( I18n.t('pages.contact.msg.success') )
+  end
+
 end

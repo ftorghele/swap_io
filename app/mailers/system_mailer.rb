@@ -30,4 +30,11 @@ class SystemMailer < ActionMailer::Base
     mail to: email, subject: "#{I18n.t('mailer.subject.news')}"
   end
 
+  def contact_us(email, subject, body)
+    @email = email
+    @subject = subject
+    @body = body
+    mail to: "info@wissenteilen.com", subject: subject, from: email
+  end
+
 end

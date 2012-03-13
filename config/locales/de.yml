@@ -19,6 +19,7 @@ de:
 
   app:
     headline: "Wissen Teilen Können"
+    adress: www.wissenteilen.com
     brand: wissenteilen.com
     course_link: Begegnung
     course_request_link: Begegnungswunsch
@@ -60,7 +61,15 @@ de:
     about:
       title: Die Idee
     contact:
+      email_field: email
+      email: email
+      subject: Betreff
+      body: Nachricht
+      submit: Abschicken
       title: Kontakt
+      msg:
+        success: "Das Kontaktformular wurde erfolgreich versendet"
+        fail: "Deine Kontaktanfrage ist Fehlgeschlagen"
     coverage:
       title: Presse
     help:
@@ -205,10 +214,11 @@ de:
         description: Beschreibung
 
   mailer:
+    unsubscribe_alternative_link: "Wenn der oben angeführte Link nicht funktioniert, rufe die folgende Adresse in deinem Browser auf"
     provide_course_message: "Jemand hat auf wissenteilen.com auf Deinen Begegnungswunsch reagiert. Details zur Person und der Begegnung findest du unter folgenden Links: "
     join_course_message: "Du hast eine Begegnungsanfrage auf wissenteilen.com erhalten. " 
     newsletter_message: "Was gibt es Neues bei wissenteilen.com"
-    greeting_message: "Hallo"
+    greeting_message: "Herzliches Hallo!"
     unsubscribe_link: "Um dich vom Newsletter abzumelden klicke auf folgenden link"
     subject:
       news: "News zu Wissenteilen"
@@ -283,3 +293,9 @@ de:
       title: Daten verfollständigen
       submit: Weiter
       cancel: Registrierung abbrechen
+
+
+
+  content:
+    idea: "<p> WissenTeilenKönnen ist eine online Plattform, die Menschen ermöglichen soll sich je nach Interessensgebiet zu finden, um sich anschließend - im echten Leben - zu treffen und auszutauschen.</p> <p>Jeder von von hat bestimmte Kenntnisse und Fähigkeiten! Diese gilt es mit einander zu teilen! Seine Ideen und Erfahrungen in anderen weiterwachsen zu lassen! Andere Sichtweisen kennenzulernen! Seiner Neugier zu folgen! </p><p>Gleichzeitig sich auch zu besinnen, ob einen ein materielles Gut oder ein gemeinsames Erlebnis glücklicher macht? Sich zu fragen, worin es sich lohnt, seine wertvolle Zeit zu investieren? </p><p>Wir finden, dass wir in einander investieren und uns gemeinsam auf einen neuen Weg Richtung Menschlichkeit machen sollten! Wir, das sind Matthias Jungwirth, Wolfgang Vogl, Franz Torghele und Lilli Tchourlina. Studenten der FH Salzburg Multimediaart und Multimediatechnology, aber allen voran Menschen, die daran glauben, dass es wertvoll für unsere Gemeinschaft und einen selbst ist, seine Fähigkeiten an andere weiterzugeben, dass es zum Mensch sein dazugehört seiner Neugier nachgehen zu können, Fragen zu stellen und Antworten zu bekommen, dass es an der Zeit ist das Menschsein mehr zu pflegen und zu fördern! Lasst uns gemeinsam eine Welt der Begegnungen, des Austauschs und Respekts gestalten! </p><p>Hört in euch hinein, teilt mit anderen eure Fähigkeiten,  lernt und probiert aus, worauf ihr schon immer neugierig wart. Begegnet eurer Stadt und ihren Bewohnern, lernt eure Nachbarn kennen, entdeckt die verborgenen Schätze in euch selbst und euren Mitmenschen! </p>"
+    

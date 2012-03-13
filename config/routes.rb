@@ -42,6 +42,7 @@ Swap::Application.routes.draw do
     get 'contact',  :to => 'pages#contact'
     get 'about',    :to => 'pages#about'
     get 'imprint',  :to => 'pages#imprint'
+    post 'contact_us',  :to => 'pages#contact_us'
   end
 
   root :to => 'pages#overview'
