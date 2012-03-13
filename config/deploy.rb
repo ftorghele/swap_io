@@ -1,4 +1,7 @@
 require "bundler/capistrano"
+require './config/boot'
+require 'airbrake/capistrano'
+
 set :scm,             :git
 set :repository,      "deployer@lvps46-163-115-88.dedicated.hosteurope.de:/home/deployer/apps/swap_io/gitrepo"
 set :branch,          "origin/master"
@@ -93,6 +96,7 @@ namespace :deploy do
       ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml  &&
       ln -sf #{shared_path}/devise.rb #{latest_release}/config/initializers/devise.rb &&
       ln -sf #{shared_path}/secret_token.rb #{latest_release}/config/initializers/secret_token.rb &&
+      ln -sf #{shared_path}/airbrake.rb #{latest_release}/config/initializers/airbrake.rb &&
       ln -sf #{shared_path}/production.rb #{latest_release}/config/environments/production.rb &&
       ln -sf #{shared_path}/unicorn.rb #{latest_release}/config/unicorn.rb
     CMD

@@ -36,6 +36,7 @@ Swap::Application.routes.draw do
 
 
     get 'welcome',  :to => 'pages#welcome'
+    get 'overview', :to => 'pages#overview'
     get 'terms',    :to => 'pages#terms'
     get 'help',     :to => 'pages#help'
     get 'coverage', :to => 'pages#coverage'
@@ -43,6 +44,10 @@ Swap::Application.routes.draw do
     get 'about',    :to => 'pages#about'
     get 'imprint',  :to => 'pages#imprint'
     post 'contact_us',  :to => 'pages#contact_us'
+  end
+
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
   end
 
   root :to => 'pages#overview'

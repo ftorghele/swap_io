@@ -34,7 +34,7 @@ class CourseRequestsController < ApplicationController
     else
       flash[:error] = I18n.t('course_request.join.fail')
     end
-    redirect_to CourseRequest.find_by_id(course_request) ? :back : course_requests_path
+    redirect_to CourseRequest.find_by_id(course_request) ? course_request_path(course_request) : course_requests_path
   end
 
   def disjoin
@@ -47,7 +47,7 @@ class CourseRequestsController < ApplicationController
     else
       flash[:error] = I18n.t('course_request.disjoin.fail')
     end
-    redirect_to CourseRequest.find_by_id(course_request) ? :back : course_requests_path
+    redirect_to CourseRequest.find_by_id(course_request) ? course_request_path(course_request) : course_requests_path
   end
 
 end
