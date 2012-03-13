@@ -74,12 +74,14 @@ de:
       title: Presse
     help:
       title: Hilfe
+      body: "Mein Dashboard.<br/>Neue Begegnung erstellen.<br/>Neuen Begegnungswunsch erstellen.<br/>Sich für einen Begegnungswunsch interessieren.<br/>Einen Begegnungswunsch erfüllen.<br/>Meine Begegnungsvorschläge verwalten.<br/>Mein Profil<br/>Kategorien abonnieren / abmelden.<br/>F.A.Q.<br/>Wie funktioniert WTK?<br/>Was ist wenn ich mich gegen eine Anfrage entscheide?<br/>Wie funktionieren Begegnungswünsche?<br/>Wie kann ich die Chancen verbessern eine passende Begegnung zu finden?<br/>Darf ich für meinen Aufwand Geld verlangen?<br/>Wie kann ich einen Kurs vormerken?<br/>Privatsphäre.<br/>Feedbackmöglichkeiten."
     welcome:
       title: Willkommen
       newsletter_sign_up_label: Für Newsletter anmelden
       newsletter_sign_up_placeholder: Deine Email Adresse
       newsletter_sign_up_button: Jetzt anmelden
     imprint:
+      body: Impressum <br/> Lilija Tchourlina<br/> Haydnstrasse 1 <br/> 5020 Salzburg <br/> info@wissenteilen.com <br/>
       title: Impressum
     overview:
       title: Überblick
@@ -231,6 +233,8 @@ de:
     greeting_message: "Herzliches Hallo!"
     unsubscribe_link: "Um dich vom Newsletter abzumelden klicke auf folgenden link"
     subject:
+      accept_course_member: "Begegnung wurde angenommen"
+      reject_course_member: "Begegnung wurde leider abgelehnt"
       news: "News zu Wissenteilen"
       request_course: Begegnungswünsche
       provide_course: Begegnungen

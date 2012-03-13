@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>
+      <%= @subject %>
+    </title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <%= "Du wurdest von #{@user.first_name} #{@user.last_name} zur Begegnung #{@course.title} leider abgelehnt." %>
+        </td>
+        <td>
+          <a href="http://www.wissenteilen.com">
+            Wissen Teilen Können
+          </a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
