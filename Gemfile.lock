@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/bcardarella/client_side_validations.git
+  revision: fa9aa7f610c3a46d89f8bc1b896e62090fe0b8f0
+  specs:
+    client_side_validations (3.2.0.beta.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -245,6 +251,7 @@ DEPENDENCIES
   airbrake
   capistrano
   capybara
+  client_side_validations!
   coffee-rails (~> 3.2.1)
   database_cleaner
   devise (= 2.0.0)

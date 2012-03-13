@@ -1,5 +1,7 @@
+= javascript_include_tag 'rails.validations'
+
 %h2= I18n.t('user.edit.title')
-= form_for(@user, :html => { :method => :put, :multipart => true, :class => 'form-horizontal' }) do |f|
+= form_for(@user, :validate => true, :html => { :method => :put, :multipart => true}) do |f|
   %fieldset
     .tabbable
       %ul.nav-tabs
@@ -9,70 +11,56 @@
 
       .tab-content
         .tab-pane.active#common
-          %div.control-group{ :class => form_status(@user, :first_name) }
-            = f.label :first_name, :class => 'control-label'
-            .controls
-              = f.text_field :first_name
-              %span.help-inline=  form_status_msg(@user, :first_name)
+          %div
+            = f.label :first_name
+            = f.text_field :first_name
 
-          %div.control-group{ :class => form_status(@user, :last_name) }
-            = f.label :last_name, :class => 'control-label'
-            .controls
-              = f.text_field :last_name
-              %span.help-inline=  form_status_msg(@user, :last_name)
+          %div
+            = f.label :last_name
+            = f.text_field :last_name
 
-          %div.control-group{ :class => form_status(@user, :zip) }
-            = f.label :zip, :class => 'control-label'
-            .controls
-              = f.text_field :zip
-              %span.help-inline=  form_status_msg(@user, :zip)
+          %div
+            = f.label :zip
+            = f.text_field :zip
 
         .tab-pane#about
           = f.fields_for :user_images do |image|
             - unless image.object.new_record?
               .span9
                 .thumbnail
-                  %div.control-group.pull-right
-                    = image.label :_destroy, :class => 'control-label'
-                    .controls
-                      = image.check_box :_destroy
+                  %div.pull-right
+                    = image.label :_destroy
+                    = image.check_box :_destroy
                   = image_tag userpic(@user, :medium), :alt => username(@user)
             - else
-              %div.control-group
-                = image.label :image, :class => 'control-label'
-                .controls
-                  = image.file_field :image
+              %div
+                = image.label :image
+                = image.file_field :image
 
-          %div.control-group
-            = f.label :description, :class => 'control-label'
-            .controls
-              = f.text_area :description
+          %div
+            = f.label :description
+            = f.text_area :description
 
-          %div.control-group 
-            = f.label :job, :class => 'control-label'
-            .controls
-              = f.text_field :job
+          %div
+            = f.label :job
+            = f.text_field :job
 
-          %div.control-group
-            = f.label :motivation, :class => 'control-label'
-            .controls
-              = f.text_field :motivation
+          %div
+            = f.label :motivation
+            = f.text_field :motivation
 
           = f.fields_for :user_skills do |skill|
             - unless skill.object.new_record?
-              %div.control-group
-                = skill.label I18n.t('user.edit.skills'), :class => 'control-label'
-                .controls.span2
-                  = skill.label :title
-                .controls
-                  = skill.check_box :_destroy
-                  .controls.pull-right
-                    = skill.label :_destroy
+              %div
+                = skill.label I18n.t('user.edit.skills')
+                = skill.label :title
+                = skill.check_box :_destroy
+                .pull-right
+                  = skill.label :_destroy
             - else
-              %div.control-group
-                = skill.label I18n.t('user.edit.skills'), :class => 'control-label'
-                .controls
-                  = skill.text_field :title
+              %div
+                = skill.label I18n.t('user.edit.skills')
+                = skill.text_field :title
 
         .tab-pane#account
           = link_to I18n.t('user.edit.cancel_account'), registration_path(@user), :confirm => I18n.t('user.edit.cancel_account_confirm'), :method => :delete, :class => 'btn-large btn-danger'
