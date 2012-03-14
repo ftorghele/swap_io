@@ -1,5 +1,7 @@
 class Course < ActiveRecord::Base
 
+  default_scope :order => "created_at DESC"
+
   belongs_to :user
   belongs_to :category
   has_many :course_members
