@@ -15,9 +15,9 @@
         .row
           .span12
             .pull-right.with-margin
-              = link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => 'btn'
-              = link_to I18n.t('app.sign_in_link'), new_user_session_path, :class => 'btn'
-              = link_to I18n.t('app.sign_in_with_link', :provider => "Facebook"), user_omniauth_authorize_path(:facebook), :class => 'btn'
+              =# link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => 'btn'
+              =# link_to I18n.t('app.sign_in_link'), new_user_session_path, :class => 'btn'
+              =# link_to I18n.t('app.sign_in_with_link', :provider => "Facebook"), user_omniauth_authorize_path(:facebook), :class => 'btn'
 
         .row
           .span12
@@ -27,6 +27,6 @@
           .span12
             = yield
 
-      = render('layouts/footer')
+      =# render('layouts/footer')
 
     = javascript_include_tag :application

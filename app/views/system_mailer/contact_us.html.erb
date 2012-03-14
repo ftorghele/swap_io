@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>
+      <%= @subject %>
+    </title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <%= "Der User mit der email adresse #{@email} hat folgende Nachricht geschrieben: " %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= @body %>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

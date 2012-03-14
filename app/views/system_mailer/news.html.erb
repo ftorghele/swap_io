@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <title>
+      <%= I18n.t('mailer.subject.news') %>
+    </title>
+  </head>
+  <body style="text-align: center" >
+
+    <table border="1" rules="groups" cellspacing="20" cellpadding="40" width="80%">
+      <thead>
+        <tr>
+          <td bgcolor= "#5EBD5E">
+            <img src="http://wissenteilen.com/assets/sprechblase.png" alt="Wissen Teilen Können">
+          </td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>
+            <h2>
+              <%= I18n.t('mailer.greeting_message')%>
+            </h2>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if @body.nil? %>
+              <h3>
+                <%= I18n.t('mailer.newsletter_message')%>
+              </h3>
+            <%else%>
+              <h3>
+                <%= raw @body %>
+              </h3>
+            <%end%>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor= "#5EBD5E">
+            <table width=100% frame=void rules=none >
+              <td>
+                <a href="http://wissenteilen.com/Idee">
+                  Die Idee
+                </a>
+              </td>
+              <td>
+                <a href="http://wissenteilen.com/Presse">
+                  Presse
+                </a>
+              </td>
+              <td>
+                <a href="http://wissenteilen.com/Impressum">
+                  Impressum
+                </a>
+              </td>
+              <td>
+                <a href="http://wissenteilen.com/AGB">
+                  AGB
+                </a>
+              </td>
+              <td>
+                <a href="http://wissenteilen.com/Kontakt">
+                  Kontakt
+                </a>
+              </td>
+              <td>
+                <a href="http://wissenteilen.com/Hilfe">
+                  Hilfe
+                </a>
+              </td>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size: 8pt, font-style=italic, font-family=Helvetica">
+            <%= I18n.t('mailer.unsubscribe_link')%>
+            <a href="http://www.wissenteilen.com/newsletter_subscribers/unsubscribe?token=<%=@unsubscribe_token%>" >
+              Abmelden
+            </a>
+          </td>
+          <td>
+            <%= I18n.t('mailer.unsubscribe_alternative_link') %>
+            <%= "http://www.wissenteilen.com/newsletter_subscribers/unsubscribe?token=#{@unsubscribe_token} " %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

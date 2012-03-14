@@ -43,6 +43,7 @@ Swap::Application.routes.draw do
     get 'contact',  :to => 'pages#contact'
     get 'about',    :to => 'pages#about'
     get 'imprint',  :to => 'pages#imprint'
+    post 'contact_us',  :to => 'pages#contact_us'
   end
 
   unless Rails.application.config.consider_all_requests_local

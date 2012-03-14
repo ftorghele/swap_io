@@ -17,10 +17,10 @@ class NewsletterSubscribersController < ApplicationController
   def unsubscribe
     if NewsletterSubscriber.unsubscribe(params[:token])
       flash[:info] = I18n.t('newsletter_subscriber.unsubscribe.success')
-      redirect_to 'home'
+      redirect_to root_path
     else
       flash[:error] = I18n.t('newsletter_subscriber.unsubscribe.fail')
-      redirect_to 'home'
+      redirect_to root_path
     end
   end
 

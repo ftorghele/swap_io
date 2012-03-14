@@ -13,7 +13,7 @@ class ActionDispatch::IntegrationTest
   def login_as user=nil
     user = user || Factory.create(:user)
     user.confirm!
-    visit '/'
+    visit '/Hilfe'
     click_link(I18n.t('app.sign_in_link'))
     fill_in 'user_email', :with => user.email
     fill_in 'user_password', :with => user.password
