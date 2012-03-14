@@ -1,3 +1,28 @@
+@import "bootstrap.css.scss";
+
 .copyright {
     text-align: center;
+}
+form {
+    @extend .form-horizontal;
+    fieldset {
+        div {
+            @extend .control-group;
+            label {
+                @extend .control-label;
+            }
+            input, textarea, select, checkbox {
+                margin-left: 30px!important;
+                float:left;
+            }
+            .field_with_errors {
+                display:inline;
+                .message {
+                    display:inline;
+                    color: #f00;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
 }

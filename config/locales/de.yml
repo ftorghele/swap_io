@@ -193,6 +193,10 @@ de:
           attributes:
             password:
               too_short: mindestens 6 Zeichen
+            email:
+              invalid: ungültige Adresse
+            zip:
+              not_a_number: ungültige Postleitzahl
         course:
           attributes:
             category_id:

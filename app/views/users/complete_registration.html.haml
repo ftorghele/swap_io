@@ -1,5 +1,7 @@
+= javascript_include_tag 'rails.validations'
+
 %h2= I18n.t('devise.complete_registration.title')
-= form_for @user, :url => fb_create_users_path, :html => { :class => 'form-horizontal' } do |f|
+= form_for @user, :validate => true, :url => fb_create_users_path, :html => { :class => 'form-horizontal' } do |f|
 
   %fieldset
     = f.hidden_field :first_name
@@ -7,11 +9,9 @@
     = f.hidden_field :email
     = f.hidden_field :password
 
-    %div.control-group{ :class => form_status(@user, :zip) }
-      = f.label :zip, :class => 'control-label'
-      .controls
-        = f.text_field :zip
-        %span.help-inline=  form_status_msg(@user, :zip)
+    %div
+      = f.label :zip
+      = f.text_field :zip
 
   %div.form-actions
     = link_to I18n.t('devise.complete_registration.cancel'), root_path, :class => 'btn'

@@ -11,8 +11,8 @@
 
     #newsletter-box {
         form {
-            @extend .well;
             @extend .form-inline;
+            @extend .well;
             #newsletter-center {
                 margin: 5px auto;
                 width: 500px;
@@ -22,10 +22,10 @@
             @extend .btn-success;
         }
 
-        .help-inline {
-            text-align:center;
-            width: 500px;
-            margin: 10px auto 0 auto;
+        .message {
+            float:right;
+            width: 350px;
+            color: #f00;
         }
     }
 }

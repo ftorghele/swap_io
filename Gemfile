@@ -4,7 +4,8 @@ gem 'rails', '3.2.1'
 gem 'jquery-rails'
 gem 'mysql2'
 gem 'i18n_routing'
-gem "paperclip", "~> 2.5"
+gem 'paperclip', '~> 2.5'
+gem 'client_side_validations', :git => 'https://github.com/bcardarella/client_side_validations.git'
 
 gem 'devise', '2.0.0'
 gem 'omniauth-facebook'
