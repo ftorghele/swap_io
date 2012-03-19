@@ -8,4 +8,18 @@
   .row
     .span12
       %h2= I18n.t('user.show.about', :name => @user.first_name)
-      %p= @user.description
+      .well= @user.description
+
+  .row
+    .span12
+      %h2= I18n.t('user.show.my_courses', :name => @user.first_name)
+      .well
+        %ul= render(:partial => 'users/show/course', :collection => @user.get_courses) || I18n.t('user.show.empty_collection')
+    .span12
+      %h2= I18n.t('user.show.my_course_memberships', :name => @user.first_name)
+      .well
+        %ul= render(:partial => 'users/show/course_membership', :collection => @user.get_accepted_course_memberships) || I18n.t('user.show.empty_collection')
+    .span12
+      %h2= I18n.t('user.show.my_course_requests', :name => @user.first_name)
+      .well
+        %ul= render(:partial => 'users/show/course_request', :collection => @user.get_course_requests) || I18n.t('user.show.empty_collection')

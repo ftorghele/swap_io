@@ -61,4 +61,12 @@ class User < ActiveRecord::Base
     self.courses
   end
 
+  def get_course_requests
+    self.course_requests
+  end
+
+  def get_accepted_course_memberships
+    CourseMember.find_all_by_user_id_and_accepted(self.id, 1)
+  end
+
 end
