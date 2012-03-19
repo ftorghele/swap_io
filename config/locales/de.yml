@@ -118,6 +118,10 @@ de:
         account: Account-Verwaltung
     show:
       about: 'Über %{name}'
+      my_courses: 'Von %{name} angebotene Begegnungen'
+      my_course_requests: "%{name}'s Begegnungswünsche"
+      my_course_memberships: 'Begegnungen, an denen %{name} teilnimmt'
+      empty_collection: Noch keine.
 
   course:
     create:

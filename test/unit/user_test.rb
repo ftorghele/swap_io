@@ -128,4 +128,20 @@ class UserTest < ActiveSupport::TestCase
     assert_equal user.get_courses.count, 2
   end
 
+  should 'get all course_requests of a user' do
+    user = Factory.create(:user)
+    user.join_course_request(Factory.create(:course_request))
+    user.join_course_request(Factory.create(:course_request))
+    assert_equal user.get_course_requests.count, 2
+  end
+
+  should 'get all accepted course_memberships of a user' do
+    user = Factory.create(:user)
+    course1 = Factory.create(:course)
+    course2 = Factory.create(:course)
+    Factory.create(:course_member, :user_id => user.id, :course_id => course1.id, :accepted => 1)
+    Factory.create(:course_member, :user_id => user.id, :course_id => course2.id, :accepted => 1)
+    assert_equal 2, user.get_accepted_course_memberships.count
+  end
+
 end
