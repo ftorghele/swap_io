@@ -72,4 +72,16 @@ class CourseTest < ActionDispatch::IntegrationTest
     visit course_request_path(course_request.id)
     click_on I18n.t('course_request.show.provide_course_request_button')
   end
+
+  should 'be deletable from owner' do
+    user = Factory.create(:user)
+    course = Factory.create(:course, :user => user)
+    login_as user
+    visit "/"
+    assert page.has_content?(course.title)
+    assert page.has_button?(I18n.t('pages.overview.delete_link'))
+    click_on I18n.t('pages.overview.delete_link')
+    assert page.has_no_content?(course.title)
+    assert page.has_content? I18n.t('course.destroy.success')
+  end
 end

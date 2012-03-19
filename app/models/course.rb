@@ -17,6 +17,12 @@ class Course < ActiveRecord::Base
     end
   end
 
+  def self.delete_course user, id
+    course = self.find(id)
+    return unless user.id == course.user_id
+    course.destroy
+  end
+
   def self.course_member_request user, id
     course = self.find_by_id(id)
     user_link = "http://wissenteilen.com/#{I18n.t('routes.users.as')}/#{user.id}"

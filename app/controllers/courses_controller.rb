@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
   def create
     @course = current_user.courses.new( params[:course] )
     if @course.save
-      flash[:info] = I18n.t('course.create.success')
+      flash[:message] = I18n.t('course.create.success')
       @course.provide_course_mailer params[:type] if params[:type]
       redirect_to course_path(@course)
     else
@@ -31,6 +31,13 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    if Course.delete_course(current_user, params[:id])
+      flash[:message] = I18n.t('course.destroy.success')
+      redirect_to root_path
+    else
+      flash[:error] = I18n.t('course.destroy.fail')
+      redirect_to root_path
+    end
   end
 
 end

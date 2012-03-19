@@ -4,4 +4,6 @@
 - if current_user
   - current_user.get_courses.each do |course|
     %h2= course.title
+    
+    = button_to I18n.t('pages.overview.delete_link'), course_path(course), :method => :delete
     = render :partial => 'member', :collection => course.get_course_members

@@ -83,4 +83,16 @@ class CourseTest < ActiveSupport::TestCase
     Factory.create(:course_member, :user_id => user2.id, :course_id => course.id)
     assert_equal course.get_course_members.count, 2
   end
+
+  should 'be deletable from owner' do
+    user = Factory.create(:user)
+    course = Factory.create(:course, :user => user)
+    assert_equal course, Course.delete_course(user, course.id)
+  end
+
+  should 'not be deletable from other user than owner' do
+    user = Factory.create(:user)
+    course = Factory.create(:course)
+    assert_equal nil, Course.delete_course(user, course.id)
+  end
 end
