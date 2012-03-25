@@ -44,6 +44,7 @@ class SystemMailerTest < ActionMailer::TestCase
     assert_match "abgelehnt", mail.body.encoded
     assert_match I18n.t('mailer.subject.reject_course_member'), mail.body.encoded
   end
+
   test "news" do
     subscriber = Factory.create(:newsletter_subscriber)
     mail = SystemMailer.news(subscriber.email, "Some stupid content")
@@ -52,4 +53,11 @@ class SystemMailerTest < ActionMailer::TestCase
     assert_match "Some stupid content", mail.body.encoded
   end
 
+  test "private message" do
+    user = Factory.create(:user)
+    mail = SystemMailer.private_message(user, "Some stupid content")
+    assert_equal I18n.t('mailer.subject.private_message'), mail.subject
+    assert_equal ["#{user.email}"], mail.to
+    assert_match "Some stupid content", mail.body.encoded
+  end
 end

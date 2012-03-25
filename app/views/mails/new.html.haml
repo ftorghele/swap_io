@@ -1,0 +1,11 @@
+%h1= I18n.t('mails.new.title')
+= form_tag(mails_path) do
+  %fieldset
+    %div
+      = label :body, "Nachricht: "
+      = text_area_tag :body, nil, :size => "25x10"
+
+    = hidden_field_tag :user_id, @user.id
+
+  %div.form-actions
+    = submit_tag I18n.t('mails.new.submit')

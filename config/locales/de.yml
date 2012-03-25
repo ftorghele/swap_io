@@ -183,6 +183,14 @@ de:
       success: Die Anfrage wurde erfolgreich gelöscht
       fail: Beim Löschen der Anfrage ist ein Fehler aufgetreten
 
+  mails:
+    create:
+      success: Deine Email wurde erfolgreich versendet
+      fail: Beim versenden Deiner Email ist ein Fehler aufgetreten
+    new:
+      title: Email Versand
+      submit: Abschicken
+
   activerecord:
     errors:
       messages:
@@ -247,6 +255,7 @@ de:
       news: "News zu Wissenteilen"
       request_course: Begegnungswünsche
       provide_course: Begegnungen
+      private_message: "Wissen Teilen Können Private Nachricht"
 
   newsletter_subscriber:
     create:

@@ -69,4 +69,30 @@ class UserTest < ActionDispatch::IntegrationTest
     assert page.has_content?(I18n.t('course_member.update.rejected'))
   end
 
+  should 'be able to render email new action if logged in' do
+    user = Factory.create(:user)
+    login_as
+    visit "/#{I18n.t('routes.users.as')}/#{user.id}"
+    assert page.has_link?("email")
+    click_on "email"
+    assert page.has_content?(I18n.t('mails.new.title'))
+  end
+
+  should 'not be able to render email new action if not logged in' do
+    user = Factory.create(:user)
+    visit "/#{I18n.t('routes.users.as')}/#{user.id}"
+    assert page.has_no_link?("email")
+  end
+
+  should 'be able to send private message to other user' do
+    user = Factory.create(:user)
+    login_as
+    visit "/#{I18n.t('routes.users.as')}/#{user.id}"
+    click_on "email"
+    fill_in('body', :with => 'Hi there whats up')
+    SystemMailer.expects(:private_message).returns mock(:deliver => true)
+    click_on I18n.t('mails.new.submit')
+    assert page.has_content?(user.first_name)
+    assert page.has_content?(user.last_name)
+  end
 end

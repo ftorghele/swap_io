@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>
+      <%= @subject %>
+    </title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <%= "#{@user.first_name} #{@user.last_name} hat folgende Nachricht geschrieben: " %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= @body %>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -34,6 +34,8 @@ Swap::Application.routes.draw do
     resources :course_members
     resources :categories
 
+    resource :mails
+
 
     get 'welcome',  :to => 'pages#welcome'
     get 'overview', :to => 'pages#overview'

@@ -12,22 +12,24 @@ class SystemMailer < ActionMailer::Base
     @user_profile_link = user_profile_link
     @course_request_link = course_request_link
     @user = user
+    @subject = I18n.t('mailer.subject.provide_course')
 
-    mail to: user.email, subject: "#{I18n.t('mailer.subject.provide_course')}"
+    mail to: user.email, subject: @subject
   end
 
   def request_course(user, user_profile_link, course_link )
     @user_profile_link = user_profile_link
     @course_link = course_link
     @user = user
+    @subject = I18n.t('mailer.subject.request_course')
 
-    mail to: user.email, subject: "#{I18n.t('mailer.subject.request_course')}"
+    mail to: user.email, subject: @subject
   end
 
   def accept_course_member(user, course)
     @user = user
     @course = course
-    @subject = "#{I18n.t('mailer.subject.accept_course_member')}"
+    @subject = I18n.t('mailer.subject.accept_course_member')
 
     mail to: user.email, subject: @subject
   end
@@ -35,15 +37,16 @@ class SystemMailer < ActionMailer::Base
   def reject_course_member(user, course)
     @user = user
     @course = course
-    @subject = "#{I18n.t('mailer.subject.reject_course_member')}"
+    @subject = I18n.t('mailer.subject.reject_course_member')
 
     mail to: user.email, subject: @subject
   end
 
   def news(email, body)
     @body = body
+    @subject = I18n.t('mailer.subject.news')
     @unsubscribe_token = NewsletterSubscriber.find_by_email(email).signout_hash
-    mail to: email, subject: "#{I18n.t('mailer.subject.news')}"
+    mail to: email, subject: @subject
   end
 
   def contact_us(email, subject, body)
@@ -53,4 +56,10 @@ class SystemMailer < ActionMailer::Base
     mail to: "info@wissenteilen.com", subject: subject, from: email
   end
 
+  def private_message(user, body)
+    @user = user
+    @subject = I18n.t('mailer.subject.private_message')
+    @body = body
+    mail to: user.email, subject: @subject
+  end
 end
