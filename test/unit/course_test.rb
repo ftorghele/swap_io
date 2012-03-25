@@ -75,6 +75,17 @@ class CourseTest < ActiveSupport::TestCase
     end
   end
 
+  should 'send delete email to course_request members' do
+    user1 = Factory.create(:user)
+    user2 = Factory.create(:user)
+    @course = Factory.create(:course)
+    Factory.create(:course_member, :user_id => user1.id, :course_id => @course.id)
+    Factory.create(:course_member, :user_id => user2.id, :course_id => @course.id)
+    assert_difference "ActionMailer::Base.deliveries.count", 2 do
+      Course.delete_course(@course.user , @course.id)
+    end
+  end
+
   should 'get all course_members' do
     user1 = Factory.create(:user)
     user2 = Factory.create(:user)

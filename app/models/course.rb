@@ -20,6 +20,10 @@ class Course < ActiveRecord::Base
   def self.delete_course user, id
     course = self.find(id)
     return unless user.id == course.user_id
+    course.get_course_members.each do |member|
+      SystemMailer.private_message(member.user, I18n.t('course.destroy.subject'),
+                  I18n.t('course.destroy.body', :name => "#{member.user.first_name} #{member.user.last_name}") ).deliver
+    end
     course.destroy
   end
 

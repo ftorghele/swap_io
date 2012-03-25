@@ -130,6 +130,8 @@ de:
     destroy:
       success: Begegnung wurde erfolgreich gelöscht
       fail: Beim Löschen der Begegnung ist ein Fehler aufgetreten
+      subject: "Begegnung gelöscht"
+      body: "Deine Begegnung mit %{name} wurde abgesagt."
     index:
       headline: Begegnungen
       create_course_button: Neue Begegnung erstellen

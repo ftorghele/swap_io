@@ -56,9 +56,9 @@ class SystemMailer < ActionMailer::Base
     mail to: "info@wissenteilen.com", subject: subject, from: email
   end
 
-  def private_message(user, body)
+  def private_message(user, subject=I18n.t('mailer.subject.private_message'), body)
     @user = user
-    @subject = I18n.t('mailer.subject.private_message')
+    @subject = subject
     @body = body
     mail to: user.email, subject: @subject
   end
