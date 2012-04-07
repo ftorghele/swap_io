@@ -1,8 +1,5 @@
 class CourseMember < ActiveRecord::Base
 
-  has_one :user
-  has_one :course
-
   belongs_to :user
   belongs_to :course
 

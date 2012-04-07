@@ -17,14 +17,14 @@ class User < ActiveRecord::Base
   validates :zip, :numericality => { :only_integer => true }
 
   has_many :courses, :dependent => :destroy
-  has_many :course_member, :through => :courses
+  has_many :course_members, :through => :courses
 
   has_and_belongs_to_many :course_requests, :uniq => true
 
-  has_many :user_skills, :dependent => :destroy
+  has_many :user_skills, :dependent => :delete_all
   accepts_nested_attributes_for :user_skills, :reject_if => proc {|attributes| attributes[:title].blank?}, :allow_destroy => true
 
-  has_many :user_images, :dependent => :destroy
+  has_many :user_images, :dependent => :delete_all
   accepts_nested_attributes_for :user_images, :allow_destroy => true
 
   has_and_belongs_to_many :course_requests

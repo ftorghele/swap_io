@@ -4,7 +4,7 @@ class Course < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
-  has_many :course_members
+  has_many :course_members, :dependent => :destroy
 
   validates_presence_of :title, :description, :category_id, :user_id
 

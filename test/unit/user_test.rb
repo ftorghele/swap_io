@@ -144,4 +144,18 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 2, user.get_accepted_course_memberships.count
   end
 
+  should 'delete all dependent resources' do
+    user1 = Factory.create(:user)
+    user2 = Factory.create(:user)
+    user3 = Factory.create(:user)
+    course = Factory.create(:course, :user_id => user3.id)
+    assert_difference "CourseMember.count", 2 do
+      Factory.create(:course_member, :user_id => user1.id, :course_id => course.id)
+      Factory.create(:course_member, :user_id => user2.id, :course_id => course.id)
+    end
+    assert_difference "Course.count", -1 do
+      user3.destroy
+    end
+    assert_equal CourseMember.count, 0
+  end
 end

@@ -36,7 +36,7 @@ group :production do
 end
 
 group :test do
-  gem 'factory_girl'
+  gem 'factory_girl', '~> 2.6.1'
   gem 'shoulda'
   gem 'capybara'
   gem 'launchy'
