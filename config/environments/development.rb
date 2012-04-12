@@ -13,7 +13,7 @@ Swap::Application.configure do
     :domain => "wissenteilen.com",
     :authentication => :plain,
     :user_name => "info@wissenteilen.com",
-    :password => ""
+    :password => "USC@V{}z"
   }
 
   # Settings specified here will take precedence over those in config/application.rb

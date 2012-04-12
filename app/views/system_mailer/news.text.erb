@@ -1,0 +1,9 @@
+<%= I18n.t('mailer.subject.news') %>
+<%= I18n.t('mailer.greeting_message')%>
+<% if @body.nil? %>
+    <%= I18n.t('mailer.newsletter_message')%>
+<%else%>
+    <%= raw @body %>
+<%end%>
+<%= I18n.t('mailer.unsubscribe_link')%>
+<%= "'http://www.wissenteilen.com/newsletter_subscribers/unsubscribe?token=#{@unsubscribe_token}' " %>
