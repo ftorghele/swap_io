@@ -200,6 +200,7 @@ de:
         not_a_number: Es sind nur Zahlen erlaubt
         blank: Darf nicht leer sein
         too_short: zu kurz
+        taken: bereits vergeben
       models:
         user:
           attributes:

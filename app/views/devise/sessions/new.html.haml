@@ -1,7 +1,5 @@
-= javascript_include_tag 'rails.validations'
-
 %h2= I18n.t('devise.sessions.title')
-= form_for(resource, :as => resource_name, :url => session_path(resource_name), :validate => true) do |f|
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
 
   %fieldset
     %div
@@ -10,7 +8,7 @@
 
     %div
       = f.label :password
-      = f.password_field :password, :value => resource.password
+      = f.password_field :password
 
     - if devise_mapping.rememberable?
       %div
