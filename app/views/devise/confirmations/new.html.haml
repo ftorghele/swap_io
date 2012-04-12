@@ -1,7 +1,5 @@
-= javascript_include_tag 'rails.validations'
-
 %h2= I18n.t('devise.confirmations.title')
-= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :validate => true, :html => { :method => :post }) do |f|
+= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
 
   %fieldset
     %div
