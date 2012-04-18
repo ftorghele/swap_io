@@ -1,12 +1,48 @@
 #welcome-page
   .row
-    .span10.offset1
-      = image_tag 'logo.jpg'
+    = image_tag 'layout-header.jpg', :id => "layout-header"
 
-  #newsletter-box
+    #layout-logo
+      = image_tag 'layout-logo.png', :id => "layout-logo-image"
+    #hand
+      = image_tag 'layout-header-hand.png'
+
+    #egg
+      = image_tag 'layout-header-egg.png', :id => "egg-image"
+  
+#hallo-wrapper
+  #hallo.box-shadow.box-round
+    =form_tag do 
+      =label_tag :name, "Hallo"
+      =text_field_tag :name
+
+%h1 Lust auf spannende Begegnungen?
+%br
+
+%p Auf Wissen Teilen Können treffen Fähigkeiten und Erfahrung auf Neugier und Wissenshunger. Hier findest du Menschen mit denen du deine Talente teilen und von den du selber lernen möchtest!
+
+%p Begegne deiner Stadt und ihren Bewohnern, lerne deine Nachbarn kennen und entdecke die verborgenen Schätze in dir und deinen Mitmenschen. WTK ist für uns alle!
+
+
+%p Wir geben dir bescheid, sobald es los geht!
+
+
+#newsletter-box
+  .row
     =form_for @subscriber do |f|
       #newsletter-center
         = f.label :email, I18n.t('pages.welcome.newsletter_sign_up_label')
         %span
           = f.email_field :email, :placeholder=> I18n.t('pages.welcome.newsletter_sign_up_placeholder')
           = submit_tag I18n.t('pages.welcome.newsletter_sign_up_button'), :class => "submit_btn"
+
+
+#footer
+  .row
+    #fb
+      =image_tag 'layout-icon-facebook.png', :id => "fb-sign", :class => "box-round"
+      Schon jetzt Einblicke und Fotos zur Entstehung auf Facebook ansehen!
+
+    #landingpage-email
+      Wir freuen uns über deine Nachricht. Schreib uns doch eine Mail an 
+      =raw("<a href='mailto:info@wissenteilen.com'>info@wissenteilen.com</a>")
