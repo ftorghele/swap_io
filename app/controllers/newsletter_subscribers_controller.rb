@@ -7,10 +7,10 @@ class NewsletterSubscribersController < ApplicationController
     @subscriber = NewsletterSubscriber.new(:email => email, :signout_hash => Hash.create_token(email))
     if @subscriber.valid?
       flash[:info] = I18n.t('newsletter_subscriber.create.success')
-      redirect_to welcome_path
+      redirect_to landingpage_path
     else
       flash[:error] = I18n.t('newsletter_subscriber.create.fail')
-      render 'pages/welcome', :layout => 'welcome'
+      render 'pages/landingpage', :layout => 'landingpage'
     end
   end
 

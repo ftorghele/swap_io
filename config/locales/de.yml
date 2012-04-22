@@ -39,6 +39,8 @@ de:
     course_requests:
       as: Begegnungswunsch
     welcome:
+      as: Start
+    landingpage:
       as: Willkommen
     about:
       as: Idee
@@ -74,11 +76,11 @@ de:
       title: Presse
     help:
       title: Hilfe
-    welcome:
+    landingpage:
       title: Willkommen
       newsletter_sign_up_label: Für Newsletter anmelden
       newsletter_sign_up_placeholder: Deine Email Adresse
-      newsletter_sign_up_button: Jetzt anmelden
+      newsletter_sign_up_button: Gebt mir bescheid.
     imprint:
       title: Impressum
     overview:

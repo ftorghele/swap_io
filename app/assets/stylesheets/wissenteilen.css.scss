@@ -1,8 +1,93 @@
 @import "bootstrap.css.scss";
 
+// Mixins
+@mixin rounded($radius: 0.5em) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin rotate($deg: 0deg) {
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+@mixin transparancy($float: 0, $int: 0) {
+    filter: alpha(opacity=$int);
+    -khtml-opacity: $float;
+    -moz-opacity: $float;
+    opacity: $float;
+}
+
+// Fonts
+@font-face {
+  font-family: "ChunkFive";
+  src: url(Chunkfive.otf);
+}
+
+@font-face {
+  font-family: "Merriweather-Regular";
+  src: url(Merriweather-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Merriweather-Black";
+  src: url(Merriweather-Black.ttf);
+}
+
+@font-face {
+  font-family: "Merriweather-Bold";
+  src: url(Merriweather-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Merriweather-Light";
+  src: url(Merriweather-Light.ttf);
+}
+
+@font-face {
+  font-family: "League_Gothic";
+  src: url(League_Gothic.otf);
+}
+
+// Buttons
+.wtkbtn_green, .wtkbtn_blue {
+    height: 53px!important;
+    font-family: "League_Gothic";
+    font-size: 30px;
+    color: white;
+    padding: 0 5px;
+    @include rounded(4px);
+}
+.wtkbtn_green {
+    background: url("button-green-main.png") repeat-x;
+}
+.wtkbtn_blue {
+    background: url("button-petrol-main.png") repeat-x;
+}
+.wtkbtn_green:hover, .wtkbtn_blue:hover {
+    background-position: 0px -53px;
+}
+
+
+// ???
+h1 {
+  font-family: "League_Gothic";
+  color: #587e81;
+}
+
+p {
+  font-size: 12pt;
+  font-family: "Merriweather-Regular";
+}
+
 .copyright {
     text-align: center;
 }
+
+// Bootstrap Form Styling
 form {
     @extend .form-horizontal;
     fieldset {

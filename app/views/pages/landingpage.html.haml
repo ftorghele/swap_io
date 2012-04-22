@@ -1,0 +1,42 @@
+#header
+  #header_content
+    #hallo
+    #hallo_content
+      #greeting
+        Hallo
+      #greeting2
+        !
+      #name_box
+        =text_field_tag :name_field
+
+#content
+  %h1 Lust auf spannende Begegnungen?
+  %br
+
+  %p Auf Wissen Teilen Können treffen Fähigkeiten und Erfahrung auf Neugier und Wissenshunger. Hier findest du Menschen mit denen du deine Talente teilen und von den du selber lernen möchtest!
+
+  %p Begegne deiner Stadt und ihren Bewohnern, lerne deine Nachbarn kennen und entdecke die verborgenen Schätze in dir und deinen Mitmenschen. WTK ist für uns alle!
+
+  .spacer
+
+  %p Wir geben dir bescheid, sobald es los geht!
+
+
+  #newsletter
+    = image_tag "landingpage/layout-doodle-jetzteintragen.png"
+    =form_for @subscriber do |f|
+      #email_field
+        = f.email_field :email, :placeholder=> I18n.t('pages.landingpage.newsletter_sign_up_placeholder')
+      #email_button
+        = submit_tag I18n.t('pages.landingpage.newsletter_sign_up_button'), :class => "wtkbtn_green"
+
+
+#footer
+  #fb
+    =image_tag 'landingpage/layout-icon-facebook.png', :id => "fb-sign", :class => "wtkbtn_blue"
+    %p Schon jetzt Einblicke und Fotos zur Entstehung auf Facebook ansehen!
+
+  #email
+    %p
+      Wir freuen uns über deine Nachricht. Schreib uns doch eine Mail an
+      = mail_to "info@wissenteilen.com"

@@ -1,0 +1,168 @@
+@import "bootstrap.css.scss";
+@import "wissenteilen.css.scss";
+
+#landing_page {
+    background: url(landingpage/layout-body-bg.jpg);
+
+    #header {
+        height: 499px;
+        background: url(landingpage/layout-header-bg.jpg);
+
+        #header_content {
+            height: 499px;
+            background: url(landingpage/layout-header-all.jpg) no-repeat center top;
+
+            #hallo, #hallo::before, #hallo::after {
+                width: 660px;
+                height: 105px;
+                background: #327679;
+                content: "";
+                display: block;
+                @include rounded(5px);
+            }
+
+            #hallo {
+                margin: 0 auto;
+                position: relative;
+                top: 440px;
+                z-index: 10;
+            }
+            #hallo:before {
+                @include rotate(1deg);
+                @include transparancy(0.5, 50);
+                z-index: 9;
+                margin: 0 0 0 5px;
+            }
+            #hallo:after {
+                @include rotate(-1deg);
+                @include transparancy(0.5, 50);
+                z-index: 8;
+                margin: -105px 0 0 5px;
+            }
+            #hallo_content {
+                width: 660px;
+                height: 105px;
+                margin: 0 auto;
+                position: relative;
+                top: 380px;
+                z-index: 11;
+
+                #greeting, #greeting2, #name_field {
+                    font-size: 45pt;
+                    font-family: "League_Gothic";
+                    text-align: center;
+                    color: white;
+                }
+
+                #greeting {
+                    float:left;
+                    width: 170px;
+                }
+
+                #name_box {
+                    float:right;
+                    margin-top: -28px;
+                    height: 65px;
+                    width: 450px;
+                }
+
+                #name_field {
+                    background: #51888b;
+                    height: 65px;
+                    width: 450px;
+                    border: none;
+                    @include rounded(4px);
+                }
+
+                #greeting2 {
+                    float: right;
+                    width: 40px;
+                }
+            }
+        }
+
+    }
+    #content {
+        width: 800px;
+        margin: 80px auto 0 auto;
+        text-align: center;
+
+        h1 {
+            font-size: 37pt;
+            font-family: "League_Gothic";
+            color: #587e81;
+        }
+
+        p {
+            font-size: 12pt;
+            line-height: 23px;
+            padding: 10px 30px;;
+            font-family: "Merriweather-Regular";
+        }
+
+        .spacer {
+            margin: 15px auto;
+            width: 500px;
+            height: 20px;
+            background: url(landingpage/layout-divider.png) no-repeat;
+        }
+
+        #newsletter {
+            width: 600px;
+            margin: -50px auto 0 auto;
+            #email_field {
+                width: 410px;
+                float:left;
+                #newsletter_subscriber_email {
+                    height: 41px;
+                    width: 410px;
+                    font-size: 25px;
+                }
+                .message {
+                    color: red;
+                }
+            }
+            #email_button {
+                width: 175px;
+                float:right;
+            }
+            img {
+                position: relative;
+                top: 10px;
+                left: 360px;
+            }
+
+        }
+    }
+
+    #footer {
+        width: 600px;
+        margin: 150px auto 0 auto;
+        padding-bottom: 200px;
+
+        p {
+            margin: 7px 0;
+            font-size: 10px;
+        }
+
+        #fb, #email {
+            width: 270px;
+        }
+        #fb {
+            float: left;
+            img {
+                float:left;
+                margin-right: 15px;
+            }
+        }
+        #email {
+            float:right;
+            text-align: right;
+        }
+    }
+
+    .alert {
+        margin-bottom:0!important;
+    }
+
+}

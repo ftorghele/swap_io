@@ -36,7 +36,7 @@ Swap::Application.routes.draw do
 
     resource :mails
 
-
+    get 'landingpage',  :to => 'pages#landingpage'
     get 'welcome',  :to => 'pages#welcome'
     get 'overview', :to => 'pages#overview'
     get 'terms',    :to => 'pages#terms'

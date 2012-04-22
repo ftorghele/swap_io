@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def overview
-    redirect_to :welcome unless signed_in?
+    redirect_to :landingpage unless signed_in?
   end
 
   def contact_us
@@ -13,8 +13,11 @@ class PagesController < ApplicationController
     end
   end
 
-  def welcome
+  def landingpage
     @subscriber = NewsletterSubscriber.new
-    render :layout => 'welcome'
+    render :layout => 'landingpage'
+  end
+
+  def welcome
   end
 end

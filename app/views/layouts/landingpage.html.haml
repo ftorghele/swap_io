@@ -1,0 +1,18 @@
+!!! 5
+%html{:lang => "de"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title= content_for?(:title) ? yield(:title) : I18n.t('app.headline')
+    = stylesheet_link_tag :landing_page
+    = csrf_meta_tags
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+  %body
+    #landing_page
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :class => "alert alert-#{name}" if msg.is_a?(String)
+      = yield
+
+    = javascript_include_tag :jquery
+    = javascript_include_tag :jquery_ujs
+    = javascript_include_tag :landing_page

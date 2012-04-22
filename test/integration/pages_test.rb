@@ -27,7 +27,7 @@ class PagesTest < ActionDispatch::IntegrationTest
     visit "/"
     assert_no_difference "ActionMailer::Base.deliveries.count" do
       fill_in('newsletter_subscriber_email', :with => 'tester@testmail.com')
-      click_on I18n.t('pages.welcome.newsletter_sign_up_button')
+      click_on I18n.t('pages.landingpage.newsletter_sign_up_button')
     end
     assert page.has_content?(I18n.t('newsletter_subscriber.create.success'))
   end
