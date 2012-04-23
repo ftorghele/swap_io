@@ -12,54 +12,9 @@ $('#hand_wrapper').animate( top: '+=324', rotate: '-=20',
 
 
 
-#
-#counter = 1.2;
-#timeout = 3;
-#
-#
-#moveHand = (i, j, k, l, target, fwd) ->
-#  if i <= -195
-#    $("#hand").remove();
-#
-#  if k > target
-#    fwd = false;
-#
-#  if fwd
-#    i += 0.4;
-#    k += 0.4;
-#    j -= 0.3;
-#    l -= 0.3;
-#  else
-#    i -= 0.4;
-#    j += 0.3;
-#
-#  $("#hand").css('left', j);
-#  $("#hand").css('top', i);
-#  $("#layout-logo").css('left', l);
-#  $("#layout-logo").css('top', k);
-#  callback = ->
-#      moveHand(i , j, k, l, target, fwd);
-#
-#  setTimeout callback, timeout;
-#
-#
-#$(window).load ->
-#  lh = $("#layout-logo").height();
-#  lw = $("#layout-logo").width();
-#  eh = $("#egg").height();
-#  ew = $("#egg").width();
-#  factor = $("#layout-header").width() / 1161;
-#
-#  if ($("#layout-header").width() == 1161)
-#    ""
-# else
-#   $("#layout-logo-image").attr({"height": lh*factor, "width": lw*factor });
 
-#
-#  $("#egg").css('top', 3*factor);
-#  $("#egg").css('left', $("#layout-header").position().left + (18*factor));
-#
-#
+
+
 #fry = ->
 #  if ($("#audio").length>0)
 #    return;
