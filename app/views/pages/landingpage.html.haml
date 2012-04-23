@@ -8,8 +8,14 @@
         !
       #name_box
         =text_field_tag :name_field
+      #hand_wrapper
+        #hand
+        #hand_overlay
+        #logo
 
 #content
+  - flash.each do |name, msg|
+    = content_tag :div, msg, :class => "alert alert-#{name}" if msg.is_a?(String)
   %h1 Lust auf spannende Begegnungen?
   %br
 

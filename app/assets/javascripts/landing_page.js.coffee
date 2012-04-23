@@ -1,3 +1,17 @@
+$('#hand_wrapper').animate( top: '+=324', rotate: '-=20',
+  step: (now,fx)->
+    $(this).css('-webkit-transform','rotate('+(now+20)+'deg)');
+    $(this).css('-moz-transform','rotate('+(now+20)+'deg)');
+    $(this).css('transform','rotate('+(now+20)+'deg)');
+  complete: ->
+    $('#hand, #hand_overlay').animate( top: '-=324' ,
+      duration: 1000, 'linear')
+  duration: 2000, 'linear')
+
+
+
+
+
 #
 #counter = 1.2;
 #timeout = 3;
@@ -40,15 +54,7 @@
 #    ""
 # else
 #   $("#layout-logo-image").attr({"height": lh*factor, "width": lw*factor });
-#    $("#egg-image").attr({"height": eh*factor, "width": ew*factor });
-#
-#  pl = $("#layout-logo").position();
-#  ph = $("#hand").position();
-#  pvl = $("#layout-logo").css("position", "absolute");
-#  pvh = $("#hand").css("position", "absolute");
-#  left_pos = (($(window).width()) / 2);
-#  target = ($("#layout-header").height()/2) - ($("#layout-logo-image").height()/2) + 10;
-#  moveHand(ph.top+5, left_pos+75, pl.top+7, left_pos, target, true);
+
 #
 #  $("#egg").css('top', 3*factor);
 #  $("#egg").css('left', $("#layout-header").position().left + (18*factor));

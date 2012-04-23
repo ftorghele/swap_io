@@ -14,8 +14,8 @@
     transform: rotate($deg);
 }
 
-@mixin transparancy($float: 0, $int: 0) {
-    filter: alpha(opacity=$int);
+@mixin transparancy($float: 0) {
+    filter: alpha(opacity=$float*100);
     -khtml-opacity: $float;
     -moz-opacity: $float;
     opacity: $float;

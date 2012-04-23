@@ -29,13 +29,13 @@
             }
             #hallo:before {
                 @include rotate(1deg);
-                @include transparancy(0.5, 50);
+                @include transparancy(0.5);
                 z-index: 9;
                 margin: 0 0 0 5px;
             }
             #hallo:after {
                 @include rotate(-1deg);
-                @include transparancy(0.5, 50);
+                @include transparancy(0.5);
                 z-index: 8;
                 margin: -105px 0 0 5px;
             }
@@ -77,6 +77,39 @@
                 #greeting2 {
                     float: right;
                     width: 40px;
+                }
+            }
+            #hand_wrapper {
+                position: relative;
+                top: -820px;
+                left: 216px;
+                @include rotate(20deg);
+
+                #hand {
+                    position: relative;
+                    left: 40px;
+                    width: 232px;
+                    height: 202px;
+                    z-index: 20;
+                    background: url(landingpage/layout-header-hand-back.png) no-repeat;
+
+                }
+                #hand_overlay {
+                    position:relative;
+                        top: -202px;
+                        left: 40px;
+                        width: 232px;
+                        height: 202px;
+                        z-index: 22;
+                        background: url(landingpage/layout-header-hand.png) no-repeat;
+                    }
+                #logo {
+                    position: relative;
+                    top: -262px;
+                    background: url(layout-logo.png);
+                    width: 282px;
+                    height: 259px;
+                    z-index: 21;
                 }
             }
         }
@@ -162,7 +195,7 @@
     }
 
     .alert {
-        margin-bottom:0!important;
+        margin-bottom:40px!important;
     }
 
 }
