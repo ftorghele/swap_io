@@ -111,6 +111,18 @@
                     height: 259px;
                     z-index: 21;
                 }
+                #egg {
+                  width: 220px;
+                  position: absolute;
+                  top: 10px;
+                  left: -66% ;
+                  #egg-typo {
+                    float: right;
+                    width: 114px ;
+                    height: 73px;
+                    background: url(landingpage/layout-header-typo.png) no-repeat;
+                  }
+                }
             }
         }
 
