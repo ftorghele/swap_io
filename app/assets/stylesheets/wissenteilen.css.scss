@@ -57,8 +57,10 @@
     height: 53px!important;
     font-family: "League_Gothic";
     font-size: 30px;
+    line-height: 30px;
     color: white;
     padding: 0 5px;
+    border: none;
     @include rounded(4px);
 }
 .wtkbtn_green {

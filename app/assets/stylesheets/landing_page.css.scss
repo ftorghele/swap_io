@@ -12,9 +12,9 @@
             height: 499px;
             background: url(landingpage/layout-header-all.jpg) no-repeat center top;
 
-            #hallo, #hallo::before, #hallo::after {
-                width: 660px;
-                height: 105px;
+            #hallo, #hallo:before, #hallo:after {
+                width: 600px;
+                height: 95px;
                 background: #327679;
                 content: "";
                 display: block;
@@ -37,16 +37,17 @@
                 @include rotate(-1deg);
                 @include transparancy(0.5);
                 z-index: 8;
-                margin: -105px 0 0 5px;
+                margin: -95px 0 0 5px;
             }
             #hallo_content {
-                width: 660px;
+                width: 600px;
                 height: 105px;
                 margin: 0 auto;
                 position: relative;
-                top: 380px;
+                top: 367px;
                 z-index: 25;
-                font-size: 45pt;
+                font-size: 50px;
+                line-height: 50px;
                 font-family: "League_Gothic";
                 text-align: center;
                 color: white;
@@ -55,8 +56,8 @@
                 position: relative;
                 width: 232px;
                 height: 450px;
-                top: -838px;
-                left: 216px;
+                top: -848px;
+                margin: 0 auto;
                 @include rotate(20deg);
 
                 #hand {
