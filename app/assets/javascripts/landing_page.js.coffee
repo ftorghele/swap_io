@@ -60,3 +60,4 @@ $("#robo_dance").hover ->
   , -> 
     $("#robo_typo").css('backgroundPosition', '0 0');
     $("#robo_shoe").css('backgroundPosition', '0 0');
+
