@@ -1,12 +1,17 @@
-$('#hand_wrapper').animate( top: '+=324', rotate: '-=20',
-  step: (now,fx)->
-    $(this).css('-webkit-transform','rotate('+(now+20)+'deg)');
-    $(this).css('-moz-transform','rotate('+(now+20)+'deg)');
-    $(this).css('transform','rotate('+(now+20)+'deg)');
-  complete: ->
-    $('#hand, #hand_overlay').animate( top: '-=324' ,
-      duration: 1000, 'linear')
-  duration: 2000, 'linear')
+$('#the_dot').css({opacity: 0.0 });
+
+$(window).load ->
+  $('#hand_wrapper').animate( top: '+=324', rotate: '-=20',
+    step: (now,fx)->
+      $(this).css('-webkit-transform','rotate('+(now+20)+'deg)');
+      $(this).css('-moz-transform','rotate('+(now+20)+'deg)');
+      $(this).css('transform','rotate('+(now+20)+'deg)');
+    complete: ->
+      $('#hand, #hand_overlay').animate( top: '-=324' ,
+        complete: ->
+          $('#the_dot').css({opacity: 1.0 });
+        duration: 1000, 'linear')
+    duration: 2000, 'linear')
 
 unFry = ->
   $('#audio').remove();
@@ -39,10 +44,10 @@ $("#urban").hover ->
     $("#urban_typo").css('backgroundPosition', '0 0');
     $("#urban_image").attr('src', 'assets/landingpage/layout-header-urban.png');
 
-$("#fb").hover ->
-    $("#fb").css('backgroundPosition', '0 -37px');
+$("#fb_sign").hover ->
+    $("#fb_sign").css('backgroundPosition', '0 -37px');
   , -> 
-    $("#fb").css('backgroundPosition', '0 0');
+    $("#fb_sign").css('backgroundPosition', '0 0');
 
 $("#wir").hover ->
     $("#wir").css('backgroundPosition', '0 -82px');

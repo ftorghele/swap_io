@@ -89,14 +89,16 @@
                 }
             }
 
-
             #wir_wrapper {
                 position: relative;
-                top: 200px;
+                top: -993px;
+                left: 508px;
+                width: 175px;
+                height: 182px;
               #wir {
                 position: relative;
-                top: 283px;
-                left: 47%;
+                top: 20px;
+                left: 20px;
                 width: 75px;
                 height: 82px;
                 background: url(landingpage/layout-header-wir-typo.png) no-repeat;
@@ -106,8 +108,8 @@
             #egg {
               width: 220px;
               position: relative;
-              top: 10px;
-              left: -66% ;
+              top: -950px;
+              left: -225px ;
               #egg_typo {
                 float: right;
                 width: 114px ;
@@ -118,11 +120,11 @@
             #urban {
               width: 150px;
               position: relative;
-              top: 17px;
-              left: -22% ;
+              top: -1058px;
+              left: 52px;
               #urban_typo {
-                margin-top: -25px;
-                margin-left: -5px;
+                margin-top: -18px;
+                margin-left: 10px;
                 width: 165px;
                 height: 97px;
                 background: url(landingpage/layout-header-urban-typo.png) no-repeat;
@@ -131,8 +133,8 @@
             #robo_dance {
               width: 150px;
               position: relative;
-              top: 184px;
-              left: 84% ;
+              top: -1305px;
+              left: 770px ;
               #robo_typo {
                 width: 143px;
                 height: 65px;
@@ -145,26 +147,26 @@
                 background: url(landingpage/layout-header-robo-shoe.png) no-repeat;
               }
             }
-            #fb {
+            #fb_sign {
               position: relative;
-              top: 245px;
-              left: -45%;
+              top: -979px;
+              left: -85px;
               width: 45px;
               height: 37px;
               background: url(landingpage/layout-header-facebook.png) no-repeat;
             }
             #faultier {
               position: relative;
-              top: 435px;
-              left: -62%;
+              top: -1212px;
+              left: -192px;
               width: 93px;
               height: 89px;
               background: url(landingpage/layout-header-faultier.png) no-repeat;
             }
             #light {
               position: relative;
-              top: 12px;
-              left: 39%;
+              top: -1708px;
+              left: 475px;
               width: 104px;
               height: 64px;
               background: url(landingpage/layout-header-light.png) no-repeat;
@@ -174,21 +176,10 @@
               width: 48px;
               height: 48px;
               position: relative;
-              top: 34px;
-              left: 9%;
+              top: -1405px;
+              left: 275px;
             }
-
-
-
-
-
-
-
-
-
-
         }
-
     }
     #content {
         width: 800px;
@@ -239,7 +230,6 @@
                 top: 10px;
                 left: 360px;
             }
-
         }
     }
 
