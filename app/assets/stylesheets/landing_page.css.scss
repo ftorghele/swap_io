@@ -8,6 +8,7 @@
         height: 499px;
         background: url(landingpage/layout-header-bg.jpg);
 
+
         #header_content {
             height: 499px;
             background: url(landingpage/layout-header-all.jpg) no-repeat center top;
@@ -116,12 +117,82 @@
                   position: absolute;
                   top: 10px;
                   left: -66% ;
-                  #egg-typo {
+                  #egg_typo {
                     float: right;
                     width: 114px ;
                     height: 73px;
                     background: url(landingpage/layout-header-typo.png) no-repeat;
                   }
+                }
+                #urban {
+                  width: 150px;
+                  position: absolute;
+                  top: 17px;
+                  left: -22% ;
+                  #urban_typo {
+                    margin-top: -25px;
+                    margin-left: -5px;
+                    width: 165px;
+                    height: 97px;
+                    background: url(landingpage/layout-header-urban-typo.png) no-repeat;
+                  }
+                }
+                #robo_dance {
+                  width: 150px;
+                  position: absolute;
+                  top: 184px;
+                  left: 84% ;
+                  #robo_typo {
+                    width: 143px;
+                    height: 65px;
+                    background: url(landingpage/layout-header-robo-typo.png) no-repeat;
+                  }
+                  #robo_shoe {
+                    margin-top: 5px;
+                    width: 110px;
+                    height: 69px;
+                    background: url(landingpage/layout-header-robo-shoe.png) no-repeat;
+                  }
+                }
+                #fb {
+                  position: absolute;
+                  top: 245px;
+                  left: -45%;
+                  width: 45px;
+                  height: 37px;
+                  background: url(landingpage/layout-header-facebook.png) no-repeat;
+                }
+                #faultier {
+                  position: absolute;
+                  top: 435px;
+                  left: -62%;
+                  width: 93px;
+                  height: 89px;
+                  background: url(landingpage/layout-header-faultier.png) no-repeat;
+                }
+                #wir {
+                  position: absolute;
+                  top: 283px;
+                  left: 47%;
+                  width: 75px;
+                  height: 82px;
+                  background: url(landingpage/layout-header-wir-typo.png) no-repeat;
+                }
+                #light {
+                  position: absolute;
+                  top: 12px;
+                  left: 39%;
+                  width: 104px;
+                  height: 64px;
+                  background: url(landingpage/layout-header-light.png) no-repeat;
+                }
+                #the_dot {
+                  background: url(landingpage/layout-header-thedot.png) no-repeat;
+                  width: 48px;
+                  height: 48px;
+                  position: absolute;
+                  top: 34px;
+                  left: 9%;
                 }
             }
         }
