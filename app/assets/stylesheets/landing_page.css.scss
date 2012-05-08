@@ -1,12 +1,14 @@
 @import "bootstrap.css.scss";
 @import "wissenteilen.css.scss";
 
+
 #landing_page {
     background: url(landingpage/layout-body-bg.jpg);
 
     #header {
         height: 499px;
         background: url(landingpage/layout-header-bg.jpg);
+
 
         #header_content {
             height: 499px;
@@ -86,26 +88,99 @@
                     height: 259px;
                     z-index: 21;
                 }
-                #egg {
-                  width: 220px;
-                  position: absolute;
-                  top: 10px;
-                  left: -66% ;
-                  #egg-typo {
-                    float: right;
-                    width: 114px ;
-                    height: 73px;
-                    background: url(landingpage/layout-header-typo.png) no-repeat;
-                  }
-                }
             }
+
             #wir_wrapper {
                 position: relative;
-                top: 200px;
+                top: -993px;
+                left: 508px;
+                width: 175px;
+                height: 182px;
+              #wir {
+                position: relative;
+                top: 20px;
+                left: 20px;
+                width: 75px;
+                height: 82px;
+                background: url(landingpage/layout-header-wir-typo.png) no-repeat;
+              }
+            }
 
+            #egg {
+              width: 220px;
+              position: relative;
+              top: -950px;
+              left: -225px ;
+              #egg_typo {
+                float: right;
+                width: 114px ;
+                height: 73px;
+                background: url(landingpage/layout-header-typo.png) no-repeat;
+              }
+            }
+            #urban {
+              width: 150px;
+              position: relative;
+              top: -1058px;
+              left: 52px;
+              #urban_typo {
+                margin-top: -18px;
+                margin-left: 10px;
+                width: 165px;
+                height: 97px;
+                background: url(landingpage/layout-header-urban-typo.png) no-repeat;
+              }
+            }
+            #robo_dance {
+              width: 150px;
+              position: relative;
+              top: -1305px;
+              left: 770px ;
+              #robo_typo {
+                width: 143px;
+                height: 65px;
+                background: url(landingpage/layout-header-robo-typo.png) no-repeat;
+              }
+              #robo_shoe {
+                margin-top: 5px;
+                width: 110px;
+                height: 69px;
+                background: url(landingpage/layout-header-robo-shoe.png) no-repeat;
+              }
+            }
+            #fb_sign {
+              position: relative;
+              top: -979px;
+              left: -85px;
+              width: 45px;
+              height: 37px;
+              background: url(landingpage/layout-header-facebook.png) no-repeat;
+            }
+            #faultier {
+              position: relative;
+              top: -1212px;
+              left: -192px;
+              width: 93px;
+              height: 89px;
+              background: url(landingpage/layout-header-faultier.png) no-repeat;
+            }
+            #light {
+              position: relative;
+              top: -1708px;
+              left: 475px;
+              width: 104px;
+              height: 64px;
+              background: url(landingpage/layout-header-light.png) no-repeat;
+            }
+            #the_dot {
+              background: url(landingpage/layout-header-thedot.png) no-repeat;
+              width: 48px;
+              height: 48px;
+              position: relative;
+              top: -1405px;
+              left: 275px;
             }
         }
-
     }
     #content {
         width: 800px;
@@ -156,7 +231,6 @@
                 top: 10px;
                 left: 360px;
             }
-
         }
     }
 
