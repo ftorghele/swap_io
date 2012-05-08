@@ -9,34 +9,29 @@ $('#hand_wrapper').animate( top: '+=324', rotate: '-=20',
   duration: 2000, 'linear')
 
 
+unFry = ->
+  $('#audio').remove();
+  $("#egg-image").attr('src', 'assets/landingpage/layout-header-egg.png');
 
 
+fry = ->
+  if ($("#audio").length>0)
+    return;
 
 
+  callback = -> unFry();
+  setTimeout callback 2000;
+
+  audio = $("<audio id='audio'></audio>");
+  audio.attr('src':'/assets/Track1.ogg');
+  audio.attr('volume':0.4);
+  audio.attr('autoplay':'autoplay');
+  $('body').append(audio);
 
 
-#fry = ->
-#  if ($("#audio").length>0)
-#    return;
-#
-#  audio = $("<audio id='audio'></audio>");
-#  audio.attr('src':'/assets/Track1.ogg');
-#  audio.attr('volume':0.4);
-#  audio.attr('autoplay':'autoplay');
-#  $('body').append(audio);
-#
-## unFry = ->
-##   $('#audio').remove();
-#
-#$("#egg").hover ->
-#    fry();
-#    $("#egg-image").attr('src', '');
-#    $("#egg-image").attr('src', 'assets/layout-header-egg-animated.gif');
-#  , '' #->
-#
-#    # callback = -> unfry();
-#    # setTimeout callback 2000
-#
-# #   unFry();
-# #   $("#egg").attr('src', 'assets/layout-header-egg.png');
-##
+$("#egg").hover ->
+    fry();
+    $("#egg-typo").css('backgroundPosition', '0 -73px');
+    $("#egg-image").attr('src', '');
+    $("#egg-image").attr('src', 'assets/landingpage/layout-header-egg-animated.gif');
+
