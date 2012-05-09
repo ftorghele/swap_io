@@ -6,6 +6,8 @@ preload = (images) ->
 
 $(window).load ->
 
+  $('#hallo_content').countdown({until: new Date(2012, 5, 4), compact: true, layout: '{dn} Tage {hnn} Stunden und {mnn} Minuten'});
+
   preload(['assets/landingpage/layout-header-egg-animated.gif',
            'assets/landingpage/layout-header-urban-animated.gif',
            'assets/landingpage/layout-header-light-animation.gif']);
