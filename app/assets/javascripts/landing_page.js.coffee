@@ -24,7 +24,7 @@ $(window).load ->
 
 makeNoise = (track) ->
   audio = $("<audio id=''+track''></audio>");
-  audio.attr('src':'/assets/'+track+'.ogg');
+  audio.attr('src':'/assets/'+track+'.mp3');
   audio.attr('volume':0.4);
   audio.attr('autoplay':'autoplay');
   $('body').append(audio);
@@ -85,6 +85,7 @@ $("#wir").hover ->
   , -> 
     ""
 
+
 $("#light").hover ->
     if ($("#audio_light").length>0)
       return;
@@ -98,20 +99,25 @@ $("#light").hover ->
     ""
 
 
-dance = ->
+dance = (counter)->
+  $("#robo_shoe").css('backgroundPosition', '0 -69px');
   $('#robo_shoe').animate( top: '-=24', rotate: '-=30',
     step: (now,fx)->
         $(this).css('-webkit-transform','rotate('+(now+10)+'deg)');
         $(this).css('-moz-transform','rotate('+(now+10)+'deg)');
         $(this).css('transform','rotate('+(now+10)+'deg)');
     complete: ->
+      $("#robo_shoe").css('backgroundPosition', '0 0');
       $('#robo_shoe').animate( top: '+=24' , rotate: '+=30',
         step: (now,fx)->
           $(this).css('-webkit-transform','rotate('+(now-10)+'deg)');
           $(this).css('-moz-transform','rotate('+(now-10)+'deg)');
           $(this).css('transform','rotate('+(now-10)+'deg)');
         complete: ->
-          ""
+          counter -= 1
+          if (counter == 0)
+            return;
+          dance(counter-1)
         duration: 200, 'linear')
     duration: 200, 'linear')
 
@@ -120,8 +126,7 @@ $("#robo_dance").hover ->
     if ($("#audio_robo").length>0)
       return;
     $("#robo_dance").css('backgroundPosition', '0 -65px');
-   # $("#robo_shoe").css('backgroundPosition', '0 -69px');
-    dance();
+    dance(5);
     makeNoise("audio_robo");
     $("#robo_dance").delay(2500).queue ->
       $("#robo_shoe").css('backgroundPosition', '0 0');
@@ -129,3 +134,26 @@ $("#robo_dance").hover ->
       $(this).dequeue();
   , ->
     $("#robo_dance").css('backgroundPosition', '0 0');
+
+
+swing = (counter)->
+  makeNoise("audio_faultier");
+  $('#faultier').animate( rotate: '+=30',
+    step: (now,fx)->
+        $(this).css('-webkit-transform','rotate('+(now+10)+'deg)');
+        $(this).css('-moz-transform','rotate('+(now+10)+'deg)');
+        $(this).css('transform','rotate('+(now+10)+'deg)');
+    complete: ->
+      $('#faultier').animate( rotate: '-=30',
+        step: (now,fx)->
+          $(this).css('-webkit-transform','rotate('+(now-5)+'deg)');
+          $(this).css('-moz-transform','rotate('+(now-5)+'deg)');
+          $(this).css('transform','rotate('+(now-5)+'deg)');
+        duration: 2000, 'linear')
+        makeNoise("audio_faultier");
+    duration: 2000, 'linear')
+
+$("#faultier").hover ->
+  if ($("#audio_faultier").length>0)
+    return;
+  swing();

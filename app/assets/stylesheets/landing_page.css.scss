@@ -172,6 +172,7 @@
                 background: url(landingpage/layout-header-facebook.png) no-repeat;
               }
               #faultier {
+                @include transform_origin(25% 25%);
                 position: relative;
                 top: -89px;
                 left: -511px;

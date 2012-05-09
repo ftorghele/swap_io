@@ -20,6 +20,14 @@
     opacity: $float;
 }
 
+@mixin transform_origin($x: 50%, $y: 50%) {
+  transform-origin:$x $y;
+  -ms-transform-origin:20% 40%; /* IE 9 */
+  -webkit-transform-origin:20% 40%; /* Safari and Chrome */
+  -moz-transform-origin:20% 40%; /* Firefox */
+  -o-transform-origin:20% 40%; /* Opera */
+}
+
 * {
   margin: 0;
   padding: 0;
