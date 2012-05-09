@@ -26,11 +26,11 @@ noNoise = (track) ->
 $("#egg").hover ->
     if ($("#audio_egg").length>0)
       return;
-    $("#egg_image").attr('src', 'assets/landingpage/layout-header-egg-animated.gif');
+    $("#egg").css({'background': 'url(assets/landingpage/layout-header-egg-animated.gif)', 'backgroundRepeat': 'no-repeat'});
     makeNoise("audio_egg");
     $("#egg_typo").css('backgroundPosition', '0 -73px');
-    $("#egg_image").delay(2500).queue ->
-      $("#egg_image").attr('src', 'assets/landingpage/layout-header-egg.png');
+    $("#egg").delay(2500).queue ->
+      $("#egg").css({'background': 'url(assets/landingpage/layout-header-egg.png)', 'backgroundRepeat': 'no-repeat' });
       noNoise("audio_egg");
       $(this).dequeue();
   , -> 
@@ -41,10 +41,10 @@ $("#urban").hover ->
     if ($("#audio_urban").length>0)
       return;
     $("#urban_typo").css('backgroundPosition', '0 -98px');
-    $("#urban_image").attr('src', 'assets/landingpage/layout-header-urban-animated.gif');
+    $("#urban").css({'background': 'url(assets/landingpage/layout-header-urban-animated.gif)', 'backgroundRepeat': 'no-repeat' });
     makeNoise("audio_urban");
-    $("#urban_image").delay(2500).queue ->
-      $("#urban_image").attr('src', 'assets/landingpage/layout-header-urban.png');
+    $("#urban").delay(2500).queue ->
+      $("#urban").css({'background': 'url(assets/landingpage/layout-header-urban.png)' , 'backgroundRepeat': 'no-repeat'});
       noNoise("audio_urban");
       $(this).dequeue();
   , ->
@@ -79,41 +79,28 @@ $("#wir").hover ->
 $("#light").hover ->
     if ($("#audio_light").length>0)
       return;
-    $("#light").attr('src', 'assets/landingpage/layout-header-light-animated.gif');
+    $("#light").css({'background': 'url(assets/landingpage/layout-header-light-animation.gif)', 'backgroundRepeat': 'no-repeat' });
     makeNoise("audio_light");
     $("#light").delay(2500).queue ->
-      $("#light").css('backgroundPosition', '0 0');
+      $("#light").css({'background': 'url(assets/landingpage/layout-header-light.png)', 'backgroundRepeat': 'no-repeat'});
       noNoise("audio_light");
       $(this).dequeue();
   , -> 
-    $("#light").attr('src', 'assets/landingpage/layout-header-light.png');
+    ""
 
-
-#dance = (time)->
-#  if(time <= 0)
-#    return;
-#  $("#robo_shoe").css('backgroundPosition', '0 -69px');
-#  $("#robo_dance").delay(500).queue ->
-#    $("#robo_shoe").css('backgroundPosition', '0 0');
-#    $(this).dequeue();
-#    time = time - 1
-#    dance(time);
-
-down = true;
 
 dance = ->
   $('#robo_shoe').animate( top: '-=24', rotate: '-=30',
     step: (now,fx)->
-      if(down)
         $(this).css('-webkit-transform','rotate('+(now+10)+'deg)');
         $(this).css('-moz-transform','rotate('+(now+10)+'deg)');
         $(this).css('transform','rotate('+(now+10)+'deg)');
-      else
-        $(this).css('-webkit-transform','rotate('+(now-10)+'deg)');
-        $(this).css('-moz-transform','rotate('+(now-10)+'deg)');
-        $(this).css('transform','rotate('+(now-10)+'deg)');
     complete: ->
       $('#robo_shoe').animate( top: '+=24' , rotate: '+=30',
+        step: (now,fx)->
+          $(this).css('-webkit-transform','rotate('+(now-10)+'deg)');
+          $(this).css('-moz-transform','rotate('+(now-10)+'deg)');
+          $(this).css('transform','rotate('+(now-10)+'deg)');
         complete: ->
           ""
         duration: 200, 'linear')
@@ -123,7 +110,7 @@ dance = ->
 $("#robo_dance").hover ->
     if ($("#audio_robo").length>0)
       return;
-    $("#robo_typo").css('backgroundPosition', '0 -65px');
+    $("#robo_dance").css('backgroundPosition', '0 -65px');
    # $("#robo_shoe").css('backgroundPosition', '0 -69px');
     dance();
     makeNoise("audio_robo");
@@ -132,4 +119,4 @@ $("#robo_dance").hover ->
       noNoise("audio_robo");
       $(this).dequeue();
   , ->
-    $("#robo_typo").css('backgroundPosition', '0 0');
+    $("#robo_dance").css('backgroundPosition', '0 0');
