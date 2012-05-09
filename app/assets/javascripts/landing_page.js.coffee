@@ -39,7 +39,7 @@ $("#egg").hover ->
     $("#egg_typo").css('backgroundPosition', '0 0');
 
 $("#urban").hover ->
-    $("#urban_typo").css('backgroundPosition', '0 -97px');
+    $("#urban_typo").css('backgroundPosition', '0 -98px');
     $("#urban_image").attr('src', 'assets/landingpage/layout-header-urban-animated.gif');
   , -> 
     $("#urban_typo").css('backgroundPosition', '0 0');
