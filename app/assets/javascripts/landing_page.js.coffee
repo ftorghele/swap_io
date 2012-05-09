@@ -40,7 +40,7 @@ $("#egg").hover ->
 $("#urban").hover ->
     if ($("#audio_urban").length>0)
       return;
-    $("#urban_typo").css('backgroundPosition', '0 -97px');
+    $("#urban_typo").css('backgroundPosition', '0 -98px');
     $("#urban_image").attr('src', 'assets/landingpage/layout-header-urban-animated.gif');
     makeNoise("audio_urban");
     $("#urban_image").delay(2500).queue ->

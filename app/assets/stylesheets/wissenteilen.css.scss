@@ -1,5 +1,3 @@
-@import "bootstrap.css.scss";
-
 // Mixins
 @mixin rounded($radius: 0.5em) {
     -webkit-border-radius: $radius;
@@ -10,6 +8,7 @@
 @mixin rotate($deg: 0deg) {
     -webkit-transform: rotate($deg);
     -moz-transform: rotate($deg);
+    -ms-transform: rotate($deg);
     -o-transform: rotate($deg);
     transform: rotate($deg);
 }
@@ -21,44 +20,81 @@
     opacity: $float;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.clr {
+  clear: both;
+}
+
 // Fonts
 @font-face {
-  font-family: "ChunkFive";
-  src: url(Chunkfive.otf);
+  font-family: 'ChunkFiveRomanRegular';
+  src: url('chunkfive-webfont.eot');
+  src: url('chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+  url('chunkfive-webfont.woff') format('woff'),
+  url('chunkfive-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-  font-family: "Merriweather-Regular";
-  src: url(Merriweather-Regular.ttf);
+  font-family: 'LeagueGothicRegular';
+  src: url('League_Gothic-webfont.eot');
+  src: url('League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('League_Gothic-webfont.woff') format('woff'),
+  url('League_Gothic-webfont.ttf') format('truetype'),
+  url('League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-  font-family: "Merriweather-Black";
-  src: url(Merriweather-Black.ttf);
+  font-family: 'MerriweatherHeavy';
+  src: url('merriweather-black-webfont.eot');
+  src: url('merriweather-black-webfont.eot?#iefix') format('embedded-opentype'),
+  url('merriweather-black-webfont.woff') format('woff'),
+  url('merriweather-black-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-  font-family: "Merriweather-Bold";
-  src: url(Merriweather-Bold.ttf);
+  font-family: 'MerriweatherBold';
+  src: url('merriweather-bold-webfont.eot');
+  src: url('merriweather-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('merriweather-bold-webfont.woff') format('woff'),
+  url('merriweather-bold-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-  font-family: "Merriweather-Light";
-  src: url(Merriweather-Light.ttf);
+  font-family: 'MerriweatherLight';
+  src: url('merriweather-light-webfont.eot');
+  src: url('merriweather-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('merriweather-light-webfont.woff') format('woff'),
+  url('merriweather-light-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-  font-family: "League_Gothic";
-  src: url(League_Gothic.otf);
+  font-family: 'MerriweatherRegular';
+  src: url('merriweather-regular-webfont.eot');
+  src: url('merriweather-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('merriweather-regular-webfont.woff') format('woff'),
+  url('merriweather-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 // Buttons
 .wtkbtn_green, .wtkbtn_blue {
     height: 53px!important;
-    font-family: "League_Gothic";
+    font-family: "LeagueGothicRegular";
     font-size: 30px;
+    line-height: 30px;
     color: white;
     padding: 0 5px;
+    border: none;
     @include rounded(4px);
 }
 .wtkbtn_green {
@@ -74,13 +110,13 @@
 
 // ???
 h1 {
-  font-family: "League_Gothic";
+  font-family: "LeagueGothicRegular";
   color: #587e81;
 }
 
 p {
   font-size: 12pt;
-  font-family: "Merriweather-Regular";
+  font-family: "MerriweatherRegular";
 }
 
 .copyright {

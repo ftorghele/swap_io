@@ -3,32 +3,30 @@
     #hallo
     #hallo_content
       Bald geht's los
-      #hand_wrapper
-        #hand
-        #hand_overlay
-        #logo
+
+    #hand_wrapper
+      #hand
+      #hand_overlay
+      #logo
+
+    #activities
       #egg
-        =image_tag("landingpage/layout-header-egg.png", :id => "egg_image")
         #egg_typo
       #urban
-        =image_tag("landingpage/layout-header-urban.png", :id => "urban_image")
         #urban_typo
       #fb_sign
       #wir_wrapper
         #wir
       #the_dot
       #robo_dance
-        #robo_typo
         #robo_shoe
       #faultier
       #light
-
 
 #content
   - flash.each do |name, msg|
     = content_tag :div, msg, :class => "alert alert-#{name}" if msg.is_a?(String)
   %h1 Lust auf spannende Begegnungen?
-  %br
 
   %p Auf Wissen Teilen Können treffen Fähigkeiten und Erfahrung auf Neugier und Wissenshunger. Hier findest du Menschen mit denen du deine Talente teilen und von den du selber lernen möchtest!
 

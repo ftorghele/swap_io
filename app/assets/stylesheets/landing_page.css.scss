@@ -1,6 +1,4 @@
-@import "bootstrap.css.scss";
 @import "wissenteilen.css.scss";
-
 
 #landing_page {
     background: url(landingpage/layout-body-bg.jpg);
@@ -14,9 +12,9 @@
             height: 499px;
             background: url(landingpage/layout-header-all.jpg) no-repeat center top;
 
-            #hallo, #hallo::before, #hallo::after {
-                width: 660px;
-                height: 105px;
+            #hallo, #hallo:before, #hallo:after {
+                width: 600px;
+                height: 95px;
                 background: #327679;
                 content: "";
                 display: block;
@@ -39,17 +37,18 @@
                 @include rotate(-1deg);
                 @include transparancy(0.5);
                 z-index: 8;
-                margin: -105px 0 0 5px;
+                margin: -95px 0 0 5px;
             }
             #hallo_content {
-                width: 660px;
-                height: 105px;
+                width: 600px;
+                height: 60px;
                 margin: 0 auto;
                 position: relative;
-                top: 380px;
+                top: 367px;
                 z-index: 25;
-                font-size: 45pt;
-                font-family: "League_Gothic";
+                font-size: 50px;
+                line-height: 50px;
+                font-family: "LeagueGothicRegular";
                 text-align: center;
                 color: white;
             }
@@ -57,9 +56,8 @@
                 position: relative;
                 width: 232px;
                 height: 450px;
-                top: -838px;
-                left: 216px;
-                @include rotate(20deg);
+                top: -490px;
+                margin: 0 auto;
 
                 #hand {
                     position: relative;
@@ -89,96 +87,115 @@
                 }
             }
 
-            #wir_wrapper {
-                position: relative;
-                top: -993px;
-                left: 508px;
-                width: 175px;
-                height: 182px;
-              #wir {
-                position: relative;
-                top: 20px;
-                left: 20px;
-                width: 75px;
-                height: 82px;
-                background: url(landingpage/layout-header-wir-typo.png) no-repeat;
-              }
-            }
 
-            #egg {
-              width: 220px;
+
+            #activities {
               position: relative;
-              top: -950px;
-              left: -225px ;
-              #egg_typo {
-                float: right;
-                width: 114px ;
-                height: 73px;
-                background: url(landingpage/layout-header-typo.png) no-repeat;
+              top: -605px;
+              height: 2px;
+              width: 2px;
+              margin: 0 auto;
+
+              #wir_wrapper {
+                position: relative;
+                top: 13px;
+                left: 156px;
+                width: 171px;
+                height: 148px;
+                #wir {
+                  position: relative;
+                  left: 45px;
+                  top: 35px;
+                  width: 75px;
+                  height: 82px;
+                  background: url(landingpage/layout-header-wir-typo.png) no-repeat;
+                }
               }
-            }
-            #urban {
-              width: 150px;
-              position: relative;
-              top: -1058px;
-              left: 52px;
-              #urban_typo {
-                margin-top: -18px;
-                margin-left: 10px;
-                width: 165px;
-                height: 97px;
-                background: url(landingpage/layout-header-urban-typo.png) no-repeat;
+
+              #egg {
+                position: relative;
+                top: 3px;
+                left: -547px;
+                width: 241px;
+                height: 110px;
+                background: url(landingpage/layout-header-egg.png) no-repeat;
+
+
+                #egg_typo {
+                  position: relative;
+                  left: 94px;
+                  width: 146px;
+                  height: 73px;
+                  background: url(landingpage/layout-header-typo.png) no-repeat;
+                }
               }
-            }
-            #robo_dance {
-              width: 150px;
-              position: relative;
-              top: -1305px;
-              left: 770px ;
-              #robo_typo {
+              #urban {
+                position: relative;
+                top: -108px;
+                left: -250px;
+                width: 109px;
+                height: 72px;
+                background: url(landingpage/layout-header-urban.png) no-repeat;
+
+                #urban_typo {
+                  position: relative;
+                  top: 49px;
+                  left: -10px;
+                  width: 165px;
+                  height: 97px;
+                  background: url(landingpage/layout-header-urban-typo.png) no-repeat;
+                }
+              }
+              #robo_dance {
+                position: relative;
+                top: -239px;
+                left: 439px;
                 width: 143px;
                 height: 65px;
                 background: url(landingpage/layout-header-robo-typo.png) no-repeat;
+
+                #robo_shoe {
+                  position: relative;
+                  top: 73px;
+                  left: 13px;
+                  width: 110px;
+                  height: 69px;
+                  background: url(landingpage/layout-header-robo-shoe.png) no-repeat;
+                }
               }
-              #robo_shoe {
-                margin-top: 5px;
-                width: 110px;
-                height: 69px;
-                background: url(landingpage/layout-header-robo-shoe.png) no-repeat;
+              #fb_sign {
+                position: relative;
+                top: 52px;
+                left: -410px;
+                width: 45px;
+                height: 37px;
+                background: url(landingpage/layout-header-facebook.png) no-repeat;
               }
-            }
-            #fb_sign {
-              position: relative;
-              top: -979px;
-              left: -85px;
-              width: 45px;
-              height: 37px;
-              background: url(landingpage/layout-header-facebook.png) no-repeat;
-            }
-            #faultier {
-              position: relative;
-              top: -1212px;
-              left: -192px;
-              width: 93px;
-              height: 89px;
-              background: url(landingpage/layout-header-faultier.png) no-repeat;
-            }
-            #light {
-              position: relative;
-              top: -1708px;
-              left: 475px;
-              width: 104px;
-              height: 64px;
-              background: url(landingpage/layout-header-light.png) no-repeat;
-            }
-            #the_dot {
-              background: url(landingpage/layout-header-thedot.png) no-repeat;
-              width: 48px;
-              height: 48px;
-              position: relative;
-              top: -1405px;
-              left: 275px;
-            }
+              #faultier {
+                position: relative;
+                top: -89px;
+                left: -511px;
+                width: 93px;
+                height: 89px;
+                background: url(landingpage/layout-header-faultier.png) no-repeat;
+              }
+              #light {
+                position: relative;
+                top: -569px;
+                left: 143px;
+                width: 104px;
+                height: 64px;
+                background: url(landingpage/layout-header-light.png) no-repeat;
+              }
+              #the_dot {
+                position: relative;
+                top: -337px;
+                left: -55px;
+                width: 48px;
+                height: 48px;
+                background: url(landingpage/layout-header-thedot.png) no-repeat;
+              }
+           }
         }
     }
     #content {
@@ -188,15 +205,17 @@
 
         h1 {
             font-size: 37pt;
-            font-family: "League_Gothic";
+            font-family: "LeagueGothicRegular";
             color: #587e81;
+            line-height: 37pt;
+            padding-bottom: 20px;
         }
 
         p {
             font-size: 12pt;
             line-height: 23px;
             padding: 10px 30px;;
-            font-family: "Merriweather-Regular";
+            font-family: "MerriweatherRegular";
         }
 
         .spacer {
@@ -213,7 +232,8 @@
                 width: 410px;
                 float:left;
                 #newsletter_subscriber_email {
-                    height: 41px;
+                    height: 48px;
+                    line-height: 48px;
                     width: 410px;
                     font-size: 25px;
                 }
@@ -222,12 +242,14 @@
                 }
             }
             #email_button {
-                width: 175px;
+                width: 180px;
                 float:right;
+                .wtkbtn_green {
+                  width: 180px;
+                }
             }
             img {
                 position: relative;
-                top: 10px;
                 left: 360px;
             }
         }
