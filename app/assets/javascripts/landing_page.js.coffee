@@ -1,6 +1,15 @@
 $('#the_dot').css({opacity: 0.0 });
 
+preload = (images) ->
+  $(images).each ->
+    $('<img/>')[0].src = this
+
 $(window).load ->
+
+  preload(['assets/landingpage/layout-header-egg-animated.gif',
+           'assets/landingpage/layout-header-urban-animated.gif',
+           'assets/landingpage/layout-header-light-animation.gif']);
+
   $('#hand_wrapper').animate( top: '+=324', rotate: '-=20',
     step: (now,fx)->
       $(this).css('-webkit-transform','rotate('+(now+20)+'deg)');
