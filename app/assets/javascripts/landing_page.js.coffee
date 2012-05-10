@@ -1,10 +1,10 @@
 $('#the_dot').css({opacity: 0.0 });
 
-preload = (images) ->
+preload_images = (images) ->
   $(images).each ->
     $('<img/>')[0].src = this
 
-preload = (sounds) ->
+preload_audio = (sounds) ->
   $(sounds).each ->
     $('<audio/>')[0].src = this
 
@@ -12,13 +12,13 @@ $(window).load ->
 
   $('#hallo_content').countdown({until: new Date(2012, 5, 4), compact: true, layout: '{dn} Tage {hnn} Stunden und {mnn} Minuten'});
 
-  preload(['assets/landingpage/layout-header-egg-animated.gif',
-           'assets/landingpage/layout-header-urban-animated.gif',
-           'assets/landingpage/layout-header-light-animation.gif']);
+  preload_images(['assets/landingpage/layout-header-egg-animated.gif',
+                  'assets/landingpage/layout-header-urban-animated.gif',
+                  'assets/landingpage/layout-header-light-animation.gif']);
 
-  preload(['assets/landingpage/audio_egg.ogg',
-           'assets/landingpage/audio_urban.ogg',
-           'assets/landingpage/audio_light.ogg']);
+  preload_audio(['assets/landingpage/audio_egg.ogg',
+                 'assets/landingpage/audio_urban.ogg',
+                 'assets/landingpage/audio_light.ogg']);
 
   $('#hand_wrapper').animate( top: '+=324', rotate: '-=20',
     step: (now,fx)->
