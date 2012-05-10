@@ -83,25 +83,43 @@ $("#fb_sign").hover ->
     ""
 
 
-popup = (cssId)->
-  $('#'+cssId+'').animate( top: '+=20',
+popup = (cssId, t, l)->
+  $('#'+cssId+'').animate( top: t, left: l,
     complete: ->
-      $('#faultier').animate( rotate: '-=20',
-        step: (now,fx)->
-          $(this).css('-webkit-transform','rotate('+(now-5)+'deg)');
-          $(this).css('-moz-transform','rotate('+(now-5)+'deg)');
-          $(this).css('transform','rotate('+(now-5)+'deg)');
-        duration: 800, 'linear')
-      noNoise("audio_faultier");
-    duration: 800, 'linear')
+      ""
+    duration: 200, 'linear')
 
 
 $("#wir").hover ->
     if ($("#audio_team").length>0)
       return;
     $("#wir").css('backgroundPosition', '0 -82px');
+    $("#face_1").delay(350).queue ->
+      popup("face_1", '+=40', '+=30');
+      $(this).dequeue();
+    $("#face_2").delay(500).queue ->
+      popup("face_2",  '-=40', '+=30');
+      $(this).dequeue();
+    $("#face_3").delay(1000).queue ->
+      popup("face_3", '-=40', '-=30');
+      $(this).dequeue();
+    $("#face_4").delay(1200).queue ->
+      popup("face_4", '+=40', '-=30');
+      $(this).dequeue();
     makeNoise("audio_team");
     $("#wir").delay(2500).queue ->
+      $("#face_1").delay(10).queue ->
+        popup("face_1", '-=40', '-=30');
+        $(this).dequeue();
+      $("#face_2").delay(10).queue ->
+        popup("face_2",  '+=40', '-=30');
+        $(this).dequeue();
+      $("#face_3").delay(10).queue ->
+        popup("face_3", '+=40', '+=30');
+        $(this).dequeue();
+      $("#face_4").delay(10).queue ->
+        popup("face_4", '-=40', '+=30');
+        $(this).dequeue();
       noNoise("audio_team");
       $(this).dequeue();
   , -> 
