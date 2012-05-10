@@ -1,4 +1,3 @@
-$('#the_dot').css({opacity: 0.0 });
 
 rotate = (that, deg)->
   $(that).css('-webkit-transform','rotate('+deg+'deg)');
@@ -32,8 +31,6 @@ $(window).load ->
       rotate(this, now+20);
     complete: ->
       $('#hand, #hand_overlay').animate( top: '-=394' ,
-        complete: ->
-          $('#the_dot').css({opacity: 1.0 });
         duration: 1200, 'linear')
     duration: 2000, 'linear')
 

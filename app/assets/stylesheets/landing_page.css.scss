@@ -53,6 +53,7 @@
                 color: white;
             }
             #hand_wrapper {
+                z-index: 20;
                 position: relative;
                 width: 232px;
                 height: 450px;
@@ -108,33 +109,7 @@
                   top: 35px;
                   width: 75px;
                   height: 82px;
-                  z-index: 100;
                   background: url(landingpage/layout-header-wir-typo.png) no-repeat;
-                }
-                #face_1, #face_2, #face_3, #face_4 {
-                  position: relative;
-                  width: 60px;
-                  height: 60px;
-                }
-                #face_1 {
-                  background: url(landingpage/layout-header-wir-fraenk.png) no-repeat;
-                  top: -35px;
-                  left: 56px;
-                }
-                #face_2 {
-                  background: url(landingpage/layout-header-wir-wolfgang.png) no-repeat;
-                  top: -99px;
-                  left: 56px;
-                }
-                #face_3 {
-                  background: url(landingpage/layout-header-wir-matthias.png) no-repeat;
-                  top: -165px;
-                  left: 54px;
-                }
-                #face_4 {
-                  background: url(landingpage/layout-header-wir-lilli.png) no-repeat;
-                  top: -220px;
-                  left: 49px;
                 }
               }
 
@@ -221,6 +196,7 @@
                 background: url(landingpage/layout-header-light.png) no-repeat;
               }
               #the_dot {
+                z-index: 18;
                 position: relative;
                 top: -337px;
                 left: -55px;
