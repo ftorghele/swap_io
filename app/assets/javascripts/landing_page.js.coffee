@@ -4,6 +4,10 @@ preload = (images) ->
   $(images).each ->
     $('<img/>')[0].src = this
 
+preload = (sounds) ->
+  $(sounds).each ->
+    $('<audio/>')[0].src = this
+
 $(window).load ->
 
   $('#hallo_content').countdown({until: new Date(2012, 5, 4), compact: true, layout: '{dn} Tage {hnn} Stunden und {mnn} Minuten'});
@@ -11,6 +15,10 @@ $(window).load ->
   preload(['assets/landingpage/layout-header-egg-animated.gif',
            'assets/landingpage/layout-header-urban-animated.gif',
            'assets/landingpage/layout-header-light-animation.gif']);
+
+  preload(['assets/landingpage/audio_egg.ogg',
+           'assets/landingpage/audio_urban.ogg',
+           'assets/landingpage/audio_light.ogg']);
 
   $('#hand_wrapper').animate( top: '+=324', rotate: '-=20',
     step: (now,fx)->
@@ -25,8 +33,8 @@ $(window).load ->
     duration: 2000, 'linear')
 
 makeNoise = (track) ->
-  audio = $("<audio id=''+track''></audio>");
-  audio.attr('src':'/assets/'+track+'.mp3');
+  audio = $("<audio id="+track+"></audio>");
+  audio.attr({'src':'/assets/landingpage/'+track+'.ogg'});
   audio.attr('volume':0.4);
   audio.attr('autoplay':'autoplay');
   $('body').append(audio);
@@ -67,7 +75,7 @@ $("#fb_sign").hover ->
       return;
     $("#fb_sign").css('backgroundPosition', '0 -37px');
     makeNoise("audio_fb");
-    $("#fb_sign").delay(2500).queue ->
+    $("#fb_sign").delay(1500).queue ->
       $("#fb_sign").css('backgroundPosition', '0 0');
       noNoise("audio_fb");
       $(this).dequeue();
@@ -140,22 +148,37 @@ $("#robo_dance").hover ->
 
 swing = (counter)->
   makeNoise("audio_faultier");
-  $('#faultier').animate( rotate: '+=30',
+  $('#faultier').animate( rotate: '+=20',
     step: (now,fx)->
         $(this).css('-webkit-transform','rotate('+(now+10)+'deg)');
         $(this).css('-moz-transform','rotate('+(now+10)+'deg)');
         $(this).css('transform','rotate('+(now+10)+'deg)');
     complete: ->
-      $('#faultier').animate( rotate: '-=30',
+      $('#faultier').animate( rotate: '-=20',
         step: (now,fx)->
           $(this).css('-webkit-transform','rotate('+(now-5)+'deg)');
           $(this).css('-moz-transform','rotate('+(now-5)+'deg)');
           $(this).css('transform','rotate('+(now-5)+'deg)');
-        duration: 2000, 'linear')
-        makeNoise("audio_faultier");
-    duration: 2000, 'linear')
+        duration: 800, 'linear')
+      noNoise("audio_faultier");
+    duration: 800, 'linear')
+
 
 $("#faultier").hover ->
   if ($("#audio_faultier").length>0)
     return;
   swing();
+
+
+$("#the_dot").hover ->
+  if ($("#audio_comma").length>0)
+    return;
+  makeNoise("audio_comma");
+  $(this).animate( rotate: '+=360',
+    step: (now,fx)->
+        $(this).css('-webkit-transform','rotate('+(now+30)+'deg)');
+        $(this).css('-moz-transform','rotate('+(now+30)+'deg)');
+        $(this).css('transform','rotate('+(now+30)+'deg)');
+    complete: ->
+      noNoise("audio_comma");
+    duration: 1300, 'linear')
