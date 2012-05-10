@@ -1,5 +1,12 @@
 $('#the_dot').css({opacity: 0.0 });
 
+rotate = (that, deg)->
+  $(that).css('-webkit-transform','rotate('+deg+'deg)');
+  $(that).css('-moz-transform','rotate('+deg+'deg)');
+  $(that).css('transform','rotate('+deg+'deg)');
+  $(that).css('-ms-transform','rotate('+deg+'deg)');
+  
+
 preload_images = (images) ->
   $(images).each ->
     $('<img/>')[0].src = this
@@ -20,23 +27,24 @@ $(window).load ->
                  'assets/landingpage/audio_urban.ogg',
                  'assets/landingpage/audio_light.ogg']);
 
-  $('#hand_wrapper').animate( top: '+=324', rotate: '-=20',
+  $('#hand_wrapper').animate( top: '+=394', rotate: '-=20',
     step: (now,fx)->
-      $(this).css('-webkit-transform','rotate('+(now+20)+'deg)');
-      $(this).css('-moz-transform','rotate('+(now+20)+'deg)');
-      $(this).css('transform','rotate('+(now+20)+'deg)');
+      rotate(this, now+20);
     complete: ->
-      $('#hand, #hand_overlay').animate( top: '-=324' ,
+      $('#hand, #hand_overlay').animate( top: '-=394' ,
         complete: ->
           $('#the_dot').css({opacity: 1.0 });
-        duration: 1000, 'linear')
+        duration: 1200, 'linear')
     duration: 2000, 'linear')
 
 makeNoise = (track) ->
   audio = $("<audio id="+track+"></audio>");
-  audio.attr({'src':'/assets/landingpage/'+track+'.ogg'});
+  source1 = $("<source src=/assets/landingpage/"+track+".mp3 />");
+  source2 = $("<source src=/assets/landingpage/"+track+".ogg />");
   audio.attr('volume':0.4);
   audio.attr('autoplay':'autoplay');
+  audio.append(source1);
+  audio.append(source2);
   $('body').append(audio);
 
 noNoise = (track) ->
@@ -143,16 +151,12 @@ dance = (counter)->
   $("#robo_shoe").css('backgroundPosition', '0 -69px');
   $('#robo_shoe').animate( top: '-=24', rotate: '-=30',
     step: (now,fx)->
-        $(this).css('-webkit-transform','rotate('+(now+10)+'deg)');
-        $(this).css('-moz-transform','rotate('+(now+10)+'deg)');
-        $(this).css('transform','rotate('+(now+10)+'deg)');
+      rotate(this, now+10);
     complete: ->
       $("#robo_shoe").css('backgroundPosition', '0 0');
       $('#robo_shoe').animate( top: '+=24' , rotate: '+=30',
         step: (now,fx)->
-          $(this).css('-webkit-transform','rotate('+(now-10)+'deg)');
-          $(this).css('-moz-transform','rotate('+(now-10)+'deg)');
-          $(this).css('transform','rotate('+(now-10)+'deg)');
+          rotate(this, now-10);
         complete: ->
           counter -= 1
           if (counter == 0)
@@ -180,15 +184,11 @@ swing = (counter)->
   makeNoise("audio_faultier");
   $('#faultier').animate( rotate: '+=20',
     step: (now,fx)->
-        $(this).css('-webkit-transform','rotate('+(now+10)+'deg)');
-        $(this).css('-moz-transform','rotate('+(now+10)+'deg)');
-        $(this).css('transform','rotate('+(now+10)+'deg)');
+      rotate(this, now+10);
     complete: ->
       $('#faultier').animate( rotate: '-=20',
         step: (now,fx)->
-          $(this).css('-webkit-transform','rotate('+(now-5)+'deg)');
-          $(this).css('-moz-transform','rotate('+(now-5)+'deg)');
-          $(this).css('transform','rotate('+(now-5)+'deg)');
+          rotate(this, now-5);
         duration: 800, 'linear')
       noNoise("audio_faultier");
     duration: 800, 'linear')
@@ -206,9 +206,7 @@ $("#the_dot").hover ->
   makeNoise("audio_comma");
   $(this).animate( rotate: '+=720',
     step: (now,fx)->
-        $(this).css('-webkit-transform','rotate('+(now+30)+'deg)');
-        $(this).css('-moz-transform','rotate('+(now+30)+'deg)');
-        $(this).css('transform','rotate('+(now+30)+'deg)');
+        rotate(this, now+30);
     complete: ->
       noNoise("audio_comma");
     duration: 1500, 'linear')
