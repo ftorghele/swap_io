@@ -10,6 +10,9 @@ preload_audio = (sounds) ->
 
 $(window).load ->
 
+  if $('#msg').children().length > 0
+    $('html,body').animate({scrollTop: $('#msg').offset().top-20},'slow');
+
   $('#hallo_content').countdown({until: new Date(2012, 5, 4), compact: true, layout: '{dn} Tage {hnn} Stunden und {mnn} Minuten'});
 
   preload_images(['assets/landingpage/layout-header-egg-animated.gif',
