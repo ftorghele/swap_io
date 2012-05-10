@@ -146,21 +146,27 @@
                   background: url(landingpage/layout-header-urban-typo.png) no-repeat;
                 }
               }
-              #robo_dance {
+              #robo_wrapper{
                 position: relative;
                 top: -239px;
                 left: 439px;
                 width: 143px;
-                height: 65px;
-                background: url(landingpage/layout-header-robo-typo.png) no-repeat;
+                height: 135px;
 
-                #robo_shoe {
+                #robo_dance {
                   position: relative;
-                  top: 73px;
-                  left: 13px;
-                  width: 110px;
-                  height: 69px;
-                  background: url(landingpage/layout-header-robo-shoe.png) no-repeat;
+                  width: 143px;
+                  height: 65px;
+                  background: url(landingpage/layout-header-robo-typo.png) no-repeat;
+
+                  #robo_shoe {
+                    position: relative;
+                    top: 73px;
+                    left: 13px;
+                    width: 110px;
+                    height: 69px;
+                    background: url(landingpage/layout-header-robo-shoe.png) no-repeat;
+                  }
                 }
               }
               #fb_sign {
@@ -174,7 +180,7 @@
               #faultier {
                 @include transform_origin(25% 25%);
                 position: relative;
-                top: -89px;
+                top: -157px;
                 left: -511px;
                 width: 93px;
                 height: 89px;
@@ -182,7 +188,7 @@
               }
               #light {
                 position: relative;
-                top: -569px;
+                top: -639px;
                 left: 143px;
                 width: 104px;
                 height: 64px;

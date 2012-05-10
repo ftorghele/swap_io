@@ -43,11 +43,11 @@ noNoise = (track) ->
   $("#"+track+"").remove(); 
 
 $("#egg").hover ->
+    $("#egg_typo").css('backgroundPosition', '0 -73px');
     if ($("#audio_egg").length>0)
       return;
     $("#egg").css({'background': 'url(assets/landingpage/layout-header-egg-animated.gif)', 'backgroundRepeat': 'no-repeat'});
     makeNoise("audio_egg");
-    $("#egg_typo").css('backgroundPosition', '0 -73px');
     $("#egg").delay(2500).queue ->
       $("#egg").css({'background': 'url(assets/landingpage/layout-header-egg.png)', 'backgroundRepeat': 'no-repeat' });
       noNoise("audio_egg");
@@ -57,9 +57,9 @@ $("#egg").hover ->
 
 
 $("#urban").hover ->
+    $("#urban_typo").css('backgroundPosition', '0 -98px');
     if ($("#audio_urban").length>0)
       return;
-    $("#urban_typo").css('backgroundPosition', '0 -98px');
     $("#urban").css({'background': 'url(assets/landingpage/layout-header-urban-animated.gif)', 'backgroundRepeat': 'no-repeat' });
     makeNoise("audio_urban");
     $("#urban").delay(2500).queue ->
@@ -83,17 +83,29 @@ $("#fb_sign").hover ->
     ""
 
 
+popup = (cssId)->
+  $('#'+cssId+'').animate( top: '+=20',
+    complete: ->
+      $('#faultier').animate( rotate: '-=20',
+        step: (now,fx)->
+          $(this).css('-webkit-transform','rotate('+(now-5)+'deg)');
+          $(this).css('-moz-transform','rotate('+(now-5)+'deg)');
+          $(this).css('transform','rotate('+(now-5)+'deg)');
+        duration: 800, 'linear')
+      noNoise("audio_faultier");
+    duration: 800, 'linear')
+
+
 $("#wir").hover ->
-    if ($("#audio_wir").length>0)
+    if ($("#audio_team").length>0)
       return;
     $("#wir").css('backgroundPosition', '0 -82px');
-    makeNoise("audio_wir");
+    makeNoise("audio_team");
     $("#wir").delay(2500).queue ->
-      $("#wir").css('backgroundPosition', '0 0');
-      noNoise("audio_wir");
+      noNoise("audio_team");
       $(this).dequeue();
   , -> 
-    ""
+    $("#wir").css('backgroundPosition', '0 0');
 
 
 $("#light").hover ->
@@ -132,13 +144,13 @@ dance = (counter)->
     duration: 200, 'linear')
 
 
-$("#robo_dance").hover ->
+$("#robo_wrapper").hover ->
+    $("#robo_dance").css('backgroundPosition', '0 -65px');
     if ($("#audio_robo").length>0)
       return;
-    $("#robo_dance").css('backgroundPosition', '0 -65px');
     dance(5);
     makeNoise("audio_robo");
-    $("#robo_dance").delay(2500).queue ->
+    $("#robo_wrapper").delay(2500).queue ->
       $("#robo_shoe").css('backgroundPosition', '0 0');
       noNoise("audio_robo");
       $(this).dequeue();
@@ -174,11 +186,11 @@ $("#the_dot").hover ->
   if ($("#audio_comma").length>0)
     return;
   makeNoise("audio_comma");
-  $(this).animate( rotate: '+=360',
+  $(this).animate( rotate: '+=720',
     step: (now,fx)->
         $(this).css('-webkit-transform','rotate('+(now+30)+'deg)');
         $(this).css('-moz-transform','rotate('+(now+30)+'deg)');
         $(this).css('transform','rotate('+(now+30)+'deg)');
     complete: ->
       noNoise("audio_comma");
-    duration: 1300, 'linear')
+    duration: 1500, 'linear')
