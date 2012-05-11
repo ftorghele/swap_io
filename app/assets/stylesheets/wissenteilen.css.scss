@@ -33,6 +33,7 @@
   box-shadow: $px_left $px_top $blur $spread $color;
 }
 
+// Misc
 * {
   margin: 0;
   padding: 0;
@@ -99,6 +100,40 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'OpenSansRegular';
+  src: url('opensans-regular-webfont.eot');
+  src: url('opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('opensans-regular-webfont.woff') format('woff'),
+  url('opensans-regular-webfont.ttf') format('truetype'),
+  url('opensans-regular-webfont.svg#OpenSansRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+h1, h2, h3, h4 {
+  font-family: "LeagueGothicRegular", Helvetica, Arial, sans-serif;
+  color: #587e81;
+  font-weight: normal;
+}
+
+p {
+  font-family: "MerriweatherRegular", Georgia, serif;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+a, a:link, a:visited{
+  color:#587e81;
+  text-decoration:none;
+  font-weight:normal;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
 // Buttons
 .wtkbtn_green, .wtkbtn_blue {
     height: 53px;
@@ -121,52 +156,66 @@
     background-position: 0px -53px;
 }
 
+// Top
+#nav {
+  height: 49px;
+  width: 100%;
+  background: url('layout-nav-bg.jpg') repeat-x;
 
-// ???
-h1 {
-  font-family: "LeagueGothicRegular", Helvetica, Arial, sans-serif;
-  color: #587e81;
-  font-weight: normal;
+  #navbar {
+    height: 49px;
+    width: 940px;
+    margin: 0 auto;
+
+    #navbar-left, #navbar-right {
+      width: 400px;
+      text-transform: uppercase;
+
+      ul {
+        background:url('layout-nav-seperator.png') no-repeat top left;
+        li {
+          font-family: "OpenSansRegular";
+          font-size: 14px;
+          display: inline;
+          list-style: none;
+          height: 49px;
+          line-height: 49px;
+          background:url('layout-nav-seperator.png') no-repeat top right;
+          padding: 15px;
+
+          a, a:link, a:visited{
+            color:#a1a1a1;
+            text-decoration:none;
+            font-weight:normal;
+          }
+          a:hover{
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    #navbar-left {
+      float: left;
+    }
+    #navbar-right, #navbar-right ul {
+      float: right;
+    }
+  }
+  #logo {
+    width: 141px;
+    height: 130px;
+    margin: -32px auto 0 auto;
+    background: url('layout-logo.png') no-repeat;
+  }
 }
 
-p {
-  font-size: 12pt;
-  font-family: "MerriweatherRegular", Georgia, serif;
-}
-a, a:link, a:visited{
-  color:#587e81;
-  text-decoration:none;
-  font-weight:normal;
-}
-a:hover{
-  text-decoration:underline;
+// Content
+#content {
+  width: 940px;
+  margin: 100px auto 0 auto;
 }
 
+// Footer
 .copyright {
     text-align: center;
-}
-
-// Bootstrap Form Styling
-form {
-    @extend .form-horizontal;
-    fieldset {
-        div {
-            @extend .control-group;
-            label {
-                @extend .control-label;
-            }
-            input, textarea, select, checkbox {
-                margin-left: 30px!important;
-                float:left;
-            }
-            .field_with_errors {
-                display:inline;
-                .message {
-                    display:inline;
-                    color: #f00;
-                    margin-left: 5px;
-                }
-            }
-        }
-    }
 }

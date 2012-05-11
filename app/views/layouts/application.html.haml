@@ -7,41 +7,39 @@
     %meta{:name => "autor", :content =>  content_for?(:autor) ? yield(:autor) : I18n.t('app.autor') }/
     = stylesheet_link_tag :wtk
     = csrf_meta_tags
-    :css
-      body {
-        padding-top: 60px;
-      }
     /[if lt IE 9]
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
     = javascript_include_tag :jquery
     = javascript_include_tag :jquery_ujs
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          = link_to I18n.t('app.brand'), root_path, :class => 'brand'
-          %ul.nav
+    #nav
+      #navbar
+        #navbar-left
+          %ul
             %li= link_to I18n.t('app.course_link'), courses_path
             %li= link_to I18n.t('app.course_request_link'), course_requests_path
-          %ul.nav.pull-right
-            - if user_signed_in?
-              %li= link_to username(current_user), user_path(current_user)
-              %li= link_to I18n.t('user.edit.title'), edit_user_path(current_user)
-              =link_to I18n.t('app.sign_out_link'), destroy_user_session_path, :method => :delete, :class => 'btn'
-            - else
-              = link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => 'btn'
-              = link_to I18n.t('app.sign_in_link'), new_user_session_path, :class => 'btn'
-              = link_to I18n.t('app.sign_in_with_link', :provider => "Facebook"), user_omniauth_authorize_path(:facebook), :class => 'btn'
+        #navbar-right
+          %ul
+            %li= link_to I18n.t('app.course_link'), courses_path
+            %li= link_to I18n.t('app.course_request_link'), course_requests_path
 
-    .container
-      .content
-        .row
-          .span12
-            - flash.each do |name, msg|
-              = content_tag :div, msg, :class => "alert alert-#{name}" if msg.is_a?(String)
-          .span9
-            = yield
+      #logo
+    .clr
+    #content
+      - if user_signed_in?
+        = link_to username(current_user), user_path(current_user)
+        = link_to I18n.t('user.edit.title'), edit_user_path(current_user)
+        = link_to I18n.t('app.sign_out_link'), destroy_user_session_path, :method => :delete
+      - else
+        = link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => 'btn'
+        = link_to I18n.t('app.sign_in_link'), new_user_session_path, :class => 'btn'
+        = link_to I18n.t('app.sign_in_with_link', :provider => "Facebook"), user_omniauth_authorize_path(:facebook), :class => 'btn'
 
-      = render('layouts/footer')
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :class => "alert alert-#{name}" if msg.is_a?(String)
+
+      = yield
+
+    = render('layouts/footer')
 
     = javascript_include_tag :application
