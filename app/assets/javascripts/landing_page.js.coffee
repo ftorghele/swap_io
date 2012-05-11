@@ -10,7 +10,7 @@ preload_images = (images) ->
   $(images).each ->
     $('<img/>')[0].src = this
 
-$('#hallo_content').countdown({until: new Date(2012, 5, 4), compact: true, layout: '<div>{dn}</div> : {hnn} : {mnn} : {snn}'});
+$('#hallo_content').countdown({until: new Date(2012, 5, 4), compact: true, layout: '<div>{dn}</div> : <div>{hnn}</div> : <div>{mnn}</div> : <div>{snn}</div>'});
 
 $(window).load ->
 

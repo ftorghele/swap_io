@@ -2,7 +2,9 @@
 %html{:lang => "de"}
   %head
     %meta{:charset => "utf-8"}/
-    %title= content_for?(:title) ? yield(:title) : I18n.t('app.headline')    
+    %title= content_for?(:title) ? yield(:title) : I18n.t('app.title')
+    %meta{:name => "description", :content => content_for?(:description) ? yield(:description) : I18n.t('app.description') }/
+    %meta{:name => "autor", :content =>  content_for?(:autor) ? yield(:autor) : I18n.t('app.autor') }/
     = stylesheet_link_tag :wtk
     = csrf_meta_tags
     :css
