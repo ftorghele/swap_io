@@ -10,24 +10,16 @@ preload_images = (images) ->
   $(images).each ->
     $('<img/>')[0].src = this
 
-preload_audio = (sounds) ->
-  $(sounds).each ->
-    $('<audio/>')[0].src = this
+$('#hallo_content').countdown({until: new Date(2012, 5, 4), compact: true, layout: '<div>{dn}</div> : {hnn} : {mnn} : {snn}'});
 
 $(window).load ->
 
   if $('#msg').children().length > 0
     $('html,body').animate({scrollTop: $('#msg').offset().top-20},'slow');
 
-  $('#hallo_content').countdown({until: new Date(2012, 5, 4), compact: true, layout: '{dn} Tage {hnn} Stunden und {mnn} Minuten'});
-
   preload_images(['assets/landingpage/layout-header-egg-animated.gif',
                   'assets/landingpage/layout-header-urban-animated.gif',
                   'assets/landingpage/layout-header-light-animation.gif']);
-
-  preload_audio(['assets/landingpage/audio_egg.ogg',
-                 'assets/landingpage/audio_urban.ogg',
-                 'assets/landingpage/audio_light.ogg']);
 
   $('#hand_wrapper').animate( top: '+=394', rotate: '-=20',
     step: (now,fx)->
@@ -106,13 +98,13 @@ $("#wir").hover ->
       popup("face_1", '+=40', '+=30');
       $(this).dequeue();
     $("#face_2").delay(500).queue ->
-      popup("face_2",  '-=40', '+=30');
+      popup("face_2",  '-=26', '+=38');
       $(this).dequeue();
     $("#face_3").delay(1000).queue ->
       popup("face_3", '-=40', '-=30');
       $(this).dequeue();
     $("#face_4").delay(1200).queue ->
-      popup("face_4", '+=40', '-=30');
+      popup("face_4", '+=30', '-=38');
       $(this).dequeue();
     makeNoise("audio_team");
     $("#wir").delay(2500).queue ->
@@ -120,13 +112,13 @@ $("#wir").hover ->
         popup("face_1", '-=40', '-=30');
         $(this).dequeue();
       $("#face_2").delay(10).queue ->
-        popup("face_2",  '+=40', '-=30');
+        popup("face_2",  '+=26', '-=38');
         $(this).dequeue();
       $("#face_3").delay(10).queue ->
         popup("face_3", '+=40', '+=30');
         $(this).dequeue();
       $("#face_4").delay(10).queue ->
-        popup("face_4", '-=40', '+=30');
+        popup("face_4", '-=30', '+=38');
         $(this).dequeue();
       noNoise("audio_team");
       $(this).dequeue();
@@ -182,11 +174,11 @@ $("#robo_wrapper").hover ->
 
 swing = (counter)->
   makeNoise("audio_faultier");
-  $('#faultier').animate( rotate: '+=20',
+  $('#faultier').animate( rotate: '+=50',
     step: (now,fx)->
       rotate(this, now+10);
     complete: ->
-      $('#faultier').animate( rotate: '-=20',
+      $('#faultier').animate( rotate: '-=50',
         step: (now,fx)->
           rotate(this, now-5);
         duration: 800, 'linear')

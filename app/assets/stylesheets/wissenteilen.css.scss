@@ -28,6 +28,11 @@
   -o-transform-origin:20% 40%; /* Opera */
 }
 
+@mixin shadow($color: rgba(0,0,0, 0.2), $px_left: 0px, $px_top: 0px, $blur: 6px, $spread:0  ){ 
+  -webkit-box-shadow: $px_left $px_top $blur $spread $color;
+  box-shadow: $px_left $px_top $blur $spread $color;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -96,13 +101,14 @@
 
 // Buttons
 .wtkbtn_green, .wtkbtn_blue {
-    height: 53px!important;
+    height: 53px;
     font-family: "LeagueGothicRegular";
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 34px;
+    line-height: 57px;
     color: white;
-    padding: 0 5px;
+    padding: 0 15px;
     border: none;
+    display: block;
     @include rounded(4px);
 }
 .wtkbtn_green {
@@ -118,13 +124,22 @@
 
 // ???
 h1 {
-  font-family: "LeagueGothicRegular";
+  font-family: "LeagueGothicRegular", Helvetica, Arial, sans-serif;
   color: #587e81;
+  font-weight: normal;
 }
 
 p {
   font-size: 12pt;
-  font-family: "MerriweatherRegular";
+  font-family: "MerriweatherRegular", Georgia, serif;
+}
+a, a:link, a:visited{
+  color:#587e81;
+  text-decoration:none;
+  font-weight:normal;
+}
+a:hover{
+  text-decoration:underline;
 }
 
 .copyright {

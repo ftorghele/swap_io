@@ -2,6 +2,7 @@
   #header_content
     #hallo
     #hallo_content
+      Bald geht's los
 
     #hand_wrapper
       #hand
@@ -33,9 +34,9 @@
       = content_tag :div, msg, :class => "alert alert-#{name}" if msg.is_a?(String)
   %h1 Lust auf spannende Begegnungen?
 
-  %p Auf Wissen Teilen Können treffen Fähigkeiten und Erfahrung auf Neugier und Wissenshunger. Hier findest du Menschen mit denen du deine Talente teilen und von den du selber lernen möchtest!
+  %p Auf Wissen • Teilen • Können treffen Fähigkeiten und Erfahrung auf Neugier und Wissenshunger. Hier findest du Menschen mit denen du deine Talente teilen und von den du selber lernen kannst!
 
-  %p Begegne deiner Stadt und ihren Bewohnern, lerne deine Nachbarn kennen und entdecke die verborgenen Schätze in dir und deinen Mitmenschen. Wissen Teilen Können ist für uns alle!
+  %p Begegne deiner Stadt und ihren Bewohnern, lerne deine Nachbarn kennen und entdecke die verborgenen Fähigkeiten deiner Mitmenschen. Jeder ist aufgerufen mitzumachen.
 
   .spacer
 
@@ -54,10 +55,11 @@
 
 #footer
   #fb
-    =image_tag 'landingpage/layout-icon-facebook.png', :id => "fb-sign", :class => "wtkbtn_blue"
+    =link_to( image_tag('landingpage/layout-icon-facebook.png', :id => "fb-sign", :size =>"44x44"), 'http://www.facebook.com/wissenteilen', :class => "wtkbtn_blue" )
     %p Schon jetzt Einblicke und Fotos zur Entstehung auf Facebook ansehen!
 
   #email
     %p
-      Wir freuen uns über deine Nachricht. Schreib uns doch eine Mail an
+      Wir freuen uns über deine Feedback. Schreib uns doch eine Mail an
       = mail_to "info@wissenteilen.com"
+      = "."
