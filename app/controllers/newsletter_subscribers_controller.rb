@@ -6,6 +6,7 @@ class NewsletterSubscribersController < ApplicationController
     email = params[:newsletter_subscriber][:email]
     @subscriber = NewsletterSubscriber.new(:email => email, :signout_hash => Hash.create_token(email))
     if @subscriber.valid?
+      @subscriber.save!
       flash[:info] = I18n.t('newsletter_subscriber.create.success')
       redirect_to landingpage_path
     else

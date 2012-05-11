@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  http_basic_authenticate_with :name => "frodo", :password => "thering", :except => [:landingpage, :overview, :create, :unsubscribe]
-
+  if Rails.env.production?
+    http_basic_authenticate_with :name => "wtk", :password => "wtf", :except => [:landingpage, :overview, :create, :unsubscribe]
+  end
 
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: :render_500
