@@ -52,6 +52,14 @@
                 text-align: center;
                 color: white;
                 text-shadow: rgba(0, 0, 0, .2) 0px 3px 0px;
+
+                div {
+                  display: inline-block;
+                  width: 75px;
+                  text-align:center;
+                  zoom: 1;
+                  *display:inline;
+                }
             }
             #hand_wrapper {
                 z-index: 20;
@@ -293,9 +301,12 @@
                   }
                   
                   .message {
+                    font-size: 12px;
+                    line-height: 20px;
+                    font-family: "MerriweatherRegular";
                     display: block;
                     border: 1px solid #111111;
-                    width: 401px;
+                    width: 370px;
                     margin-top: 2px;
                     padding: 5px;
                     color: #B94A48;

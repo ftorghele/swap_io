@@ -18,7 +18,9 @@ de:
   ###########################################################################
 
   app:
-    headline: "Wissen Teilen Können"
+    title: "Wissen • Teilen • Können"
+    description: "Wissen • Teilen • Können ist eine Collaborative Consumption Plattform auf der du deine Talente teilen und von anderen lernen kannst. Das interaktive Talentetausch-Projekt wird von einem Team aus MultiMediaArt- und MultiMediaTechnology-Studenten an der Fachhochschule Salzburg konzipiert und umgesetzt."
+    autor: "Wissen • Teilen • Können"
     adress: www.wissenteilen.com
     brand: wissenteilen.com
     course_link: Begegnung
