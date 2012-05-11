@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  http_basic_authenticate_with :name => "frodo", :password => "thering", :except => [:landingpage, :overview, :create, :unsubscribe]
+
+
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: :render_500
     rescue_from ActionController::RoutingError, with: :render_404
@@ -27,4 +30,6 @@ class ApplicationController < ActionController::Base
       format.all { render nothing: true, status: 500}
     end
   end
+
+
 end

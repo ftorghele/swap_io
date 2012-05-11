@@ -1,5 +1,7 @@
 class CourseMembersController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def create
     course_id = params[:course_id]
     if CourseMember.create(:course_id => course_id, :user_id => current_user.id)
