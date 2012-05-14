@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20120308235424) do
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",   :null => false
     t.string   "encrypted_password",     :default => "",   :null => false
-    t.boolean  "fb_complete",            :default => true
+    t.boolean  "complete",               :default => true
     t.string   "first_name",             :default => "",   :null => false
     t.string   "last_name",              :default => "",   :null => false
     t.string   "reset_password_token"
