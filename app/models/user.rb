@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   has_many :courses, :dependent => :destroy
   has_many :course_members, :through => :courses
+  has_many :category_abonnements
 
   has_and_belongs_to_many :course_requests, :uniq => true
 
@@ -67,6 +68,15 @@ class User < ActiveRecord::Base
 
   def get_accepted_course_memberships
     CourseMember.find_all_by_user_id_and_accepted(self.id, 1)
+  end
+
+  def find_category_abonnements
+    category_ids = []
+    self.category_abonnements.each do |category_abonnement|
+      category_ids << category_abonnement.category_id
+    end
+    return Course.find_all_by_category_id(category_ids) if category_ids.length > 0
+    Course.all
   end
 
 end

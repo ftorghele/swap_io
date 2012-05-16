@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  require 'json'
 
   before_filter :authenticate_user! , :only => [:new, :create]
 
@@ -23,7 +24,13 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.all
+    if signed_in?
+      @categories = Category.find_all_by_id(current_user.find_category_abonnements).collect{|f| [f.title, f.id]}.to_json
+      @courses = current_user.find_category_abonnements || Course.all
+    else
+      @categories = Category.all.collect{|f| [f.title, f.id]}.to_json
+      @courses = Course.all
+    end
   end
 
   def show
