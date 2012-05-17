@@ -39,6 +39,10 @@
   padding: 0;
 }
 
+body {
+  background: url('layout-bg.png');
+}
+
 .clr {
   clear: both;
 }
@@ -161,6 +165,7 @@ a:hover{
   height: 49px;
   width: 100%;
   background: url('layout-nav-bg.jpg') repeat-x;
+  border-bottom: 1px solid #fff;
 
   #navbar {
     height: 49px;
@@ -169,13 +174,17 @@ a:hover{
 
     #navbar-left, #navbar-right {
       width: 400px;
+      height: 49px;
       text-transform: uppercase;
 
       ul {
+        height: 49px;
         background:url('layout-nav-seperator.png') no-repeat top left;
         li {
           font-family: "OpenSansRegular";
           font-size: 14px;
+          font-weight:normal;
+          color:#a1a1a1;
           display: inline;
           list-style: none;
           height: 49px;
@@ -183,13 +192,13 @@ a:hover{
           background:url('layout-nav-seperator.png') no-repeat top right;
           padding: 15px;
 
-          a, a:link, a:visited{
+          a, a:link, a:visited {
             color:#a1a1a1;
             text-decoration:none;
-            font-weight:normal;
           }
-          a:hover{
+          &:hover, a:hover {
             color: #ffffff;
+            cursor: pointer;
           }
         }
       }
@@ -197,15 +206,39 @@ a:hover{
     #navbar-left {
       float: left;
     }
-    #navbar-right, #navbar-right ul {
+    #navbar-right {
       float: right;
+      text-align: right;
     }
+
+    #navbar-home a {
+      padding: 0 0 0 20px;
+      background: url(layout-nav-home.png) no-repeat center left;
+    }
+    #navbar-login a {
+      padding: 0 15px 0 0;
+      background: url(layout-nav-arrow-down.png) no-repeat center right;
+    }
+    #navbar-login-drop {
+      position: relative;
+      top: -3px;
+      left: 200px;
+      display: none;
+      width: 200px;
+      height: 150px;
+      background: url('layout-subnav-bg.png');
+      @include rounded(3px);
+      z-index: -1;
+    }
+
   }
   #logo {
+    position: relative;
+    top: -49px;
     width: 141px;
-    height: 130px;
-    margin: -32px auto 0 auto;
-    background: url('layout-logo.png') no-repeat;
+    height: 147px;
+    margin: 0 auto;
+    background: url('layout-logo.png') no-repeat 0px 17px;
   }
 }
 
