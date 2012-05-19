@@ -1,0 +1,13 @@
+%h1 Kontakt
+%h2= I18n.t('app.description')
+%br
+%h3 Kontakt
+%p
+  Email:
+  = mail_to 'info@wissenteilen.com'
+%p
+  Internet:
+  = link_to I18n.t('app.adress'), root_path
+%br
+%h3 Kontaktformular:
+= render 'contact_form'

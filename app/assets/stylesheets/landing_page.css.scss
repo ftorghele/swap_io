@@ -1,4 +1,26 @@
-@import "wissenteilen.css.scss";
+@import "public/wissenteilen.css.scss";
+
+// Buttons
+.wtkbtn_green, .wtkbtn_blue {
+  height: 53px;
+  font-family: "LeagueGothicRegular";
+  font-size: 34px;
+  line-height: 57px;
+  color: white;
+  padding: 0 15px;
+  border: none;
+  display: block;
+  @include rounded(4px);
+}
+.wtkbtn_green {
+  background: url("button-green-main.png") repeat-x;
+}
+.wtkbtn_blue {
+  background: url("button-petrol-main.png") repeat-x;
+}
+.wtkbtn_green:hover, .wtkbtn_blue:hover {
+  background-position: 0px -53px;
+}
 
 #landing_page {
     background: url(landingpage/layout-body-bg.jpg);

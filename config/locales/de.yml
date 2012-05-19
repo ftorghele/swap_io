@@ -33,7 +33,6 @@ de:
     sign_up_link: Registrieren
     sign_in_link: Anmelden
     sign_in_with_link: 'Einloggen mit %{provider}'
-    footer_text: wissenteilen.com 2012
 
   routes:
     users:
@@ -44,57 +43,53 @@ de:
       as: Begegnungswunsch
     welcome:
       as: Start
+    overview:
+      as: Home
     landingpage:
       as: Willkommen
-    about:
-      as: Idee
+    help:
+      as: Hilfe
+    tips:
+      as: Tipps
+    rules:
+      as: Spielregeln
+    news:
+      as: Neuigkeiten
+    team:
+      as: Team
     contact:
       as: Kontakt
     coverage:
       as: Presse
-    help:
-      as: Hilfe
+    about:
+      as: Idee
     imprint:
       as: Impressum
-    overview:
-      as: Überblick
     terms:
       as: AGB
     newsletter_subscribers:
       as: Newsletter
 
   pages:
-    about:
-      title: Die Idee
     contact:
-      email_field: email
-      email: email
+      email_field: Ihre Email Adresse
       subject: Betreff
       body: Nachricht
       submit: Abschicken
-      title: Kontakt
       msg:
         success: "Das Kontaktformular wurde erfolgreich versendet"
         fail: "Deine Kontaktanfrage ist Fehlgeschlagen"
-    coverage:
-      title: Presse
-    help:
-      title: Hilfe
     landingpage:
       title: Willkommen
       newsletter_sign_up_label: Für Newsletter anmelden
       newsletter_sign_up_placeholder: Deine Email Adresse
       newsletter_sign_up_button: Gebt mir bescheid.
-    imprint:
-      title: Impressum
     overview:
       title: Überblick
       course_member_list: Folgende Kursmitglieder haben sich bei Deinen Begegnungen angemeldet
       accept_course_member: Begegnung bestätigen
       reject_course_member: Begegnung ablehnen
       delete_link: "Begegnung entfernen"
-    terms:
-      title: AGB
 
 
 
@@ -152,6 +147,21 @@ de:
       category: 'Kategorie: %{category}'
       description: Beschreibung
       created_from: Mit
+
+    headerimg:
+      h1: Jeden Tag<br>Neues lernen
+      p: Wähle eine oder mehrere unserer<br>10 Kategorien und finde spannende<br>Begegnungen in deiner Nähe!
+    categories:
+      cat-1: 'Kulturen<br>kennenlernen'
+      cat-2: 'Aktiv<br>bewegen'
+      cat-3: 'Bewusst<br>leben'
+      cat-4: 'Geschickt<br>handwerken'
+      cat-5: 'Kulinarisches<br>entdecken'
+      cat-6: 'Freizeit<br>gestalten'
+      cat-7: 'Technik<br>verstehen'
+      cat-8: 'Gestalterisch<br>entfalten'
+      cat-9: 'Theorie<br>begreifen'
+      cat-10: 'Irgendwie<br>kurios'
 
   course_request:
     create:

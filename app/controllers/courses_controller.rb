@@ -2,6 +2,20 @@ class CoursesController < ApplicationController
 
   before_filter :authenticate_user! , :only => [:new, :create]
 
+  def index
+
+    if params[:courses] == 'false' #only to show startscreen
+      @courses = nil
+    else
+      @courses = Course.all
+    end
+
+  end
+
+  def show
+    @course = Course.find(params[:id])
+  end
+
   def new
     if @course_request = CourseRequest.find_by_id(params[:id])
       @course = Course.new( :title => @course_request.title, :description => @course_request.description)
@@ -20,14 +34,6 @@ class CoursesController < ApplicationController
       flash[:error] = I18n.t('course.create.fail')
       render :action => :new
     end
-  end
-
-  def index
-    @courses = Course.all
-  end
-
-  def show
-    @course = Course.find(params[:id])
   end
 
   def destroy

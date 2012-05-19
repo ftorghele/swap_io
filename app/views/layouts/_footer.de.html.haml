@@ -1,0 +1,31 @@
+%footer
+  %section.footer-column-wide
+    %h6 Die Idee
+    %p
+      Wissen • Teilen • Können ist eine Collaborative Consumption Plattform auf der du deine Talente teilen und von anderen lernen kannst.
+      = link_to 'Mehr Infos', about_path
+    %p Social Media Links
+
+  %section.footer-column
+    %h6 Los geht's
+    %ul.sitemap
+      %li= link_to "So funktioniert's", help_path, :class => :inactive
+      %li= link_to "Tipps & Tricks", tips_path, :class => :inactive
+      %li= link_to "Die Spielregeln", rules_path, :class => :inactive
+
+  %section.footer-column
+    %h6 Begegnungen
+    %ul.sitemap
+      %li= link_to "Begegnungen", courses_path, :class => :inactive
+      %li= link_to "Begegnungswünsche", course_requests_path, :class => :inactive
+      %li= link_to "Aktuelles", news_path, :class => :inactive
+
+  %section.footer-column
+    %h6 Infos
+    %ul.sitemap
+      %li= link_to "Das Team", team_path, :class => :inactive
+      %li= link_to "Kontakt", contact_path, :class => :inactive
+      %li= link_to "Presse", coverage_path, :class => :inactive
+  .clr
+  #copyright
+    %p= "© #{I18n.t('app.brand')} - #{link_to 'Impressum', imprint_path} - #{link_to 'AGB', terms_path}".html_safe

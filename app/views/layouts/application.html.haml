@@ -5,49 +5,23 @@
     %title= content_for?(:title) ? yield(:title) : I18n.t('app.title')
     %meta{:name => "description", :content => content_for?(:description) ? yield(:description) : I18n.t('app.description') }/
     %meta{:name => "autor", :content =>  content_for?(:autor) ? yield(:autor) : I18n.t('app.autor') }/
+    %meta{:name => "publisher", :content =>  content_for?(:autor) ? yield(:autor) : I18n.t('app.autor') }/
+    %meta{:name => "robots", :content => "follow"}/
+    %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes" }/
     = stylesheet_link_tag :wtk
     = csrf_meta_tags
-    /[if lt IE 9]
-      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
     = javascript_include_tag :jquery
     = javascript_include_tag :jquery_ujs
+
   %body
-    #nav
-      #navbar
-        #navbar-left
-          %ul
-            %li= link_to I18n.t('app.course_link'), courses_path
-            %li= link_to I18n.t('app.course_request_link'), course_requests_path
-        #navbar-right
-          %ul
-            - if user_signed_in?
-              %li#navbar-home= link_to I18n.t('app.overview_link'), overview_path
-              %li= link_to username(current_user), user_path(current_user)
-            - else
-              %li#navbar-home= link_to I18n.t('app.home_link'), welcome_path
-              %li= link_to I18n.t('app.sign_up_link'), new_user_registration_path
-              %li#navbar-login
-                =link_to I18n.t('app.sign_in_link'), new_user_session_path
-          #navbar-login-drop
-        .clr
-        #logo
-    .clr
-    #content
-      - if user_signed_in?
-        = link_to username(current_user), user_path(current_user)
-        = link_to I18n.t('user.edit.title'), edit_user_path(current_user)
-        = link_to I18n.t('app.sign_out_link'), destroy_user_session_path, :method => :delete
-      - else
 
-        = link_to I18n.t('app.sign_in_link'), new_user_session_path, :class => 'btn'
-        = link_to I18n.t('app.sign_in_with_link', :provider => "Facebook"), user_omniauth_authorize_path(:facebook), :class => 'btn'
+    = render('layouts/header')
 
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :class => "alert alert-#{name}" if msg.is_a?(String)
+    = mail_to "info@wissenteilen.com", 'Feedback', :id => 'feedback-button'
 
-      = yield
-
-    .clr
-    = render('layouts/footer')
+    #container
+      = render('layouts/content')
+      = render('layouts/footer')
 
     = javascript_include_tag :application
+    = javascript_include_tag :protoFluid3
