@@ -7,6 +7,11 @@
     .span9
       %h2= I18n.t('course.show.description')
       %p= @course.description
+      %p= @course.date
+      %p= @course.city
+      %p= @course.zip_code
+      %p= @course.places
+      %p= @course.places_available
       %p
         = I18n.t('course.show.created_from')
         = link_to(username(@course.user), user_path(@course.user))

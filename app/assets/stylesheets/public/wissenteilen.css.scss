@@ -537,6 +537,7 @@ section.begegnungen{
 				position:absolute;
 				display:inline-block;
 				background:$second-color;
+                word-wrap: break-word;
    		 	font-family: "LeagueGothicRegular";
 				font-size:28px;
 				line-height:41px;
@@ -589,6 +590,7 @@ section.begegnungen{
 			font-size:12px;
 			line-height:20px;
 			margin-bottom:12px;
+            word-wrap: break-word;
 		}
 			
 	}

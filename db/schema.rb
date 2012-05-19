@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308235424) do
+ActiveRecord::Schema.define(:version => 20120519162056) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -77,10 +77,15 @@ ActiveRecord::Schema.define(:version => 20120308235424) do
   create_table "courses", :force => true do |t|
     t.string   "title"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "user_id",     :null => false
-    t.integer  "category_id", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "user_id",          :null => false
+    t.integer  "category_id",      :null => false
+    t.datetime "date",             :null => false
+    t.integer  "places",           :null => false
+    t.integer  "places_available", :null => false
+    t.string   "city",             :null => false
+    t.integer  "zip_code",         :null => false
   end
 
   create_table "newsletter_subscribers", :force => true do |t|
@@ -116,7 +121,7 @@ ActiveRecord::Schema.define(:version => 20120308235424) do
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",   :null => false
     t.string   "encrypted_password",     :default => "",   :null => false
-    t.boolean  "complete",               :default => true
+    t.boolean  "fb_complete",            :default => true
     t.string   "first_name",             :default => "",   :null => false
     t.string   "last_name",              :default => "",   :null => false
     t.string   "reset_password_token"

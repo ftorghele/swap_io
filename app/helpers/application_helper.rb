@@ -8,7 +8,13 @@ module ApplicationHelper
     unless user.nil? || user.user_images.empty?
       user.user_images.first.image.url(size)
     else
-      (size == :thumb)? "http://placehold.it/45x45" : "http://placehold.it/260x180"
+      if size == :thumb
+        "http://placehold.it/45x45"
+      elsif size == :medium
+        "http://placehold.it/60x60"
+      else
+        "http://placehold.it/300x200"
+      end
     end
   end
 end
