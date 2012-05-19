@@ -1,0 +1,4 @@
+%div
+  =hidden_field_tag :json_string, @categories
+  -Category.all.each do |f|
+    =link_to f.title, find_categories_category_abonnements_path(:category => f.id), :class => "category_link", :id => f.id , :remote => true

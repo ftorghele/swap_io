@@ -1,8 +1,0 @@
-%div
-  =hidden_field_tag :json_string, @categories
-  -unless signed_in?
-    -Category.all.each do |f|
-      =link_to f.title, find_categories_category_abonnements_path(:category => f.id), :class => "category_link", :remote => true
-  -else
-    -Category.all.each do |f|
-      =link_to f.title, find_categories_category_abonnements_path(:category => f.id), :class => "category_link", :remote => true

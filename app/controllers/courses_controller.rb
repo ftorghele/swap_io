@@ -25,11 +25,16 @@ class CoursesController < ApplicationController
 
   def index
     if signed_in?
-      @categories = Category.find_all_by_id(current_user.find_category_abonnements).collect{|f| [f.title, f.id]}.to_json
+      #@categories = Category.find_all_by_id(current_user.find_category_abonnements).collect{|f| {f.title => f.id} }.to_json
       @courses = current_user.find_category_abonnements || Course.all
+      cookies[:categories] = Course.load_user_cookie current_user
     else
-      @categories = Category.all.collect{|f| [f.title, f.id]}.to_json
-      @courses = Course.all
+      if cookies[:categories].present?
+        @courses = Course.set_courses JSON.parse(cookies[:categories])
+      else
+        cookies[:categories] = Course.set_new_cookie
+        @courses = Course.all
+      end
     end
   end
 

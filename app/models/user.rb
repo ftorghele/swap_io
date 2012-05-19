@@ -71,12 +71,17 @@ class User < ActiveRecord::Base
   end
 
   def find_category_abonnements
-    category_ids = []
-    self.category_abonnements.each do |category_abonnement|
-      category_ids << category_abonnement.category_id
+    categories = []
+    CategoryAbonnement.find_all_by_user_id(self).each do |f| categories << f.category_id end
+    (categories.present?) ? Course.find_all_by_category_id(categories) : Course.all
+  end
+
+  def toggle_category_abonnements category
+    if category_abonnement = self.category_abonnements.find_by_category_id(category.id)
+      category_abonnement.destroy
+    else
+      self.category_abonnements.create(:category => category)
     end
-    return Course.find_all_by_category_id(category_ids) if category_ids.length > 0
-    Course.all
   end
 
 end
