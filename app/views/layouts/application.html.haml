@@ -1,6 +1,7 @@
 !!! 5
 %html{:lang => "de"}
   %head
+
     %meta{:charset => "utf-8"}/
     %title= content_for?(:title) ? yield(:title) : I18n.t('app.title')
     %meta{:name => "description", :content => content_for?(:description) ? yield(:description) : I18n.t('app.description') }/
@@ -10,6 +11,8 @@
     %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes" }/
     = stylesheet_link_tag :wtk
     = csrf_meta_tags
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
     = javascript_include_tag :jquery
     = javascript_include_tag :jquery_ujs
 

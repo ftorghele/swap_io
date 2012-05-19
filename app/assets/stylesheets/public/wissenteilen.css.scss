@@ -72,76 +72,76 @@ $link-color-hover: #60aab0; /* Petrol/Türkis etwas greller für Links */
 }
 @font-face {
   font-family: 'AdelleBasic-Bold';
-  src: url('../adellebasic_bold.eot');
-  src: url('../adellebasic_bold.eot') format('embedded-opentype'),
-  url('../adellebasic_bold.woff') format('woff'),
-  url('../adellebasic_bold.ttf') format('truetype');
+  src: url('/assets/adellebasic_bold.eot');
+  src: url('/assets/adellebasic_bold.eot') format('embedded-opentype'),
+  url('/assets/adellebasic_bold.woff') format('woff'),
+  url('/assets/adellebasic_bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'LeagueGothicRegular';
-  src: url('../League_Gothic-webfont.eot');
-  src: url('../League_Gothic-webfont.eot') format('embedded-opentype'),
-  url('../League_Gothic-webfont.woff') format('woff'),
-  url('../League_Gothic-webfont.ttf') format('truetype'),
-  url('../League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+  src: url('/assets/League_Gothic-webfont.eot');
+  src: url('/assets/League_Gothic-webfont.eot') format('embedded-opentype'),
+  url('/assets/League_Gothic-webfont.woff') format('woff'),
+  url('/assets/League_Gothic-webfont.ttf') format('truetype'),
+  url('/assets/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'MerriweatherHeavy';
-  src: url('../merriweather-black-webfont.eot');
-  src: url('../merriweather-black-webfont.eot') format('embedded-opentype'),
-  url('../merriweather-black-webfont.woff') format('woff'),
-  url('../merriweather-black-webfont.ttf') format('truetype');
+  src: url('/assets/merriweather-black-webfont.eot');
+  src: url('/assets/merriweather-black-webfont.eot') format('embedded-opentype'),
+  url('/assets/merriweather-black-webfont.woff') format('woff'),
+  url('/assets/merriweather-black-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'MerriweatherBold';
-  src: url('../merriweather-bold-webfont.eot');
-  src: url('../merriweather-bold-webfont.eot') format('embedded-opentype'),
-  url('../merriweather-bold-webfont.woff') format('woff'),
-  url('../merriweather-bold-webfont.ttf') format('truetype');
+  src: url('/assets/merriweather-bold-webfont.eot');
+  src: url('/assets/merriweather-bold-webfont.eot') format('embedded-opentype'),
+  url('/assets/merriweather-bold-webfont.woff') format('woff'),
+  url('/assets/merriweather-bold-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'MerriweatherLight';
-  src: url('../merriweather-light-webfont.eot');
-  src: url('../merriweather-light-webfont.eot') format('embedded-opentype'),
-  url('../merriweather-light-webfont.woff') format('woff'),
-  url('../merriweather-light-webfont.ttf') format('truetype');
+  src: url('/assets/merriweather-light-webfont.eot');
+  src: url('/assets/merriweather-light-webfont.eot') format('embedded-opentype'),
+  url('/assets/merriweather-light-webfont.woff') format('woff'),
+  url('/assets/merriweather-light-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'MerriweatherRegular';
-  src: url('../merriweather-regular-webfont.eot');
-  src: url('../merriweather-regular-webfont.eot') format('embedded-opentype'),
-  url('../merriweather-regular-webfont.woff') format('woff'),
-  url('../merriweather-regular-webfont.ttf') format('truetype');
+  src: url('/assets/merriweather-regular-webfont.eot');
+  src: url('/assets/merriweather-regular-webfont.eot') format('embedded-opentype'),
+  url('/assets/merriweather-regular-webfont.woff') format('woff'),
+  url('/assets/merriweather-regular-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSansRegular';
-  src: url('../opensans-regular-webfont.eot');
-  src: url('../opensans-regular-webfont.eot') format('embedded-opentype'),
-  url('../opensans-regular-webfont.woff') format('woff'),
-  url('../opensans-regular-webfont.ttf') format('truetype'),
-  url('../opensans-regular-webfont.svg#OpenSansRegular') format('svg');
+  src: url('/assets/opensans-regular-webfont.eot');
+  src: url('/assets/opensans-regular-webfont.eot') format('embedded-opentype'),
+  url('/assets/opensans-regular-webfont.woff') format('woff'),
+  url('/assets/opensans-regular-webfont.ttf') format('truetype'),
+  url('/assets/opensans-regular-webfont.svg#OpenSansRegular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSansBold';
-  src: url('../opensans-bold-webfont.eot');
-  src: url('../opensans-bold-webfont.eot') format('embedded-opentype'),
-  url('../opensans-bold-webfont.woff') format('woff'),
-  url('../opensans-bold-webfont.ttf') format('truetype'),
-  url('../opensans-bold-webfont.svg#OpenSansRegular') format('svg');
+  src: url('/assets/opensans-bold-webfont.eot');
+  src: url('/assets/opensans-bold-webfont.eot') format('embedded-opentype'),
+  url('/assets/opensans-bold-webfont.woff') format('woff'),
+  url('/assets/opensans-bold-webfont.ttf') format('truetype'),
+  url('/assets/opensans-bold-webfont.svg#OpenSansRegular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -156,6 +156,7 @@ $link-color-hover: #60aab0; /* Petrol/Türkis etwas greller für Links */
 .clr {
   clear: both;
 }
+
 html{
 	-webkit-text-size-adjust: none;
 	width:100%;
@@ -164,7 +165,7 @@ html{
 body{
 	width:100%;
 	min-height: 100%;
-	background:url(../layout-body.png) repeat center 0;
+	background:url(/assets/layout-body.png) repeat center 0;
 	font-size:15px;
 	color:#494949;
 	font-family: "MerriweatherRegular", Georgia, serif;
@@ -207,7 +208,7 @@ header{
 	width:100%;
 	height:49px;
 	border-bottom:1px solid #ffffff;
-	background:url(../layout-headerbar.png) repeat center 0;
+	background:url(/assets/layout-headerbar.png) repeat center 0;
 	margin:0 0 120px 0;
 	
 	
@@ -263,7 +264,7 @@ header{
 			
 			#nav-dashboard-indicator{
 				display:block;
-				background-image:url(../layout-header-dashboardnumber.png);
+				background-image:url(/assets/layout-header-dashboardnumber.png);
 				background-repeat:no-repeat;
 				width:33px;
 				padding: 1px 2px 0 0;
@@ -303,7 +304,7 @@ header{
 				height:21px;
 				text-indent:-1000px;
 				overflow:hidden;
-				background-image:url(../layout-header-arrowdown.png);
+				background-image:url(/assets/layout-header-arrowdown.png);
 				background-repeat:no-repeat;
 				background-position:10px 0;
 				margin:0 -10px 0 0;
@@ -328,7 +329,7 @@ header{
 			height:100%;
 			text-decoration:none;
 			border:0px;
-			background:url(../layout-logo-wissenteilen.png);
+			background:url(/assets/layout-logo-wissenteilen.png);
 			text-indent:-1000px;
 			overflow:hidden;
 			
@@ -346,7 +347,7 @@ header{
 	height:130px;
 	background-color:$second-color;
 	@include rounded-comb(4px, 0, 0, 4px);
-	background-image:url(../layout-feedback.png);
+	background-image:url(/assets/layout-feedback.png);
 	background-repeat:none;
 	background-position:1;
 	position:absolute;
@@ -447,7 +448,7 @@ section.begegnungssearch{
 				color:#c8c7c6;
 				text-align:center;
 				text-shadow:none;
-				background-image:url(../layout-kategorien.png);
+				background-image:url(/assets/layout-kategorien.png);
 				background-repeat:none;
 				background-position:0 0;
 				
@@ -469,7 +470,7 @@ section.begegnungssearch{
 		}
 	}
 	#form-input-location{
-		background-image:url(../layout-icon-location.png);
+		background-image:url(/assets/layout-icon-location.png);
 		background-repeat: no-repeat;
 		background-position:10px 12px;
 		padding:12px 290px 12px 48px;
@@ -493,7 +494,7 @@ section.begegnungssearch{
 			position:absolute;
 			top:10px;
 			left:10px;
-			background-image:url(../layout-icon-search.png);
+			background-image:url(/assets/layout-icon-search.png);
 			background-repeat: no-repeat;
 			background-position:0 0;
 			display:block;
@@ -555,7 +556,7 @@ section.begegnungen{
 				width:28px;
 				height:28px;
 				position:absolute;
-				background-image:url(../layout-kategorien-small.png);
+				background-image:url(/assets/layout-kategorien-small.png);
 				background-repeat:0;
 				background-position:0 0;
 				background-color:#ffffff;
@@ -700,7 +701,7 @@ a.form-submit, a.form-button-petrol,{
 	color:#f1f1f1;
 	@include rounded(4px);
 	text-shadow: 0px 2px 0px rgba(0,0,0,0.08);
-	background-image: url("../button-green-main.png");
+	background-image: url("/assets/button-green-main.png");
 	background-repeat: repeat-x;
 	font-weight:normal;
 	
@@ -711,7 +712,7 @@ a.form-submit, a.form-button-petrol,{
 	}
 }
 input.form-button-petrol, a.form-button-petrol{
-	background-image: url("../button-petrol-main.png");
+	background-image: url("/assets/button-petrol-main.png");
 }
 input:focus, textarea:focus, select:focus{
 outline: none;
@@ -723,7 +724,7 @@ outline: none;
 footer{
 	display:block;
 	float:left;
-	background:url(../layout-hr.png) no-repeat center 0;
+	background:url(/assets/layout-hr.png) no-repeat center 0;
 	margin:80px 0 0 0;
 	padding:60px 0 60px 0;
 	
