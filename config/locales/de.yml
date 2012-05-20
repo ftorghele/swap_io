@@ -232,6 +232,8 @@ de:
         city: Ort
         zip_code: PLZ
         places: Verfügbare Plätze
+        precognitions: Benötigte Vorkenntnisse
+        materials: Mitzubringende Materialien
 
       course_request:
         title: Titel
@@ -522,6 +524,7 @@ de:
       long: ! '%A, %d. %B %Y, %H:%M Uhr'
       short: ! '%d. %B, %H:%M Uhr'
       day: ! '%d. %B %Y'
+      time: ! '%H:%M Uhr'
     pm: nachmittags
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:

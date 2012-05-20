@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120519162056) do
+ActiveRecord::Schema.define(:version => 20120520114839) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(:version => 20120519162056) do
     t.integer  "places_available", :null => false
     t.string   "city",             :null => false
     t.integer  "zip_code",         :null => false
+    t.text     "precognitions"
+    t.text     "materials"
   end
 
   create_table "newsletter_subscribers", :force => true do |t|
@@ -121,7 +123,7 @@ ActiveRecord::Schema.define(:version => 20120519162056) do
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",   :null => false
     t.string   "encrypted_password",     :default => "",   :null => false
-    t.boolean  "complete",               :default => true
+    t.boolean  "fb_complete",            :default => true
     t.string   "first_name",             :default => "",   :null => false
     t.string   "last_name",              :default => "",   :null => false
     t.string   "reset_password_token"

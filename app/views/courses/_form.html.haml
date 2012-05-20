@@ -27,6 +27,14 @@
       = f.text_area :description, :size => "30x10"
 
     %div
+      = f.label :precognitions
+      = f.text_area :precognitions, :size => "30x10", :value =>"-"
+
+    %div
+      = f.label :materials
+      = f.text_area :materials, :size => "30x10", :value => "-"
+
+    %div
       = f.label :category_id
       = f.select(:category_id, Category.all.collect {|f| [ f.title, f.id ] } , {:include_blank => I18n.t('course.new.select')} )
 

@@ -1,0 +1,37 @@
+%section.begegnung-detail
+  %article.begegnung-main
+    %h3{:class => "cat-#{@course.category.id}"}
+      = @course.category.title
+    %h1= @course.title
+    %p Social Media Like Dingens hier
+    %p= simple_format (@course.description)
+    %h2 Benötigte Vorkenntnisse
+    %p= simple_format (@course.precognitions.blank? ? "keine" : @course.precognitions)
+    %h2 Mitzubringendes Material
+    %p= simple_format (@course.materials.blank? ? "keine" : @course.materials)
+
+  %article.begegnung-side
+    %a{:class => "begegnung-pic"}
+      = image_tag("http://placehold.it/300x200", :alt => @course.title)
+      %span
+    %ul.begegnung-facts
+      %li.begegnung-date= I18n.localize(@course.date, :format => :day) unless @course.date.nil?
+      %li.begegnung-time= I18n.localize(@course.date, :format => :time) unless @course.date.nil?
+      %li.begegnung-location= @course.city unless @course.city.nil?
+      %li.begegnung-people= "für #{@course.places_available} Personen" unless @course.places_available.nil?
+
+    .begegnung-host.small
+      = link_to image_tag(userpic(@course.user, :big), :alt => username(@course.user), :size => '100x100'), user_path(@course.user)
+      %h4= username(@course.user)
+      %p.host-description
+        = truncate(@course.user.description, :length => 65, :omission => '..') unless @course.user.description.nil?
+        = link_to "Profil ansehen", user_path(@course.user)
+      %p.host-interaction
+        = link_to "Profil ansehen", user_path(@course.user), :class => 'button-profil'
+        %br
+        = link_to "Nachricht senden", '#', :class => 'button-message'
+
+    %p
+      = form_tag({:controller => "course_members", :action => :create}, :method => :post) do
+        = hidden_field_tag 'course_id', @course.id
+        = submit_tag "Teilnahme anfragen", :class => 'form-submit', :style => 'width: 100%'
