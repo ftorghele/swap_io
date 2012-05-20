@@ -1,5 +1,4 @@
-%h1= I18n.t('pages.overview.title')
-%h2= I18n.t('pages.overview.course_member_list')
+%h1= Überblick
 
 - if current_user
   - current_user.get_courses.each do |course|

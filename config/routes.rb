@@ -46,12 +46,18 @@ Swap::Application.routes.draw do
     get 'landingpage',  :to => 'pages#landingpage'
     get 'welcome',  :to => 'pages#welcome'
     get 'overview', :to => 'pages#overview'
-    get 'terms',    :to => 'pages#terms'
+
     get 'help',     :to => 'pages#help'
-    get 'coverage', :to => 'pages#coverage'
+    get 'tips',     :to => 'pages#tips'
+    get 'rules',    :to => 'pages#help'
+    get 'news',     :to => 'pages#news'
+    get 'team',     :to => 'pages#team'
     get 'contact',  :to => 'pages#contact'
+    get 'coverage', :to => 'pages#coverage'
+
     get 'about',    :to => 'pages#about'
     get 'imprint',  :to => 'pages#imprint'
+    get 'terms',    :to => 'pages#terms'
     post 'contact_us',  :to => 'pages#contact_us'
   end
 
@@ -59,5 +65,5 @@ Swap::Application.routes.draw do
     match '*not_found', to: 'errors#error_404'
   end
 
-  root :to => 'pages#overview'
+  root :to => Rails.env.production? ? 'pages#landingpage' : 'courses#index'
 end

@@ -7,8 +7,32 @@
       = f.text_field :title
 
     %div
+      = f.label :date
+      = f.text_field :date
+
+    %div
+      = f.label :places
+      = f.text_field :places
+
+    %div
+      = f.label :city
+      = f.text_field :city
+
+    %div
+      = f.label :zip_code
+      = f.text_field :zip_code
+
+    %div
       = f.label :description
       = f.text_area :description, :size => "30x10"
+
+    %div
+      = f.label :precognitions
+      = f.text_area :precognitions, :size => "30x10", :value =>"-"
+
+    %div
+      = f.label :materials
+      = f.text_area :materials, :size => "30x10", :value => "-"
 
     %div
       = f.label :category_id

@@ -50,7 +50,7 @@ class CourseTest < ActiveSupport::TestCase
   should 'provide function create_course' do
     user = Factory.create(:user)
     category = Factory.create(:category)
-    params = {"title" => "bli", "description" => "bla", "category_id" => category.id.to_s}
+    params = {"title" => "bli", "description" => "bla", "category_id" => category.id.to_s, "city" => "Salzburg", "zip_code" => "5020", "date" => "2022-05-24 10:38:36", "places" => "10"}
     course = user.courses.new params
     assert course.valid?
   end

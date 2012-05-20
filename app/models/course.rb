@@ -6,7 +6,13 @@ class Course < ActiveRecord::Base
   belongs_to :category
   has_many :course_members, :dependent => :destroy
 
-  validates_presence_of :title, :description, :category_id, :user_id
+  validates_presence_of :title, :description, :category_id, :user_id, :date,
+                        :places, :city, :zip_code
+
+  validates :zip_code, :numericality => { :only_integer => true }
+  validates :places, :numericality => { :only_integer => true }
+
+  before_create :initialize_places_available
 
   def provide_course_mailer course_request_id
     course_request = CourseRequest.find_by_id(course_request_id)
@@ -74,4 +80,9 @@ class Course < ActiveRecord::Base
     Course.find_all_by_category_id(categories)
   end
 
+  private
+
+  def initialize_places_available
+    self.places_available = self.places
+  end
 end

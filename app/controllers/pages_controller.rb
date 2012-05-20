@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def overview
-    redirect_to :landingpage unless signed_in?
+    redirect_to :welcome unless signed_in?
   end
 
   def contact_us

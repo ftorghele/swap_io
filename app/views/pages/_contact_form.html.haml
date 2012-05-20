@@ -1,17 +1,16 @@
 = form_tag(contact_us_path, :method => :post, :class => 'form-horizontal' ) do
   %fieldset
-    %div.control-group
+    %div
       = label_tag :email_field, I18n.t('pages.contact.email_field'), :class => 'control-label'
-      .controls
-        = email_field_tag :email_field
-      %br
+      = email_field_tag :email_field
+  %fieldset
+    %div
       = label_tag :subject, I18n.t('pages.contact.subject'), :class => 'control-label'
-      .controls
-        = text_field_tag :subject
-      %br
+      = text_field_tag :subject
+  %fieldset
+    %div
       = label_tag :body, I18n.t('pages.contact.body'), :class => 'control-label'
-      .controls
-        = text_area_tag :body
-      %br
-      .controls
-        = submit_tag I18n.t('pages.contact.submit')
+      = text_area_tag :body, nil, :size => '30x5'
+
+  %div.form-actions
+    = submit_tag I18n.t('pages.contact.submit')

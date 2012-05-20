@@ -1,0 +1,38 @@
+- if @courses.blank?
+  %section.headerimg
+    = image_tag('begegnungen/header-default.jpg', :alt => 'Begegnung der Generationen')
+    %h1 Jeden Tag<br>Neues lernen
+    %p.intro Wähle eine oder mehrere unserer<br>10 Kategorien und finde spannende<br>Begegnungen in deiner Nähe!
+
+%section.begegnungssearch
+
+  %ul#begegnungssearch
+    - Category.all.each do |cat|
+      %li= link_to (cat.title.gsub(" ", "<br>")).html_safe, '#', :id => "cat-#{cat.id}"
+
+  = form_tag courses_path, :method => :get do
+    = text_field_tag('form-input-location', 'Puch bei Hallein', :class => 'form-input-full')
+    .submit-field-icon
+      = submit_tag 'Begegnung suchen', :class => 'form-submit', :id => 'form-submit-search'
+      %span
+
+- unless @courses.blank?
+  %section.begegnungen
+    %article.begegnung#begegnung-new
+      %p.begegnung-text= link_to image_tag('begegnungen/layout-begegnung-new.png', :alt => 'Neue Begegnung erstellen'), new_course_path, :class => 'begegnung-pic'
+      %p.begegnung-text
+        = link_to 'Neue Begegnung', new_course_path, :class => 'form-button-petrol'
+        Du möchtest dein Talent oder deine Idee mit anderen teilen? Dann erstelle jetzt eine Begegnung. In 3 einfachen Schritten geht's los ...
+        %br
+        = link_to 'Neue Begegnung', new_course_path
+
+    = render :partial => 'course', :collection => @courses
+
+    %article.begegnung#begegnung-new
+      %p.begegnung-text= link_to image_tag('begegnungen/layout-begegnungswunsch-new.png', :alt => 'Neuen Begegnungswunsch erstellen'), new_course_request_path, :class => 'begegnung-pic'
+      %p.begegnung-text
+        = link_to 'Neuer Wunsch', new_course_request_path, :class => 'form-button-petrol'
+        Für dich war hier nichts dabei? Dann ergreif du doch Initiative und erstelle einen Wunsch. Vielleicht meldet sich schon bald jemand bei dir.
+        %br
+        = link_to 'Neuer Begegnungswunsch', new_course_request_path
+

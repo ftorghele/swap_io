@@ -5,6 +5,10 @@ FactoryGirl.define do
   factory :course do |f|
     f.association :user
     f.association :category
+    sequence(:date){"2020-05-24 10:38:36"}
+    sequence(:city){"Salzburg"}
+    sequence(:zip_code){5020}
+    sequence(:places){10}
     sequence(:title){|n| "Photography tut #{n}" }
     sequence(:description){|n| "Landscape photography tutorial with somebody else than me... #{n}" }
   end

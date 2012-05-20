@@ -46,7 +46,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     category = Factory.create(:category, :title => "Cooking")
     login_as
     click_on I18n.t('app.course_link')
-    click_on "create_course_button"
+    click_on "Neue Begegnung"
     assert_difference("Course.count") do
       fill_in('course_title', :with => 'Java programmierung')
       fill_in('course_description', :with => 'Applikationsprogrammierung mit Java')
