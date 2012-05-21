@@ -50,6 +50,8 @@ class CoursesController < ApplicationController
         @courses = Course.all
       end
     end
+    puts cookies[:categories]
+    @categories = JSON.parse cookies[:categories]
   end
 
   def show

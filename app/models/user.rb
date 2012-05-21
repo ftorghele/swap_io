@@ -72,7 +72,7 @@ class User < ActiveRecord::Base
 
   def find_category_abonnements
     categories = []
-    CategoryAbonnement.find_all_by_user_id(self).each do |f| categories << f.category_id end
+    CategoryAbonnement.find_all_by_user_id(self).map { |f| categories << f.category.courses }.flatten
     (categories.present?) ? Course.find_all_by_category_id(categories) : Course.all
   end
 

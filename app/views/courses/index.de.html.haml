@@ -6,9 +6,7 @@
 
 %section.begegnungssearch
 
-  %ul#begegnungssearch
-    - Category.all.each do |cat|
-      %li= link_to (cat.title.gsub(" ", "<br>")).html_safe, '#', :id => "cat-#{cat.id}"
+  = render('categories')
 
   = form_tag courses_path, :method => :get do
     = text_field_tag('form-input-location', 'Puch bei Hallein', :class => 'form-input-full')
@@ -26,7 +24,9 @@
         %br
         = link_to 'Neue Begegnung', new_course_path
 
-    = render :partial => 'course', :collection => @courses
+    
+    #courses_div
+      = render :partial => 'course', :collection => @courses
 
     %article.begegnung#begegnung-new
       %p.begegnung-text= link_to image_tag('begegnungen/layout-begegnungswunsch-new.png', :alt => 'Neuen Begegnungswunsch erstellen'), new_course_request_path, :class => 'begegnung-pic'
@@ -35,4 +35,3 @@
         Für dich war hier nichts dabei? Dann ergreif du doch Initiative und erstelle einen Wunsch. Vielleicht meldet sich schon bald jemand bei dir.
         %br
         = link_to 'Neuer Begegnungswunsch', new_course_request_path
-

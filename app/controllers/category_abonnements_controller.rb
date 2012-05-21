@@ -16,10 +16,8 @@ class CategoryAbonnementsController < ApplicationController
         temp_val[@category.title] = (current_user.category_abonnements.find_by_category_id(@category)) ? 0 : 1
         @courses = Course.set_user_courses current_user
       else
-        puts temp_val
         temp_val[@category.title] = (temp_val[@category.title] == 1) ? 0 : 1
         @courses = Course.set_courses temp_val
-        puts temp_val
       end
       #Write the updated temp_val to cookie
       cookies[:categories] = temp_val.to_json
