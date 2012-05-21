@@ -1,0 +1,11 @@
+.container
+  = render('categories')
+  .row
+    .span
+      %h1= I18n.t('course.index.headline')
+    .span.pull-right
+      - if signed_in?
+        = link_to I18n.t('course.index.create_course_button'), new_course_path, :id => "create_course_button", :class => "btn"
+  %br
+  .row#courses_div
+    = render :partial => 'course', :collection => @courses

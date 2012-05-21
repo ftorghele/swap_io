@@ -24,3 +24,4 @@ config/initializers/airbrake.rb
 config/unicorn.rb
 .rvmrc
 *.swp
+.DS_Store

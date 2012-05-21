@@ -1,5 +1,6 @@
 Swap::Application.routes.draw do
 
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -26,6 +27,12 @@ Swap::Application.routes.draw do
     resources :newsletter_subscribers do
       collection do
         get 'unsubscribe'
+      end
+    end
+
+    resources :category_abonnements do
+      collection do
+        get 'find_categories'
       end
     end
 

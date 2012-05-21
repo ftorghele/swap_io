@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   has_many :courses, :dependent => :destroy
   has_many :course_members, :through => :courses
+  has_many :category_abonnements
 
   has_and_belongs_to_many :course_requests, :uniq => true
 
@@ -67,6 +68,20 @@ class User < ActiveRecord::Base
 
   def get_accepted_course_memberships
     CourseMember.find_all_by_user_id_and_accepted(self.id, 1)
+  end
+
+  def find_category_abonnements
+    categories = []
+    CategoryAbonnement.find_all_by_user_id(self).map { |f| categories << f.category.courses }.flatten
+    (categories.present?) ? Course.find_all_by_category_id(categories) : Course.all
+  end
+
+  def toggle_category_abonnements category
+    if category_abonnement = self.category_abonnements.find_by_category_id(category.id)
+      category_abonnement.destroy
+    else
+      self.category_abonnements.create(:category => category)
+    end
   end
 
 end

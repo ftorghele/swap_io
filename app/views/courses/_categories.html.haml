@@ -1,0 +1,3 @@
+%ul#begegnungssearch
+  - Category.all.each do |cat|
+    %li= link_to (cat.title.gsub(" ", "<br>")).html_safe, find_categories_category_abonnements_path(:category => cat.id), :id => "cat-#{cat.id}", :remote => true, :class => "#{ (@categories[cat.title] == "0") ? 'category_link active' : 'category_link' }" 
