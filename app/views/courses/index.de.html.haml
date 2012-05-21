@@ -8,7 +8,7 @@
 
   %ul#begegnungssearch
     - Category.all.each do |cat|
-      %li= link_to (cat.title.gsub(" ", "<br>")).html_safe, '#', :id => "cat-#{cat.id}"
+      %li= link_to simple_format(cat.title.gsub(" ", "<br>")), '#', :id => "cat-#{cat.id}"
 
   = form_tag courses_path, :method => :get do
     = text_field_tag('form-input-location', 'Puch bei Hallein', :class => 'form-input-full')
