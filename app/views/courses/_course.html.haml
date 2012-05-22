@@ -1,21 +1,20 @@
-%div
-  %article.begegnung
-    %a{:href => course_path(course),:class => 'begegnung-pic'}
-      = image_tag("http://placehold.it/220x220", :alt => course.title)
-      %span{:class => "cat-#{course.category.id}"}
-      %h3= course.title
-    %p.begegnung-infos
-      = link_to image_tag(userpic(course.user, :medium), :alt => username(course.user), :size => '60x60'), user_path(course.user)
-      = I18n.localize(course.date, :format => :day) unless course.date.nil?
-      %br
-      = link_to username(course.user), user_path(course.user)
-      %br
-      in
-      = truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?
-      %br
-      = course.places_available unless course.places_available.nil?
-      freie Plätze
-    %p.begegnung-text
-      = truncate(course.description, :length => 125, :omission => '..')
-      %br
-      = link_to "Mehr darüber", course_path(course)
+%article.begegnung
+  %a{:href => course_path(course),:class => 'begegnung-pic'}
+    = image_tag("http://placehold.it/220x220", :alt => course.title)
+    %span{:class => "cat-#{course.category.id}"}
+    %h3= course.title
+  %p.begegnung-infos
+    = link_to image_tag(userpic(course.user, :medium), :alt => username(course.user), :size => '60x60'), user_path(course.user)
+    = I18n.localize(course.date, :format => :day) unless course.date.nil?
+    %br
+    = link_to username(course.user), user_path(course.user)
+    %br
+    in
+    = truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?
+    %br
+    = course.places_available unless course.places_available.nil?
+    freie Plätze
+  %p.begegnung-text
+    = truncate(course.description, :length => 125, :omission => '..')
+    %br
+    = link_to "Mehr darüber", course_path(course)

@@ -3,16 +3,6 @@ class CoursesController < ApplicationController
 
   before_filter :authenticate_user! , :only => [:new, :create]
 
-  def index
-
-    if params[:courses] == 'false' #only to show startscreen
-      @courses = nil
-    else
-      @courses = Course.all
-    end
-
-  end
-
   def show
     @course = Course.find(params[:id])
   end
@@ -39,7 +29,6 @@ class CoursesController < ApplicationController
 
   def index
     if signed_in?
-      #@categories = Category.find_all_by_id(current_user.find_category_abonnements).collect{|f| {f.title => f.id} }.to_json
       @courses = current_user.find_category_abonnements || Course.all
       cookies[:categories] = Course.load_user_cookie current_user
     else
@@ -50,7 +39,6 @@ class CoursesController < ApplicationController
         @courses = Course.all
       end
     end
-    puts cookies[:categories]
     @categories = JSON.parse cookies[:categories]
   end
 

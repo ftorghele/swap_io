@@ -4,7 +4,7 @@
 
 $('.category_link').bind 'ajax:complete',(xhr, data, status) ->
   $(this).toggleClass('active')
-  $('#courses_div > div').remove('div');
+  $('#courses_div > article').remove('article');
   $('#courses_div').prepend(data.responseText);
 
 $('.category_link').click (e) ->

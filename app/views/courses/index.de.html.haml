@@ -6,7 +6,7 @@
 
 %section.begegnungssearch
 
-  = render('categories')
+  = render :partial => '/shared/categories', :locals => {:categories => @categories}
 
   = form_tag courses_path, :method => :get do
     = text_field_tag('form-input-location', 'Puch bei Hallein', :class => 'form-input-full')

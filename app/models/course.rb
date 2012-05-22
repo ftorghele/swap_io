@@ -9,6 +9,9 @@ class Course < ActiveRecord::Base
   validates_presence_of :title, :description, :category_id, :user_id, :date,
                         :places, :city, :zip_code
 
+  attr_accessible :title, :description, :category_id, :date,
+                        :places, :city, :zip_code
+
   validates :zip_code, :numericality => { :only_integer => true }
   validates :places, :numericality => { :only_integer => true }
 
@@ -58,7 +61,7 @@ class Course < ActiveRecord::Base
     value = {:all => "0"}
     Category.all.each do |category|
       #TODO????????????
-      new_val = {category.title.to_sym => "1"}.to_hash
+      new_val = {category.title.to_sym => 1}.to_hash
       value = value.merge( new_val )
     end
     value.to_json
@@ -67,7 +70,7 @@ class Course < ActiveRecord::Base
   def self.set_courses json_str
     category_arr = []
     json_str.map do |key, value|
-      category_arr << key if value==1
+      category_arr << key if value.to_i == 1
     end
     category_arr = Category.find_all_by_title(category_arr)
     (category_arr.length==0) ? Course.all : Course.find_all_by_category_id(category_arr)

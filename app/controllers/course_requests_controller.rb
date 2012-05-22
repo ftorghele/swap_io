@@ -8,6 +8,7 @@ class CourseRequestsController < ApplicationController
 
   def index
     @course_requests = CourseRequest.all
+    @categories = JSON.parse cookies[:categories]
   end
 
   def new

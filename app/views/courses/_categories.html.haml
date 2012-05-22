@@ -1,3 +1,5 @@
 %ul#begegnungssearch
-  - Category.all.each do |cat|
-    %li= link_to (cat.title.gsub(" ", "<br>")).html_safe, find_categories_category_abonnements_path(:category => cat.id), :id => "cat-#{cat.id}", :remote => true, :class => "#{ (@categories[cat.title] == "0") ? 'category_link active' : 'category_link' }" 
+  -# Category.all.each do |cat|
+    = categories[cat.title]
+    fsFUCK
+    %li= link_to simple_format(cat.title.gsub(" ", "<br>")), find_categories_category_abonnements_path(:category => cat.id), :id => "cat-#{cat.id}", :remote => true, :class => "#{ (categories[cat.title].to_i == 1) ? 'category_link active' : 'category_link' }" 
