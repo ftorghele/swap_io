@@ -1,0 +1,6 @@
+= javascript_include_tag 'rails.validations'
+
+%h2 Einstellungen ändern
+
+
+= link_to I18n.t('user.edit.cancel_account'), registration_path(current_user), :confirm => I18n.t('user.edit.cancel_account_confirm'), :method => :delete, :class => 'form-button-petrol'

@@ -9,3 +9,20 @@ $('.category_link').bind 'ajax:complete',(xhr, data, status) ->
 
 $('.category_link').click (e) ->
   e.preventDefault();
+
+
+$(".fancyimg a").fancybox
+  openEffect: "fade"
+  closeEffect: "fade"
+  nextEffect: "fade"
+  prevEffect: "fade"
+  padding: 0
+  loop: false
+  helpers:
+    title:
+      type: "outside"
+    overlay:
+      opacity: 0.8
+      css:
+        "background-color": "#777"
+        opacity: "0.7"

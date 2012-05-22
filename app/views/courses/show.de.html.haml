@@ -1,3 +1,4 @@
+= javascript_include_tag :jquery_fancybox
 %section.begegnung-detail
   %article.begegnung-main
     %h3{:class => "cat-#{@course.category.id}"}
@@ -11,14 +12,23 @@
     %p= simple_format (@course.materials.blank? ? "keine" : @course.materials)
 
   %article.begegnung-side
-    %a{:class => "begegnung-pic"}
-      = image_tag("http://placehold.it/300x200", :alt => @course.title)
-      %span
+    %figure.fancyimg
+      %a{:href => '/assets/layout-logo-wissenteilen.png', :class => 'begegnung-pic', :rel => 'alternate'}
+        = image_tag("http://placehold.it/300x200", :alt => @course.title, :size => '300x200')
+        %span
     %ul.begegnung-facts
-      %li.begegnung-date= I18n.localize(@course.date, :format => :day) unless @course.date.nil?
-      %li.begegnung-time= I18n.localize(@course.date, :format => :time) unless @course.date.nil?
-      %li.begegnung-location= @course.city unless @course.city.nil?
-      %li.begegnung-people= "für #{@course.places_available} Personen" unless @course.places_available.nil?
+      %li.begegnung-date
+        %span
+        = I18n.localize(@course.date, :format => :day) unless @course.date.nil?
+      %li.begegnung-time
+        %span
+        = I18n.localize(@course.date, :format => :time) unless @course.date.nil?
+      %li.begegnung-location
+        %span
+        = @course.city unless @course.city.nil?
+      %li.begegnung-people
+        %span
+        = "für #{@course.places_available} Personen" unless @course.places_available.nil?
 
     .begegnung-host.small
       = link_to image_tag(userpic(@course.user, :big), :alt => username(@course.user), :size => '100x100'), user_path(@course.user)
@@ -28,10 +38,15 @@
         = link_to "Profil ansehen", user_path(@course.user)
       %p.host-interaction
         = link_to "Profil ansehen", user_path(@course.user), :class => 'button-profil'
-        %br
         = link_to "Nachricht senden", '#', :class => 'button-message'
 
     %p
-      = form_tag({:controller => "course_members", :action => :create}, :method => :post) do
-        = hidden_field_tag 'course_id', @course.id
-        = submit_tag "Teilnahme anfragen", :class => 'form-submit', :style => 'width: 100%'
+      %a{:href => '#', :class => 'form-submit form-nextstep'}
+        %span
+        Teilnahme anfragen
+
+
+      /= form_tag({:controller => "course_members", :action => :create}, :method => :post) do
+      /  = hidden_field_tag 'course_id', @course.id
+      /  %span
+      /  = submit_tag "Teilnahme anfragen", :class => 'form-submit form-nextstep', :style => 'width: 100%'

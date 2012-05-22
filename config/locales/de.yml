@@ -9,12 +9,11 @@ de:
     autor: "Wissen • Teilen • Können"
     adress: www.wissenteilen.com
     brand: wissenteilen.com
-    course_link: Begegnung
-    course_request_link: Begegnungswunsch
+    course_link: Begegnungen
+    course_request_link: Begegnungswünsche
     home_link: Startseite
     overview_link: Übersicht
-    signed_in_as: Angemeldet als
-    not_you: Falscher Benutzer?
+    welcome: 'Hallo %{name}'
     sign_out_link: Abmelden
     sign_up_link: Registrieren
     sign_in_link: Anmelden
@@ -319,7 +318,7 @@ de:
       unlock_instructions:
         subject: "Nutzerkonto freischalten"
     complete_registration:
-      title: Daten verfollständigen
+      title: Daten vervollständigen
       submit: Weiter
       cancel: Registrierung abbrechen
 
