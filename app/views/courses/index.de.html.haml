@@ -5,7 +5,6 @@
     %p.intro Wähle eine oder mehrere unserer<br>10 Kategorien und finde spannende<br>Begegnungen in deiner Nähe!
 
 %section.begegnungssearch
-
   = render :partial => '/shared/categories', :locals => {:categories => @categories}
 
   = form_tag courses_path, :method => :get do
@@ -14,8 +13,8 @@
       = submit_tag 'Begegnung suchen', :class => 'form-submit', :id => 'form-submit-search'
       %span
 
-- unless @courses.blank?
-  %section.begegnungen
+%section.begegnungen
+  - unless @courses.blank?
     %article.begegnung#begegnung-new
       %p.begegnung-text= link_to image_tag('begegnungen/layout-begegnung-new.png', :alt => 'Neue Begegnung erstellen'), new_course_path, :class => 'begegnung-pic'
       %p.begegnung-text
@@ -24,10 +23,10 @@
         %br
         = link_to 'Neue Begegnung', new_course_path
 
-    
-    #courses_div
-      = render :partial => 'course', :collection => @courses
+  #courses_div
+    = render :partial => 'course', :collection => @courses
 
+  - unless @courses.blank?
     %article.begegnung#begegnung-new
       %p.begegnung-text= link_to image_tag('begegnungen/layout-begegnungswunsch-new.png', :alt => 'Neuen Begegnungswunsch erstellen'), new_course_request_path, :class => 'begegnung-pic'
       %p.begegnung-text

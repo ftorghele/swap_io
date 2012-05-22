@@ -70,10 +70,10 @@ class Course < ActiveRecord::Base
   def self.set_courses json_str
     category_arr = []
     json_str.map do |key, value|
-      category_arr << key if value.to_i == 1
+      category_arr << key if value.to_i == 0
     end
     category_arr = Category.find_all_by_title(category_arr)
-    (category_arr.length==0) ? Course.all : Course.find_all_by_category_id(category_arr)
+    Course.find_all_by_category_id(category_arr)
   end
 
   def self.set_user_courses user
