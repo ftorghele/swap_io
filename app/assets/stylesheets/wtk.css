@@ -10,4 +10,7 @@
  *
  *= require_self
  *= require_directory ./public
+
+ * VENDOR
+ *= require jquery_fancybox
 */

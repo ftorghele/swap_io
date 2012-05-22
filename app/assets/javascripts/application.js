@@ -12,3 +12,7 @@
 //
 //= require_directory ./public
 
+// VENDOR
+//= require jquery_mousewheel
+//= require protoFluid3
+

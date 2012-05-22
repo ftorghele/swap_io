@@ -14,6 +14,7 @@ Swap::Application.routes.draw do
     resources :users do
       collection do
         post 'fb_create'
+        get 'settings'
       end
     end
 

@@ -7,13 +7,17 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
+    @user = User.find(current_user)
     @user.user_images.build
     @user.user_skills.build
   end
 
+  def settings
+    @user = User.find(current_user)
+  end
+
   def update
-    if User.find_by_id(params[:id]).update_attributes(params[:user])
+    if User.find(current_user).update_attributes(params[:user])
       flash[:info] = I18n.t('user.edit.msg.success')
     else
       flash[:error] = I18n.t('user.edit.msg.fail')
