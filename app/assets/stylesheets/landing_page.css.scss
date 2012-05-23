@@ -23,6 +23,9 @@
 }
 
 #landing_page {
+    h1 {
+      text-shadow: none;
+    }
     background: url(landingpage/layout-body-bg.jpg);
 
     #header {

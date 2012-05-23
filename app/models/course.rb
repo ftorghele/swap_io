@@ -50,7 +50,7 @@ class Course < ActiveRecord::Base
   def self.load_user_cookie user
     value = nil
     Category.all.each do |category|
-      value ||= {:all => "0"}
+      value ||= { }
       new_val = {category.title.to_sym => (user.category_abonnements.find_by_category_id(category)) ? "0" : "1" }.to_hash
       value = value.merge( new_val )
     end

@@ -365,18 +365,18 @@ de:
       short: ! '%e. %b'
     month_names:
     -
-    - Januar
-    - Februar
-    - März
-    - April
+    - Jan
+    - Feb
+    - Mar
+    - Apr
     - Mai
-    - Juni
-    - Juli
-    - August
-    - September
-    - Oktober
-    - November
-    - Dezember
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Okt
+    - Nov
+    - Dez
     order:
     - :day
     - :month
