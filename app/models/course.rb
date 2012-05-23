@@ -1,15 +1,15 @@
 class Course < ActiveRecord::Base
 
-  default_scope :order => "created_at DESC"
+  default_scope :order => "#{table_name}.created_at DESC"
 
   belongs_to :user
-  belongs_to :category
+  has_and_belongs_to_many :categories
   has_many :course_members, :dependent => :destroy
 
-  validates_presence_of :title, :description, :category_id, :user_id, :date,
+  validates_presence_of :title, :description, :category_ids, :user_id, :date,
                         :places, :city, :zip_code
 
-  attr_accessible :title, :description, :category_id, :date,
+  attr_accessible :title, :description, :precognitions, :materials, :category_ids, :date,
                         :places, :city, :zip_code
 
   validates :zip_code, :numericality => { :only_integer => true }
@@ -53,6 +53,7 @@ class Course < ActiveRecord::Base
       value ||= {:all => "0"}
       new_val = {category.title.to_sym => (user.category_abonnements.find_by_category_id(category)) ? "0" : "1" }.to_hash
       value = value.merge( new_val )
+      puts value
     end
     value.to_json
   end

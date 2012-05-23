@@ -1,7 +1,8 @@
 %article.begegnung
   %a{:href => course_path(course),:class => 'begegnung-pic'}
     = image_tag("http://placehold.it/220x220", :alt => course.title)
-    %span{:class => "cat-#{course.category.id}"}
+    - @course.categories.each do |cat|
+      %span{:class => "cat-#{cat.id}"}
     %h3= course.title
   %p.begegnung-infos
     = link_to image_tag(userpic(course.user, :medium), :alt => username(course.user), :size => '60x60'), user_path(course.user)
