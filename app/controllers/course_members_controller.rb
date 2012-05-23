@@ -24,4 +24,13 @@ class CourseMembersController < ApplicationController
     end
     redirect_to root_path
   end
+
+  def destroy
+    if course_member = CourseMember.destroy(params[:id])
+      flash[:message] = "Du hast deine Begegnungsanfrage erfolgreich abgesagt"
+    else
+      flash[:error] = "Bei der Absage der Begegnungsanfrage ist ein Fehler aufgetreten"
+    end
+    redirect_to course_path(course_member.course)
+  end
 end

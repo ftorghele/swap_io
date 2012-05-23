@@ -613,10 +613,10 @@ section.begegnungen{
         text-shadow: 0px 2px 0px #49696c;
       }
       span{
-        display:block;
+        display:inline-block;
         width:28px;
         height:28px;
-        position:absolute;
+        position:relative;
 		background-image: image-url('layout-kategorien-small.png');
         background-repeat:0;
         background-position:0 0;
@@ -624,8 +624,10 @@ section.begegnungen{
         @include rounded-comb(0, 0, 2px, 2px);
         @include shadow(rgba(0,0,0, 0.1),0px,1px,2px,0px);
 
-        top:0;
-        right:10px;
+        top:-220px;
+        float: right;
+        margin: 0 5px 5px 0;
+
 
         @for $i from 1 through 10 {
                       &.cat-#{$i} { background-position: -(28px * ($i - 1)) 0px; }
@@ -836,7 +838,7 @@ input{
     @include shadow-comb(rgba(0,0,0, 0.2),0,1px,5px,0px,rgba(255,255,255, 0.7),0,1px,4px,0px);
   }
 }
-input.form-submit, input.form-button-petrol,
+input.form-submit, button.form-submit, input.form-button-petrol,
 a.form-submit, a.form-button-petrol,{
   height: 53px;
   font-family: "LeagueGothicRegular";
@@ -868,6 +870,7 @@ input:focus, textarea:focus, select:focus{
 }
 form-nextstep,
 a.form-nextstep,
+button.form-nextstep
 {
   padding-left:48px;
   margin-right:0;

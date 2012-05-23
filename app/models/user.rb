@@ -72,7 +72,8 @@ class User < ActiveRecord::Base
 
   def find_category_abonnements
     categories = CategoryAbonnement.find_all_by_user_id(self).map { |f| f.category.courses }.flatten
-    Course.all(:include => :categories, :conditions => { "categories_courses.category_id" => categories.empty? ? "*" : categories})
+    categories.empty? ? Course.all : Course.all(:include => :categories, :conditions => { "categories_courses.category_id" => categories})
+
   end
 
   def toggle_category_abonnements category

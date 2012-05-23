@@ -1,14 +1,14 @@
 %article.begegnung
   %a{:href => course_path(course),:class => 'begegnung-pic'}
-    = image_tag("http://placehold.it/220x220", :alt => course.title)
-    - @course.categories.each do |cat|
+    = image_tag("http://placehold.it/220x220", :alt => course.title, :size => '220x220')
+    - course.categories.each do |cat|
       %span{:class => "cat-#{cat.id}"}
     %h3= course.title
   %p.begegnung-infos
     = link_to image_tag(userpic(course.user, :medium), :alt => username(course.user), :size => '60x60'), user_path(course.user)
     = I18n.localize(course.date, :format => :day) unless course.date.nil?
     %br
-    = link_to username(course.user), user_path(course.user)
+    = link_to truncate(username(course.user), :length => 18, :omission => '..'), user_path(course.user)
     %br
     in
     = truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?

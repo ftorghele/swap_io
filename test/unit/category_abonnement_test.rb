@@ -45,7 +45,6 @@ class CategoryAbonnementTest < ActiveSupport::TestCase
     course3 = Factory.create(:course, :category => category3)
     user.category_abonnements.create(:category => category1)
     user.category_abonnements.create(:category => category3)
-    puts user.find_category_abonnements
     assert_equal user.find_category_abonnements.length, 2
     assert_equal user.find_category_abonnements.last.category_id , category3.id
   end

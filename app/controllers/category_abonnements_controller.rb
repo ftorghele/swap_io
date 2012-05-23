@@ -21,10 +21,7 @@ class CategoryAbonnementsController < ApplicationController
       end
       #Write the updated temp_val to cookie
       temp_val = temp_val.to_hash
-    puts temp_val
       cookies[:categories] = temp_val.to_json
-    puts temp_val.to_json
-    #puts cookies[:categories]
     else
       #Done if user deletes cookie on Begegnung and press any menu button
       cookies[:categories] = Course.set_new_cookie JSON.parse(cookies[:categories])

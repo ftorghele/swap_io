@@ -6,10 +6,10 @@ class Course < ActiveRecord::Base
   has_and_belongs_to_many :categories
   has_many :course_members, :dependent => :destroy
 
-  validates_presence_of :title, :description, :categories, :user_id, :date,
+  validates_presence_of :title, :description, :category_ids, :user_id, :date,
                         :places, :city, :zip_code
 
-  attr_accessible :title, :description, :precognitions, :materials, :categories, :date,
+  attr_accessible :title, :description, :precognitions, :materials, :category_ids, :date,
                         :places, :city, :zip_code
 
   validates :zip_code, :numericality => { :only_integer => true }
@@ -58,9 +58,8 @@ class Course < ActiveRecord::Base
   end
 
   def self.set_new_cookie
-    value = {:all => "0"}
+    value = { }
     Category.all.each do |category|
-      #TODO????????????
       new_val = {category.title.to_sym => 1}.to_hash
       value = value.merge( new_val )
     end
@@ -72,15 +71,15 @@ class Course < ActiveRecord::Base
     json_str.map do |key, value|
       category_arr << key if value.to_i == 0
     end
-    category_arr = Category.find_all_by_title(category_arr)
-    Course.find_all_by_category_id(category_arr)
+    categories = Category.find_all_by_title(category_arr)
+    categories.empty? ? Course.all : Course.all(:include => :categories, :conditions => { "categories_courses.category_id" => categories})
   end
 
   def self.set_user_courses user
     return Course.all if user.category_abonnements.length < 1
     categories = []
     user.category_abonnements.each do |f| categories << f.category_id end
-    Course.find_all_by_category_id(categories)
+    categories.empty? ? Course.all : Course.all(:include => :categories, :conditions => { "categories_courses.category_id" => categories})
   end
 
   private

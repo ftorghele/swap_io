@@ -36,7 +36,7 @@
 
     %div
       = f.label :categories
-      = f.collection_select(:category_ids, Category.all, :id, :title, {}, { :selected => @course.role_ids, :multiple => true, :name => 'course[category_ids][]'} )
+      = f.collection_select(:category_ids, Category.all, :id, :title, {}, { :selected => @course.category_ids, :multiple => true, :name => 'course[category_ids][]'} )
       /= f.select(:categories, Category.all.collect {|f| [ f.title, f.id ] } , {:multiple => true, :size => 10, :include_blank => I18n.t('course.new.select')} )
 
   %div.form-actions
