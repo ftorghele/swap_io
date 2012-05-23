@@ -35,8 +35,9 @@
       = f.text_area :materials, :size => "30x10", :value => "-"
 
     %div
-      = f.label :category_id
-      = f.select(:category_id, Category.all.collect {|f| [ f.title, f.id ] } , {:include_blank => I18n.t('course.new.select')} )
+      = f.label :categories
+      = f.collection_select(:category_ids, Category.all, :id, :title, {}, { :selected => @course.role_ids, :multiple => true, :name => 'course[category_ids][]'} )
+      /= f.select(:categories, Category.all.collect {|f| [ f.title, f.id ] } , {:multiple => true, :size => 10, :include_blank => I18n.t('course.new.select')} )
 
   %div.form-actions
     = f.submit I18n.t('course.new.submit'), :class => 'btn-primary'

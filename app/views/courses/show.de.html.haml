@@ -1,8 +1,9 @@
 = javascript_include_tag :jquery_fancybox
 %section.begegnung-detail
   %article.begegnung-main
-    %h3{:class => "cat-#{@course.category.id}"}
-      = @course.category.title
+    - @course.categories.each do |cat|
+      %h3{:class => "cat-#{cat.id}"}
+        = cat.title
     %h1= @course.title
     %p Social Media Like Dingens hier
     %p= simple_format (@course.description)

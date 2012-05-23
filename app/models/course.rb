@@ -1,15 +1,15 @@
 class Course < ActiveRecord::Base
 
-  default_scope :order => "created_at DESC"
+  default_scope :order => "#{table_name}.created_at DESC"
 
   belongs_to :user
-  belongs_to :category
+  has_and_belongs_to_many :categories
   has_many :course_members, :dependent => :destroy
 
-  validates_presence_of :title, :description, :category_id, :user_id, :date,
+  validates_presence_of :title, :description, :categories, :user_id, :date,
                         :places, :city, :zip_code
 
-  attr_accessible :title, :description, :category_id, :date,
+  attr_accessible :title, :description, :precognitions, :materials, :categories, :date,
                         :places, :city, :zip_code
 
   validates :zip_code, :numericality => { :only_integer => true }
