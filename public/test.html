@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang='de'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Wissen • Teilen • Können</title>
+    <meta content='Wissen • Teilen • Können ist eine Collaborative Consumption Plattform auf der du deine Talente teilen und von anderen lernen kannst. Das interaktive Talentetausch-Projekt wird von einem Team aus MultiMediaArt- und MultiMediaTechnology-Studenten an der Fachhochschule Salzburg konzipiert und umgesetzt.' name='description'>
+    <meta content='Wissen • Teilen • Können' name='autor'>
+    <meta content='Wissen • Teilen • Können' name='publisher'>
+    <meta content='follow' name='robots'>
+    <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes' name='viewport'>
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700,300|Open+Sans:400,700" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/wtk.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/attend_courses.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/categories.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/course_requests.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/courses.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/errors.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/form_styles.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/mails.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/newsletters.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/pages.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/subscribers.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/users.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/wissenteilen.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/x_responsive.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/jquery_fancybox.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <meta content="authenticity_token" name="csrf-param" />
+    <meta content="Nyhdve8yG5BNNrwHtikR26bhd6jy2ZUhsa/v2dqLWRQ=" name="csrf-token" />
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+    <script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+    <script src="/assets/jquery_fancybox.js?body=1" type="text/javascript"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul id='navi'>
+          <li><a href="/Begegnungen" class="active">Begegnungen</a></li>
+          <li><a href="/Begegnungswuensche" class="inactive">Begegnungswünsche</a></li>
+        </ul>
+        <ul id='navi-user'>
+          <li>
+            <a href="/Uebersicht" class="inactive" id="nav-dashboard">Übersicht</a>
+            <a href="/Uebersicht" class="nav-dashboard-indicator-new" id="nav-dashboard-indicator">??</a>
+          </li>
+          <li>
+            <a href="/Menschen/1" class="inactive" id="nav-hellouser">Hallo Matthias</a>
+            <a href="/Menschen/1" id="nav-profile-avatar"><img alt="45x45" class="avatar-mini" height="45" src="http://placehold.it/45x45" width="45" /></a>
+            <a href="#" id="nav-profile-dropdown">Menü öffnen</a>
+            <ul id='nav-select2'>
+              <li><a href="/Uebersicht" id="nav-select2-dashboard">Übersicht</a></li>
+              <li><a href="/Menschen/1" id="nav-select2-profile">Mein Benutzerprofil</a></li>
+              <li><a href="/Menschen/1/edit" id="nav-select2-profilesettings">Profil bearbeiten</a></li>
+              <li><a href="/Menschen/settings" id="nav-select2-accountsettings">Kontoeinstellungen</a></li>
+              <li><a href="/users/sign_out" data-method="delete" id="nav-select2-logout" rel="nofollow">Abmelden</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <h6 id='logo'><a href="/">Wissen • Teilen • Können - Talente tauschen, Kurioses lernen</a></h6>
+    </header>
+    <a href="mailto:info@wissenteilen.com" id="feedback-button">Feedback</a>
+    <div id='container'>
+      <h1>Begegnung erstellen</h1>
+      <script src="/assets/rails.validations.js?body=1" type="text/javascript"></script>
+      <form accept-charset="UTF-8" action="/Begegnungen" class="new_course" data-validate="true" id="new_course" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Nyhdve8yG5BNNrwHtikR26bhd6jy2ZUhsa/v2dqLWRQ=" /></div>
+        <fieldset>
+          <legend>
+            <strong>Schritt 1 von 2:</strong>
+            Fakten
+          </legend>
+          <div>
+            <label for="course_title">Title</label>
+            <input data-validate="true" id="course_title" name="course[title]" size="30" type="text" />
+          </div>
+          <div>
+            <label for="checkbox_cat-1">Kulturen kennenlernen</label>
+            <input id="checkbox_cat-1" name="course[category_ids][]" type="checkbox" validate="true" value="1" />
+            <br>
+            <label for="checkbox_cat-2">Aktiv bewegen</label>
+            <input id="checkbox_cat-2" name="course[category_ids][]" type="checkbox" validate="true" value="2" />
+            <br>
+            <label for="checkbox_cat-3">Bewusst leben</label>
+            <input id="checkbox_cat-3" name="course[category_ids][]" type="checkbox" validate="true" value="3" />
+            <br>
+            <label for="checkbox_cat-4">Geschickt handwerken</label>
+            <input id="checkbox_cat-4" name="course[category_ids][]" type="checkbox" validate="true" value="4" />
+            <br>
+            <label for="checkbox_cat-5">Kulinarisches entdecken</label>
+            <input id="checkbox_cat-5" name="course[category_ids][]" type="checkbox" validate="true" value="5" />
+            <br>
+            <label for="checkbox_cat-6">Freizeit gestalten</label>
+            <input id="checkbox_cat-6" name="course[category_ids][]" type="checkbox" validate="true" value="6" />
+            <br>
+            <label for="checkbox_cat-7">Technik verstehen</label>
+            <input id="checkbox_cat-7" name="course[category_ids][]" type="checkbox" validate="true" value="7" />
+            <br>
+            <label for="checkbox_cat-8">Gestalterisch entfalten</label>
+            <input id="checkbox_cat-8" name="course[category_ids][]" type="checkbox" validate="true" value="8" />
+            <br>
+            <label for="checkbox_cat-9">Theorie begreifen</label>
+            <input id="checkbox_cat-9" name="course[category_ids][]" type="checkbox" validate="true" value="9" />
+            <br>
+            <label for="checkbox_cat-10">Irgendwie kurios</label>
+            <input id="checkbox_cat-10" name="course[category_ids][]" type="checkbox" validate="true" value="10" />
+            <br>
+          </div>
+          <div>
+            <label for="course_date">Date</label>
+            <input data-validate="true" id="course_date" name="course[date]" size="30" type="text" />
+          </div>
+          <div>
+            <label for="course_zip_code">Zip code</label>
+            <input data-validate="true" id="course_zip_code" name="course[zip_code]" size="30" type="text" />
+          </div>
+          <div>
+            <label for="course_city">City</label>
+            <input data-validate="true" id="course_city" name="course[city]" size="30" type="text" />
+          </div>
+          <div>
+            <label for="course_places">Places</label>
+            <input data-validate="true" id="course_places" name="course[places]" size="30" type="text" />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>
+            <strong>Schritt 2 von 2:</strong>
+            Beschreibung und Foto
+          </legend>
+          <div>
+            <label for="course_description">Description</label>
+            <textarea cols="30" data-validate="true" id="course_description" name="course[description]" rows="10"></textarea>
+          </div>
+          <div>
+            <label for="course_precognitions">Precognitions</label>
+            <textarea cols="30" id="course_precognitions" name="course[precognitions]" rows="10"></textarea>
+          </div>
+          <div>
+            <label for="course_materials">Materials</label>
+            <textarea cols="30" id="course_materials" name="course[materials]" rows="10"></textarea>
+          </div>
+          <input class="btn-primary" name="commit" type="submit" value="Abschicken" />
+        </fieldset>
+      </form>
+      <script>//<![CDATA[
+      window.ClientSideValidations.forms['new_course'] = {"type":"ActionView::Helpers::FormBuilder","input_tag":"<span class=\"field_with_errors\"><span id=\"input_tag\" /><label for=\"\" class=\"message\"></label></span>","label_tag":"<span class=\"field_with_errors\"><label id=\"label_tag\" /></span>","validators":{"course[title]":{"presence":{"message":"muss ausgef\u00fcllt werden"}},"course[date]":{"presence":{"message":"muss ausgef\u00fcllt werden"}},"course[zip_code]":{"presence":{"message":"muss ausgef\u00fcllt werden"},"numericality":{"messages":{"numericality":"ist keine Zahl","only_integer":"muss ganzzahlig sein"},"only_integer":true}},"course[city]":{"presence":{"message":"muss ausgef\u00fcllt werden"}},"course[places]":{"presence":{"message":"muss ausgef\u00fcllt werden"},"numericality":{"messages":{"numericality":"ist keine Zahl","only_integer":"muss ganzzahlig sein"},"only_integer":true}},"course[description]":{"presence":{"message":"muss ausgef\u00fcllt werden"}}}};
+      //]]></script>
+      <div class='clr'></div>
+      <footer>
+        <section class='footer-column-wide'>
+          <h6>Die Idee</h6>
+          <p>
+            Wissen • Teilen • Können ist eine Collaborative Consumption Plattform auf der du deine Talente teilen und von anderen lernen kannst.
+            <a href="/Idee">Mehr Infos</a>
+          </p>
+          <p>Social Media Links</p>
+        </section>
+        <section class='footer-column'>
+          <h6>Los geht's</h6>
+          <ul class='sitemap'>
+            <li><a href="/Hilfe" class="inactive">So funktioniert's</a></li>
+            <li><a href="/Tipps-Tricks" class="inactive">Tipps &amp; Tricks</a></li>
+            <li><a href="/Spielregeln" class="inactive">Die Spielregeln</a></li>
+          </ul>
+        </section>
+        <section class='footer-column'>
+          <h6>Begegnungen</h6>
+          <ul class='sitemap'>
+            <li><a href="/Begegnungen" class="inactive">Begegnungen</a></li>
+            <li><a href="/Begegnungswuensche" class="inactive">Begegnungswünsche</a></li>
+            <li><a href="/Uebersicht" class="inactive">Übersicht</a></li>
+            <!-- %li= link_to "Aktuelles", news_path, :class => :inactive -->
+          </ul>
+        </section>
+        <section class='footer-column'>
+          <h6>Infos</h6>
+          <ul class='sitemap'>
+            <li><a href="/Team" class="inactive">Das Team</a></li>
+            <li><a href="/Kontakt" class="inactive">Kontakt</a></li>
+            <!-- %li= link_to "Presse", coverage_path, :class => :inactive -->
+            <li><a href="/Impressum" class="inactive">Impressum</a></li>
+          </ul>
+        </section>
+        <div class='clr'></div>
+      </footer>
+    </div>
+    <script src="/assets/public/attend_courses.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/categories.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/category_abonnements.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/course_requests.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/courses.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/errors.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/mails.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/newsletters.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/pages.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/subscribers.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/users.js?body=1" type="text/javascript"></script>
+    <script src="/assets/public/wtk.js?body=1" type="text/javascript"></script>
+    <script src="/assets/jquery_mousewheel.js?body=1" type="text/javascript"></script>
+    <script src="/assets/protoFluid3.js?body=1" type="text/javascript"></script>
+    <script src="/assets/application.js?body=1" type="text/javascript"></script>
+  </body>
+</html>

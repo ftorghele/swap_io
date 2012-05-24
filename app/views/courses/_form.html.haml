@@ -2,26 +2,41 @@
 
 =form_for @course, :validate => true, :url => {:controller => :courses, :action => action} do |f|
   %fieldset
+    %legend
+      %strong Schritt 1 von 2:
+      Fakten
+			
     %div
       = f.label :title
       = f.text_field :title
 
     %div
+      - for cat in Category.all
+        = label_tag "checkbox_cat-#{cat.id}", cat.title
+        = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course[category_ids][]", :validate => true
+        %br
+				
+    %div
       = f.label :date
       = f.text_field :date
 
     %div
-      = f.label :places
-      = f.text_field :places
+      = f.label :zip_code
+      = f.text_field :zip_code
 
     %div
       = f.label :city
       = f.text_field :city
 
     %div
-      = f.label :zip_code
-      = f.text_field :zip_code
+      = f.label :places
+      = f.text_field :places
 
+  %fieldset
+    %legend
+      %strong Schritt 2 von 2:
+      Beschreibung und Foto
+			
     %div
       = f.label :description
       = f.text_area :description, :size => "30x10"
@@ -34,11 +49,5 @@
       = f.label :materials
       = f.text_area :materials, :size => "30x10"
 
-    %div
-      - for cat in Category.all
-        = label_tag "checkbox_cat-#{cat.id}", cat.title
-        = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course[category_ids][]", :validate => true
-        %br
 
-  %div.form-actions
     = f.submit I18n.t('course.new.submit'), :class => 'btn-primary'
