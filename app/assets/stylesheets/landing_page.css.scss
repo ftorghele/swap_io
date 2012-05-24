@@ -285,7 +285,8 @@
             font-size: 15px;
             line-height: 25px;
             padding: 10px 0 ;
-            font-family: "MerriweatherRegular";
+            font-family: 'Merriweather', serif;
+            font-weight: 400;
             text-shadow: white 0px 2px 0px;
         }
 
@@ -310,7 +311,8 @@
               #email_field {
                   float:left;
                   #newsletter_subscriber_email {
-                      font-family: "MerriweatherRegular";
+                      font-family: 'Merriweather', serif;
+                      font-weight: 400;
                       height: 50px;
                       line-height: 48px;
                       width: 350px;
@@ -328,7 +330,8 @@
                   .message {
                     font-size: 12px;
                     line-height: 20px;
-                    font-family: "MerriweatherRegular";
+                    font-family: 'Merriweather', serif;
+                    font-weight: 400;
                     display: block;
                     border: 1px solid #111111;
                     width: 370px;
@@ -360,7 +363,8 @@
           padding-top: 8px;
           font-size: 12px;
           line-height: 20px;
-          font-family: "MerriweatherRegular";
+          font-family: 'Merriweather', serif;
+          font-weight: 400;
         }
 
         #fb, #email {

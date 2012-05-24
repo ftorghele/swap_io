@@ -5,6 +5,7 @@
     %title= content_for?(:title) ? yield(:title) : I18n.t('app.title')
     %meta{:name => "description", :content => content_for?(:description) ? yield(:description) : I18n.t('app.description') }/
     %meta{:name => "autor", :content =>  content_for?(:autor) ? yield(:autor) : I18n.t('app.autor') }/
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Merriweather:400,700,300|Open+Sans:400,700'
     = stylesheet_link_tag :landing_page
     = csrf_meta_tags
     /[if lt IE 9]

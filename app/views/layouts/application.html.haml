@@ -9,6 +9,7 @@
     %meta{:name => "publisher", :content =>  content_for?(:autor) ? yield(:autor) : I18n.t('app.autor') }/
     %meta{:name => "robots", :content => "follow"}/
     %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes" }/
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Merriweather:400,700,300|Open+Sans:400,700'
     = stylesheet_link_tag :wtk
     = csrf_meta_tags
     /[if lt IE 9]
