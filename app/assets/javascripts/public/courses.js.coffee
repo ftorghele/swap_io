@@ -10,7 +10,27 @@ $('.category_link').bind 'ajax:complete',(xhr, data, status) ->
 $('.category_link').click (e) ->
   e.preventDefault();
 
+# max 3 categories clickable
+$('[id^=checkbox_cat-]').click ->
 
+  num_checked = 0
+  $('[id^=checkbox_cat-]').each ->
+    if $(this).is(":checked")
+      num_checked++
+
+  if num_checked >= 3
+    $('[id^=checkbox_cat-]').each ->
+      if $(this).is(":not(:checked)")
+        $(this).prop('disabled', true)
+  else
+    $('[id^=checkbox_cat-]').each ->
+      $(this).prop('disabled', false)
+
+  if num_checked == 4
+    $(this).prop('checked', false)
+
+
+# fancybox
 $(".fancyimg a").fancybox
   openEffect: "fade"
   closeEffect: "fade"
@@ -26,3 +46,4 @@ $(".fancyimg a").fancybox
       css:
         "background-color": "#777"
         opacity: "0.7"
+

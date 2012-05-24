@@ -229,10 +229,10 @@ header{
 
     }
     a.active, a.active:hover{
-		color:#ffffff!important;
+      color:#ffffff!important;
     }
     a:hover {
-	  color: #dedede!important;
+      color: #dedede!important;
       cursor: pointer;
       text-decoration:none;
     }
@@ -325,13 +325,13 @@ header{
       }
       #nav-dashboard-indicator{
         display:block;
-		background-image: image-url('layout-header-dashboardnumber.png');
+        background-image: image-url('layout-header-dashboardnumber.png');
         background-repeat:no-repeat;
         width:33px;
         padding: 1px 2px 0 0;
         height:30px;
         font-family:"OpenSansBold", Helvetica, Arial, sans-serif;
-		color:#ffffff!important;
+        color:#ffffff!important;
         text-shadow: 0px 2px 0px rgba(0,0,0, 0.1);
         line-height:31px;
         text-align:center;
@@ -365,7 +365,7 @@ header{
         height:21px;
         text-indent:-1000px;
         overflow:hidden;
-		background-image: image-url('layout-header-arrowdown.png');
+        background-image: image-url('layout-header-arrowdown.png');
         background-repeat:no-repeat;
         background-position:10px 0;
         margin:0 -10px 0 0;
@@ -390,7 +390,7 @@ header{
       height:100%;
       text-decoration:none;
       border:0px;
-	  background: image-url('layout-logo-wissenteilen.png');
+      background: image-url('layout-logo-wissenteilen.png');
       text-indent:-1000px;
       overflow:hidden;
 
@@ -447,6 +447,27 @@ h2, h3, h4 {
   font-size:12px;
   line-height:20px;
   margin-bottom:12px;
+}
+
+.alert {
+  margin: 20px 0;
+  border: 1px solid #111111;
+  width: 90%;
+  padding: 10px;
+  margin: 10px auto;
+  @include rounded(3px);
+}
+
+.alert-error {
+  color: #B94A48;
+  background-color: #F2DEDE;
+  border-color: #EED3D7;
+}
+
+.alert-info {
+  color: #468847;
+  background-color: #DFF0D8;
+  border-color: #468847;
 }
 
 /* Begegnungssuche */
@@ -509,7 +530,7 @@ section.begegnungssearch{
         color:#c8c7c6;
         text-align:center;
         text-shadow:none;
-		background-image: image-url('layout-kategorien.png');
+        background-image: image-url('layout-kategorien.png');
         background-repeat:none;
         background-position:0 0;
 
@@ -531,7 +552,7 @@ section.begegnungssearch{
     }
   }
   #form-input-location{
-	background-image: image-url('layout-icon-location.png');
+    background-image: image-url('layout-icon-location.png');
     background-repeat: no-repeat;
     background-position:10px 12px;
     padding:12px 290px 12px 48px;
@@ -555,7 +576,7 @@ section.begegnungssearch{
       position:absolute;
       top:10px;
       left:10px;
-	  background-image: image-url('layout-icon-search.png');
+      background-image: image-url('layout-icon-search.png');
       background-repeat: no-repeat;
       background-position:0 0;
       display:block;
@@ -612,27 +633,31 @@ section.begegnungen{
         @include rounded-comb(0, 4px, 4px, 0);
         text-shadow: 0px 2px 0px #49696c;
       }
-      span{
-        display:inline-block;
-        width:28px;
-        height:28px;
-        position:relative;
-		background-image: image-url('layout-kategorien-small.png');
-        background-repeat:0;
-        background-position:0 0;
-        background-color:#ffffff;
-        @include rounded-comb(0, 0, 2px, 2px);
-        @include shadow(rgba(0,0,0, 0.1),0px,1px,2px,0px);
+      .begegnung-categories {
+        position: absolute;
+        top: 0px;
+        width: 220px;
+        height: 61px;
 
-        top:-220px;
-        float: right;
-        margin: 0 5px 5px 0;
+        span{
+          display:inline-block;
+          width:28px;
+          height:28px;
+          background-image: image-url('layout-kategorien-small.png');
+          background-repeat:0;
+          background-position:0 0;
+          background-color:#ffffff;
+          @include rounded-comb(0, 0, 2px, 2px);
+          @include shadow(rgba(0,0,0, 0.1),0px,1px,2px,0px);
+          float: right;
+          margin: 0 5px 5px 0;
 
-
-        @for $i from 1 through 10 {
-                      &.cat-#{$i} { background-position: -(28px * ($i - 1)) 0px; }
-                  }
+          @for $i from 1 through 10 {
+              &.cat-#{$i} { background-position: -(28px * ($i - 1)) 0px; }
+          }
+        }
       }
+
     }
     .form-button-petrol{
       margin-bottom:12px;
@@ -938,8 +963,8 @@ footer{
       width:460px;
     }
   }
-    #copyright {
-      min-width: 100%;
-      text-align: center;
-    }
+  #copyright {
+    min-width: 100%;
+    text-align: center;
+  }
 }

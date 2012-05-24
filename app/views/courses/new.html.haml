@@ -1,2 +1,2 @@
 %h1= I18n.t('course.new.headline')
-= render :partial => 'form'
+= render :partial => 'form', :locals => { :action => :create }

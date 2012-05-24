@@ -19,6 +19,10 @@ de:
     sign_in_link: Anmelden
     sign_in_with_link: 'Einloggen mit %{provider}'
 
+  msg:
+    not_found: Der Datensatz wurde leider nicht gefunden
+    not_allowed: Sie haben nicht die benötigten Rechte um diesen Datensatz zu bearbeiten
+
   routes:
     users:
       as: Menschen
@@ -87,7 +91,6 @@ de:
       msg: Unsere Techniker wurden verständigt und werden sich darum kümmern.
     backlink: Zurück zur Startseite
 
-
   user:
     edit:
       skills: Fähigkeiten
@@ -110,9 +113,16 @@ de:
       empty_collection: Noch keine.
 
   course:
+    msg:
+     too_much_categories: Du darfst maximal 3 Kategorien für deine Begegnung auswählen!
+     no_categories: Du musst mindestens eine Kategorie für deine Begegnung wählen!
+     fail: Es ist ein Fehler aufgetreten
     create:
       success: Begegnung wurde erfolgreich erstellt
       fail: Beim Erstellen der Begegnung ist ein Fehler aufgetreten
+    update:
+      success: Begegnung wurde erfolgreich aktualisiert
+      fail: Beim aktualisieren der Begegnung ist ein Fehler aufgetreten
     destroy:
       success: Begegnung wurde erfolgreich gelöscht
       fail: Beim Löschen der Begegnung ist ein Fehler aufgetreten

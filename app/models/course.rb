@@ -10,10 +10,13 @@ class Course < ActiveRecord::Base
                         :places, :city, :zip_code
 
   attr_accessible :title, :description, :precognitions, :materials, :category_ids, :date,
-                        :places, :city, :zip_code
+                  :places, :city, :zip_code
 
   validates :zip_code, :numericality => { :only_integer => true }
   validates :places, :numericality => { :only_integer => true }
+  validates :category_ids, :presence => true
+  validates :category_ids, :inclusion => [100], :if => Proc.new { |x|  x.category_ids.count > 3 }
+
 
   before_create :initialize_places_available
 
@@ -26,12 +29,10 @@ class Course < ActiveRecord::Base
     end
   end
 
-  def self.delete_course user, id
-    course = self.find(id)
-    return unless user.id == course.user_id
+  def self.delete_course course
     course.get_course_members.each do |member|
       SystemMailer.private_message(member.user, I18n.t('course.destroy.subject'),
-                  I18n.t('course.destroy.body', :name => "#{member.user.first_name} #{member.user.last_name}") ).deliver
+                                   I18n.t('course.destroy.body', :name => "#{member.user.first_name} #{member.user.last_name}") ).deliver
     end
     course.destroy
   end

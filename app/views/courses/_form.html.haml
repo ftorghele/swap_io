@@ -1,6 +1,6 @@
 = javascript_include_tag 'rails.validations'
 
-=form_for @course, :validate => true, :url => {:controller => :courses, :action => :create, :type => @course_request} do |f|
+=form_for @course, :validate => true, :url => {:controller => :courses, :action => action} do |f|
   %fieldset
     %div
       = f.label :title
@@ -28,16 +28,17 @@
 
     %div
       = f.label :precognitions
-      = f.text_area :precognitions, :size => "30x10", :value =>"-"
+      = f.text_area :precognitions, :size => "30x10"
 
     %div
       = f.label :materials
-      = f.text_area :materials, :size => "30x10", :value => "-"
+      = f.text_area :materials, :size => "30x10"
 
     %div
-      = f.label :categories
-      = f.collection_select(:category_ids, Category.all, :id, :title, {}, { :selected => @course.category_ids, :multiple => true, :name => 'course[category_ids][]'} )
-      /= f.select(:categories, Category.all.collect {|f| [ f.title, f.id ] } , {:multiple => true, :size => 10, :include_blank => I18n.t('course.new.select')} )
+      - for cat in Category.all
+        = label_tag "checkbox_cat-#{cat.id}", cat.title
+        = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course[category_ids][]", :validate => true
+        %br
 
   %div.form-actions
     = f.submit I18n.t('course.new.submit'), :class => 'btn-primary'

@@ -7,4 +7,8 @@ module CoursesHelper
   def check_search_button_state
     #TODO
   end
+
+  def categories(cat)
+    @course ? @course.categories.include?(cat) : false
+  end
 end
