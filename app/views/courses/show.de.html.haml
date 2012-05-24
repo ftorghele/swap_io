@@ -1,5 +1,5 @@
-%section.begegnung-detail
-  %article.begegnung-main
+%section.detail
+  %article.main
     - @course.categories.each do |cat|
       %h3{:class => "cat-#{cat.id}"}
         = cat.title
@@ -11,22 +11,22 @@
     %h2 Mitzubringendes Material
     %p= simple_format (@course.materials.blank? ? "keine" : @course.materials)
 
-  %article.begegnung-side
+  %article.side
     %figure.fancyimg
-      %a{:href => '/assets/layout-logo-wissenteilen.png', :class => 'begegnung-pic', :rel => 'alternate'}
+      %a{:href => '/assets/layout-logo-wissenteilen.png', :class => 'pic', :rel => 'alternate'}
         = image_tag("http://placehold.it/300x200", :alt => @course.title, :size => '300x200')
         %span
-    %ul.begegnung-facts
-      %li.begegnung-date
+    %ul.facts
+      %li.date
         %span
         = I18n.localize(@course.date, :format => :day) unless @course.date.nil?
-      %li.begegnung-time
+      %li.time
         %span
         = I18n.localize(@course.date, :format => :time) unless @course.date.nil?
-      %li.begegnung-location
+      %li.location
         %span
         = @course.city unless @course.city.nil?
-      %li.begegnung-people
+      %li.people
         %span
         = "für #{@course.places_available} Personen" unless @course.places_available.nil?
 

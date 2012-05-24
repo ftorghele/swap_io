@@ -1,27 +1,33 @@
-.container
-  .row
-    .span3
-      .thumbnail= image_tag userpic(@user, :medium), :alt => username(@user)
-    .span9
-      %h1= username(@user)
-    - if signed_in? && current_user != @user
-      = link_to image_tag("email.jpg"), new_mails_path(:id => @user), :id => "email"
+%section.detail
+  %article.main
+    %h1= username(@user)
+    %p Social Media Like Dingens hier
+    %h2 Selbstbeschreibung
+    %p= simple_format (@user.description)
 
-  .row
-    .span12
-      %h2= I18n.t('user.show.about', :name => @user.first_name)
-      .well= @user.description
 
-  .row
-    .span12
-      %h2= I18n.t('user.show.my_courses', :name => @user.first_name)
-      .well
-        %ul= render(:partial => 'users/show/course', :collection => @user.get_courses) || I18n.t('user.show.empty_collection')
-    .span12
-      %h2= I18n.t('user.show.my_course_memberships', :name => @user.first_name)
-      .well
-        %ul= render(:partial => 'users/show/course_membership', :collection => @user.get_accepted_course_memberships) || I18n.t('user.show.empty_collection')
-    .span12
-      %h2= I18n.t('user.show.my_course_requests', :name => @user.first_name)
-      .well
-        %ul= render(:partial => 'users/show/course_request', :collection => @user.get_course_requests) || I18n.t('user.show.empty_collection')
+    %h2= I18n.t('user.show.my_courses', :name => @user.first_name)
+    %ul= render(:partial => 'users/show/course', :collection => @user.get_courses) || I18n.t('user.show.empty_collection')
+    %h2= I18n.t('user.show.my_course_memberships', :name => @user.first_name)
+    %ul= render(:partial => 'users/show/course_membership', :collection => @user.get_accepted_course_memberships) || I18n.t('user.show.empty_collection')
+    %h2= I18n.t('user.show.my_course_requests', :name => @user.first_name)
+    %ul= render(:partial => 'users/show/course_request', :collection => @user.get_course_requests) || I18n.t('user.show.empty_collection')
+
+
+
+  %article.side
+    %figure.fancyimg
+      %a{:href => userpic(@user, :big), :class => 'pic', :rel => 'alternate'}
+        = image_tag userpic(@user, :big), :alt => username(@user), :size => '300x200'
+        %span
+
+
+    %ul.facts
+      %li.date
+        %span
+        xxxxxxxxx
+      %li.time
+        %span
+        xxxxxxxxx
+
+

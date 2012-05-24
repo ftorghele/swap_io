@@ -1,7 +1,7 @@
 %section.headerimg
   = image_tag('begegnungen/header-default.jpg', :alt => 'Begegnung der Generationen')
   %h1 Jeden Tag<br>Neues lernen
-  %p.intro Wähle eine oder mehrere unserer<br>10 Kategorien und finde spannende<br>Begegnungen in deiner Nähe!
+  %p.headerimg-intro Wähle eine oder mehrere unserer<br>10 Kategorien und finde spannende<br>Begegnungen in deiner Nähe!
 
 %section.begegnungssearch
   = render :partial => '/shared/search', :locals => {:categories => @categories}

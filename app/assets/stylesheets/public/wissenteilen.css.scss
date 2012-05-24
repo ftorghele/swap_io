@@ -432,10 +432,11 @@ header{
 }
 h1{
   font-family:"AdelleBasic-Bold", Helvetica, Arial, sans-serif;
-  color: #f1f1f1;
   font-size:54px;
-  line-height:60px;
-  text-shadow: 0 4px 1px #49696c;
+  color:$second-color;
+  text-shadow:none;
+  line-height:70px;
+  margin-bottom:14px;
 }
 h2 {
   color:#201f1f;
@@ -488,7 +489,7 @@ h4.balken {
   width: 418px;
   height: 64px;
   background: image-url('layout-h4-balkenbg.png');
-  line-height: 80px;
+  line-height: 60px;
   font-size: 36px;
 }
 h1.balken {
@@ -497,6 +498,13 @@ h1.balken {
   background: image-url('layout-h1-balkenbg.png');
   line-height: 100px;
   font-size: 54px;
+}
+
+p.intro {
+  display: block;
+  width: 660px;
+  margin: 0 auto 20px auto;
+  text-align: center;
 }
 
 
@@ -523,7 +531,7 @@ section.headerimg{
     color:$second-color;
     text-shadow:none;
   }
-  .intro{
+  .headerimg-intro{
     position:relative;
     margin:0 0 0 24px;
     width:380px;
@@ -717,12 +725,12 @@ section.begegnungen{
 }
 
 
-/* Begegnung (Detailansicht) Styles */
+/* SHOW */
 
-section.begegnung-detail{
+section.detail{
   width:100%;
 
-  article.begegnung-main{
+  article.main{
     width:620px;
     margin:10px;
     float:left;
@@ -734,12 +742,7 @@ section.begegnung-detail{
       line-height:18px;
       margin-bottom:6px;
     }
-    h1{
-      color:$second-color;
-      text-shadow:none;
-      line-height:70px;
-      margin-bottom:14px;
-    }
+
     h2{
       color:#201f1f;
       font-family:"OpenSansBold", Arial, Helvetica, sans-serif;
@@ -748,7 +751,7 @@ section.begegnung-detail{
       margin:18px 0 12px
     }
   }
-  article.begegnung-side{
+  article.side{
     width:280px;
     float:left;
     margin:10px;
@@ -757,7 +760,7 @@ section.begegnung-detail{
     @include rounded(4px);
     @include shadow(rgba(0,0,0, 0.05),1px,1px,6px,0px);
 
-    .begegnung-pic{
+    .pic{
       margin:-10px 0 0 -10px;
       float:left;
       position:relative;
@@ -785,7 +788,7 @@ section.begegnung-detail{
         right:10px;
       }
     }
-    .begegnung-facts{
+    .facts{
       list-style:none;
       margin:10px 0 20px 0;
       float:left;
@@ -810,16 +813,16 @@ section.begegnung-detail{
           @include rounded-comb(0, 4px, 4px, 0);
         }
 
-        &.begegnung-date span{
+        &.date span{
           background-image: image-url('layout-icon-24x24-date.png');
         }
-        &.begegnung-time span{
+        &.time span{
           background-image: image-url('layout-icon-24x24-time.png');
         }
-        &.begegnung-location span{
+        &.location span{
           background-image: image-url('layout-icon-24x24-location.png');
         }
-        &.begegnung-people span{
+        &.people span{
           background-image: image-url('layout-icon-24x24-people.png');
         }
       }
@@ -992,9 +995,5 @@ footer{
     &.footer-column-wide{
       width:460px;
     }
-  }
-  #copyright {
-    min-width: 100%;
-    text-align: center;
   }
 }
