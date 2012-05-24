@@ -1,5 +1,5 @@
 %section.begegnungssearch
 
-  = render :partial => '/shared/categories', :locals => {:categories => @categories}
+  = render :partial => '/shared/search', :locals => {:categories => @categories}
   = link_to I18n.t('course_request.index.create_course_request_button'), new_course_request_path, :id => "create_course_request_button", :class => "btn"
   = render :partial => 'course_request', :collection => @course_requests

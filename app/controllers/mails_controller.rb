@@ -9,7 +9,7 @@ class MailsController < ApplicationController
   def create
     user = User.find(params[:user_id])
     if SystemMailer.private_message(user, params[:body]).deliver
-      flash[:message] = I18n.t('mails.create.success')
+      flash[:info] = I18n.t('mails.create.success')
     else
       flash[:error] = I18n.t('mails.create.fail')
     end

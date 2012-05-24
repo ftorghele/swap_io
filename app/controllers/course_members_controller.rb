@@ -6,7 +6,7 @@ class CourseMembersController < ApplicationController
     course_id = params[:course_id]
     if CourseMember.create(:course_id => course_id, :user_id => current_user.id)
       Course.course_member_request current_user, course_id
-      flash[:message] = I18n.t('course_member.create.success')
+      flash[:info] = I18n.t('course_member.create.success')
       redirect_to courses_path
     else
       flash[:error] = I18n.t('course_member.create.fail')
@@ -16,9 +16,9 @@ class CourseMembersController < ApplicationController
 
   def update
     if course_member = CourseMember.update_user_acceptance(params[:id], params[:acceptance])
-      flash[:message] = I18n.t('course_member.update.success')
+      flash[:info] = I18n.t('course_member.update.success')
     elsif course_member == false
-      flash[:message] = I18n.t('course_member.update.rejected')
+      flash[:info] = I18n.t('course_member.update.rejected')
     else
       flash[:error] = I18n.t('course_member.update.fail')
     end
@@ -27,7 +27,7 @@ class CourseMembersController < ApplicationController
 
   def destroy
     if course_member = CourseMember.destroy(params[:id])
-      flash[:message] = "Du hast deine Begegnungsanfrage erfolgreich abgesagt"
+      flash[:info] = "Du hast deine Begegnungsanfrage erfolgreich abgesagt"
     else
       flash[:error] = "Bei der Absage der Begegnungsanfrage ist ein Fehler aufgetreten"
     end

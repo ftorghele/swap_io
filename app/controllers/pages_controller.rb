@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def contact_us
     if SystemMailer.contact_us(params[:email_field], params[:subject], params[:body]).deliver
-      flash[:message] = I18n.t('pages.contact.msg.success')
+      flash[:info] = I18n.t('pages.contact.msg.success')
       redirect_to :welcome
     else
       flash[:error] = I18n.t('pages.contact.msg.fail')
@@ -19,5 +19,17 @@ class PagesController < ApplicationController
   end
 
   def welcome
+    if signed_in?
+      @courses = current_user.find_category_abonnements
+      cookies[:categories] = Course.load_user_cookie current_user
+    else
+      if cookies[:categories].present?
+        @courses = Course.set_courses JSON.parse(cookies[:categories])
+      else
+        cookies[:categories] = Course.set_new_cookie
+        @courses = Course.all
+      end
+    end
+    @categories = JSON.parse cookies[:categories]
   end
 end

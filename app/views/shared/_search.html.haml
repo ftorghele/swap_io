@@ -1,3 +1,9 @@
 %ul#begegnungssearch
   - Category.all.each do |cat|
     %li= link_to simple_format(cat.title.gsub(" ", "<br>")), find_categories_category_abonnements_path(:category => cat.id), :id => "cat-#{cat.id}", :remote => true, :class => "#{ (categories[cat.title].to_s == "0") ? 'category_link active' : 'category_link' }" 
+
+  = form_tag courses_path, :method => :get do
+    = text_field_tag('form-input-location', 'Puch bei Hallein', :class => 'form-input-full')
+    .submit-field-icon
+      = submit_tag 'Begegnung suchen', :class => 'form-submit', :id => 'form-submit-search'
+      %span

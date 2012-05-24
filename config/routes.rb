@@ -66,5 +66,5 @@ Swap::Application.routes.draw do
     match '*not_found', to: 'errors#error_404'
   end
 
-  root :to => Rails.env.production? ? 'pages#landingpage' : 'courses#index'
+  root :to => Rails.env.production? ? 'pages#landingpage' : 'pages#welcome'
 end

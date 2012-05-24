@@ -1,1 +1,33 @@
-%h1 Startseite
+%section.headerimg
+  = image_tag('begegnungen/header-default.jpg', :alt => 'Begegnung der Generationen')
+  %h1 Jeden Tag<br>Neues lernen
+  %p.intro Wähle eine oder mehrere unserer<br>10 Kategorien und finde spannende<br>Begegnungen in deiner Nähe!
+
+%section.begegnungssearch
+  = render :partial => '/shared/search', :locals => {:categories => @categories}
+.clr
+
+%section.so-funktionierts
+
+  %h4.balken So funktioniert's
+
+  .steps
+    .step
+      = image_tag 'sofunktionierts/wissenteilen-schritt1-suchen.png', :size => '300x300'
+      %h2 Begegnung finden
+      %p.small
+        afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad
+
+    .step
+      = image_tag 'sofunktionierts/wissenteilen-schritt2-anfragen.png', :size => '300x300'
+      %h2 Anfrage versenden
+      %p.small
+        afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad
+
+    .step
+      = image_tag 'sofunktionierts/wissenteilen-schritt3-begegnung.png', :size => '300x300'
+      %h2 Begegnen
+      %p.small
+        afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad
+        =link_to "Mehr darüber ...", help_path
+

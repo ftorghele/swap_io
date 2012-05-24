@@ -433,11 +433,18 @@ header{
 h1{
   font-family:"AdelleBasic-Bold", Helvetica, Arial, sans-serif;
   color: #f1f1f1;
-  font-size:58px;
+  font-size:54px;
   line-height:60px;
   text-shadow: 0 4px 1px #49696c;
 }
-h2, h3, h4 {
+h2 {
+  color:#201f1f;
+  font-family:"OpenSansBold", Arial, Helvetica, sans-serif;
+  font-size:15px;
+  text-transform:uppercase;
+  margin:18px 0 12px
+}
+h3, h4 {
   font-family: "LeagueGothicRegular", Helvetica, Arial, sans-serif;
   color: $second-color;
   font-weight: normal;
@@ -445,7 +452,7 @@ h2, h3, h4 {
 
 .small, small{
   font-size:12px;
-  line-height:20px;
+  line-height:18px;
   margin-bottom:12px;
 }
 
@@ -464,11 +471,34 @@ h2, h3, h4 {
   border-color: #EED3D7;
 }
 
-.alert-info {
+.alert-info, .alert-notice {
   color: #468847;
   background-color: #DFF0D8;
   border-color: #468847;
 }
+
+h1.balken, h4.balken {
+  text-align: center;
+  font-family: "AdelleBasic-Bold", Helvetica, Arial, sans-serif;;
+  color: white;
+  text-shadow: rgba(0, 0, 0, .2) 0px 3px 0px;
+  margin: 0 auto;
+}
+h4.balken {
+  width: 418px;
+  height: 64px;
+  background: image-url('layout-h4-balkenbg.png');
+  line-height: 80px;
+  font-size: 36px;
+}
+h1.balken {
+  width: 668px;
+  height: 122px;
+  background: image-url('layout-h1-balkenbg.png');
+  line-height: 100px;
+  font-size: 54px;
+}
+
 
 /* Begegnungssuche */
 

@@ -27,19 +27,19 @@ de:
     users:
       as: Menschen
     courses:
-      as: Begegnung
+      as: Begegnungen
     course_requests:
-      as: Begegnungswunsch
+      as: Begegnungswuensche
     welcome:
       as: Start
     overview:
-      as: Home
+      as: Uebersicht
     landingpage:
       as: Willkommen
     help:
       as: Hilfe
     tips:
-      as: Tipps
+      as: Tipps-Tricks
     rules:
       as: Spielregeln
     news:
