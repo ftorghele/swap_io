@@ -22,7 +22,7 @@ class CategoryAbonnementsController < ApplicationController
           @course_requests = CourseRequest.set_user_courses current_user
         end
       else
-        temp_val[@category.title] = (temp_val[@category.title] == 1) ? 0 : 1
+        temp_val[@category.title] = (temp_val[@category.title].to_i == 1) ? 0 : 1
         if controller_type == 'courses'
           @courses = Course.set_courses temp_val
         else
@@ -34,10 +34,9 @@ class CategoryAbonnementsController < ApplicationController
       cookies[:categories] = temp_val.to_json
     else
       #Done if user deletes cookie on Begegnung and press any menu button
-      cookies[:categories] = CourseRequest.set_new_cookie JSON.parse(cookies[:categories])
+      cookies[:categories] = CourseRequest.set_new_cookie
       (comes_from_courses) ? @courses = Course.all : @course_requests = CourseRequest.all
     end
-
     if request.xhr?
       if comes_from_courses
         c = render_to_string :partial => "courses/course", :collection => @courses

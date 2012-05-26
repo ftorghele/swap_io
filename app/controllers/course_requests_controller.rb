@@ -8,7 +8,7 @@ class CourseRequestsController < ApplicationController
 
   def index
     if signed_in?
-      @course_requests = CourseRequest.find_category_abonnements_course_requests current_user
+      @course_requests = CourseRequest.find_category_abonnements(current_user, false)
       cookies[:categories] = CourseRequest.load_user_cookie current_user
     else
       if cookies[:categories].present?
