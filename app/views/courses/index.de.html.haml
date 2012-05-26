@@ -4,23 +4,9 @@
   = render :partial => '/shared/search', :locals => {:categories => @categories}
 
 %section.begegnungen
-  - unless @courses.blank?
-    %article.begegnung#begegnung-new
-      %p.begegnung-text= link_to image_tag('begegnungen/layout-begegnung-new.png', :alt => 'Neue Begegnung erstellen'), new_course_path, :class => 'begegnung-pic'
-      %p.begegnung-text
-        = link_to 'Neue Begegnung', new_course_path, :class => 'form-button-petrol'
-        Du möchtest dein Talent oder deine Idee mit anderen teilen? Dann erstelle jetzt eine Begegnung. In 3 einfachen Schritten geht's los ...
-        %br
-        = link_to 'Neue Begegnung', new_course_path
 
+  =render 'shared/begegnung'
   #courses_div
     = render :partial => 'course', :collection => @courses
+  =render 'shared/begegnung_new'
 
-  - unless @courses.blank?
-    %article.begegnung#begegnung-new
-      %p.begegnung-text= link_to image_tag('begegnungen/layout-begegnungswunsch-new.png', :alt => 'Neuen Begegnungswunsch erstellen'), new_course_request_path, :class => 'begegnung-pic'
-      %p.begegnung-text
-        = link_to 'Neuer Wunsch', new_course_request_path, :class => 'form-button-petrol'
-        Für dich war hier nichts dabei? Dann ergreif du doch Initiative und erstelle einen Wunsch. Vielleicht meldet sich schon bald jemand bei dir.
-        %br
-        = link_to 'Neuer Begegnungswunsch', new_course_request_path

@@ -1,6 +1,8 @@
 = javascript_include_tag 'rails.validations'
 
 = form_for @course_request, :validate => true do |f|
+
+
   %fieldset
     %div
       = f.label :title
@@ -10,5 +12,11 @@
       = f.label :description
       = f.text_area :description, :size => "30x10"
 
-  %div.form-actions
-    = f.submit I18n.t('course_request.new.submit'), :class => 'btn-primary'
+    %div
+      - for cat in Category.all
+        = label_tag "checkbox_cat-#{cat.id}", cat.title
+        = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course_request[category_ids][]", :validate => true
+        %br
+
+    %div.form-actions
+      = f.submit I18n.t('course_request.new.submit'), :class => 'btn-primary'

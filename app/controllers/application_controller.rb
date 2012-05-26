@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :instantiate_controller_and_action_names
+
   if Rails.env.production?
     http_basic_authenticate_with :name => "wtk", :password => "wtf", :except => [:landingpage, :overview, :create, :unsubscribe]
   end
@@ -14,6 +16,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  def instantiate_controller_and_action_names
+      @current_action = action_name
+      @current_controller = controller_name
+  end
+
+
   def render_404(exception)
     notify_airbrake(exception)
     @not_found_path = exception.message

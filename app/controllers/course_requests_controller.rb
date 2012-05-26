@@ -7,7 +7,17 @@ class CourseRequestsController < ApplicationController
   end
 
   def index
-    @course_requests = CourseRequest.all
+    if signed_in?
+      @course_requests = CourseRequest.find_category_abonnements_course_requests current_user
+      cookies[:categories] = CourseRequest.load_user_cookie current_user
+    else
+      if cookies[:categories].present?
+        @course_requests = CourseRequest.set_courses JSON.parse(cookies[:categories])
+      else
+        cookies[:categories] = Course.set_new_cookie
+        @course_requests = CourseRequest.all
+      end
+    end
     @categories = JSON.parse cookies[:categories]
   end
 

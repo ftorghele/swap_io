@@ -1,0 +1,7 @@
+%article.begegnung#begegnung-new
+  %p.begegnung-text= link_to image_tag('begegnungen/layout-begegnung-new.png', :alt => 'Neue Begegnung erstellen'), new_course_path, :class => 'begegnung-pic'
+  %p.begegnung-text
+    = link_to 'Neue Begegnung', new_course_path, :class => 'form-button-petrol'
+    Du möchtest dein Talent oder deine Idee mit anderen teilen? Dann erstelle jetzt eine Begegnung. In 3 einfachen Schritten geht's los ...
+    %br
+    = link_to 'Neue Begegnung', new_course_path

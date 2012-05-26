@@ -1,4 +1,5 @@
 class Course < ActiveRecord::Base
+  include CategorySearch
 
   default_scope :order => "#{table_name}.created_at DESC"
 
@@ -14,9 +15,9 @@ class Course < ActiveRecord::Base
 
   validates :zip_code, :numericality => { :only_integer => true }
   validates :places, :numericality => { :only_integer => true }
-  validates :category_ids, :presence => true
-  validates :category_ids, :inclusion => [100], :if => Proc.new { |x|  x.category_ids.count > 3 }
 
+  validates_presence_of :category_ids
+  validates :category_ids, :inclusion => [100], :if => Proc.new { |x|  x.category_ids.count > 3 }
 
   before_create :initialize_places_available
 
@@ -46,41 +47,6 @@ class Course < ActiveRecord::Base
 
   def get_course_members
     self.course_members.all
-  end
-
-  def self.load_user_cookie user
-    value = nil
-    Category.all.each do |category|
-      value ||= { }
-      new_val = {category.title.to_sym => (user.category_abonnements.find_by_category_id(category)) ? "0" : "1" }.to_hash
-      value = value.merge( new_val )
-    end
-    value.to_json
-  end
-
-  def self.set_new_cookie
-    value = { }
-    Category.all.each do |category|
-      new_val = {category.title.to_sym => 1}.to_hash
-      value = value.merge( new_val )
-    end
-    value.to_json
-  end
-
-  def self.set_courses json_str
-    category_arr = []
-    json_str.map do |key, value|
-      category_arr << key if value.to_i == 0
-    end
-    categories = Category.find_all_by_title(category_arr)
-    categories.empty? ? Course.all : Course.all(:include => :categories, :conditions => { "categories_courses.category_id" => categories})
-  end
-
-  def self.set_user_courses user
-    return Course.all if user.category_abonnements.length < 1
-    categories = []
-    user.category_abonnements.each do |f| categories << f.category_id end
-    categories.empty? ? Course.all : Course.all(:include => :categories, :conditions => { "categories_courses.category_id" => categories})
   end
 
   private

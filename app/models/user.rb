@@ -70,12 +70,6 @@ class User < ActiveRecord::Base
     CourseMember.find_all_by_user_id_and_accepted(self.id, 1)
   end
 
-  def find_category_abonnements
-    categories = CategoryAbonnement.find_all_by_user_id(self).map { |f| f.category.courses }.flatten
-    categories.empty? ? Course.all : Course.all(:include => :categories, :conditions => { "categories_courses.category_id" => categories})
-
-  end
-
   def toggle_category_abonnements category
     if category_abonnement = self.category_abonnements.find_by_category_id(category.id)
       category_abonnement.destroy
