@@ -4,7 +4,7 @@
       %h3{:class => "cat-#{cat.id}"}
         = cat.title
     %h1= @course.title
-    %p Social Media Like Dingens hier
+    = render('/shared/social_media_like_buttons')
     %p= simple_format (@course.description)
     %h2 Benötigte Vorkenntnisse
     %p= simple_format (@course.precognitions.blank? ? "keine" : @course.precognitions)

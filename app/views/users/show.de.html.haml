@@ -1,7 +1,7 @@
 %section.detail
   %article.main
     %h1= username(@user)
-    %p Social Media Like Dingens hier
+    = render('/shared/social_media_like_buttons')
     %h2 Selbstbeschreibung
     %p= simple_format (@user.description) || "noch nicht ausgefüllt"
     %h2 Warum bin ich auf Wissen • Teilen • Können?

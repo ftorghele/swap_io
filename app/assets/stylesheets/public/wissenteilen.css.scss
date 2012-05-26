@@ -102,6 +102,9 @@ $link-color-hover: #60aab0; /* Petrol/Türkis etwas greller für Links */
 .right {
   float:right;
 }
+.left {
+  float:left;
+}
 
 html{
   -webkit-text-size-adjust: none;
@@ -894,7 +897,12 @@ section.detail{
 
 }
 
-
+/* Social Media */
+.social-media-buttons {
+  .g-plusone, .fb-like {
+    line-height: 20px!important;
+  }
+}
 
 
 /* Footer Styles */
