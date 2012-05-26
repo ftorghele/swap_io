@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
 
   def index
     if signed_in?
-      @courses = Course.find_category_abonnements_courses current_user
+      @courses = Course.find_category_abonnements(current_user, true)
       cookies[:categories] = Course.load_user_cookie current_user
     else
       if cookies[:categories].present?
