@@ -57,6 +57,7 @@ input:focus, textarea:focus, select:focus{
   outline: none;
 }
 form-nextstep,a.form-nextstep,button.form-nextstep,
+form-search,a.form-search,button.form-search,
 form-msg, a.form-msg, button.form-msg
 {
   padding-left:48px;
@@ -78,6 +79,11 @@ form-msg, a.form-msg, button.form-msg
 form-msg, a.form-msg, button.form-msg {
   span{
     background-image: image-url('layout-icon-message.png');
+  }
+}
+form-search, a.form-search, button.form-search {
+  span{
+    background-image: image-url('layout-icon-search.png');
   }
 }
 fieldset{

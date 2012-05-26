@@ -5,8 +5,13 @@
 
 %section.begegnungssearch
   = render :partial => '/shared/search', :locals => {:categories => @categories}
-.clr
 
+  = form_tag courses_path, :method => :get do
+    %button.form-submit.form-search.right
+      Begegnung suchen
+      %span
+.clr
+%br
 #static-page
 
   %section.so-funktionierts
