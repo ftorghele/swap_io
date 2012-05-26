@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(current_user)
     @user.user_images.build
-    @user.user_skills.build
   end
 
   def settings
@@ -18,9 +17,9 @@ class UsersController < ApplicationController
 
   def update
     if User.find(current_user).update_attributes(params[:user])
-      flash[:info] = I18n.t('user.edit.msg.success')
+      flash[:info] = I18n.t('msg.success')
     else
-      flash[:error] = I18n.t('user.edit.msg.fail')
+      flash[:error] = I18n.t('msg.fail')
     end
     redirect_to user_path(@user)
   end

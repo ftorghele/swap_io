@@ -3,4 +3,4 @@
 %h2 Einstellungen ändern
 
 
-= link_to I18n.t('user.edit.cancel_account'), registration_path(current_user), :confirm => I18n.t('user.edit.cancel_account_confirm'), :method => :delete, :class => 'form-button-petrol'
+= link_to 'Benutzer löschen', registration_path(current_user), :confirm => 'Sind Sie sicher? Ihr Benutzerkonto wird unwiederruflich gelöscht', :method => :delete, :class => 'form-button-petrol'

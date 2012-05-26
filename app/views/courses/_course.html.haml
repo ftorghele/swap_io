@@ -12,11 +12,9 @@
     %br
     = link_to truncate(username(course.user), :length => 18, :omission => '..'), user_path(course.user)
     %br
-    in
-    = truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?
+    = "in #{truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?}"
     %br
-    = course.places_available unless course.places_available.nil?
-    freie Plätze
+    = "#{course.places_available unless course.places_available.nil?} freie Plätze"
   %p.begegnung-text
     = truncate(course.description, :length => 125, :omission => '..')
     %br

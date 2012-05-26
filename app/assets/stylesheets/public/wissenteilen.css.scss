@@ -99,6 +99,9 @@ $link-color-hover: #60aab0; /* Petrol/Türkis etwas greller für Links */
 .clr {
   clear: both;
 }
+.right {
+  float:right;
+}
 
 html{
   -webkit-text-size-adjust: none;
@@ -439,9 +442,9 @@ h4.balken {
 }
 h1.balken {
   width: 668px;
-  height: 122px;
+  height: 100px;
   background: image-url('layout-h1-balkenbg.png');
-  line-height: 100px;
+  line-height: 122px;
   font-size: 54px;
 }
 
@@ -696,6 +699,28 @@ section.detail{
       text-transform:uppercase;
       margin:18px 0 12px
     }
+    ul.rating {
+      list-style:none;
+      text-align: center;
+      li {
+        display: inline-block;
+        span {
+          height: 36px;
+          line-height: 36px;
+          display: inline-block;
+          &:first-child {
+            text-align: center;
+            font-weight: bold;
+            color: black;
+            width: 36px;
+            background: image-url('layout-wobbles-36x36.png') no-repeat;
+          }
+          &:last-child {
+            margin: 0 5px 0 10px;
+          }
+        }
+      }
+    }
   }
   article.side{
     width:280px;
@@ -734,6 +759,51 @@ section.detail{
         right:10px;
       }
     }
+    ul.userinfo {
+      list-style:none;
+      margin:20px 0 15px 0;
+      @extend .small;
+
+      span {
+        height: 24px;
+        line-height: 24px;
+
+        &:first-child {
+          width: 100px;
+          display: inline-block;
+        }
+        &:last-child {
+          width: 120px;
+          display: inline-block;
+        }
+      }
+    }
+
+    ul.rating {
+      list-style:none;
+      @extend .small;
+      li {
+        float: left;
+
+        span {
+          height: 28px;
+          line-height: 28px;
+
+          &:first-child {
+            display: inline-block;
+            text-align: center;
+            font-weight: bold;
+            color: black;
+            width: 28px;
+            background: image-url('layout-wobbles-28x28.png') no-repeat;
+          }
+          &:last-child {
+            margin: 0 5px 0 10px;
+          }
+        }
+      }
+    }
+
     .facts{
       list-style:none;
       margin:10px 0 20px 0;
@@ -770,6 +840,12 @@ section.detail{
         }
         &.people span{
           background-image: image-url('layout-icon-24x24-people.png');
+        }
+        &.course_host_count span{
+          background-image: image-url('layout-icon-24x24-gehalten.png');
+        }
+        &.course_client_count span{
+          background-image: image-url('layout-icon-24x24-teilgenommen.png');
         }
       }
     }

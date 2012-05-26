@@ -50,7 +50,7 @@ Swap::Application.routes.draw do
 
     get 'help',     :to => 'pages#help'
     get 'tips',     :to => 'pages#tips'
-    get 'rules',    :to => 'pages#help'
+    get 'rules',    :to => 'pages#rules'
     get 'news',     :to => 'pages#news'
     get 'team',     :to => 'pages#team'
     get 'contact',  :to => 'pages#contact'
@@ -58,7 +58,6 @@ Swap::Application.routes.draw do
 
     get 'about',    :to => 'pages#about'
     get 'imprint',  :to => 'pages#imprint'
-    get 'terms',    :to => 'pages#terms'
     post 'contact_us',  :to => 'pages#contact_us'
   end
 

@@ -3,23 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #container {
-  section.so-funktionierts {
-    h4 {
-      margin: 40px auto;
-    }
-    .steps {
-      width: 960px;
-      margin: 0 auto;
+  #static-page {
+    max-width: 960px;
+    margin: 0 auto;
 
-      .step {
-        max-width: 300px;
-        margin: 0 10px;
-        float: left;
-        a {
-          float: right;
-          margin: 20px 20px 0 0;
+    section.so-funktionierts {
+      h4 {
+        margin: 40px auto;
+      }
+      .steps {
+        max-width: 960px;
+        margin: 0 auto;
+
+        .step {
+          max-width: 300px;
+          margin: 0 10px;
+          float: left;
+          a {
+            float: right;
+            margin: 20px 20px 0 0;
+          }
+          img {
+            max-width: 300px;
+          }
         }
       }
+    }
+    section.contact {
+      max-width: 668px;
+      margin: 0 auto;
     }
   }
 }

@@ -17,4 +17,8 @@ module ApplicationHelper
       end
     end
   end
+
+  def safe_output value
+    value.nil? ? "n/a" : value
+  end
 end

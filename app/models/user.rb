@@ -8,12 +8,15 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :remember_me,
                   :first_name, :last_name, :zip, :confirmed_at, :user_images_attributes,
-                  :description, :user_skills_attributes, :job, :motivation
+                  :description, :skills, :job, :motivation, :birthday,
+                  :country, :city, :fb_user
 
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_presence_of :email
   validates_presence_of :zip
+  validates_presence_of :country
+  validates_presence_of :city
   validates :zip, :numericality => { :only_integer => true }
 
   has_many :courses, :dependent => :destroy
@@ -22,13 +25,10 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :course_requests, :uniq => true
 
-  has_many :user_skills, :dependent => :delete_all
-  accepts_nested_attributes_for :user_skills, :reject_if => proc {|attributes| attributes[:title].blank?}, :allow_destroy => true
-
   has_many :user_images, :dependent => :delete_all
   accepts_nested_attributes_for :user_images, :allow_destroy => true
 
-  has_and_belongs_to_many :course_requests
+  before_validation :set_city
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
@@ -37,7 +37,8 @@ class User < ActiveRecord::Base
     else
       user = User.new(:email => data.email,
                       :first_name => data.first_name,
-                      :last_name => data.last_name)
+                      :last_name => data.last_name,
+                      :fb_user => true)
       user
     end
   end
@@ -58,6 +59,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_age
+    now = Time.now.utc.to_date
+    age = now.year - self.birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0) unless self.birthday.nil?
+    age
+  end
+
   def get_courses
     self.courses
   end
@@ -76,6 +83,13 @@ class User < ActiveRecord::Base
     else
       self.category_abonnements.create(:category => category)
     end
+  end
+
+  private
+
+  def set_city
+    location = Location.find_by_country_and_zip_code(self.country, self.zip)
+    self.city = location.nil? ? "n/a" : location.city
   end
 
 end

@@ -1,6 +1,6 @@
 = javascript_include_tag 'rails.validations'
 
-%h2= I18n.t('devise.complete_registration.title')
+%h2 Registrierung vervollständigen
 = form_for @user, :validate => true, :url => fb_create_users_path, :html => { :class => 'form-horizontal' } do |f|
 
   %fieldset
@@ -8,11 +8,14 @@
     = f.hidden_field :last_name
     = f.hidden_field :email
     = f.hidden_field :password
+    = f.hidden_field :fb_user
 
+    %div
+      = f.label :country
+      = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]])
     %div
       = f.label :zip
       = f.text_field :zip
 
-  %div.form-actions
-    = link_to I18n.t('devise.complete_registration.cancel'), root_path, :class => 'btn'
-    = f.submit I18n.t('devise.complete_registration.submit'), :class => 'btn-primary'
+    = link_to 'Registrierung abbrechen', root_path, :class => 'btn'
+    = f.submit 'Weiter', :class => 'btn'

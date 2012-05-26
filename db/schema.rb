@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120523081759) do
+ActiveRecord::Schema.define(:version => 20120526180100) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -110,6 +110,14 @@ ActiveRecord::Schema.define(:version => 20120523081759) do
     t.text     "materials"
   end
 
+  create_table "locations", :force => true do |t|
+    t.string  "country"
+    t.string  "city"
+    t.integer "zip_code"
+    t.float   "lat"
+    t.float   "lon"
+  end
+
   create_table "newsletter_subscribers", :force => true do |t|
     t.string   "email"
     t.string   "signout_hash"
@@ -133,19 +141,11 @@ ActiveRecord::Schema.define(:version => 20120523081759) do
     t.datetime "image_updated_at"
   end
 
-  create_table "user_skills", :force => true do |t|
-    t.string   "title"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",   :null => false
-    t.string   "encrypted_password",     :default => "",   :null => false
-    t.boolean  "fb_complete",            :default => true
-    t.string   "first_name",             :default => "",   :null => false
-    t.string   "last_name",              :default => "",   :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "first_name",             :default => "",    :null => false
+    t.string   "last_name",              :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -158,12 +158,22 @@ ActiveRecord::Schema.define(:version => 20120523081759) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.text     "description"
     t.integer  "zip"
     t.string   "job"
     t.string   "motivation"
+    t.boolean  "fb_user",                :default => false
+    t.datetime "birthday"
+    t.string   "country"
+    t.string   "city"
+    t.integer  "course_host_count",      :default => 0
+    t.integer  "course_client_count",    :default => 0
+    t.integer  "rating_pos_count",       :default => 0
+    t.integer  "rating_neut_count",      :default => 0
+    t.integer  "rating_neg_count",       :default => 0
+    t.text     "skills"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

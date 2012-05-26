@@ -1,0 +1,81 @@
+%section.detail
+  %article.main
+    %h1= username(@user)
+    %p Social Media Like Dingens hier
+    %h2 Selbstbeschreibung
+    %p= simple_format (@user.description) || "noch nicht ausgefüllt"
+    %h2 Warum bin ich auf Wissen • Teilen • Können?
+    %p= simple_format (@user.motivation) || "noch nicht ausgefüllt"
+    %h2 Hobbies und Fähigkeiten
+    %p= simple_format (@user.skills) || "noch nicht ausgefüllt"
+
+
+    .user-courses
+      %h2 Aktuelle Begegnungen
+      = render(:partial => 'users/show/course', :collection => @user.get_courses) || "keine"
+      .clr
+    .user-course-requests
+      %h2 Begegnungswünsche
+      = render(:partial => 'users/show/course_request', :collection => @user.get_course_requests) || "keine"
+      .clr
+    .clr
+
+    %h2 Bewertungen
+    %ul.rating
+      %li.rating-pos
+        %span= @user.rating_pos_count
+        Positiv
+      %li.rating-neut
+        %span= @user.rating_neut_count
+        Neutral
+      %li.rating-neg
+        %span=@user.rating_neg_count
+        Negativ
+    .clr
+
+  %article.side
+    %figure.fancyimg
+      %a{:href => userpic(@user, :big), :class => 'pic', :rel => 'alternate'}
+        = image_tag userpic(@user, :big), :alt => username(@user), :size => '300x200'
+        %span
+
+    .clr
+    %ul.userinfo
+      %li
+        %span Ausbildung
+        %span= safe_output(@user.job)
+      %li
+        %span Alter
+        %span= safe_output(@user.get_age)
+      %li
+        %span Wohnort
+        %span= safe_output(@user.city)
+
+    %h2 Begegnungen
+    %ul.facts
+      %li.course_client_count
+        %span
+        = "#{safe_output(@user.course_host_count)} Teilgenommen"
+      %li.course_host_count
+        %span
+        = "#{safe_output(@user.course_client_count)} Gehalten"
+
+    %h2 Bewertungen
+    %ul.rating
+      %li.rating-pos
+        %span= @user.rating_pos_count
+        Positiv
+      %li.rating-neut
+        %span= @user.rating_neut_count
+        Neutral
+      %li.rating-neg
+        %span=@user.rating_neg_count
+        Negativ
+    .clr
+
+    %br
+    %a{:href => '#', :class => 'form-msg form-submit'}
+      Nachricht senden
+      %span
+
+

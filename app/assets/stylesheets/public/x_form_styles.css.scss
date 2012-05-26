@@ -56,9 +56,8 @@ input.form-button-petrol, a.form-button-petrol{
 input:focus, textarea:focus, select:focus{
   outline: none;
 }
-form-nextstep,
-a.form-nextstep,
-button.form-nextstep
+form-nextstep,a.form-nextstep,button.form-nextstep,
+form-msg, a.form-msg, button.form-msg
 {
   padding-left:48px;
   margin-right:0;
@@ -74,6 +73,11 @@ button.form-nextstep
     display:block;
     width:32px;
     height:32px;
+  }
+}
+form-msg, a.form-msg, button.form-msg {
+  span{
+    background-image: image-url('layout-icon-message.png');
   }
 }
 fieldset{

@@ -1,3 +1,52 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "wissenteilen.css.scss";
+
+section.detail {
+  article.main {
+    .user-courses, .user-course-requests {
+      width: 310px;
+      float: left;
+
+      article.begegnung, article.begegnungswunsch{
+        width:300px;
+        height:100px;
+
+        margin:0 10px 10px 0;
+        float:left;
+        background:#ffffff;
+        @include rounded(4px);
+        @include shadow(rgba(0,0,0, 0.05),1px,1px,6px,0px);
+
+        &:hover{
+          @include shadow(rgba(0,0,0, 0.15),1px,1px,8px,0px);
+        }
+        .begegnung-pic{
+          float: left;
+          margin: 0px;
+          width:100px;
+          height:100px;
+        }
+        section.description {
+          height: 90px;
+          width: 185px;
+          float: right;
+          padding: 5px;
+
+          h2 {
+            margin: 0px;
+          }
+          p {
+            @extend small;
+            margin: 0px;
+          }
+        }
+      }
+
+    }
+    .user-course-requests {
+
+    }
+  }
+}

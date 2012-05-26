@@ -1,0 +1,52 @@
+= javascript_include_tag 'rails.validations'
+
+%h2 Benutzer bearbeiten
+= form_for(@user, :validate => true, :html => { :method => :put, :multipart => true}) do |f|
+  %fieldset
+    %div
+      = f.label :first_name
+      = f.text_field :first_name
+
+    %div
+      = f.label :last_name
+      = f.text_field :last_name
+
+    %div
+      = f.label :birthday
+      = f.date_select :birthday, :order => [:day, :month, :year], :include_blank => true, :start_year => 1900
+
+    %div
+      = f.label :country
+      = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]], @user.country)
+
+    %div
+      = f.label :zip
+      = f.text_field :zip
+
+    %div
+      = f.fields_for :user_images do |image|
+        - unless image.object.new_record?
+          = image.label :_destroy
+          = image.check_box :_destroy
+          = image_tag userpic(@user, :medium), :alt => username(@user)
+        - else
+          = image.label :image
+          = image.file_field :image
+
+    %div
+      = f.label :description
+      = f.text_area :description
+
+    %div
+      = f.label :job
+      = f.text_field :job
+
+    %div
+      = f.label :motivation
+      = f.text_area :motivation
+
+    %div
+      = f.label :skills
+      = f.text_area :skills
+
+    = f.submit 'Speichern', :class => 'form-submit'

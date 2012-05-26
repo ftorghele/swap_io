@@ -17,6 +17,10 @@
       = f.text_field :zip
 
     %div
+      = f.label :country
+      = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]])
+
+    %div
       = f.label :email
       = f.email_field :email
 

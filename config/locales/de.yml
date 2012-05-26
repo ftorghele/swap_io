@@ -20,6 +20,8 @@ de:
     sign_in_with_link: 'Einloggen mit %{provider}'
 
   msg:
+    success: Deine Daten wurden erfolgreich aktualisiert
+    fail: Beim Aktualisieren Deiner Daten ist ein Fehler aufgetreten
     not_found: Der Datensatz wurde leider nicht gefunden
     not_allowed: Sie haben nicht die benötigten Rechte um diesen Datensatz zu bearbeiten
 
@@ -73,12 +75,6 @@ de:
       newsletter_sign_up_label: Für Newsletter anmelden
       newsletter_sign_up_placeholder: Deine Email Adresse
       newsletter_sign_up_button: Gebt mir bescheid.
-    overview:
-      title: Überblick
-      course_member_list: Folgende Kursmitglieder haben sich bei Deinen Begegnungen angemeldet
-      accept_course_member: Begegnung bestätigen
-      reject_course_member: Begegnung ablehnen
-      delete_link: "Begegnung entfernen"
 
 
 
@@ -90,27 +86,6 @@ de:
       headline: Es ist ein Fehler Aufgetreten (500)
       msg: Unsere Techniker wurden verständigt und werden sich darum kümmern.
     backlink: Zurück zur Startseite
-
-  user:
-    edit:
-      skills: Fähigkeiten
-      title: Benutzer Bearbeiten
-      submit: Speichern
-      cancel_account: Benutzer löschen
-      cancel_account_confirm: Bist Du sicher?
-      msg:
-        success: Deine Daten wurden erfolgreich aktualisiert
-        fail: Beim Aktualisieren Deiner Daten ist ein Fehler aufgetreten
-      tabs:
-        common: Allgemeine Daten
-        about: Über mich
-        account: Account-Verwaltung
-    show:
-      about: 'Über %{name}'
-      my_courses: 'Von %{name} angebotene Begegnungen'
-      my_course_requests: "%{name}'s Begegnungswünsche"
-      my_course_memberships: 'Begegnungen, an denen %{name} teilnimmt'
-      empty_collection: Noch keine.
 
   course:
     msg:
@@ -226,6 +201,8 @@ de:
         skills: Fähigkeiten
         first_name: Vorname
         last_name: Nachname
+        country: Land
+        city: Stadt
         zip: Postleitzahl
         email: E-Mail Adresse
         password: Passwort
@@ -327,10 +304,6 @@ de:
         subject: "Passwort ändern"
       unlock_instructions:
         subject: "Nutzerkonto freischalten"
-    complete_registration:
-      title: Daten vervollständigen
-      submit: Weiter
-      cancel: Registrierung abbrechen
 
 
 

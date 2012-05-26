@@ -1,1 +1,7 @@
-%li= link_to course.title, course_path(course)
+%article.begegnungswunsch
+  = link_to image_tag("http://placehold.it/220x220", :alt => course.title, :size => '100x100'), course_path(course)
+  %section.description
+    %h2= link_to truncate(course.title, :length => 17, :omission => '..'), course_path(course)
+    %p= I18n.localize(course.date, :format => :day) unless course.date.nil?
+    %p= "in #{truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?}"
+    %p.right= link_to 'Mehr erfahren ...', course_path(course)

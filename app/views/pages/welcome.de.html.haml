@@ -7,27 +7,29 @@
   = render :partial => '/shared/search', :locals => {:categories => @categories}
 .clr
 
-%section.so-funktionierts
+#static-page
 
-  %h4.balken So funktioniert's
+  %section.so-funktionierts
 
-  .steps
-    .step
-      = image_tag 'sofunktionierts/wissenteilen-schritt1-suchen.png', :size => '300x300'
-      %h2 Begegnung finden
-      %p.small
-        afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad
+    %h4.balken So funktioniert's
 
-    .step
-      = image_tag 'sofunktionierts/wissenteilen-schritt2-anfragen.png', :size => '300x300'
-      %h2 Anfrage versenden
-      %p.small
-        afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad
+    .steps
+      .step
+        = image_tag 'sofunktionierts/wissenteilen-schritt1-suchen.png'
+        %h2 Begegnung finden
+        %p.small
+          afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad
 
-    .step
-      = image_tag 'sofunktionierts/wissenteilen-schritt3-begegnung.png', :size => '300x300'
-      %h2 Begegnen
-      %p.small
-        afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad
-        =link_to "Mehr darüber ...", help_path
+      .step
+        = image_tag 'sofunktionierts/wissenteilen-schritt2-anfragen.png'
+        %h2 Anfrage versenden
+        %p.small
+          afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad
+
+      .step
+        = image_tag 'sofunktionierts/wissenteilen-schritt3-begegnung.png'
+        %h2 Begegnen
+        %p.small
+          afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad afsda asd sadf asd fsad asdf sdfsadf asdf sf sadf sad
+          =link_to "Mehr darüber ...", help_path
 
