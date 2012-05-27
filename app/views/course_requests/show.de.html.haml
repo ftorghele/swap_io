@@ -1,10 +1,10 @@
-%h1 #{I18n.t('course_request.show.headline', :course_request_title => @course_request.title)}
+%h1= @course_request.title
 
 = @course_request.title
 = @course_request.description
 
 - if signed_in?
-  = link_to I18n.t('course_request.show.provide_course_request_button'), new_course_path(:id => @course_request.id), :method => :get
+  = link_to "Wunsch erfüllen", new_course_path(:id => @course_request.id), :method => :get
   = render :partial => 'join_disjoin_buttons'
 
 = render :partial => 'members'
