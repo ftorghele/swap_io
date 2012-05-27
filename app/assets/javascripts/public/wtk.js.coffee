@@ -21,9 +21,12 @@ $("fieldset:nth-child(3)").css({'display': 'none'})
 $('#form-nextstep').click ->
   $("fieldset:nth-child(2)").css({'display': 'none'})
   $("fieldset:nth-child(3)").css({'display': 'block'})
+  $('html,body').animate({scrollTop: $('fieldset:nth-child(3)').offset().top-20},'slow');
 $('#form-laststep').click ->
   $("fieldset:nth-child(2)").css({'display': 'block'})
   $("fieldset:nth-child(3)").css({'display': 'none'})
+  $('html,body').animate({scrollTop: $('fieldset:nth-child(2)').offset().top-20},'slow');
 $('#form-submit').click ->
   $('.fieldset-buttons').css({'display': 'none'})
   $("fieldset:nth-child(2)").css({'display': 'block'})
+  $('html,body').animate({scrollTop: $('fieldset:nth-child(2)').offset().top-20},'slow');
