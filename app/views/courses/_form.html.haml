@@ -7,11 +7,11 @@
       Fakten
 			
     %div
-      = f.label :title
+      = f.label:title,{:class => 'required'}
       = f.text_field :title
 
     %div
-      = f.label :categories
+      = f.label :categories,{:class => 'required'}
       .categories
         - for cat in Category.all
           .category
@@ -19,22 +19,24 @@
             = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course[category_ids][]", :validate => true
             = label_tag "checkbox_cat-#{cat.id}", cat.title, :class => "checkbox_cat-#{cat.id}"
     %div
-      = f.label :date
+      = f.label :date,{:class => 'required'}
       .date-time
-        = f.date_select :date, :order => [:day, :month, :year], :include_blank => true, :start_year => Time.now.to_date.year
-        um
-        = f.time_select :time, {:minute_step => 15, :include_blank => true}
-        Uhr
+        .thedate
+          = f.date_select :date, :order => [:day, :month, :year], :include_blank => true, :start_year => Time.now.to_date.year
+        .thetime
+          um
+          = f.time_select :time, {:minute_step => 15, :include_blank => true}
+          Uhr
 
     %div
-      = f.label :location
+      = f.label :location,{:class => 'required'}
       .location
         = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]], current_user.country)
         PLZ:
         = f.text_field :zip_code, :value => current_user.zip
 
     %div
-      = f.label :places
+      = f.label :places,{:class => 'required'}
       .places
         = f.text_field :places
     .clr
@@ -50,7 +52,7 @@
       Beschreibung und Foto
 			
     %div
-      = f.label :description
+      = f.label :description,{:class => 'required'}
       .description
         = f.text_area :description
 

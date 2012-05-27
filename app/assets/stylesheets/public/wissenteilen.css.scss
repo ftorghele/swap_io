@@ -13,6 +13,7 @@ $main-color: #6d9f37; /* Logo-Grün */
 $second-color: #1d7678; /* Petrol/Türkis */
 $link-color: #43898f; /* Petrol/Türkis etwas greller für Links */
 $link-color-hover: #60aab0; /* Petrol/Türkis etwas greller für Links */
+$error-color: #9f3c37;
 
 
 // Mixins
@@ -387,6 +388,7 @@ h1{
   text-shadow:none;
   line-height:60px;
   margin-bottom:14px;
+	margin-left:10px;
 }
 h2 {
   color:#201f1f;
@@ -440,14 +442,14 @@ h4.balken {
   width: 418px;
   height: 64px;
   background: image-url('layout-h4-balkenbg.png');
-  line-height: 78px;
+  line-height: 68px;
   font-size: 36px;
 }
 h1.balken {
   width: 668px;
   height: 100px;
   background: image-url('layout-h1-balkenbg.png');
-  line-height: 122px;
+  line-height: 100px;
   font-size: 54px;
 }
 
@@ -579,8 +581,9 @@ section.begegnungssearch{
 
 section.begegnungen{
   clear:both;
-
-  article.begegnung{
+	
+	article.begegnungswunsch,
+	article.begegnung{
     width:200px;
     height:416px;
 
@@ -594,7 +597,8 @@ section.begegnungen{
     &:hover{
       @include shadow(rgba(0,0,0, 0.15),1px,1px,8px,0px);
     }
-    .begegnung-pic{
+    .begegnung-pic,
+		.begegnungswunsch-title{
       display:block;
       width:220px;
       height:220px;
@@ -646,8 +650,16 @@ section.begegnungen{
           }
         }
       }
-
     }
+		/*Overwrite some styles for .begegnungswunsch-title */
+		.begegnungswunsch-title{
+			height:52px;
+			
+			h3{
+				bottom:auto;
+				top:10px;
+			}
+		}
     .form-button-petrol{
       margin-bottom:12px;
     }
@@ -672,6 +684,10 @@ section.begegnungen{
     }
 
   }
+	/*Overwrite some styles for .begegnungswunsch */
+	article.begegnungswunsch{
+		height:220px;
+	}
 
 }
 

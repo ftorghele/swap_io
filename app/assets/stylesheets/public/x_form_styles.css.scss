@@ -26,7 +26,7 @@ input, select, textarea {
   }
 }
 select {
-  height:46px!important;
+  height:36px!important;
   float: none;
   display: inline-block;
 }
@@ -37,7 +37,7 @@ textarea {
 .field_with_errors input,
 .field_with_errors select,
 .field_with_errors textarea{
-  border: 1px solid #f00;
+  border: 1px solid $error-color;
 }
 
 input.form-submit, button.form-submit,
@@ -131,41 +131,52 @@ fieldset{
       font-weight:400;
       padding:9px 20px;
     }
-    input, textarea { width:620px; }
+    input, textarea { width:578px; }
     label{
-      width:250px;
-      margin-right:20px;
+      width:300px;
+			margin-right:0;
+			padding-right:20px;
       float:left;
-      font-size:18px;
       line-height:54px;
       font-weight: 400;
-    }
-    label.message {
-      margin: 0 0 0 5px;
-      font-size:14px;
-      line-height:20px;
-      color: red;
-    }
+			
+			&.required{
+				
+			}
+			&.message {
+				margin: 0 0 0 5px;
+				font-size:12px;
+				line-height:18px;
+				color: $error-color;
+				padding:3px 0 0 14px;
+				background-image: image-url('layout-form-icon-error.png');
+				background-repeat:no-repeat;
+				background-position:0 7px;
+			}
+		}
     .categories {
-      width: 650px;
+      width: 620px;
 
       .category {
         display:block;
-        width: 125px;
+        width: 94px;
         height:160px;
         float:left;
         overflow: hidden;
+				padding:0 15px;
 
         input {
           margin: -150px!important; /* display none isn't working in IE */
+					width:1px;
+					height:1px;
         }
 
         label {
           display:block;
-          padding:100px 0 0 0;
+          padding:100px 0 0;
           width: 94px;
           height:29px;
-          margin:0 auto;
+          margin:0 auto 0 ;
           font-family: 'Open Sans', sans-serif;
           font-size:12px;
           line-height:16px;
@@ -197,10 +208,30 @@ fieldset{
         }
       }
     }
+		.thedate{
+			margin-right:20px;
+		}
+		.thetime{
+			
+			#course_time_4i{
+				margin-left:10px;
+			}
+			#course_time_5i{
+				margin-right:10px;
+			}
+		}
+		#course_zip_code{
+			width:74px;
+		}
+		#course_country{
+			width:191px;
+			margin-right:20px;
+		}
     .location input { width: 120px; }
     #course_places { width: 50px; }
     #course_description { height: 200px;}
     #course_precognitions, #course_materials { height: 100px;}
+		
   }
   .fieldset-buttons {
     float: right;
