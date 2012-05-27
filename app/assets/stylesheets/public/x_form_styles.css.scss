@@ -30,6 +30,9 @@ select {
   float: none;
   display: inline-block;
 }
+textarea {
+  height:200px;
+}
 
 .field_with_errors input,
 .field_with_errors select,

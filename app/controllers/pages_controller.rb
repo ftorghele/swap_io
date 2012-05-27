@@ -4,13 +4,14 @@ class PagesController < ApplicationController
   end
 
   def contact_us
-    if SystemMailer.contact_us(params[:email_field], params[:subject], params[:body]).deliver
-      flash[:info] = I18n.t('pages.contact.msg.success')
-      redirect_to :welcome
-    else
-      flash[:error] = I18n.t('pages.contact.msg.fail')
-      redirect_to :contact
+    unless params[:email_field].blank? || params[:subject].blank? || params[:body].blank?
+      if SystemMailer.contact_us(params[:email_field], params[:subject], params[:body]).deliver
+        flash[:info] = I18n.t('pages.contact.msg.success')
+        redirect_to :welcome and return
+      end
     end
+    flash[:error] = I18n.t('pages.contact.msg.fail')
+    render :contact
   end
 
   def landingpage

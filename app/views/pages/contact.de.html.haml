@@ -3,20 +3,19 @@
     %h1.balken Kontakt
 
     %h2 Kontaktformular:
-    = form_tag(contact_us_path, :method => :post, :class => 'form-horizontal' ) do
+    = form_tag(contact_us_path, :method => :post) do
       %fieldset
         %div
-          = label_tag :email_field, I18n.t('pages.contact.email_field'), :class => 'control-label'
-          = email_field_tag :email_field
-      %fieldset
+          = label_tag :email_field, "Ihre Email Adresse"
+          = email_field_tag :email_field, params[:email_field]
         %div
-          = label_tag :subject, I18n.t('pages.contact.subject'), :class => 'control-label'
-          = text_field_tag :subject
-      %fieldset
+          = label_tag :subject, "Betreff"
+          = text_field_tag :subject, params[:subject]
         %div
-          = label_tag :body, I18n.t('pages.contact.body'), :class => 'control-label'
-          = text_area_tag :body, nil, :size => '30x5'
+          = label_tag :body, "Ihre Nachricht"
+          = text_area_tag :body, params[:body]
 
-      %div.form-actions
-        = submit_tag 'Abschicken'
+        %button.form-submit.form-nextstep.right
+          Nachricht senden
+          %span
 
