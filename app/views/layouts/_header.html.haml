@@ -1,12 +1,12 @@
 %header
   %nav
     %ul#navi
-      %li= link_to I18n.t('app.course_link'), courses_path, :class => :active
-      %li= link_to I18n.t('app.course_request_link'), course_requests_path, :class => :inactive
+      %li= link_to I18n.t('app.course_link'), courses_path, :class => controller?("courses") ? :active : :inactive
+      %li= link_to I18n.t('app.course_request_link'), course_requests_path, :class => controller?("course_requests") ? :active : :inactive
     %ul#navi-user
       - if user_signed_in?
         %li
-          = link_to I18n.t('app.overview_link'), overview_path, :id => 'nav-dashboard', :class => :inactive
+          = link_to I18n.t('app.overview_link'), overview_path, :id => 'nav-dashboard', :class => action?("overview") ? :active : :inactive
           = link_to '??', overview_path, :id => 'nav-dashboard-indicator', :class => 'nav-dashboard-indicator-new'
         %li
           = link_to I18n.t('app.welcome', :name => truncate(current_user.first_name, :length => 16, :omission => '..')), user_path(current_user), :id => 'nav-hellouser', :class => :inactive
@@ -20,8 +20,8 @@
             %li= link_to 'Abmelden', destroy_user_session_path, :method => :delete, :id => 'nav-select2-logout'
 
       - else
-        %li= link_to I18n.t('app.home_link'), welcome_path, :id => 'nav-dashboard', :class => :inactive
-        %li= link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => :inactive
-        %li= link_to I18n.t('app.sign_in_link'), new_user_session_path, :class => :inactive
+        %li= link_to I18n.t('app.home_link'), welcome_path, :id => 'nav-dashboard', :class => action?("welcome") ? :active : :inactive
+        %li= link_to I18n.t('app.sign_up_link'), new_user_registration_path, :class => controller?("devise/registrations") ? :active : :inactive
+        %li= link_to I18n.t('app.sign_in_link'), new_user_session_path, :class => controller?("devise/sessions") ? :active : :inactive
 
   %h6#logo= link_to 'Wissen • Teilen • Können - Talente tauschen, Kurioses lernen', root_path

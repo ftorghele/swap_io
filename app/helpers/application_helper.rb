@@ -21,4 +21,12 @@ module ApplicationHelper
   def safe_output value
     value.nil? ? "n/a" : value
   end
+
+  def controller?(*controller)
+    controller.include?(params[:controller])
+  end
+
+  def action?(*action)
+    action.include?(params[:action])
+  end
 end
