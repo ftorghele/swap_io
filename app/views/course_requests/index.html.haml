@@ -4,8 +4,6 @@
   = render :partial => '/shared/search', :locals => {:categories => @categories}
 
 %section.begegnungen
-  /*= link_to I18n.t('course_request.index.create_course_request_button'), new_course_request_path, :id => "create_course_request_button", :class => "btn"*/
-  =render 'shared/begegnung'
   #courses_div
+    = render 'shared/begegnung_new'
     = render :partial => 'course_request', :collection => @course_requests
-  =render 'shared/begegnung_new'
