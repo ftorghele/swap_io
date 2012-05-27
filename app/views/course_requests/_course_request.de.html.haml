@@ -4,13 +4,8 @@
 /*  %h1= link_to course_request.title, course_request_path(course_request)*/
 /*  %h2= course_request.description*/
 
-%article.begegnung
-  %a{:href => course_request_path(course_request),:class => 'begegnung-pic'}
-    = image_tag("http://placehold.it/220x220", :alt => course_request.title, :size => '220x220')
-    .begegnung-categories
-      - course_request.categories.each do |cat|
-        %span{:class => "cat-#{cat.id}"}
-    .clr
+%article.begegnungswunsch
+  %a{:href => course_request_path(course_request),:class => 'begegnungswunsch-title'}
     %h3= course_request.title
   %p.begegnung-infos
     =# link_to image_tag(userpic(course_request.user, :medium), :alt => username(course.user), :size => '60x60'), user_path(course.user)
@@ -18,11 +13,8 @@
     %br
     =# link_to truncate(username(course.user), :length => 18, :omission => '..'), user_path(course.user)
     %br
-    in
+    aus
     =# truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?
-    %br
-    =# course.places_available unless course.places_available.nil?
-    freie Plätze
   %p.begegnung-text
     = truncate(course_request.description, :length => 125, :omission => '..')
     %br
