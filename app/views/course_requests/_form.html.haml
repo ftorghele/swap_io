@@ -1,3 +1,4 @@
+
 = javascript_include_tag 'rails.validations'
 
 = form_for @course_request, :validate => true do |f|
@@ -18,5 +19,7 @@
         = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course_request[category_ids][]", :validate => true
         %br
 
-    %div.form-actions
-      = f.submit I18n.t('course_request.new.submit'), :class => 'btn-primary'
+
+    %button.form-submit.form-nextstep
+      Begegnungswusnch erstellen
+      %span

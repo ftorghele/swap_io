@@ -5,7 +5,7 @@
 
 /* Form Styles */
 
-input{
+input, select, textarea {
   font-size:24px;
   display:inline-block;
   color:#b5b5b5;
@@ -19,14 +19,26 @@ input{
   @include shadow-comb(rgba(0,0,0, 0.1),0,1px,3px,0px,rgba(255,255,255, 0.5),0,1px,3px,0px);
   background:#ffffff;
   font-weight:300;
-  float:left;
 
   &:focus {
     border:1px solid #dddddd;
     @include shadow-comb(rgba(0,0,0, 0.2),0,1px,5px,0px,rgba(255,255,255, 0.7),0,1px,4px,0px);
   }
 }
-input.form-submit, button.form-submit, input.form-button-petrol,
+select {
+  height:46px!important;
+  float: none;
+  display: inline-block;
+}
+
+.field_with_errors input,
+.field_with_errors select,
+.field_with_errors textarea{
+  border: 1px solid #f00;
+}
+
+input.form-submit, button.form-submit,
+input.form-button-petrol, button.form-button-petrol,
 a.form-submit, a.form-button-petrol,{
   height: 53px;
   font-family: "LeagueGothicRegular";
@@ -43,6 +55,7 @@ a.form-submit, a.form-button-petrol,{
   background-image: image-url('button-green-main.png');
   background-repeat: repeat-x;
   font-weight:normal;
+  cursor: pointer;
 
   &:hover{
     background-position:0 -53px;
@@ -50,15 +63,20 @@ a.form-submit, a.form-button-petrol,{
     color:#ffffff;
   }
 }
-input.form-button-petrol, a.form-button-petrol{
+input.form-button-petrol, button.form-button-petrol, a.form-button-petrol{
   background-image: image-url('button-petrol-main.png');
 }
-input:focus, textarea:focus, select:focus{
+input:focus, button:focus, textarea:focus, select:focus{
   outline: none;
 }
-form-nextstep,a.form-nextstep,button.form-nextstep,
-form-search,a.form-search,button.form-search,
-form-msg, a.form-msg, button.form-msg
+
+
+
+
+a.form-nextstep,button.form-nextstep,
+a.form-laststep,button.form-laststep,
+a.form-search,button.form-search,
+a.form-msg, button.form-msg
 {
   padding-left:48px;
   margin-right:0;
@@ -76,54 +94,115 @@ form-msg, a.form-msg, button.form-msg
     height:32px;
   }
 }
-form-msg, a.form-msg, button.form-msg {
-  span{
-    background-image: image-url('layout-icon-message.png');
-  }
-}
-form-search, a.form-search, button.form-search {
-  span{
-    background-image: image-url('layout-icon-search.png');
-  }
-}
+a.form-msg span, button.form-msg span { background-image: image-url('layout-icon-message.png') }
+a.form-search span, button.form-search span { background-image: image-url('layout-icon-search.png') }
+a.form-laststep span, button.form-laststep span { background-image: image-url('layout-icon-laststep.png') }
+
+
 fieldset{
-	padding:10px;
-	display:block;
-	float:left;
-	
-	legend{
-  	@include rounded(4px);
-		font-family: 'Open Sans', sans-serif;
-		background:rgba(88,126,129,0.1);
-		height:40px;
-		line-height:40px;
-		display:block;
-		width:900px;
-		padding:0 20px;
-  	text-shadow: 0px 1px 0px #ffffff;
-		margin: 0 0 20px 0;
-	}
-	div{
-		clear:both;
-		min-height:50px;
-		margin:4px 0;
-		display:block;
-		float:left;
-		
-		input{
-			font-size:15px;
-			line-height:23px;
-			color:#494949;
-			font-weight:400;
-			width:700px;
-			padding:9px 20px;
-			float:left;
-		}
-		label{
-			width:220px;
-			margin-right:20px;
-			float:left;
-		}
-	}
+  padding:10px;
+  display:block;
+  float:left;
+
+  legend{
+    @include rounded(4px);
+    font-family: 'Open Sans', sans-serif;
+    background:rgba(88,126,129,0.1);
+    height:40px;
+    line-height:40px;
+    display:block;
+    width:900px;
+    padding:0 20px;
+    text-shadow: 0px 1px 0px #ffffff;
+    margin: 0 0 20px 0;
+  }
+  div{
+    margin:4px 0;
+    display:block;
+    float:left;
+
+    input, select, textarea{
+      font-size:15px;
+      line-height:23px;
+      color:#494949;
+      font-weight:400;
+      padding:9px 20px;
+    }
+    input, textarea { width:620px; }
+    label{
+      width:250px;
+      margin-right:20px;
+      float:left;
+      font-size:18px;
+      line-height:54px;
+      font-weight: 400;
+    }
+    label.message {
+      margin: 0 0 0 5px;
+      font-size:14px;
+      line-height:20px;
+      color: red;
+    }
+    .categories {
+      width: 650px;
+
+      .category {
+        display:block;
+        width: 125px;
+        height:160px;
+        float:left;
+        overflow: hidden;
+
+        input {
+          margin: -150px!important; /* display none isn't working in IE */
+        }
+
+        label {
+          display:block;
+          padding:100px 0 0 0;
+          width: 94px;
+          height:29px;
+          margin:0 auto;
+          font-family: 'Open Sans', sans-serif;
+          font-size:12px;
+          line-height:16px;
+          color:#c8c7c6;
+          text-align:center;
+          text-shadow:none;
+          background-image: image-url('layout-kategorien.png');
+          background-repeat:none;
+          background-position:0 0;
+
+        }
+        @for $i from 1 through 10 {
+          input+label{
+            &.checkbox_cat-#{$i} { background-position: -(94px * ($i - 1)) 0px; }
+          }
+          input:checked+label{
+            &.checkbox_cat-#{$i} {
+              background-position: -(94px * ($i - 1)) -258px;
+              color:$second-color;
+            }
+          }
+          input:not(:checked)+label:hover {
+            &.checkbox_cat-#{$i} {
+              background-position: -(94px * ($i - 1)) -129px;
+              color:#505151;
+              cursor:pointer;
+            }
+          }
+        }
+      }
+    }
+    .location input { width: 120px; }
+    #course_places { width: 50px; }
+    #course_description { height: 200px;}
+    #course_precognitions, #course_materials { height: 100px;}
+  }
+  .fieldset-buttons {
+    float: right;
+    display: none;
+  }
+  .send-button { float: right;}
 }
 		

@@ -1,5 +1,5 @@
 - unless @course_request.users.blank?
-  %h2= I18n.t('course_request.show.members')
+  %h2 Diesen Begegnungswusch haben
   %ul
     - @course_request.users.each do |user|
       %li= link_to username(user), user_path(user)

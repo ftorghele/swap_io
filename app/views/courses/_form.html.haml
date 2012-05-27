@@ -11,26 +11,38 @@
       = f.text_field :title
 
     %div
-      - for cat in Category.all
-        = label_tag "checkbox_cat-#{cat.id}", cat.title
-        = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course[category_ids][]", :validate => true
-        %br
-				
+      = f.label :categories
+      .categories
+        - for cat in Category.all
+          .category
+
+            = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course[category_ids][]", :validate => true
+            = label_tag "checkbox_cat-#{cat.id}", cat.title, :class => "checkbox_cat-#{cat.id}"
     %div
       = f.label :date
-      = f.text_field :date
+      .date-time
+        = f.date_select :date, :order => [:day, :month, :year], :include_blank => true, :start_year => Time.now.to_date.year
+        um
+        = f.time_select :time, {:minute_step => 15, :include_blank => true}
+        Uhr
 
     %div
-      = f.label :zip_code
-      = f.text_field :zip_code
-
-    %div
-      = f.label :city
-      = f.text_field :city
+      = f.label :location
+      .location
+        = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]], current_user.country)
+        PLZ:
+        = f.text_field :zip_code, :value => current_user.zip
 
     %div
       = f.label :places
-      = f.text_field :places
+      .places
+        = f.text_field :places
+    .clr
+
+    %div.fieldset-buttons
+      %a{:class => 'form-button-petrol form-nextstep right', :id => 'form-nextstep'}
+        Weiter zu Schritt 2
+        %span
 
   %fieldset
     %legend
@@ -39,15 +51,24 @@
 			
     %div
       = f.label :description
-      = f.text_area :description, :size => "30x10"
+      .description
+        = f.text_area :description
 
     %div
       = f.label :precognitions
-      = f.text_area :precognitions, :size => "30x10"
+      = f.text_area :precognitions
 
     %div
       = f.label :materials
-      = f.text_area :materials, :size => "30x10"
+      = f.text_area :materials
+    .clr
 
+    .send-button
+      %button.form-submit.form-nextstep#form-submit
+        Begegnung anbieten
+        %span
 
-    = f.submit I18n.t('course.new.submit'), :class => 'btn-primary'
+    .fieldset-buttons{:style => 'width: 160px;'}
+      %a{:class => 'form-button-petrol form-laststep left', :id => 'form-laststep'}
+        Zurück
+        %span

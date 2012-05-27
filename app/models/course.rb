@@ -8,10 +8,10 @@ class Course < ActiveRecord::Base
   has_many :course_members, :dependent => :destroy
 
   validates_presence_of :title, :description, :category_ids, :user_id, :date,
-                        :places, :city, :zip_code
+                        :time, :places, :city, :zip_code, :country
 
   attr_accessible :title, :description, :precognitions, :materials, :category_ids, :date,
-                  :places, :city, :zip_code
+                  :time, :places, :city, :zip_code, :country
 
   validates :zip_code, :numericality => { :only_integer => true }
   validates :places, :numericality => { :only_integer => true }
@@ -20,6 +20,7 @@ class Course < ActiveRecord::Base
   validates :category_ids, :inclusion => [100], :if => Proc.new { |x|  x.category_ids.count > 3 }
 
   before_create :initialize_places_available
+  before_validation :set_city
 
   def provide_course_mailer course_request_id
     course_request = CourseRequest.find_by_id(course_request_id)
@@ -53,5 +54,10 @@ class Course < ActiveRecord::Base
 
   def initialize_places_available
     self.places_available = self.places
+  end
+
+  def set_city
+    location = Location.find_by_country_and_zip_code(self.country, self.zip_code)
+    self.city = location.nil? ? "n/a" : location.city
   end
 end

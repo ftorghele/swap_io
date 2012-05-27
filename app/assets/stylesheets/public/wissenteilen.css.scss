@@ -100,10 +100,10 @@ $link-color-hover: #60aab0; /* Petrol/Türkis etwas greller für Links */
   clear: both;
 }
 .right {
-  float:right;
+  float:right!important;
 }
 .left {
-  float:left;
+  float:left!important;
 }
 
 html{

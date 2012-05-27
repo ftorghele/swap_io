@@ -1,8 +1,8 @@
 - if current_user.course_requests.include?(@course_request)
   = form_tag({:controller => "course_requests", :action => :disjoin}, :method => :post) do
     = hidden_field_tag 'course_request_id', @course_request.id
-    = submit_tag I18n.t('course_request.show.disjoin_course_request_button')
+    = submit_tag "Interessiert mich nicht mehr"
 - else
   = form_tag({:controller => "course_requests", :action => :join}, :method => :post) do 
     = hidden_field_tag 'course_request_id', @course_request.id
-    = submit_tag I18n.t('course_request.show.join_course_request_button')
+    = submit_tag "Interessiert mich nicht mehr"

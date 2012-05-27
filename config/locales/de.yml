@@ -63,10 +63,6 @@ de:
 
   pages:
     contact:
-      email_field: Ihre Email Adresse
-      subject: Betreff
-      body: Nachricht
-      submit: Abschicken
       msg:
         success: "Das Kontaktformular wurde erfolgreich versendet"
         fail: "Deine Kontaktanfrage ist Fehlgeschlagen"
@@ -103,20 +99,6 @@ de:
       fail: Beim Löschen der Begegnung ist ein Fehler aufgetreten
       subject: "Begegnung gelöscht"
       body: "Deine Begegnung mit %{name} wurde abgesagt."
-    index:
-      headline: Begegnungen
-      create_course_button: Neue Begegnung erstellen
-      created_from: Mit
-    new:
-      headline: "Begegnung erstellen"
-      submit: Abschicken
-      select: Select
-    show:
-      headline: 'Begegnung: %{course_title}'
-      course_member_button: Anfrage
-      category: 'Kategorie: %{category}'
-      description: Beschreibung
-      created_from: Mit
 
   course_request:
     create:
@@ -125,18 +107,6 @@ de:
     destroy:
       success: Begegnungswunsch wurde erfolgreich gelöscht
       fail: Beim Löschen des Begegnungswunsches ist ein Fehler aufgetreten
-    index:
-      headline: Begegnungswunsch
-      create_course_request_button: Neuen Begegnungswunsch erstellt
-    new:
-      headline: Begegnungswunsch erstellen
-      submit: Abschicken
-    show:
-      headline: 'Begegnungswunsch: %{course_request_title}'
-      members: Dafür interessieren sich auch
-      join_course_request_button: Interessiert mich auch
-      disjoin_course_request_button: Interessiert mich nicht mehr
-      provide_course_request_button: Wunsch erfüllen
     join:
       success: Du interessierst Dich nun auch für eine solche Begegnung
       fail: Deine Anfrage konnte leider nicht bearbeitet werden
@@ -211,13 +181,12 @@ de:
           image: neues Profilbild
           _destroy: Profilbild entfernen
       course:
-        title: Titel
-        description: Beschreibung
-        category_id: Kategorie
-        date: Datum
-        city: Ort
-        zip_code: PLZ
-        places: Verfügbare Plätze
+        title: Titel der Begegnung*
+        categories: Kategorien (max. 3)*
+        description: Beschreibung*
+        date: Datum und Uhrzeit*
+        location: Land und Postleitzahl*
+        places: Verfügbare Plätze*
         precognitions: Benötigte Vorkenntnisse
         materials: Mitzubringende Materialien
 
@@ -436,13 +405,6 @@ de:
       header:
         one: ! 'Konnte %{model} nicht speichern: ein Fehler.'
         other: ! 'Konnte %{model} nicht speichern: %{count} Fehler.'
-  helpers:
-    select:
-      prompt: Bitte wählen
-    submit:
-      create: ! '%{model} erstellen'
-      submit: ! '%{model} speichern'
-      update: ! '%{model} aktualisieren'
   number:
     currency:
       format:

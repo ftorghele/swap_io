@@ -1,0 +1,11 @@
+%h1= @course_request.title
+
+= @course_request.title
+= @course_request.description
+
+- if signed_in?
+  = link_to "Begegnungswunsch erfüllen", new_course_path(:id => @course_request.id), :method => :get
+  = render :partial => 'join_disjoin_buttons'
+
+= render :partial => 'members'
+
