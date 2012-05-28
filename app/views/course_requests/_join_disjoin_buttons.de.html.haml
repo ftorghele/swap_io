@@ -1,8 +1,21 @@
-- if current_user.course_requests.include?(@course_request)
-  = form_tag({:controller => "course_requests", :action => :disjoin}, :method => :post) do
-    = hidden_field_tag 'course_request_id', @course_request.id
-    = submit_tag "Interessiert mich nicht mehr"
+- if signed_in?
+  - if current_user.course_requests.include?(@course_request)
+    = form_tag({:controller => "course_requests", :action => :disjoin}, :method => :post) do
+      = hidden_field_tag 'course_request_id', @course_request.id
+      %button.form-button-petrol.form-nextstep{:style => 'width: 100%'}
+        Kein Interesse mehr
+        %span
+  - else
+    = form_tag({:controller => "course_requests", :action => :join}, :method => :post) do
+      = hidden_field_tag 'course_request_id', @course_request.id
+      %button.form-button-petrol.form-nextstep{:style => 'width: 100%'}
+        Ich will auch!
+        %span
 - else
-  = form_tag({:controller => "course_requests", :action => :join}, :method => :post) do 
+  = form_tag({:controller => "course_requests", :action => :join}, :method => :post) do
     = hidden_field_tag 'course_request_id', @course_request.id
-    = submit_tag "Interessiert mich nicht mehr"
+    %button.form-button-petrol.form-nextstep{:style => 'width: 100%'}
+      Ich will auch!
+      %span
+
+

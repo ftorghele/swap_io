@@ -1,11 +1,31 @@
-%h1= @course_request.title
+%section.detail
+  %article.main
+    - @course_request.categories.each do |cat|
+      %h3{:class => "cat-#{cat.id}"}
+        = cat.title
+    %h1= @course_request.title
+    = render('/shared/social_media_like_buttons')
+    %p= simple_format (@course_request.description)
 
-= @course_request.title
-= @course_request.description
 
-- if signed_in?
-  = link_to "Wunsch erfüllen", new_course_path(:id => @course_request.id), :method => :get
-  = render :partial => 'join_disjoin_buttons'
+  %article.side
+    %section.members
+      = render :partial => 'members'
 
-= render :partial => 'members'
+    %section.actions
+      %h2 Mögliche Aktionen:
+      = render :partial => 'join_disjoin_buttons'
+      %br
+      %a{:href => url_for(new_course_path(:request_id => @course_request.id)), :class => 'form-submit form-nextstep'}
+        Wunsch erfüllen
+        %span
+
+
+
+
+
+
+
+
+
 

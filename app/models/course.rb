@@ -11,7 +11,7 @@ class Course < ActiveRecord::Base
                         :time, :places, :city, :zip_code, :country
 
   attr_accessible :title, :description, :precognitions, :materials, :category_ids, :date,
-                  :time, :places, :city, :zip_code, :country
+                  :time, :places, :city, :zip_code, :country, :course_request_id
 
   validates :zip_code, :numericality => { :only_integer => true }
   validates :places, :numericality => { :only_integer => true }
@@ -22,12 +22,14 @@ class Course < ActiveRecord::Base
   before_create :initialize_places_available
   before_validation :set_city
 
-  def provide_course_mailer course_request_id
-    course_request = CourseRequest.find_by_id(course_request_id)
-    course_request.users.each do |user|
-      user_link = "http://wissenteilen.com/#{I18n.t('routes.users.as')}/#{user.id}"
-      course_request_link = "http://wissenteilen.com/#{I18n.t('routes.courses.as')}/#{self.id}"
-      SystemMailer.provide_course(user, user_link, course_request_link).deliver
+  def provide_course_mailer host
+    unless self.course_request_id.nil?
+      course_request = CourseRequest.find_by_id(self.course_request_id)
+      course_request.users.each do |user|
+        user_link = "http://wissenteilen.com/#{I18n.t('routes.users.as')}/#{user.id}"
+        course_request_link = "http://wissenteilen.com/#{I18n.t('routes.courses.as')}/#{self.id}"
+        SystemMailer.provide_course(user, user_link, course_request_link).deliver unless user == host
+      end
     end
   end
 

@@ -26,7 +26,7 @@ input, select, textarea {
   }
 }
 select {
-  height:36px!important;
+  height:46px!important;
   float: none;
   display: inline-block;
 }
@@ -225,7 +225,6 @@ fieldset{
 		}
 		#course_country, #user_country{
 			width:191px;
-            height: 46px!important;
 			margin-right:20px;
 		}
         #user_remember_me {

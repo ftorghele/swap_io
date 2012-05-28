@@ -63,6 +63,8 @@
     %div
       = f.label :materials
       = f.text_area :materials
+
+    = f.hidden_field :course_request_id, :value => @course.course_request_id
     .clr
 
     .send-button
