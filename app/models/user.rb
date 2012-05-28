@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include PaperclipProcessors::SharedMethods
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -9,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :remember_me,
                   :first_name, :last_name, :zip, :confirmed_at, :user_images_attributes,
                   :description, :skills, :job, :motivation, :birthday,
-                  :country, :city, :fb_user
+                  :country, :city, :fb_user, :image, :crop_x, :crop_y, :crop_w, :crop_h
 
   validates_presence_of :first_name
   validates_presence_of :last_name
@@ -25,8 +26,15 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :course_requests, :uniq => true
 
-  has_many :user_images, :dependent => :delete_all
-  accepts_nested_attributes_for :user_images, :allow_destroy => true
+  has_attached_file :image,
+                    :styles => { :thumb => "46x46#", :xsmall => "32x32#", :small => "60x60#", :medium => "300x300#", :big => "800x800>" },
+                    :processors => [:cropper]
+
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :reprocess_image, :if => :cropping?
+
+  # validates_attachment_presence :image
+  validates_attachment_size :image, :less_than => 5.megabytes
 
   before_validation :set_city
 

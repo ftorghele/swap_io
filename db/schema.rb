@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528002107) do
+ActiveRecord::Schema.define(:version => 20120528124721) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -196,6 +196,10 @@ ActiveRecord::Schema.define(:version => 20120528002107) do
     t.integer  "rating_neut_count",      :default => 0
     t.integer  "rating_neg_count",       :default => 0
     t.text     "skills"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

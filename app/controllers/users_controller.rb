@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(current_user)
-    @user.user_images.build
   end
 
   def settings
@@ -16,12 +15,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    if User.find(current_user).update_attributes(params[:user])
+    @user = User.find(current_user)
+    @user.update_attributes(params[:user])
+    if @user.valid?
+      @user.save!
       flash[:info] = I18n.t('msg.success')
+      if params[:user][:image].blank?
+        redirect_to user_path(@user)
+      else
+        render "shared/crop", :locals => {:obj => @user}
+      end
     else
       flash[:error] = I18n.t('msg.fail')
+      redirect_to user_path(@user)
     end
-    redirect_to user_path(@user)
   end
 
 

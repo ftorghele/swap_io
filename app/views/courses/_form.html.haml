@@ -54,6 +54,9 @@
     %div
       = f.label :image
       = f.file_field :image
+      -unless @course.image.nil?
+        %strong Aktuelles Bild 
+        = image_tag coursepic(@course, :thumb)
 			
     %div
       = f.label :description,{:class => 'required'}

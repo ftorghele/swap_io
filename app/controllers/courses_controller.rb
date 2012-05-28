@@ -39,11 +39,11 @@ class CoursesController < ApplicationController
       if params[:course][:image].blank?
         redirect_to course_path(@course)
       else
-        render :action => :crop
+        render "shared/crop", :locals => {:obj => @course}
       end
     else
       flash_right_error
-      render :action => :new
+      render :new
     end
   end
 
@@ -55,7 +55,7 @@ class CoursesController < ApplicationController
       if params[:course][:image].blank?
         redirect_to course_path(@course)
       else
-        render :action => :crop
+        render "shared/crop", :locals => {:obj => @course}
       end
     else
       flash_right_error

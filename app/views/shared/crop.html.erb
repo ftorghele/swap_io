@@ -6,21 +6,23 @@ $(function() {
   $('#cropbox').Jcrop({
     onChange: update_crop,
     onSelect: update_crop,
-    setSelect: [0, 0, 300, 300],
+    setSelect: [0, 0, 200, 200],
     aspectRatio: 1
   });
 });
 
 function update_crop(coords) {
-  var rx = 300/coords.w;
-  var ry = 300/coords.h;
+  var rx = 200/coords.w;
+  var ry = 200/coords.h;
   $('#preview').css({
-    width: Math.round(rx * <%= @course.image_geometry(:original).width %>) + 'px',
-    height: Math.round(ry * <%= @course.image_geometry(:original).height %>) + 'px',
+    width: Math.round(rx * <%= obj.image_geometry(:original).width %>) + 'px',
+    height: Math.round(ry * <%= obj.image_geometry(:original).height %>) + 'px',
     marginLeft: '-' + Math.round(rx * coords.x) + 'px',
     marginTop: '-' + Math.round(ry * coords.y) + 'px'
   });
-  var ratio = <%= @course.image_geometry(:original).width %> / <%= @course.image_geometry(:big).width %>;
+console.log(<%=obj.image_geometry(:original).width %>);
+console.log(<%=obj.image_geometry(:original).height %>);
+  var ratio = <%= obj.image_geometry(:original).width %> / <%= obj.image_geometry(:big).width %>;
   $("#crop_x").val(Math.round(coords.x * ratio));
   $("#crop_y").val(Math.round(coords.y * ratio));
   $("#crop_w").val(Math.round(coords.w * ratio));
@@ -29,18 +31,17 @@ function update_crop(coords) {
 </script>
 <% end %>
 
-<%= image_tag @course.image.url(:big), :id => "cropbox" %>
+<%= image_tag obj.image.url(:big), :id => "cropbox" %>
 
 <h4>Preview:</h4>
-<div style="width:300px; height:300px; overflow:hidden">
-  <%= image_tag @course.image.url(:original), :id => "preview" %>
+<div style="width:200px; height:200px; overflow:hidden">
+  <%= image_tag obj.image.url(:big), :id => "preview" %>
 </div>
 
-<%= form_for @course do |f| %>
+<%= form_for obj do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
     <%= f.hidden_field attribute, :id => attribute %>
   <% end %>
-  <p><%= f.submit "zuschneiden" %></p>
   <div class="send-button">
     <button class="form-submit form-nextstep" id="form-submit">
       Bild zuschneiden

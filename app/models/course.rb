@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   include CategorySearch
+  include PaperclipProcessors::SharedMethods
 
   default_scope :order => "#{table_name}.created_at DESC"
 
@@ -24,7 +25,6 @@ class Course < ActiveRecord::Base
   attr_accessible :title, :description, :precognitions, :materials, :category_ids, :date,
                   :time, :places, :city, :zip_code, :country, :image, :crop_x, :crop_y, :crop_w, :crop_h
 
-
   validates :zip_code, :numericality => { :only_integer => true }
   validates :places, :numericality => { :only_integer => true }
 
@@ -33,16 +33,6 @@ class Course < ActiveRecord::Base
 
   before_create :initialize_places_available
   before_validation :set_city
-
-  def cropping?
-    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
-  end
-
-  def image_geometry(style = :original)
-    @geometry ||= {}
-    @geometry[style] ||= Paperclip::Geometry.from_file(image.path(style))
-  end
-
 
   def provide_course_mailer course_request_id
     course_request = CourseRequest.find_by_id(course_request_id)
@@ -70,12 +60,6 @@ class Course < ActiveRecord::Base
 
   def get_course_members
     self.course_members.all
-  end
-
-  private
-
-  def reprocess_image
-    image.reprocess!
   end
 
   def initialize_places_available

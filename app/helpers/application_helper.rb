@@ -5,15 +5,15 @@ module ApplicationHelper
   end
 
   def userpic(user, size = :medium)
-    unless user.nil? || user.user_images.empty?
-      user.user_images.first.image.url(size)
+    unless user.nil? || user.image.nil?
+      user.image.url(size)
     else
       if size == :thumb
-        "http://placehold.it/45x45"
+        "http://placehold.it/46x46"
       elsif size == :medium
         "http://placehold.it/60x60"
       else
-        "http://placehold.it/300x200"
+        "http://placehold.it/300x300"
       end
     end
   end
@@ -26,9 +26,9 @@ module ApplicationHelper
         "http://placehold.it/45x45"
       elsif size == :xsmall
         "http://placehold.it/100x100"
-      elseif size == :small
+      elsif size == :small
         "http://placehold.it/220x220"
-      elseif size == :medium
+      elsif size == :medium
         "http://placehold.it/300x300"
       else
         "http://placehold.it/800x800"
