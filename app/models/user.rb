@@ -25,7 +25,10 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :course_requests, :uniq => true
 
+  has_many :user_ratings, :dependent => :delete_all
+
   has_many :user_images, :dependent => :delete_all
+
   accepts_nested_attributes_for :user_images, :allow_destroy => true
 
   before_validation :set_city

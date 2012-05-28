@@ -1,0 +1,13 @@
+.rating-item
+  - rating_user = User.find_by_id(rating.evaluator_id)
+  = link_to image_tag(userpic(rating_user, :medium), :alt => username(rating_user), :size => '60x60'), user_path(rating_user)
+  .header
+    %p{:class => rating.rating}= rating.rating
+    %p
+      = I18n.localize(rating.created_at, :format => :day) unless rating.created_at.nil?
+      von
+      = link_to username(rating_user), user_path(rating_user)
+  .clr
+  .body
+    %p.small= rating.body
+.clr

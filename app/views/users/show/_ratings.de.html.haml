@@ -1,0 +1,24 @@
+= javascript_include_tag 'rails.validations'
+= form_for [user,rating], :validate => true do |f|
+
+  %fieldset
+    %legend
+      %strong Neue Bewertung abgeben:
+    %div
+      = f.label :rating
+      %button.form-submit.form-nextstep.right{:style => 'width: 263px'}
+        Bewertung abgeben
+        %span
+      .rating
+        = f.select :rating, options_for_select(["positiv","neutral","negativ"]), :include_blank => true
+      .clr
+
+    %div
+      = f.label :body
+      .body
+        = f.text_area :body
+
+  %fieldset
+    %legend
+      %strong Bisherige Bewertungen:
+    = render(:partial => 'users/show/rating', :collection => user.user_ratings.reject{|i| i.id.nil?}) || "noch keine"

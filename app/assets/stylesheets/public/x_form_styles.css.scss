@@ -73,7 +73,22 @@ input:focus, button:focus, textarea:focus, select:focus{
   outline: none;
 }
 
-
+section.detail article.main {
+  legend {
+    max-width: 560px;
+  }
+  label {
+    width: 130px!important;
+    &.message {
+      width: 160px!important;
+    }
+  }
+  input, textarea {
+    width: 405px;
+  }
+  #user_rating_rating { margin: 0 60px 0 0; }
+  #user_rating_body { height: 65px; }
+}
 
 
 a.form-nextstep,button.form-nextstep,

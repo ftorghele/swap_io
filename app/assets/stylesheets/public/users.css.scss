@@ -44,7 +44,26 @@ section.detail {
       }
 
     }
-    .user-course-requests {
+    .rating-item {
+      width: 580px;
+      padding:10px;
+      background:#ffffff;
+      @include rounded(4px);
+      img {
+        float: left;
+        margin: 0 10px 0 0;
+      }
+      .header {
+        height: 60px;
+        width: 510px;
+        p {
+          margin: 0px;
+          font-weight: 700;
+          font-size: 12px;
+        }
+        p.negativ { color: red; }
+        p.positiv { color: green; }
+      }
 
     }
   }
