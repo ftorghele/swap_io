@@ -4,6 +4,7 @@
   = render :partial => '/shared/search', :locals => {:categories => @categories}
 
 %section.begegnungen
+  = render 'shared/begegnung_new'
   #courses_div
-    = render 'shared/begegnung_new'
+
     = render :partial => 'course_request', :collection => @course_requests

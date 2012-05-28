@@ -1,21 +1,12 @@
-/*.span1*/
-/*  .thumbnail Bild*/
-/*.span11*/
-/*  %h1= link_to course_request.title, course_request_path(course_request)*/
-/*  %h2= course_request.description*/
-
 %article.begegnungswunsch
   %a{:href => course_request_path(course_request),:class => 'begegnungswunsch-title'}
-    %h3= course_request.title
+    %h3= truncate(course_request.title, :length => 22, :omission => '..')
   %p.begegnung-infos
     =# link_to image_tag(userpic(course_request.user, :medium), :alt => username(course.user), :size => '60x60'), user_path(course.user)
     =# I18n.localize(course.date, :format => :day) unless course.date.nil?
-    %br
     =# link_to truncate(username(course.user), :length => 18, :omission => '..'), user_path(course.user)
-    %br
-    aus
     =# truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?
-  %p.begegnung-text
-    = truncate(course_request.description, :length => 125, :omission => '..')
+  %p.begegnungswunsch-text
+    = truncate(course_request.description, :length => 100, :omission => '..')
     %br
     = link_to "Mehr darüber", course_request_path(course_request)
