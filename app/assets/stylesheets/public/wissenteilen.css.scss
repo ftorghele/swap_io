@@ -419,7 +419,7 @@ h3, h4 {
   @include rounded(3px);
 }
 
-.alert-error {
+.alert-error, .alert-alert {
   color: #B94A48;
   background-color: #F2DEDE;
   border-color: #EED3D7;
@@ -579,7 +579,7 @@ section.begegnungssearch{
 
 /* Begegnungen gefunden */
 
-section.begegnungen{
+section.begegnungen, section.begegnungswuensche{
   clear:both;
 	
 	article.begegnungswunsch,
@@ -651,15 +651,7 @@ section.begegnungen{
         }
       }
     }
-		/*Overwrite some styles for .begegnungswunsch-title */
-		.begegnungswunsch-title{
-			height:52px;
-			
-			h3{
-				bottom:auto;
-				top:10px;
-			}
-		}
+
     .form-button-petrol{
       margin-bottom:12px;
     }
@@ -682,21 +674,7 @@ section.begegnungen{
       margin-bottom:12px;
       word-wrap: break-word;
     }
-
   }
-	/*Overwrite some styles for .begegnungswunsch */
-	article.begegnungswunsch{
-		height:188px;
-
-        .begegnungswunsch-text {
-          font-size: 12px;
-          line-height: 20px;
-          margin-bottom: 12px;
-          word-wrap: break-word;
-          margin-top: 50px;
-        }
-	}
-
 }
 
 

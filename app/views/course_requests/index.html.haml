@@ -3,8 +3,8 @@
 %section.begegnungssearch
   = render :partial => '/shared/search', :locals => {:categories => @categories}
 
-%section.begegnungen
+%section.begegnungswuensche
   = render 'shared/begegnung_new'
   #courses_div
-
     = render :partial => 'course_request', :collection => @course_requests
+  = render 'shared/begegnung'
