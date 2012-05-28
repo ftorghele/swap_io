@@ -44,14 +44,19 @@
 
     %p
       - if signed_in?
-        -if @course_member = CourseMember.find_by_course_id_and_user_id(@course.id, current_user.id)
-          = link_to "Teilnahme absagen", @course_member, :method => :delete, :class => 'form-next-step form-submit'
-        -else
-          = form_tag({:controller => "course_members", :action => :create}, :method => :post) do
-            = hidden_field_tag 'course_id', @course.id
-            %button.form-submit.form-nextstep{:style => 'width: 100%'}
-              Teilnahme anfragen
-              %span
+        -if @course.user == current_user
+          %a{:href => url_for(edit_course_path(@course)), :class => 'form-button-petrol form-nextstep'}
+            Begegnung ändern
+            %span
+        - else
+          -if @course_member = CourseMember.find_by_course_id_and_user_id(@course.id, current_user.id)
+            = link_to "Teilnahme absagen", @course_member, :method => :delete, :class => 'form-next-step form-submit'
+          -else
+            = form_tag({:controller => "course_members", :action => :create}, :method => :post) do
+              = hidden_field_tag 'course_id', @course.id
+              %button.form-submit.form-nextstep{:style => 'width: 100%'}
+                Teilnahme anfragen
+                %span
       - else
         = form_tag({:controller => "course_members", :action => :create}, :method => :post) do
           = hidden_field_tag 'course_id', @course.id
