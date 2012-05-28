@@ -169,11 +169,11 @@ de:
         image: Bild
         description: Über mich
         skills: Fähigkeiten
-        first_name: Vorname
-        last_name: Nachname
-        country: Land
-        city: Stadt
-        zip: Postleitzahl
+        first_name: Vorname*
+        last_name: Nachname*
+        country: Land*
+        city: Stadt*
+        zip: Postleitzahl*
         email: E-Mail Adresse
         password: Passwort
         remember_me: Login merken

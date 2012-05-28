@@ -1,8 +1,10 @@
 = javascript_include_tag 'rails.validations'
 
-%h2 Benutzer bearbeiten
+%h1 Benutzer bearbeiten
 = form_for(@user, :validate => true, :html => { :method => :put, :multipart => true}) do |f|
   %fieldset
+    %legend
+      %strong Grundlegende Informationen:
     %div
       = f.label :first_name
       = f.text_field :first_name
@@ -23,6 +25,10 @@
       = f.label :zip
       = f.text_field :zip
 
+  %fieldset
+    %legend
+      %strong Profielbild
+
     %div
       = f.fields_for :user_images do |image|
         - unless image.object.new_record?
@@ -33,6 +39,9 @@
           = image.label :image
           = image.file_field :image
 
+  %fieldset
+    %legend
+      %strong Über mich
     %div
       = f.label :description
       = f.text_area :description
@@ -49,4 +58,6 @@
       = f.label :skills
       = f.text_area :skills
 
-    = f.submit 'Speichern', :class => 'form-submit'
+    %button.form-submit.form-nextstep.right
+      Profiel speichern
+      %span
