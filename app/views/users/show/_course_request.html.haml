@@ -1,6 +1,6 @@
 %article.begegnungswunsch
-  = link_to image_tag("http://placehold.it/220x220", :alt => course_request.title, :size => '100x100'), course_request_path(course_request)
   %section.description
     %h2= link_to truncate(course_request.title, :length => 17, :omission => '..'), course_request_path(course_request)
     %br
     %p.right= link_to 'Mehr erfahren ...', course_request_path(course_request)
+  = link_to image_tag("http://placehold.it/220x220", :alt => course_request.title, :size => '100x100'), course_request_path(course_request)

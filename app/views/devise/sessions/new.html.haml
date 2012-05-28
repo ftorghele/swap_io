@@ -1,4 +1,4 @@
-%h2= I18n.t('devise.sessions.title')
+%h1= I18n.t('devise.sessions.title')
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
 
   %fieldset
@@ -15,8 +15,16 @@
         = f.label :remember_me
         = f.check_box :remember_me
 
-  %div.form-actions
-    = link_to I18n.t('devise.sessions.cancel'), new_user_registration_path, :class => 'btn'
-    = f.submit I18n.t('devise.sessions.submit'), :class => 'btn-primary'
+    %button.form-submit.form-nextstep.right
+      = I18n.t('devise.sessions.submit')
+      %span
+    %br
+
+    - if devise_mapping.omniauthable?
+      - resource_class.omniauth_providers.each do |provider|
+        .clr
+        %a{:href => url_for(omniauth_authorize_path(resource_name, provider)),:class => 'form-button-petrol form-nextstep right'}
+          = I18n.t('app.sign_in_with_link', :provider => provider.to_s.titleize)
+          %span
 
   = render "links"

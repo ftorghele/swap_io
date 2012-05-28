@@ -731,6 +731,8 @@ section.detail{
       text-align: center;
       li {
         display: inline-block;
+        zoom: 1;
+        *display:inline;
         span {
           height: 36px;
           line-height: 36px;
@@ -825,7 +827,7 @@ section.detail{
             background: image-url('layout-wobbles-28x28.png') no-repeat;
           }
           &:last-child {
-            margin: 0 5px 0 10px;
+            margin: 0 0 0 10px;
           }
         }
       }
@@ -834,7 +836,7 @@ section.detail{
     .facts{
       list-style:none;
       margin:10px 0 20px 0;
-      float:left;
+
 
       li{
         height:36px;

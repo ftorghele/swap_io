@@ -174,8 +174,9 @@ de:
         country: Land*
         city: Stadt*
         zip: Postleitzahl*
-        email: E-Mail Adresse
-        password: Passwort
+        location: Land und Postleitzahl*
+        email: E-Mail Adresse*
+        password: Passwort (min. 6 Zeichen)*
         remember_me: Login merken
         user_images:
           image: neues Profilbild

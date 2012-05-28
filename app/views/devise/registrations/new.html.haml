@@ -1,6 +1,6 @@
 = javascript_include_tag 'rails.validations'
 
-%h2= I18n.t('devise.registrations.title')
+%h1= I18n.t('devise.registrations.title')
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f|
 
   %fieldset
@@ -13,12 +13,11 @@
       = f.text_field :last_name
 
     %div
-      = f.label :zip
-      = f.text_field :zip
-
-    %div
-      = f.label :country
-      = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]])
+      = f.label :location
+      .location
+        = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]])
+        PLZ:
+        = f.text_field :zip
 
     %div
       = f.label :email
@@ -28,7 +27,9 @@
       = f.label :password
       = f.password_field :password, :validate => false
 
-  %div.form-actions
-    = link_to I18n.t('devise.registrations.cancel'), root_path, :class => 'btn'
-    = f.submit I18n.t('devise.registrations.submit'), :class => 'btn-primary'
+    %button.form-submit.form-nextstep.right
+      Weiter
+      %span
+
+
   = render "links"

@@ -1,4 +1,4 @@
-%h2= I18n.t('devise.confirmations.title')
+%h1= I18n.t('devise.confirmations.title')
 = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
 
   %fieldset
@@ -6,7 +6,8 @@
       = f.label :email
       = f.email_field :email
 
-  %div.form-actions
-    = f.submit I18n.t('devise.confirmations.submit'), :class => 'btn-primary'
+  %button.form-submit.form-nextstep.right
+    = I18n.t('devise.confirmations.submit')
+    %span
 
   = render "links"

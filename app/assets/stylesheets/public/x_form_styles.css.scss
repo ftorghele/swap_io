@@ -220,13 +220,18 @@ fieldset{
 				margin-right:10px;
 			}
 		}
-		#course_zip_code{
+		#course_zip_code, #user_zip{
 			width:74px;
 		}
-		#course_country{
+		#course_country, #user_country{
 			width:191px;
+            height: 46px!important;
 			margin-right:20px;
 		}
+        #user_remember_me {
+          width: 20px!important;
+          height: 20px!important;
+        }
     .location input { width: 120px; }
     #course_places { width: 50px; }
     #course_description { height: 200px;}
