@@ -169,11 +169,11 @@ de:
         image: Bild
         description: Über mich
         skills: Fähigkeiten
-        first_name: Vorname
-        last_name: Nachname
-        country: Land
-        city: Stadt
-        zip: Postleitzahl
+        first_name: Vorname*
+        last_name: Nachname*
+        country: Land*
+        city: Stadt*
+        zip: Postleitzahl*
         email: E-Mail Adresse
         password: Passwort
         remember_me: Login merken
@@ -191,8 +191,9 @@ de:
         materials: Mitzubringende Materialien
 
       course_request:
-        title: Titel
-        description: Beschreibung
+        title: Titel*
+        description: Beschreibung*
+        categories: Kategorien (max. 3)*
 
   mailer:
     unsubscribe_alternative_link: "Wenn der oben angeführte Link nicht funktioniert, rufe die folgende Adresse in deinem Browser auf"

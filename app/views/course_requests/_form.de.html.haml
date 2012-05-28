@@ -1,25 +1,30 @@
-
 = javascript_include_tag 'rails.validations'
 
 = form_for @course_request, :validate => true do |f|
 
-
   %fieldset
+    %legend
+      %strong Schritt 1 von 1:
+      Fakten
+
     %div
       = f.label :title
       = f.text_field :title
 
     %div
       = f.label :description
-      = f.text_area :description, :size => "30x10"
+      .description
+        = f.text_area :description
 
     %div
-      - for cat in Category.all
-        = label_tag "checkbox_cat-#{cat.id}", cat.title
-        = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course_request[category_ids][]", :validate => true
-        %br
+      = f.label :categories,{:class => 'required'}
+      .categories
+        - for cat in Category.all
+          .category
+            = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course_request[category_ids][]", :validate => true
+            = label_tag "checkbox_cat-#{cat.id}", cat.title, :class => "checkbox_cat-#{cat.id}"
 
 
-    %button.form-submit.form-nextstep
+    %button.form-submit.form-nextstep.right
       Begegnungswusnch erstellen
       %span

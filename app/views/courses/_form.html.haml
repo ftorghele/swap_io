@@ -1,7 +1,7 @@
 = javascript_include_tag 'rails.validations'
 
 =form_for @course, :validate => true, :html => {:multipart => true}, :url => {:controller => :courses, :action => action} do |f|
-  %fieldset
+  %fieldset.step
     %legend
       %strong Schritt 1 von 2:
       Fakten
@@ -15,9 +15,9 @@
       .categories
         - for cat in Category.all
           .category
-
             = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course[category_ids][]", :validate => true
             = label_tag "checkbox_cat-#{cat.id}", cat.title, :class => "checkbox_cat-#{cat.id}"
+
     %div
       = f.label :date,{:class => 'required'}
       .date-time
@@ -46,7 +46,7 @@
         Weiter zu Schritt 2
         %span
 
-  %fieldset
+  %fieldset.step
     %legend
       %strong Schritt 2 von 2:
       Beschreibung und Foto

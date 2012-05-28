@@ -1,10 +1,7 @@
 class CourseRequestsController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:new, :create, :join, :disjoin]
-
-  def show
-    @course_request = CourseRequest.find(params[:id])
-  end
+  before_filter :get_course_request, :only => [:show, :edit, :update, :destroy]
 
   def index
     if signed_in?
@@ -21,16 +18,21 @@ class CourseRequestsController < ApplicationController
     @categories = JSON.parse cookies[:categories]
   end
 
+  def show
+  end
+
   def new
     @course_request = CourseRequest.new
   end
 
   def create
-    if current_user.course_requests.create(params[:course_request])
+    @course_request = current_user.course_requests.create(params[:course_request])
+    if @course_request.valid?
+      @course_request.save!
       flash[:info] = I18n.t('course_request.create.success')
       redirect_to course_requests_path
     else
-      flash[:error] = I18n.t('course_request.create.fail')
+      flash_right_error
       render :action => :new
     end
   end
@@ -59,6 +61,26 @@ class CourseRequestsController < ApplicationController
       flash[:error] = I18n.t('course_request.disjoin.fail')
     end
     redirect_to CourseRequest.find_by_id(course_request) ? course_request_path(course_request) : course_requests_path
+  end
+
+  private
+
+  def get_course_request
+    unless @course_request = CourseRequest.find_by_id(params[:id])
+      flash[:error] = I18n.t('msg.not_found')
+      redirect_to courses_path and return
+    end
+  end
+
+  def flash_right_error
+    cat_array = params[:course_request][:category_ids]
+    if cat_array.nil? || cat_array.empty?
+      flash[:error] = I18n.t('course.msg.no_categories')
+    elsif cat_array.count > 3
+      flash[:error] = I18n.t('course.msg.too_much_categories')
+    else
+      flash[:error] = I18n.t('course.msg.fail')
+    end
   end
 
 end

@@ -5,7 +5,7 @@
       - course.categories.each do |cat|
         %span{:class => "cat-#{cat.id}"}
     .clr
-    %h3= course.title
+    %h3= truncate(course.title, :length => 22, :omission => '..')
   %p.begegnung-infos
     = link_to image_tag(userpic(course.user, :medium), :alt => username(course.user), :size => '60x60'), user_path(course.user)
     = I18n.localize(course.date, :format => :day) unless course.date.nil?
