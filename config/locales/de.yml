@@ -191,8 +191,9 @@ de:
         materials: Mitzubringende Materialien
 
       course_request:
-        title: Titel
-        description: Beschreibung
+        title: Titel*
+        description: Beschreibung*
+        categories: Kategorien (max. 3)*
 
   mailer:
     unsubscribe_alternative_link: "Wenn der oben angeführte Link nicht funktioniert, rufe die folgende Adresse in deinem Browser auf"

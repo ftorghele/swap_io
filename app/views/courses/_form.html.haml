@@ -15,9 +15,9 @@
       .categories
         - for cat in Category.all
           .category
-
             = check_box_tag "checkbox_cat-#{cat.id}", "#{cat.id}", categories(cat), :name => "course[category_ids][]", :validate => true
             = label_tag "checkbox_cat-#{cat.id}", cat.title, :class => "checkbox_cat-#{cat.id}"
+
     %div
       = f.label :date,{:class => 'required'}
       .date-time
