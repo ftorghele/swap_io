@@ -18,6 +18,25 @@ module ApplicationHelper
     end
   end
 
+  def coursepic(course, size = :medium)
+    unless course.nil? || course.image.nil?
+      course.image.url(size)
+    else
+      if size == :thumb
+        "http://placehold.it/45x45"
+      elsif size == :xsmall
+        "http://placehold.it/100x100"
+      elseif size == :small
+        "http://placehold.it/220x220"
+      elseif size == :medium
+        "http://placehold.it/300x300"
+      else
+        "http://placehold.it/800x800"
+
+      end
+    end
+  end
+
   def safe_output value
     value.nil? ? "n/a" : value
   end

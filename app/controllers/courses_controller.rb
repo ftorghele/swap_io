@@ -24,11 +24,7 @@ class CoursesController < ApplicationController
   end
 
   def new
-    if @course_request = CourseRequest.find_by_id(params[:cr_id])
-      @course = Course.new( :title => @course_request.title, :description => @course_request.description)
-    else
       @course = Course.new
-    end
   end
 
   def edit
@@ -40,7 +36,11 @@ class CoursesController < ApplicationController
       @course.save!
       flash[:info] = I18n.t('course.create.success')
       @course.provide_course_mailer params[:type] if params[:type]
-      redirect_to course_path(@course)
+      if params[:course][:image].blank?
+        redirect_to course_path(@course)
+      else
+        render :action => :crop
+      end
     else
       flash_right_error
       render :action => :new
@@ -52,7 +52,11 @@ class CoursesController < ApplicationController
     if @course.valid?
       @course.save!
       flash[:info] = I18n.t('course.update.success')
-      redirect_to course_path(@course)
+      if params[:course][:image].blank?
+        redirect_to course_path(@course)
+      else
+        render :action => :crop
+      end
     else
       flash_right_error
       render :action => :edit

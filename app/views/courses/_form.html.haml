@@ -1,6 +1,6 @@
 = javascript_include_tag 'rails.validations'
 
-=form_for @course, :validate => true, :url => {:controller => :courses, :action => action} do |f|
+=form_for @course, :validate => true, :html => {:multipart => true}, :url => {:controller => :courses, :action => action} do |f|
   %fieldset
     %legend
       %strong Schritt 1 von 2:
@@ -50,6 +50,10 @@
     %legend
       %strong Schritt 2 von 2:
       Beschreibung und Foto
+
+    %div
+      = f.label :image
+      = f.file_field :image
 			
     %div
       = f.label :description,{:class => 'required'}
