@@ -1,8 +1,9 @@
 %section.detail
   %article.main
-    - @course.categories.each do |cat|
-      %h3{:class => "cat-#{cat.id}"}
-        = cat.title
+    %h3
+      - @course.categories.each do |cat|
+        %span{:class => "cat-#{cat.id} category-title"}
+          = cat.title
     %h1= @course.title
     = render('/shared/social_media_like_buttons')
     %p= simple_format (@course.description)

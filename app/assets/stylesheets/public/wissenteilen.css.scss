@@ -687,13 +687,23 @@ section.detail{
     width:620px;
     margin:10px;
     float:left;
-
+		
+		h1{
+			margin-left:0;
+		}
     h3{
-      ffont-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       font-weight: 700;
       font-size:14px;
       line-height:18px;
-      margin-bottom:6px;
+      margin-bottom:12px;
+			
+			span.category-title{
+				display:inline-block;
+				
+				&:after{content:"-"}
+			}
+			
     }
 
     h2{
@@ -702,7 +712,7 @@ section.detail{
       font-weight: 700;
       font-size:15px;
       text-transform:uppercase;
-      margin:18px 0 12px
+      margin:18px 0 12px 0;
     }
     ul.rating {
       list-style:none;
