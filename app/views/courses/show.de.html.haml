@@ -1,8 +1,9 @@
 %section.detail
   %article.main
-    - @course.categories.each do |cat|
-      %h3{:class => "cat-#{cat.id}"}
-        = cat.title
+    %h3
+      - @course.categories.each do |cat|
+        %span{:class => "cat-#{cat.id} category-title"}
+          = cat.title
     %h1= @course.title
     = render('/shared/social_media_like_buttons')
     %p= simple_format (@course.description)
@@ -16,6 +17,7 @@
       %a{:href => coursepic(@course, :big), :class => 'pic', :rel => 'alternate'}
         = image_tag(coursepic(@course, :medium), :alt => @course.title, :size => '300x300')
         %span
+    .clr
     %ul.facts
       %li.date
         %span
@@ -29,7 +31,8 @@
       %li.people
         %span
         = "für #{@course.places_available} Personen" unless @course.places_available.nil?
-
+    .clr
+    %br
     .begegnung-host.small
       = link_to image_tag(userpic(@course.user, :big), :alt => username(@course.user), :size => '100x100'), user_path(@course.user)
       %h4= username(@course.user)
@@ -42,11 +45,22 @@
 
     %p
       - if signed_in?
-        -if @course_member = CourseMember.find_by_course_id_and_user_id(@course.id, current_user.id)
-          = link_to "Teilnahme absagen", @course_member, :method => :delete, :class => 'form-next-step form-submit'
-        -else
-          = form_tag({:controller => "course_members", :action => :create}, :method => :post) do
-            = hidden_field_tag 'course_id', @course.id
-            %button.form-submit.form-nextstep{:style => 'width: 100%'}
-              Teilnahme anfragen
-              %span
+        -if @course.user == current_user
+          %a{:href => url_for(edit_course_path(@course)), :class => 'form-button-petrol form-nextstep'}
+            Begegnung ändern
+            %span
+        - else
+          -if @course_member = CourseMember.find_by_course_id_and_user_id(@course.id, current_user.id)
+            = link_to "Teilnahme absagen", @course_member, :method => :delete, :class => 'form-next-step form-submit'
+          -else
+            = form_tag({:controller => "course_members", :action => :create}, :method => :post) do
+              = hidden_field_tag 'course_id', @course.id
+              %button.form-submit.form-nextstep{:style => 'width: 100%'}
+                Teilnahme anfragen
+                %span
+      - else
+        = form_tag({:controller => "course_members", :action => :create}, :method => :post) do
+          = hidden_field_tag 'course_id', @course.id
+          %button.form-submit.form-nextstep{:style => 'width: 100%'}
+            Teilnahme anfragen
+            %span

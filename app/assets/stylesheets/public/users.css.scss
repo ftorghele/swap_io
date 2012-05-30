@@ -14,25 +14,24 @@ section.detail {
         height:100px;
 
         margin:0 10px 10px 0;
-        float:left;
         background:#ffffff;
         @include rounded(4px);
         @include shadow(rgba(0,0,0, 0.05),1px,1px,6px,0px);
+        padding: 0px;
 
         &:hover{
           @include shadow(rgba(0,0,0, 0.15),1px,1px,8px,0px);
         }
         .begegnung-pic{
-          float: left;
           margin: 0px;
           width:100px;
           height:100px;
         }
         section.description {
           height: 90px;
-          width: 185px;
-          float: right;
+          width: 185px!important;
           padding: 5px;
+          float:right;
 
           h2 {
             margin: 0px;
@@ -45,7 +44,26 @@ section.detail {
       }
 
     }
-    .user-course-requests {
+    .rating-item {
+      width: 580px;
+      padding:10px;
+      background:#ffffff;
+      @include rounded(4px);
+      img {
+        float: left;
+        margin: 0 10px 0 0;
+      }
+      .header {
+        height: 60px;
+        width: 510px;
+        p {
+          margin: 0px;
+          font-weight: 700;
+          font-size: 12px;
+        }
+        p.negativ { color: red; }
+        p.positiv { color: green; }
+      }
 
     }
   }

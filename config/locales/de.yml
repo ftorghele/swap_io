@@ -27,7 +27,9 @@ de:
 
   routes:
     users:
-      as: Menschen
+      as: Mitglied
+    user_ratings:
+      as: Bewertung
     courses:
       as: Begegnungen
     course_requests:
@@ -83,6 +85,11 @@ de:
       msg: Unsere Techniker wurden verständigt und werden sich darum kümmern.
     backlink: Zurück zur Startseite
 
+  user_rating:
+    create:
+      success: Ihre Bewertung wurde erstellt
+      fail: Es ist ein Fehler aufgetreten
+      fail_self: Sie dürfen sich nicht selbst bewerten
   course:
     msg:
      too_much_categories: Du darfst maximal 3 Kategorien für deine Begegnung auswählen!
@@ -174,8 +181,9 @@ de:
         country: Land*
         city: Stadt*
         zip: Postleitzahl*
-        email: E-Mail Adresse
-        password: Passwort
+        location: Land und Postleitzahl*
+        email: E-Mail Adresse*
+        password: Passwort (min. 6 Zeichen)*
         remember_me: Login merken
         user_images:
           image: neues Profilbild
@@ -194,6 +202,10 @@ de:
         title: Titel*
         description: Beschreibung*
         categories: Kategorien (max. 3)*
+
+      user_rating:
+        rating: Ihre Bewertung*
+        body: Ihre Nachricht*
 
   mailer:
     unsubscribe_alternative_link: "Wenn der oben angeführte Link nicht funktioniert, rufe die folgende Adresse in deinem Browser auf"

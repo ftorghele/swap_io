@@ -20,62 +20,22 @@
       .clr
     .clr
 
-    %h2 Bewertungen
-    %ul.rating
-      %li.rating-pos
-        %span= @user.rating_pos_count
-        Positiv
-      %li.rating-neut
-        %span= @user.rating_neut_count
-        Neutral
-      %li.rating-neg
-        %span=@user.rating_neg_count
-        Negativ
-    .clr
+    %section.bewertungen
+      %h2 Bewertungen
+      %ul.rating
+        %li.rating-pos
+          %span= @user.rating_pos_count
+          Positiv
+        %li.rating-neut
+          %span= @user.rating_neut_count
+          Neutral
+        %li.rating-neg
+          %span=@user.rating_neg_count
+          Negativ
+      .clr
+      %br
+      =render :partial => '/users/show/ratings', :locals => { :user => @user, :rating => @rating }
 
-  %article.side
-    %figure.fancyimg
-      %a{:href => userpic(@user, :big), :class => 'pic', :rel => 'alternate'}
-        = image_tag userpic(@user, :big), :alt => username(@user), :size => '300x300'
-        %span
-
-    .clr
-    %ul.userinfo
-      %li
-        %span Ausbildung
-        %span= safe_output(@user.job)
-      %li
-        %span Alter
-        %span= safe_output(@user.get_age)
-      %li
-        %span Wohnort
-        %span= safe_output(@user.city)
-
-    %h2 Begegnungen
-    %ul.facts
-      %li.course_client_count
-        %span
-        = "#{safe_output(@user.course_host_count)} Teilgenommen"
-      %li.course_host_count
-        %span
-        = "#{safe_output(@user.course_client_count)} Gehalten"
-
-    %h2 Bewertungen
-    %ul.rating
-      %li.rating-pos
-        %span= @user.rating_pos_count
-        Positiv
-      %li.rating-neut
-        %span= @user.rating_neut_count
-        Neutral
-      %li.rating-neg
-        %span=@user.rating_neg_count
-        Negativ
-    .clr
-
-    %br
-    %a{:href => '#', :class => 'form-msg form-submit'}
-      Nachricht senden
-      %span
+  = render :partial => '/users/show/sidebar', :locals => { :user => @user }
 
 

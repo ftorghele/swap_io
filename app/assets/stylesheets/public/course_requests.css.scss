@@ -1,3 +1,40 @@
 // Place all the styles related to the course_requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+section.begegnungswuensche {
+  article#begegnung-new {
+    height: 230px;
+    .begegnung-pic {
+      display: none;
+    }
+  }
+  article.begegnungswunsch{
+    height:230px!important;
+    .begegnungswunsch-title{
+      height: 41px!important;
+      margin-top: 10px!important;
+    }
+    .begegnungswunsch-text {
+      font-size: 12px;
+      line-height: 20px;
+      margin:20px 0 0 0;
+      word-wrap: break-word;
+    }
+  }
+}
+
+section.detail {
+  article.side {
+    .course-request-members {
+      img {
+        float: left;
+        margin: 0 10px 0 0;
+      }
+    }
+  }
+  .course-request-members-desc {
+    width: 210px;
+    float: right;
+  }
+}

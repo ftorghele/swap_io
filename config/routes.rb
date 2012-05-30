@@ -1,8 +1,6 @@
 Swap::Application.routes.draw do
 
-
   ActiveAdmin.routes(self)
-
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users, :controllers => {
@@ -12,6 +10,7 @@ Swap::Application.routes.draw do
   localized(I18n.available_locales) do
 
     resources :users do
+      resources :user_ratings
       collection do
         post 'fb_create'
         get 'settings'

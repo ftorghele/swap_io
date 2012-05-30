@@ -419,7 +419,7 @@ h3, h4 {
   @include rounded(3px);
 }
 
-.alert-error {
+.alert-error, .alert-alert {
   color: #B94A48;
   background-color: #F2DEDE;
   border-color: #EED3D7;
@@ -579,7 +579,7 @@ section.begegnungssearch{
 
 /* Begegnungen gefunden */
 
-section.begegnungen{
+section.begegnungen, section.begegnungswuensche{
   clear:both;
 	
 	article.begegnungswunsch,
@@ -633,7 +633,7 @@ section.begegnungen{
         height: 61px;
 
         span{
-          display:inline-block;
+          display:none;
           width:28px;
           height:28px;
           background-image: image-url('layout-kategorien-small.png');
@@ -651,15 +651,7 @@ section.begegnungen{
         }
       }
     }
-		/*Overwrite some styles for .begegnungswunsch-title */
-		.begegnungswunsch-title{
-			height:52px;
-			
-			h3{
-				bottom:auto;
-				top:10px;
-			}
-		}
+
     .form-button-petrol{
       margin-bottom:12px;
     }
@@ -682,21 +674,7 @@ section.begegnungen{
       margin-bottom:12px;
       word-wrap: break-word;
     }
-
   }
-	/*Overwrite some styles for .begegnungswunsch */
-	article.begegnungswunsch{
-		height:188px;
-
-        .begegnungswunsch-text {
-          font-size: 12px;
-          line-height: 20px;
-          margin-bottom: 12px;
-          word-wrap: break-word;
-          margin-top: 50px;
-        }
-	}
-
 }
 
 
@@ -709,13 +687,23 @@ section.detail{
     width:620px;
     margin:10px;
     float:left;
-
+		
+		h1{
+			margin-left:0;
+		}
     h3{
-      ffont-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       font-weight: 700;
       font-size:14px;
       line-height:18px;
-      margin-bottom:6px;
+      margin-bottom:12px;
+			
+			span.category-title{
+				display:inline-block;
+				
+				&:after{content:"-"}
+			}
+			
     }
 
     h2{
@@ -724,13 +712,15 @@ section.detail{
       font-weight: 700;
       font-size:15px;
       text-transform:uppercase;
-      margin:18px 0 12px
+      margin:18px 0 12px 0;
     }
     ul.rating {
       list-style:none;
       text-align: center;
       li {
         display: inline-block;
+        zoom: 1;
+        *display:inline;
         span {
           height: 36px;
           line-height: 36px;
@@ -825,7 +815,7 @@ section.detail{
             background: image-url('layout-wobbles-28x28.png') no-repeat;
           }
           &:last-child {
-            margin: 0 5px 0 10px;
+            margin: 0 0 0 10px;
           }
         }
       }
@@ -834,7 +824,6 @@ section.detail{
     .facts{
       list-style:none;
       margin:10px 0 20px 0;
-      float:left;
 
       li{
         height:36px;

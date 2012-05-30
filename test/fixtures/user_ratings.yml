@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  rating: MyString
+  body: MyText
+  evaluator: 1
+
+two:
+  rating: MyString
+  body: MyText
+  evaluator: 1

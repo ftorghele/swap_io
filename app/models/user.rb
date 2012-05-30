@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   has_many :courses, :dependent => :destroy
   has_many :course_members, :through => :courses
   has_many :category_abonnements
+  has_many :user_ratings, :dependent => :delete_all
 
   has_and_belongs_to_many :course_requests, :uniq => true
 
@@ -34,6 +35,8 @@ class User < ActiveRecord::Base
   after_update :reprocess_image, :if => :cropping?
 
   validates_attachment_size :image, :less_than => 5.megabytes
+
+
 
   before_validation :set_city
 

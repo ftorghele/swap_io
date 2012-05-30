@@ -26,7 +26,7 @@ input, select, textarea {
   }
 }
 select {
-  height:36px!important;
+  height:46px!important;
   float: none;
   display: inline-block;
 }
@@ -73,7 +73,22 @@ input:focus, button:focus, textarea:focus, select:focus{
   outline: none;
 }
 
-
+section.detail article.main {
+  legend {
+    max-width: 560px;
+  }
+  label {
+    width: 130px!important;
+    &.message {
+      width: 160px!important;
+    }
+  }
+  input, textarea {
+    width: 405px;
+  }
+  #user_rating_rating { margin: 0 60px 0 0; }
+  #user_rating_body { height: 65px; }
+}
 
 
 a.form-nextstep,button.form-nextstep,
@@ -220,13 +235,17 @@ fieldset{
 				margin-right:10px;
 			}
 		}
-		#course_zip_code{
+		#course_zip_code, #user_zip{
 			width:74px;
 		}
-		#course_country{
+		#course_country, #user_country{
 			width:191px;
 			margin-right:20px;
 		}
+        #user_remember_me {
+          width: 20px!important;
+          height: 20px!important;
+        }
     .location input { width: 120px; }
     #course_places { width: 50px; }
     #course_description { height: 200px;}

@@ -1,4 +1,4 @@
-%h2= I18n.t('devise.passwords.title_resend')
+%h1= I18n.t('devise.passwords.title_resend')
 
 =form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
   %fieldset
@@ -7,7 +7,8 @@
       = f.label :email
       = f.email_field :email
 
-  %div.form-actions
-    = f.submit I18n.t('devise.passwords.submit_resend'), :class => 'btn-primary'
+    %button.form-submit.form-nextstep.right
+      = I18n.t('devise.passwords.submit_resend')
+      %span
 
   = render "links"

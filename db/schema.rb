@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20120529200035) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "course_request_id"
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -153,6 +154,15 @@ ActiveRecord::Schema.define(:version => 20120529200035) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "sent",       :default => false
+  end
+
+  create_table "user_ratings", :force => true do |t|
+    t.integer  "user_id",      :null => false
+    t.integer  "evaluator_id", :null => false
+    t.string   "rating",       :null => false
+    t.text     "body",         :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|

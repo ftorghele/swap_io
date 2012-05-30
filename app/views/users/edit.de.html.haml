@@ -19,12 +19,11 @@
       = f.date_select :birthday, :order => [:day, :month, :year], :include_blank => true, :start_year => 1900
 
     %div
-      = f.label :country
-      = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]], @user.country)
-
-    %div
-      = f.label :zip
-      = f.text_field :zip
+      = f.label :location
+      .location
+        = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]], @user.country)
+        PLZ:
+        = f.text_field :zip
 
   %fieldset
     %legend
