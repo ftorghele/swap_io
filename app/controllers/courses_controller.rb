@@ -36,7 +36,7 @@ class CoursesController < ApplicationController
       @course.save!
       flash[:info] = I18n.t('course.create.success')
       @course.provide_course_mailer params[:type] if params[:type]
-      if params[:course][:image].blank?
+      if params[:course][:image].blank? || params[:javascript].blank?
         redirect_to course_path(@course)
       else
         render "shared/crop", :locals => {:obj => @course}
@@ -52,7 +52,7 @@ class CoursesController < ApplicationController
     if @course.valid?
       @course.save!
       flash[:info] = I18n.t('course.update.success')
-      if params[:course][:image].blank?
+      if params[:course][:image].blank? || params[:javascript].blank?
         redirect_to course_path(@course)
       else
         render "shared/crop", :locals => {:obj => @course}

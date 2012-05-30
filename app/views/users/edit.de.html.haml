@@ -1,5 +1,6 @@
 = javascript_include_tag 'rails.validations'
 
+
 %h1 Benutzer bearbeiten
 = form_for(@user, :validate => true, :html => { :method => :put, :multipart => true}) do |f|
   %fieldset
@@ -59,3 +60,6 @@
     %button.form-submit.form-nextstep.right
       Profiel speichern
       %span
+
+:javascript
+  $('#edit_user_#{@user.id}').prepend('#{hidden_field_tag 'javascript', 'true'}')

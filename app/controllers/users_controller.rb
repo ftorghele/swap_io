@@ -20,9 +20,10 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save!
       flash[:info] = I18n.t('msg.success')
-      if params[:user][:image].blank?
+      if params[:user][:image].blank? || params[:javascript].blank?
         redirect_to user_path(@user)
       else
+        puts params[:javascript]
         render "shared/crop", :locals => {:obj => @user}
       end
     else

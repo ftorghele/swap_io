@@ -81,3 +81,6 @@
       %a{:class => 'form-button-petrol form-laststep left', :id => 'form-laststep'}
         Zurück
         %span
+
+:javascript
+  $('#edit_course_#{@course.id}').prepend('#{hidden_field_tag 'javascript', 'true'}')

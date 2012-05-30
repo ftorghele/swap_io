@@ -15,7 +15,7 @@ class Course < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :reprocess_image, :if => :cropping?
 
-  validates_attachment_presence :image
+
   validates_attachment_size :image, :less_than => 5.megabytes
 
 

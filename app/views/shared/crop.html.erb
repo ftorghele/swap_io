@@ -15,13 +15,11 @@ function update_crop(coords) {
   var rx = 200/coords.w;
   var ry = 200/coords.h;
   $('#preview').css({
-    width: Math.round(rx * <%= obj.image_geometry(:original).width %>) + 'px',
-    height: Math.round(ry * <%= obj.image_geometry(:original).height %>) + 'px',
+    width: Math.round(rx * <%= obj.image_geometry(:big).width %>) + 'px',
+    height: Math.round(ry * <%= obj.image_geometry(:big).height %>) + 'px',
     marginLeft: '-' + Math.round(rx * coords.x) + 'px',
     marginTop: '-' + Math.round(ry * coords.y) + 'px'
   });
-console.log(<%=obj.image_geometry(:original).width %>);
-console.log(<%=obj.image_geometry(:original).height %>);
   var ratio = <%= obj.image_geometry(:original).width %> / <%= obj.image_geometry(:big).width %>;
   $("#crop_x").val(Math.round(coords.x * ratio));
   $("#crop_y").val(Math.round(coords.y * ratio));
