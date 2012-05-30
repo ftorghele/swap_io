@@ -21,7 +21,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user.user_images.build
   end
 
   def settings

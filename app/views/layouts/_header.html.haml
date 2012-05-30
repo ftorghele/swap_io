@@ -9,7 +9,7 @@
           = link_to I18n.t('app.overview_link'), my_courses_path, :id => 'nav-dashboard', :class => action?("my_courses","my_course_requests","my_conversations") ? :active : :inactive
           = link_to '??', my_courses_path, :id => 'nav-dashboard-indicator', :class => 'nav-dashboard-indicator-new'
         %li
-          = link_to I18n.t('app.welcome', :name => truncate(current_user.first_name, :length => 16, :omission => '..')), user_path(current_user), :id => 'nav-hellouser', :class => :inactive
+          = link_to I18n.t('app.welcome', :name => truncate(current_user.first_name, :length => 16, :omission => '..')), user_path(current_user), :id => 'nav-hellouser', :class => (!@user.nil? && @user == current_user && action?("show")) ? :active : :inactive
           = link_to image_tag(userpic(current_user, :thumb), :class => 'avatar-mini', :size => '45x45'), user_path(current_user), :id => 'nav-profile-avatar'
           = link_to 'Menü öffnen', '#', :id => 'nav-profile-dropdown'
           %ul#nav-select2
