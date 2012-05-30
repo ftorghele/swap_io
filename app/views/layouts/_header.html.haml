@@ -6,14 +6,14 @@
     %ul#navi-user
       - if user_signed_in?
         %li
-          = link_to I18n.t('app.overview_link'), overview_path, :id => 'nav-dashboard', :class => action?("overview") ? :active : :inactive
-          = link_to '??', overview_path, :id => 'nav-dashboard-indicator', :class => 'nav-dashboard-indicator-new'
+          = link_to I18n.t('app.overview_link'), my_courses_path, :id => 'nav-dashboard', :class => action?("my_courses","my_course_requests","my_conversations") ? :active : :inactive
+          = link_to '??', my_courses_path, :id => 'nav-dashboard-indicator', :class => 'nav-dashboard-indicator-new'
         %li
           = link_to I18n.t('app.welcome', :name => truncate(current_user.first_name, :length => 16, :omission => '..')), user_path(current_user), :id => 'nav-hellouser', :class => :inactive
           = link_to image_tag(userpic(current_user, :thumb), :class => 'avatar-mini', :size => '45x45'), user_path(current_user), :id => 'nav-profile-avatar'
           = link_to 'Menü öffnen', '#', :id => 'nav-profile-dropdown'
           %ul#nav-select2
-            %li= link_to 'Übersicht', overview_path, :id => 'nav-select2-dashboard'
+            %li= link_to 'Übersicht', welcome_path, :id => 'nav-select2-dashboard'
             %li= link_to 'Mein Benutzerprofil', user_path(current_user), :id => 'nav-select2-profile'
             %li= link_to 'Profil bearbeiten', edit_user_path(current_user), :id => 'nav-select2-profilesettings'
             %li= link_to 'Kontoeinstellungen', settings_users_path, :id => 'nav-select2-accountsettings'

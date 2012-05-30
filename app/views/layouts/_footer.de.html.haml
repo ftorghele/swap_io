@@ -20,7 +20,7 @@
       %li= link_to "Begegnungen", courses_path, :class => :inactive
       %li= link_to "Begegnungswünsche", course_requests_path, :class => :inactive
       - if user_signed_in?
-        %li= link_to I18n.t('app.overview_link'), overview_path, :class => :inactive
+        %li= link_to I18n.t('app.overview_link'), my_courses_path, :class => :inactive
       - else
         %li= link_to I18n.t('app.home_link'), welcome_path, :class => :inactive
       /%li= link_to "Aktuelles", news_path, :class => :inactive

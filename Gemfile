@@ -9,6 +9,7 @@ gem 'client_side_validations', :git => 'https://github.com/bcardarella/client_si
 
 gem 'devise', '2.0.0'
 gem 'omniauth-facebook'
+gem 'mailboxer'
 
 gem 'activeadmin'
 
