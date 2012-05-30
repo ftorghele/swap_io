@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528170720) do
+ActiveRecord::Schema.define(:version => 20120529200035) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -98,20 +98,40 @@ ActiveRecord::Schema.define(:version => 20120528170720) do
   create_table "courses", :force => true do |t|
     t.string   "title"
     t.string   "description"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.integer  "user_id",           :null => false
-    t.datetime "date",              :null => false
-    t.integer  "places",            :null => false
-    t.integer  "places_available",  :null => false
-    t.string   "city",              :null => false
-    t.integer  "zip_code",          :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "user_id",            :null => false
+    t.datetime "date",               :null => false
+    t.integer  "places",             :null => false
+    t.integer  "places_available",   :null => false
+    t.string   "city",               :null => false
+    t.integer  "zip_code",           :null => false
     t.text     "precognitions"
     t.text     "materials"
     t.time     "time"
     t.string   "country"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.integer  "course_request_id"
   end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "locations", :force => true do |t|
     t.string  "country"
@@ -134,14 +154,6 @@ ActiveRecord::Schema.define(:version => 20120528170720) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "sent",       :default => false
-  end
-
-  create_table "user_images", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   create_table "user_ratings", :force => true do |t|
@@ -186,6 +198,10 @@ ActiveRecord::Schema.define(:version => 20120528170720) do
     t.integer  "rating_neut_count",      :default => 0
     t.integer  "rating_neg_count",       :default => 0
     t.text     "skills"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

@@ -1,0 +1,50 @@
+<% content_for(:head) do %>
+<%= stylesheet_link_tag "jquery.Jcrop.min" %>
+<%= javascript_include_tag "jquery.Jcrop.min" %>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $('#cropbox').Jcrop({
+    onChange: update_crop,
+    onSelect: update_crop,
+    setSelect: [0, 0, 300, 300],
+    aspectRatio: 1
+  });
+});
+
+function update_crop(coords) {
+  var rx = 300/coords.w;
+  var ry = 300/coords.h;
+  $('#preview').css({
+    width: Math.round(rx * <%= @course.image_geometry(:original).width %>) + 'px',
+    height: Math.round(ry * <%= @course.image_geometry(:original).height %>) + 'px',
+    marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+    marginTop: '-' + Math.round(ry * coords.y) + 'px'
+  });
+  var ratio = <%= @course.image_geometry(:original).width %> / <%= @course.image_geometry(:big).width %>;
+  $("#crop_x").val(Math.round(coords.x * ratio));
+  $("#crop_y").val(Math.round(coords.y * ratio));
+  $("#crop_w").val(Math.round(coords.w * ratio));
+  $("#crop_h").val(Math.round(coords.h * ratio));
+}
+</script>
+<% end %>
+
+<%= image_tag @course.image.url(:big), :id => "cropbox" %>
+
+<h4>Preview:</h4>
+<div style="width:300px; height:300px; overflow:hidden">
+  <%= image_tag @course.image.url(:original), :id => "preview" %>
+</div>
+
+<%= form_for @course do |f| %>
+  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+    <%= f.hidden_field attribute, :id => attribute %>
+  <% end %>
+  <p><%= f.submit "zuschneiden" %></p>
+  <div class="send-button">
+    <button class="form-submit form-nextstep" id="form-submit">
+      Bild zuschneiden
+    </button>
+    <span></span>
+  </div>
+<% end %>

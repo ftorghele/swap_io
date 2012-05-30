@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   include CategorySearch
+  include PaperclipProcessors::SharedMethods
 
   default_scope :order => "#{table_name}.created_at DESC"
 
@@ -7,11 +8,23 @@ class Course < ActiveRecord::Base
   has_and_belongs_to_many :categories
   has_many :course_members, :dependent => :destroy
 
+  has_attached_file :image,
+                    :styles => { :thumb => "46x46#", :xsmall => "100x100#", :small => "220x220#", :medium => "300x300#", :big => "800x800>" },
+                    :processors => [:cropper]
+
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :reprocess_image, :if => :cropping?
+
+
+  validates_attachment_size :image, :less_than => 5.megabytes
+
+
   validates_presence_of :title, :description, :category_ids, :user_id, :date,
                         :time, :places, :city, :zip_code, :country
 
   attr_accessible :title, :description, :precognitions, :materials, :category_ids, :date,
-                  :time, :places, :city, :zip_code, :country, :course_request_id
+                  :time, :places, :city, :zip_code, :country, :image, :crop_x, :crop_y, :crop_w, :crop_h,
+                  :course_request_id
 
   validates :zip_code, :numericality => { :only_integer => true }
   validates :places, :numericality => { :only_integer => true }
@@ -51,8 +64,6 @@ class Course < ActiveRecord::Base
   def get_course_members
     self.course_members.all
   end
-
-  private
 
   def initialize_places_available
     self.places_available = self.places

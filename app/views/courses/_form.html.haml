@@ -1,6 +1,6 @@
 = javascript_include_tag 'rails.validations'
 
-=form_for @course, :validate => true, :url => {:controller => :courses, :action => action} do |f|
+=form_for @course, :validate => true, :html => {:multipart => true}, :url => {:controller => :courses, :action => action} do |f|
   %fieldset.step
     %legend
       %strong Schritt 1 von 2:
@@ -50,6 +50,13 @@
     %legend
       %strong Schritt 2 von 2:
       Beschreibung und Foto
+
+    %div
+      = f.label :image
+      = f.file_field :image
+      -unless @course.image.nil?
+        %strong Aktuelles Bild 
+        = image_tag coursepic(@course, :thumb)
 			
     %div
       = f.label :description,{:class => 'required'}
@@ -76,3 +83,6 @@
       %a{:class => 'form-button-petrol form-laststep left', :id => 'form-laststep'}
         Zurück
         %span
+
+:javascript
+  $('#edit_course_#{@course.id}').prepend('#{hidden_field_tag 'javascript', 'true'}')

@@ -5,4 +5,4 @@
     %p= I18n.localize(course.date, :format => :day) unless course.date.nil?
     %p= "in #{truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?}"
     %p.right= link_to 'Mehr erfahren ...', course_path(course)
-  = link_to image_tag("http://placehold.it/100x100", :alt => course.title, :size => '100x100'), course_path(course)
+  = link_to image_tag(coursepic(course, :xsmall)), course_path(course)

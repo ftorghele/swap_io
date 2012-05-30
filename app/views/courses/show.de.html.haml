@@ -14,8 +14,8 @@
 
   %article.side
     %figure.fancyimg
-      %a{:href => '/assets/layout-logo-wissenteilen.png', :class => 'pic', :rel => 'alternate'}
-        = image_tag("http://placehold.it/300x200", :alt => @course.title, :size => '300x200')
+      %a{:href => coursepic(@course, :big), :class => 'pic', :rel => 'alternate'}
+        = image_tag(coursepic(@course, :medium), :alt => @course.title, :size => '300x300')
         %span
     .clr
     %ul.facts

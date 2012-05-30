@@ -1,5 +1,6 @@
 = javascript_include_tag 'rails.validations'
 
+
 %h1 Benutzer bearbeiten
 = form_for(@user, :validate => true, :html => { :method => :put, :multipart => true}) do |f|
   %fieldset
@@ -29,14 +30,12 @@
       %strong Profielbild
 
     %div
-      = f.fields_for :user_images do |image|
-        - unless image.object.new_record?
-          = image.label :_destroy
-          = image.check_box :_destroy
-          = image_tag userpic(@user, :medium), :alt => username(@user)
-        - else
-          = image.label :image
-          = image.file_field :image
+      = f.label :image
+      = f.file_field :image
+      -unless @user.image.nil?
+        %strong Aktuelles Bild 
+        = image_tag userpic(@user, :thumb)
+      
 
   %fieldset
     %legend
@@ -60,3 +59,6 @@
     %button.form-submit.form-nextstep.right
       Profiel speichern
       %span
+
+:javascript
+  $('#edit_user_#{@user.id}').prepend('#{hidden_field_tag 'javascript', 'true'}')

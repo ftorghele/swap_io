@@ -28,12 +28,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(params[:user])
+    @user.update_attributes(params[:user])
+    if @user.valid?
+      @user.save!
       flash[:info] = I18n.t('msg.success')
+      if params[:user][:image].blank? || params[:javascript].blank?
+        redirect_to user_path(@user)
+      else
+        puts params[:javascript]
+        render "shared/crop", :locals => {:obj => @user}
+      end
     else
       flash[:error] = I18n.t('msg.fail')
+      redirect_to user_path(@user)
     end
-    redirect_to user_path(@user)
   end
 
 
