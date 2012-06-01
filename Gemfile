@@ -10,6 +10,7 @@ gem 'delayed_job_active_record'
 
 gem 'devise', '2.0.0'
 gem 'omniauth-facebook'
+gem 'mailboxer'
 
 gem 'activeadmin'
 

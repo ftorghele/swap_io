@@ -1,0 +1,27 @@
+%section.user-sidebar
+  %article.user-box
+    %figure.user-pic
+      = image_tag userpic(user, :medium), :alt => username(user), :size => '220x220'
+      %h3= link_to "Dein Profil", user_path(user)
+      .icons
+        = link_to image_tag('layout-icon-edit.png'), edit_user_path(user)
+    .clr
+
+    %h2 Begegnungen
+    %ul
+      %li= link_to "Erstelle eine neue Begegnung", new_course_path
+      %li= link_to "Erstelle einen neuen Wunsch", new_course_request_path
+
+
+
+  .clr
+  %article.tips-box
+    %h3
+      = link_to "Tipps und Tricks", tips_path
+    %p.small
+      %br
+      Bei Begegnungsanfragen ist es wichtig, dass du ein bisschen über dich persönlich schreibst und der Veranstalterin bzw. dem Veranstalter sagst warum du mitmachen möchtest, was dich daran fasziniert, bewegt etc.
+      %br
+      %br
+      = link_to "Mehr praktische Tipps", tips_path
+

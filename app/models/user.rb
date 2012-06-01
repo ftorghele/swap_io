@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include PaperclipProcessors::SharedMethods
 
+  acts_as_messageable
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -93,6 +95,14 @@ class User < ActiveRecord::Base
     else
       self.category_abonnements.create(:category => category)
     end
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def mailboxer_email(object)
+    email
   end
 
   private

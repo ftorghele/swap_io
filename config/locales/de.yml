@@ -28,6 +28,8 @@ de:
   routes:
     users:
       as: Mitglied
+    user_conversations:
+      as: Nachrichten
     user_ratings:
       as: Bewertung
     courses:
@@ -36,8 +38,12 @@ de:
       as: Begegnungswuensche
     welcome:
       as: Start
-    overview:
-      as: Uebersicht
+    my_courses:
+      as: Meine_Begegnungen
+    my_course_requests:
+      as: Meine_Begegnungswuensche
+    my_conversations:
+      as: Meine_Nachrichten
     landingpage:
       as: Willkommen
     help:

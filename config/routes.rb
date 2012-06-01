@@ -9,6 +9,8 @@ Swap::Application.routes.draw do
 
   localized(I18n.available_locales) do
 
+    resources :user_conversations
+
     resources :users do
       resources :user_ratings
       collection do
@@ -45,7 +47,9 @@ Swap::Application.routes.draw do
 
     get 'landingpage',  :to => 'pages#landingpage'
     get 'welcome',  :to => 'pages#welcome'
-    get 'overview', :to => 'pages#overview'
+    get 'my_courses', :to => 'users#my_courses'
+    get 'my_course_requests', :to => 'users#my_course_requests'
+    get 'my_conversations', :to => 'users#my_conversations'
 
     get 'help',     :to => 'pages#help'
     get 'tips',     :to => 'pages#tips'

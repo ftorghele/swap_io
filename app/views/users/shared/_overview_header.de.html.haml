@@ -1,0 +1,17 @@
+%h1 Übersicht
+
+%p= "Willkommen zurück #{current_user.first_name}!"
+
+%p
+  In der Übersicht kannst du deine eigenen erstellten Begegnungen,
+  Begegnungswünsche oder Anfragen für andere Begegnungen verwalten.
+
+%nav
+  %ul
+    %li{:class => action?("my_courses") ? :active : :inactive}
+      %h2= link_to "Begegnungen", my_courses_path
+    %li{:class => action?("my_course_requests") ? :active : :inactive}
+      %h2= link_to "Begegnungswünsche", my_course_requests_path
+    %li{:class => action?("my_conversations") ? :active : :inactive}
+      %h2= link_to "Nachrichten", my_conversations_path
+.clr

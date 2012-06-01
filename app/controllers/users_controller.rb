@@ -1,6 +1,19 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate_user! , :only => [:new, :create]
+  before_filter :authenticate_user! , :only => [:edit, :update, :settings, :my_courses, :my_course_requests, :my_conversations]
+  before_filter :get_user, :only => [:edit, :update, :settings, :my_courses, :my_course_requests, :my_conversations]
+
+  def my_courses
+
+  end
+
+  def my_course_requests
+
+  end
+
+  def my_conversations
+
+  end
 
   def show
     @user = User.find(params[:id])
@@ -8,15 +21,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user)
   end
 
   def settings
-    @user = User.find(current_user)
   end
 
   def update
-    @user = User.find(current_user)
     @user.update_attributes(params[:user])
     if @user.valid?
       @user.save!
@@ -45,5 +55,11 @@ class UsersController < ApplicationController
       @user.save!
       sign_in_and_redirect @user, :event => :authentication
     end
+  end
+
+  private
+
+  def get_user
+    @user = current_user
   end
 end

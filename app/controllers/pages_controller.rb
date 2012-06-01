@@ -1,8 +1,4 @@
 class PagesController < ApplicationController
-  def overview
-    redirect_to :welcome unless signed_in?
-  end
-
   def contact_us
     unless params[:email_field].blank? || params[:subject].blank? || params[:body].blank?
       if SystemMailer.contact_us(params[:email_field], params[:subject], params[:body]).deliver

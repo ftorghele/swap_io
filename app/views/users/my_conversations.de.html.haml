@@ -1,0 +1,9 @@
+%section.detail
+  = render :partial => '/users/shared/user_sidebar', :locals => { :user => @user }
+  %article.main
+    %section.overview
+      = render :partial => '/users/shared/overview_header'
+      %section.overview-main
+        Konversationen
+
+
