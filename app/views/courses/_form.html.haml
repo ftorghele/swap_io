@@ -1,7 +1,7 @@
 = javascript_include_tag 'rails.validations'
 
 =form_for @course, :validate => true, :html => {:multipart => true}, :url => {:controller => :courses, :action => action} do |f|
-  %fieldset.step
+  %fieldset.step-one
     %legend
       %strong Schritt 1 von 2:
       Fakten
@@ -46,7 +46,7 @@
         Weiter zu Schritt 2
         %span
 
-  %fieldset.step
+  %fieldset.step-two
     %legend
       %strong Schritt 2 von 2:
       Beschreibung und Foto

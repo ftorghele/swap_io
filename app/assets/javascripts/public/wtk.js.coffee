@@ -17,16 +17,16 @@ $('.category_link').click (e) ->
 
 # FORM STEPS
 $('.fieldset-buttons').css({'display': 'block'})
-$("fieldset.step:nth-child(3)").css({'display': 'none'})
+$(".step-two").css({'display': 'none'})
 $('#form-nextstep').click ->
-  $("fieldset.step:nth-child(2)").css({'display': 'none'})
-  $("fieldset.step:nth-child(3)").css({'display': 'block'})
-  $('html,body').animate({scrollTop: $('fieldset.step:nth-child(3)').offset().top-20},'slow');
+  $(".step-one").css({'display': 'none'})
+  $(".step-two").css({'display': 'block'})
+  $('html,body').animate({scrollTop: $('.step-two').offset().top-20},'slow');
 $('#form-laststep').click ->
-  $("fieldset.step:nth-child(2)").css({'display': 'block'})
-  $("fieldset.step:nth-child(3)").css({'display': 'none'})
-  $('html,body').animate({scrollTop: $('fieldset.step:nth-child(2)').offset().top-20},'slow');
+  $(".step-one").css({'display': 'block'})
+  $(".step-two").css({'display': 'none'})
+  $('html,body').animate({scrollTop: $('.step-one').offset().top-20},'slow');
 $('#form-submit').click ->
   $('.fieldset-buttons').css({'display': 'none'})
-  $("fieldset.step:nth-child(2)").css({'display': 'block'})
-  $('html,body').animate({scrollTop: $('fieldset.step:nth-child(2)').offset().top-20},'slow');
+  $(".step-one").css({'display': 'block'})
+  $('html,body').animate({scrollTop: $('.step-one').offset().top-20},'slow');
