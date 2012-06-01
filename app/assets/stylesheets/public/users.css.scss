@@ -172,6 +172,42 @@ section.detail {
       @include rounded-comb(0, 4px, 4px, 4px);
       @include shadow(rgba(0,0,0, 0.1),0px,1px,2px,0px);
       padding: 10px;
+
+      h3 {
+        padding:0 10px;
+        background:$second-color;
+        word-wrap: break-word;
+        font-family: "LeagueGothicRegular";
+        font-size:28px;
+        font-weight: 300;
+        line-height:41px;
+        color:#f1f1f1;
+        width:auto;
+        max-width:200px;
+        @include rounded-comb(0, 4px, 4px, 0);
+        text-shadow: 0px 2px 0px #49696c;
+        margin-left: -17px;
+      }
+      article.overview-begegnung {
+        margin: 0 0 5px 0;
+        img {
+          float: left;
+        }
+        .overview-begegnung-head {
+          margin: 6px 0 0 55px;
+          line-height: 20px;
+          h2 {
+            margin: 0px!important;
+            font-weight: 400;
+            text-transform: none;
+          }
+
+        }
+        .overview-begegnung-body {
+          margin: 0 0 0 55px;
+
+        }
+      }
     }
   }
 }

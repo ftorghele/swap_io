@@ -23,7 +23,7 @@ module ApplicationHelper
       course.image.url(size)
     else
       if size == :thumb
-        "http://placehold.it/45x45"
+        "http://placehold.it/46x46"
       elsif size == :xsmall
         "http://placehold.it/100x100"
       elsif size == :small

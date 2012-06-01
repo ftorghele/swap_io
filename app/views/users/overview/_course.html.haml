@@ -1,0 +1,9 @@
+%article.overview-begegnung
+  = link_to image_tag(coursepic(course, :thumb), :size => '46x46'), course_path(course)
+  .overview-begegnung-head
+    %h2= link_to course.title, course_path(course)
+    %p.small= "am #{I18n.localize(course.date, :format => :day) unless course.date.nil?} in #{course.city unless course.city.nil?}"
+  .clr
+  .overview-begegnung-body
+
+
