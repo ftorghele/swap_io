@@ -85,4 +85,4 @@
         %span
 
 :javascript
-  $('#edit_course_#{@course.id}').prepend('#{hidden_field_tag 'javascript', 'true'}')
+  $('form').prepend('#{hidden_field_tag 'javascript', 'true'}')
