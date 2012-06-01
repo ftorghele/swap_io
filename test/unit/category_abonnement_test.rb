@@ -40,12 +40,16 @@ class CategoryAbonnementTest < ActiveSupport::TestCase
     category1 = Factory.create(:category)
     category2 = Factory.create(:category)
     category3 = Factory.create(:category)
-    course1 = Factory.create(:course, :category => category1)
-    course2 = Factory.create(:course, :category => category2)
-    course3 = Factory.create(:course, :category => category3)
+    course1 = Factory.build(:course)
+    course1.categories << category1
+    course1.save
+    course2 = Factory.build(:course)
+    course2.categories << category3
+    course2.save
     user.category_abonnements.create(:category => category1)
     user.category_abonnements.create(:category => category3)
-    assert_equal user.find_category_abonnements.length, 2
-    assert_equal user.find_category_abonnements.last.category_id , category3.id
+    assert_equal Course.find_category_abonnements(user, true).last.id , course1.id
+    assert_equal Course.find_category_abonnements(user, true).length, 2
   end
+
 end

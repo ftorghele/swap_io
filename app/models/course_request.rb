@@ -6,7 +6,7 @@ class CourseRequest < ActiveRecord::Base
   has_and_belongs_to_many :users, :uniq => true
   has_and_belongs_to_many :categories
 
-  validates_presence_of :title, :category_ids, :description
+  validates_presence_of :title, :description
 
   attr_accessible :title, :description, :category_ids
 

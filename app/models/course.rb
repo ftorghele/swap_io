@@ -19,21 +19,21 @@ class Course < ActiveRecord::Base
   validates_attachment_size :image, :less_than => 5.megabytes
 
 
-  validates_presence_of :title, :description, :category_ids, :user_id, :date,
+  validates_presence_of :title, :description, :user_id, :date,
                         :time, :places, :city, :zip_code, :country
 
-  attr_accessible :title, :description, :precognitions, :materials, :category_ids, :date,
+  attr_accessible :title, :description, :precognitions, :materials, :date,
                   :time, :places, :city, :zip_code, :country, :image, :crop_x, :crop_y, :crop_w, :crop_h,
                   :course_request_id
 
   validates :zip_code, :numericality => { :only_integer => true }
   validates :places, :numericality => { :only_integer => true }
 
-  validates_presence_of :category_ids
-  validates :category_ids, :inclusion => [100], :if => Proc.new { |x|  x.category_ids.count > 3 }
+   validates_presence_of :category_ids
+   validates :category_ids, :inclusion => [100], :if => Proc.new { |x|  x.category_ids.count > 3 }
 
-  before_create :initialize_places_available
-  before_validation :set_city
+   before_create :initialize_places_available
+   before_validation :set_city
 
   def provide_course_mailer host
     unless self.course_request_id.nil?

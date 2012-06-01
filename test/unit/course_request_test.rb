@@ -3,7 +3,9 @@ require 'test_helper'
 class CourseRequestTest < ActiveSupport::TestCase
 
   should 'be able to create course_request' do
-    course_request = Factory.create(:course_request)
+    course_request = Factory.build(:course_request)
+    course_request.categories << Factory.create(:category)
+    course_request.save
     assert course_request.valid?
   end
 

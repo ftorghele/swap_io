@@ -22,7 +22,9 @@ class SystemMailerTest < ActionMailer::TestCase
 
   test "accept_course_member" do
     user = Factory.create(:user)
-    course = Factory.create(:course)
+    course = Factory.build(:course)
+    course.categories << Factory.create(:category)
+    course.save
     mail = SystemMailer.accept_course_member(user, course)
     assert_equal I18n.t('mailer.subject.accept_course_member'), mail.subject
     assert_equal ["#{user.email}"], mail.to
@@ -34,7 +36,9 @@ class SystemMailerTest < ActionMailer::TestCase
 
   test "reject_course_member" do
     user = Factory.create(:user)
-    course = Factory.create(:course)
+    course = Factory.build(:course)
+    course.categories << Factory.create(:category)
+    course.save
     mail = SystemMailer.reject_course_member(user, course)
     assert_equal I18n.t('mailer.subject.reject_course_member'), mail.subject
     assert_equal ["#{user.email}"], mail.to

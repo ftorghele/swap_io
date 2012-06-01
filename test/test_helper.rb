@@ -19,6 +19,9 @@ class ActiveSupport::TestCase
   # fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  Course.any_instance.stubs(:set_city).returns(true)
+  Location.create(:country => "Austria", :city => "Salzburg", :zip_code => 5020, :lat => 2345, :lon => 1234)
 end
 
 class ActionController::TestCase
