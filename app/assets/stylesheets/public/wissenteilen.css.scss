@@ -413,9 +413,9 @@ h3, h4 {
 .alert {
   margin: 20px 0;
   border: 1px solid #111111;
-  width: 90%;
-  padding: 10px;
-  margin: 10px auto;
+  width: auto;
+  padding: 10px 20px;
+  margin: 10px;
   @include rounded(3px);
 }
 
