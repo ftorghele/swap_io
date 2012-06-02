@@ -1,0 +1,20 @@
+%section.detail
+  %article.main
+    %h2= "Nachricht an #{username(@recipient)}"
+    = form_tag user_conversations_path, :method => :post do
+
+      %fieldset
+        %div
+          = label_tag :subject, I18n.t('helpers.label.user_conversations.subject')
+          = text_field_tag :subject, params[:subject]
+
+        %div
+          = label_tag :body, I18n.t('helpers.label.user_conversations.body')
+          .body
+            = text_area_tag :body, params[:body]
+        = hidden_field_tag :id, params[:id]
+        %button.form-submit.form-nextstep.right
+          Nachricht senden
+          %span
+
+  = render :partial => '/users/show/sidebar', :locals => { :user => @recipient }

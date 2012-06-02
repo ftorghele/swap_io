@@ -9,7 +9,13 @@ Swap::Application.routes.draw do
 
   localized(I18n.available_locales) do
 
-    resources :user_conversations
+    resources :user_conversations, only: [:index, :show, :new, :create] do
+      member do
+        post :reply
+        post :trash
+        post :untrash
+      end
+    end
 
     resources :users do
       resources :user_ratings

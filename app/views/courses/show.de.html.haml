@@ -41,7 +41,7 @@
         = link_to "Profil ansehen", user_path(@course.user)
       %p.host-interaction
         = link_to "Profil ansehen", user_path(@course.user), :class => 'button-profil'
-        = link_to "Nachricht senden", '#', :class => 'button-message'
+        = link_to "Nachricht senden", new_user_conversation_path(:id => @course.user.id), :class => 'button-message'
 
     %p
       - if signed_in?

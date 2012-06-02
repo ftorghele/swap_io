@@ -38,7 +38,8 @@
       Negativ
   .clr
 
-  %br
-  %a{:href => '#', :class => 'form-msg form-submit'}
-    Nachricht senden
-    %span
+  - unless controller?("user_conversations")
+    %br
+    %a{:href => url_for(new_user_conversation_path(:id => user.id)), :class => 'form-msg form-submit'}
+      Nachricht senden
+      %span
