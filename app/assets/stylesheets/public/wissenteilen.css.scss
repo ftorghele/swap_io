@@ -901,6 +901,7 @@ section.detail{
         }
         &.button-message{
           background-image: image-url('layout-icon-special48-message.png');
+          cursor:pointer;cursor:hand;
         }
         &:hover{
           opacity:1.0;

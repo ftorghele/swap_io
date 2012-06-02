@@ -35,13 +35,12 @@
     %br
     .begegnung-host.small
       = link_to image_tag(userpic(@course.user, :medium), :alt => username(@course.user), :size => '100x100'), user_path(@course.user)
-      %h4= username(@course.user)
+      %h4= link_to username(@course.user), user_path(@course.user)
       %p.host-description
         = truncate(@course.user.description, :length => 65, :omission => '..') unless @course.user.description.nil?
         = link_to "Profil ansehen", user_path(@course.user)
       .host-interaction
         = link_to "Profil ansehen", user_path(@course.user), :class => 'button-profil'
-        =# link_to "Nachricht senden", new_user_conversation_path(:id => @course.user.id), :class => 'button-message'
 
         = form_tag(new_user_conversation_path, :method => :post) do
           = hidden_field_tag :recipient_id, @course.user.id
