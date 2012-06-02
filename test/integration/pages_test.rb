@@ -3,31 +3,25 @@ require 'integration_test_helper'
 class PagesTest < ActionDispatch::IntegrationTest
 
   should 'show pages' do
-    visit "/about"
-    assert page.has_content?(I18n.t('pages.about.title'))
-
-    visit "/coverage"
-    assert page.has_content?(I18n.t('pages.coverage.title'))
-
+    visit "/Idee"
+    assert page.has_content?("Die Idee")
     visit "/contact"
-    assert page.has_content?(I18n.t('pages.contact.title'))
-
-    visit "/imprint"
-    assert page.has_content?(I18n.t('pages.imprint.title'))
-
-    visit "/terms"
-    assert page.has_content?(I18n.t('pages.terms.title'))
-
+    assert page.has_content?("Kontakt")
+    visit "/Impressum"
+    assert page.has_content?("Impressum")
+    assert page.has_content?("AGB")
+    visit "/Spielregeln"
+    assert page.has_content?("Spielregeln")
     visit "/help"
-    assert page.has_content?(I18n.t('pages.help.title'))
+    assert page.has_content?("So funktioniert's'")
   end
 
   should 'show landing page' do
     Factory.create(:newsletter)
-    visit "/"
+    visit "/landingpage"
     assert_no_difference "ActionMailer::Base.deliveries.count" do
       fill_in('newsletter_subscriber_email', :with => 'tester@testmail.com')
-      click_on I18n.t('pages.landingpage.newsletter_sign_up_button')
+      click_on "Gebt mir bescheid."
     end
     assert page.has_content?(I18n.t('newsletter_subscriber.create.success'))
   end
@@ -44,7 +38,7 @@ class PagesTest < ActionDispatch::IntegrationTest
     fill_in('email_field', :with => "tester@testmail.com")
     fill_in('subject', :with => "Some content on your site...")
     fill_in('body', :with => "I want to inform you about sth...")
-    click_on I18n.t('pages.contact.submit')
+    click_on "Nachricht senden"
     assert page.has_content?( I18n.t('pages.contact.msg.success') )
   end
 

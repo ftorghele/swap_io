@@ -14,10 +14,6 @@ FactoryGirl.define do
     sequence(:description){|n| "Landscape photography tutorial with somebody else than me... #{n}" }
   end
 
-  # factory :categories_course, :parent => :course do |c|
-  #   c.categories.create(:category)
-  # end
-
   factory :course_request do |f|
     sequence(:title){|n| "Kurs Nr. #{n}" }
     sequence(:description){|n| "Beschreibung Nr. #{n}" }
