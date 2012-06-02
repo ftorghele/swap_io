@@ -27,47 +27,47 @@ de:
 
   routes:
     users:
-      as: Mitglied
+      as: mitglied
     user_conversations:
-      as: Nachrichten
+      as: nachrichten
     user_ratings:
-      as: Bewertung
+      as: bewertung
     courses:
-      as: Begegnungen
+      as: begegnungen
     course_requests:
-      as: Begegnungswuensche
+      as: begegnungswuensche
     welcome:
-      as: Start
+      as: start
     my_courses:
-      as: Meine_Begegnungen
+      as: uebersicht-begegnungen
     my_course_requests:
-      as: Meine_Begegnungswuensche
+      as: uebersicht-Begegnungswuensche
     my_conversations:
-      as: Meine_Nachrichten
+      as: uebersicht-nachrichten
     landingpage:
-      as: Willkommen
+      as: willkommen
     help:
-      as: Hilfe
+      as: hilfe
     tips:
-      as: Tipps-Tricks
+      as: tipps-und-tricks
     rules:
-      as: Spielregeln
+      as: spielregeln
     news:
-      as: Neuigkeiten
+      as: neuigkeiten
     team:
-      as: Team
+      as: team
     contact:
-      as: Kontakt
+      as: kontakt
     coverage:
-      as: Presse
+      as: presse
     about:
-      as: Idee
+      as: idee
     imprint:
-      as: Impressum
+      as: impressum
     terms:
-      as: AGB
+      as: agb
     newsletter_subscribers:
-      as: Newsletter
+      as: newsletter
 
   pages:
     contact:
