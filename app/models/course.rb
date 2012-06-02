@@ -22,7 +22,7 @@ class Course < ActiveRecord::Base
   validates_presence_of :title, :description, :user_id, :date,
                         :time, :places, :city, :zip_code, :country
 
-  attr_accessible :title, :description, :category_ids, :precognitions, :materials, :date,
+  attr_accessible :title, :description, :precognitions, :materials, :date,
                   :time, :places, :city, :zip_code, :country, :image, :crop_x, :crop_y, :crop_w, :crop_h,
                   :course_request_id, :category_ids
 
