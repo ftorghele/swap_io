@@ -14,6 +14,7 @@ Swap::Application.routes.draw do
         post :reply
         post :trash
         post :untrash
+        post :new
       end
     end
 
@@ -25,10 +26,16 @@ Swap::Application.routes.draw do
       end
     end
 
+    resources :courses do
+      collection do
+        post :new
+      end
+    end
+
     resources :course_requests do
       collection do
-        post 'join'
-        post 'disjoin'
+        post :join
+        post :disjoin
       end
     end
 
@@ -45,7 +52,6 @@ Swap::Application.routes.draw do
     end
 
     resources :newsletters
-    resources :courses
     resources :course_members
     resources :categories
 

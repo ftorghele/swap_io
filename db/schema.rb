@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530125959) do
+ActiveRecord::Schema.define(:version => 20120602103939) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(:version => 20120530125959) do
 
   create_table "courses", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "user_id",            :null => false
@@ -116,11 +116,11 @@ ActiveRecord::Schema.define(:version => 20120530125959) do
     t.text     "materials"
     t.time     "time"
     t.string   "country"
-    t.integer  "course_request_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "course_request_id"
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -206,6 +206,7 @@ ActiveRecord::Schema.define(:version => 20120530125959) do
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
     t.string   "encrypted_password",     :default => "",    :null => false
+    t.boolean  "complete",               :default => true
     t.string   "first_name",             :default => "",    :null => false
     t.string   "last_name",              :default => "",    :null => false
     t.string   "reset_password_token"
