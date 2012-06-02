@@ -113,6 +113,10 @@ class User < ActiveRecord::Base
     self.receipts.reject{|i| i.read}.count
   end
 
+  def get_notification_count
+    get_unread_message_count
+  end
+
   private
 
   def set_city

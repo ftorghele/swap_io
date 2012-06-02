@@ -212,6 +212,7 @@ de:
         places: Verfügbare Plätze*
         precognitions: Benötigte Vorkenntnisse
         materials: Mitzubringende Materialien
+        image: Begegnungsfoto
 
       course_request:
         title: Titel*

@@ -190,8 +190,19 @@ section.detail {
       }
       article.overview-begegnung {
         margin: 0 0 5px 0;
-        img {
+        img, .cat-icon {
           float: left;
+          height: 46px;
+          width: 46px;
+        }
+        .cat-icon {
+          background-image: image-url('layout-kategorien-46x46.png');
+          background-repeat:none;
+          background-position:0 0;
+
+          @for $i from 1 through 10 {
+              &.cat-#{$i} { background-position: -(46px * ($i - 1)) 0px; }
+          }
         }
         .overview-begegnung-head {
           margin: 6px 0 0 55px;
