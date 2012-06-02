@@ -212,6 +212,14 @@ section.detail {
 
         }
       }
+      .user-conversation-message-read,
+      .user-conversation-message-unread {
+        border-bottom: 1px solid #CCC;
+        margin: 16px 0;
+      }
+      input, textarea {
+        width: 380px!important;
+      }
       section.overview-subnav {
         margin: 0 0 20px 0;
         h2 {

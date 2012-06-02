@@ -24,6 +24,10 @@ class CoursesController < ApplicationController
   end
 
   def new
+    @course = Course.new
+  end
+
+  def new_with_request
     if @course_request = CourseRequest.find_by_id(params[:request_id])
       @course = Course.new( :title => @course_request.title,
                             :description => @course_request.description,
@@ -32,6 +36,7 @@ class CoursesController < ApplicationController
     else
       @course = Course.new
     end
+    render :new
   end
 
   def edit

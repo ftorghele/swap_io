@@ -1,0 +1,8 @@
+%article.overview-begegnung{:class => "user-conversation-message-#{message.read? ? :read : :unread}" }
+  = link_to image_tag(userpic(message.message.sender, :thumb), :size => '46x46'), user_path(message.message.sender)
+  .overview-begegnung-head
+    %h2{:class => message.is_unread? ? :unread : :read}= "Betreff: #{message.message.subject}"
+    %p.small= "von #{username(message.message.sender)}"
+  .overview-begegnung-head
+    %p= message.message.body
+  .clr

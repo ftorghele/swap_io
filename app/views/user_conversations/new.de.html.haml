@@ -1,6 +1,6 @@
 %section.detail
   %article.main
     %h2= "Nachricht an #{username(@recipient)}"
-    = render :partial => 'user_conversations/form', :locals => { :form_path => :user_conversations }
+    = render :partial => 'user_conversations/form', :locals => { :form_path => :user_conversations, :submit_text => "Nachricht senden" }
 
   = render :partial => '/users/show/sidebar', :locals => { :user => @recipient }

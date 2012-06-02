@@ -16,7 +16,7 @@
       %h2 Mögliche Aktionen:
       = render :partial => 'join_disjoin_buttons'
       %br
-      = form_tag({:controller => :courses, :action => :new}, :method => :post) do
+      = form_tag({:controller => :courses, :action => :new_with_request}, :method => :post) do
         = hidden_field_tag :request_id, @course_request.id
         %button.form-submit.form-nextstep{:style => 'width: 100%'}
           Wunsch erfüllen

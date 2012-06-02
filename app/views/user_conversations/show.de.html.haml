@@ -9,12 +9,7 @@
           %h2= link_to "Postausgang", user_conversations_path(:box => "sentbox"), :class => @box == "sentbox" ? :active : :inactive
           %h2= link_to "Gelöschte Nachrichten", user_conversations_path(:box => "trash"), :class => @box == "trash" ? :active : :inactive
 
-        %ul
-          = content_tag_for(:li, @messages) do |receipt|
-            - message = receipt.message
-            %div{ :class => "user-conversation-message-#{receipt.read? ? :read : :unread}" }
-              %h2= message.subject
-              %p= message.body
+        = render(:partial => '/user_conversations/message', :collection => @messages) || "keine Nachrichten vorhanden"
 
-        = render :partial => 'user_conversations/form', :locals => { :form_path => :reply_user_conversation }
+        = render :partial => 'user_conversations/form', :locals => { :form_path => :reply_user_conversation, :submit_text => "Antworten" }
 

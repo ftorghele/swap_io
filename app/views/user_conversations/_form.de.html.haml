@@ -11,6 +11,6 @@
         = text_area_tag :body, params[:body], :required => 'required'
     = hidden_field_tag :recipient_id, params[:recipient_id]
     %button.form-submit.form-nextstep.right
-      Nachricht senden
+      = submit_text
       %span
 .clr

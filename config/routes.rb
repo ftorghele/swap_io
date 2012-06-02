@@ -28,7 +28,7 @@ Swap::Application.routes.draw do
 
     resources :courses do
       collection do
-        post :new
+        post :new_with_request
       end
     end
 
