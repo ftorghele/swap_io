@@ -1,5 +1,5 @@
 %article.overview-begegnung
-  = link_to image_tag("categories/#{course_request.categories.first.id}.png", :size => '46x46'), course_request_path(course_request)
+  = link_to image_tag("categories/#{course_request.categories.first.id unless course_request.categories.blank?}.png", :size => '46x46'), course_request_path(course_request)
   .overview-begegnung-head
     %h2= link_to course_request.title, course_request_path(course_request)
     %p.small= truncate(course_request.description, :length => 200, :omission => '..')

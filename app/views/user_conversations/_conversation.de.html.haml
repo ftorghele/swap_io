@@ -1,0 +1,14 @@
+%article.overview-begegnung
+  = link_to image_tag(userpic(other_participant(conversation), :thumb), :size => '46x46'), user_path(other_participant(conversation))
+  .overview-begegnung-head
+    %p.small.right
+      - unless @box == "trash"
+        - if conversation.is_completely_trashed?(current_user)
+          = link_to 'Wiederherstellen', untrash_user_conversation_path(conversation, :box => @box), method: :post
+        - else
+          = link_to 'Löschen', trash_user_conversation_path(conversation, :box => @box), method: :post
+    %h2{:class => conversation.is_unread?(current_user) ? :unread : :read}
+      = "Betreff: "
+      = link_to conversation.last_message.subject, user_conversation_path(conversation)
+    %p= "mit #{username(other_participant(conversation))}"
+  .clr

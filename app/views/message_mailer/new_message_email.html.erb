@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Sie haben eine neue Nachricht: <%= @message.subject.html_safe? ? @message.subject : strip_tags(@message.subject) %></h1>
+    <p>
+      Die Nachricht lautet:
+    </p>
+    <blockquote>
+      <p>
+        <%= raw @message.body %>
+      </p>
+    </blockquote>
+    <p>
+      Besuchen Sie <%= link_to root_url,root_url %> und gehen Sie auf Ihren Posteingang für weitere Informationen.
+    </p>
+  </body>
+</html>

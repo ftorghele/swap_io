@@ -884,7 +884,7 @@ section.detail{
       padding:10px 92px 20px;
       height:48px;
 
-      a{
+      a, button{
         display:block;
         float:left;
         width:48px;
@@ -894,6 +894,7 @@ section.detail{
         text-indent:-1000px;
         overflow:hidden;
         opacity:0.9;
+        border: none;
 
         &.button-profil{
           background-image: image-url('layout-icon-special48-profile.png');

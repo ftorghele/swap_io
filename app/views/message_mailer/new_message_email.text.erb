@@ -1,0 +1,10 @@
+Sie haben eine neue Nachricht: <%= @message.subject.html_safe? ? @message.subject : strip_tags(@message.subject) %>
+===============================================
+
+Die Nachricht lautet:
+
+-----------------------------------------------
+<%= @message.body.html_safe? ? @message.body : strip_tags(@message.body) %>
+-----------------------------------------------
+
+Besuchen Sie <%= root_url %> und gehen Sie auf Ihren Posteingang für weitere Informationen.

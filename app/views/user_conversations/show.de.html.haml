@@ -4,27 +4,17 @@
     %section.overview
       = render :partial => '/users/shared/overview_header'
       %section.overview-main
+        %section.overview-subnav
+          %h2= link_to "Posteingang", user_conversations_path(:box => "inbox"), :class => @box == "inbox" ? :active : :inactive
+          %h2= link_to "Postausgang", user_conversations_path(:box => "sentbox"), :class => @box == "sentbox" ? :active : :inactive
+          %h2= link_to "Gelöschte Nachrichten", user_conversations_path(:box => "trash"), :class => @box == "trash" ? :active : :inactive
 
         %ul
-          = content_tag_for(:li, @conversation.receipts_for(current_user)) do |receipt|
+          = content_tag_for(:li, @messages) do |receipt|
             - message = receipt.message
-            %h3= message.subject
-            %p= message.body
-            %p= @conversation.participants.first.first_name
+            %div{ :class => "user-conversation-message-#{receipt.read? ? :read : :unread}" }
+              %h2= message.subject
+              %p= message.body
 
-        = form_tag reply_user_conversation_path, :method => :post do
-
-          %fieldset
-            %div
-              = label_tag :subject, I18n.t('helpers.label.user_conversations.subject')
-              = text_field_tag :subject, params[:subject]
-
-            %div
-              = label_tag :body, I18n.t('helpers.label.user_conversations.body')
-              .body
-                = text_area_tag :body, params[:body]
-            = hidden_field_tag :id, params[:id]
-            %button.form-submit.form-nextstep.right
-              Nachricht senden
-              %span
+        = render :partial => 'user_conversations/form', :locals => { :form_path => :reply_user_conversation }
 

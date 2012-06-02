@@ -40,8 +40,8 @@
 
   - unless controller?("user_conversations")
     %br
-    = form_tag({:controller => :user_conversations, :action => :new}, :method => :post) do
-      = hidden_field_tag :id, user.id
+    = form_tag(new_user_conversation_path, :method => :post) do
+      = hidden_field_tag :recipient_id, user.id
       %button.form-msg.form-submit{:style => 'width: 100%'}
         Nachricht senden
         %span

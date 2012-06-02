@@ -139,6 +139,11 @@ de:
       success: Die Anfrage wurde erfolgreich gelöscht
       fail: Beim Löschen der Anfrage ist ein Fehler aufgetreten
 
+  mailboxer:
+    message_mailer:
+      subject_new: "Neue Nachricht auf wissenteilen.com: %{subject}"
+      subject_reply: "Neue Antwort auf wissenteilen.com: %{subject}"
+
   mails:
     create:
       success: Deine Email wurde erfolgreich versendet

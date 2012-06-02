@@ -200,12 +200,27 @@ section.detail {
             margin: 0px!important;
             font-weight: 400;
             text-transform: none;
+
+            &.unread {
+              font-weight: 700;
+            }
           }
 
         }
         .overview-begegnung-body {
           margin: 0 0 0 55px;
 
+        }
+      }
+      section.overview-subnav {
+        margin: 0 0 20px 0;
+        h2 {
+          display: inline-block;
+          margin: 0 20px;
+
+          a.active {
+            color: black;
+          }
         }
       }
     }

@@ -39,9 +39,15 @@
       %p.host-description
         = truncate(@course.user.description, :length => 65, :omission => '..') unless @course.user.description.nil?
         = link_to "Profil ansehen", user_path(@course.user)
-      %p.host-interaction
+      .host-interaction
         = link_to "Profil ansehen", user_path(@course.user), :class => 'button-profil'
-        = link_to "Nachricht senden", new_user_conversation_path(:id => @course.user.id), :class => 'button-message'
+        =# link_to "Nachricht senden", new_user_conversation_path(:id => @course.user.id), :class => 'button-message'
+
+        = form_tag(new_user_conversation_path, :method => :post) do
+          = hidden_field_tag :recipient_id, @course.user.id
+          %button.button-message
+            Nachricht senden
+
 
     %p
       - if signed_in?

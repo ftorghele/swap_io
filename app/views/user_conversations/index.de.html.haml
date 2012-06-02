@@ -4,14 +4,14 @@
     %section.overview
       = render :partial => '/users/shared/overview_header'
       %section.overview-main
+        %section.overview-subnav
+          %h2= link_to "Posteingang", user_conversations_path(:box => "inbox"), :class => @box == "inbox" ? :active : :inactive
+          %h2= link_to "Postausgang", user_conversations_path(:box => "sentbox"), :class => @box == "sentbox" ? :active : :inactive
+          %h2= link_to "Gelöschte Nachrichten", user_conversations_path(:box => "trash"), :class => @box == "trash" ? :active : :inactive
 
-        %h2 Inbox
-        %ul
-          = content_tag_for(:li, mailbox.conversations) do |conversation|
-            %p
-              = link_to conversation.subject, user_conversation_path(conversation)
-              |
-              - if conversation.is_completely_trashed?(current_user)
-                = link_to 'Untrash', untrash_user_conversation_path(conversation), method: :post
-              - else
-                = link_to 'Move to trash', trash_user_conversation_path(conversation), method: :post
+        = render(:partial => '/user_conversations/conversation', :collection => @messages) || "keine Nachrichten vorhanden"
+
+      .clr
+
+
+
