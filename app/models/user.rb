@@ -109,6 +109,10 @@ class User < ActiveRecord::Base
     email
   end
 
+  def get_unread_message_count
+    self.receipts.reject{|i| i.read}.count
+  end
+
   private
 
   def set_city

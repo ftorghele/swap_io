@@ -13,5 +13,5 @@
     %li{:class => action?("my_course_requests") ? :active : :inactive}
       %h2= link_to "Begegnungswünsche", my_course_requests_path
     %li{:class => controller?("user_conversations") ? :active : :inactive}
-      %h2= link_to "Nachrichten", user_conversations_path
+      %h2= link_to "Nachrichten (#{current_user.get_unread_message_count})", user_conversations_path
 .clr

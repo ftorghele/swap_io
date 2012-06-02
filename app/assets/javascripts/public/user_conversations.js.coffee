@@ -4,5 +4,5 @@
 
 if ($(".user-conversation-message-unread").length > 0)
   $('html,body').animate({scrollTop: $('.user-conversation-message-unread:first').offset().top-20},'slow');
-else
+else if ($(".user-conversation-message-read").length > 0)
   $('html,body').animate({scrollTop: $('.user-conversation-message-read:last').offset().top-20},'slow');
