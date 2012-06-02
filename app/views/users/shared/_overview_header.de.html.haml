@@ -12,6 +12,6 @@
       %h2= link_to "Begegnungen", my_courses_path
     %li{:class => action?("my_course_requests") ? :active : :inactive}
       %h2= link_to "Begegnungswünsche", my_course_requests_path
-    %li{:class => action?("my_conversations") ? :active : :inactive}
-      %h2= link_to "Nachrichten", my_conversations_path
+    %li{:class => controller?("user_conversations") ? :active : :inactive}
+      %h2= link_to "Nachrichten", user_conversations_path
 .clr

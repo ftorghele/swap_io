@@ -9,7 +9,14 @@ Swap::Application.routes.draw do
 
   localized(I18n.available_locales) do
 
-    resources :user_conversations
+    resources :user_conversations, only: [:index, :show, :new, :create] do
+      member do
+        post :reply
+        post :trash
+        post :untrash
+        post :new
+      end
+    end
 
     resources :users do
       resources :user_ratings
@@ -19,10 +26,16 @@ Swap::Application.routes.draw do
       end
     end
 
+    resources :courses do
+      collection do
+        post :new
+      end
+    end
+
     resources :course_requests do
       collection do
-        post 'join'
-        post 'disjoin'
+        post :join
+        post :disjoin
       end
     end
 
@@ -39,7 +52,6 @@ Swap::Application.routes.draw do
     end
 
     resources :newsletters
-    resources :courses
     resources :course_members
     resources :categories
 

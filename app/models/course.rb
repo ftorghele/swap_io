@@ -24,7 +24,7 @@ class Course < ActiveRecord::Base
 
   attr_accessible :title, :description, :category_ids, :precognitions, :materials, :date,
                   :time, :places, :city, :zip_code, :country, :image, :crop_x, :crop_y, :crop_w, :crop_h,
-                  :course_request_id
+                  :course_request_id, :category_ids
 
   validates :zip_code, :numericality => { :only_integer => true }
   validates :places, :numericality => { :only_integer => true }

@@ -4,9 +4,10 @@
     %section.overview
       = render :partial => '/users/shared/overview_header'
       %section.overview-main
-        meine Begegnungswünsche
+        %h3 Eigene Wünsche
+        = render(:partial => 'users/overview/course_request', :collection => @user.get_course_requests) || "keine"
 
-
-
-
-
+        %br
+        %a.form-button-petrol.form-nextstep{:href => url_for(new_course_request_path), :style => 'width: 400px; margin: 0 auto;'}
+          Neuen Begegnungswunsch erstellen
+          %span

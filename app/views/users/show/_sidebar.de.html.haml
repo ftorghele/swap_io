@@ -38,7 +38,10 @@
       Negativ
   .clr
 
-  %br
-  %a{:href => '#', :class => 'form-msg form-submit'}
-    Nachricht senden
-    %span
+  - unless controller?("user_conversations")
+    %br
+    = form_tag({:controller => :user_conversations, :action => :new}, :method => :post) do
+      = hidden_field_tag :id, user.id
+      %button.form-msg.form-submit{:style => 'width: 100%'}
+        Nachricht senden
+        %span

@@ -81,6 +81,10 @@ class User < ActiveRecord::Base
     self.courses
   end
 
+  def get_enquired_courses
+    get_accepted_course_memberships.map{|i| i.course}
+  end
+
   def get_course_requests
     self.course_requests
   end

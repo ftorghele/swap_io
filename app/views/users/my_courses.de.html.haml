@@ -4,9 +4,16 @@
     %section.overview
       = render :partial => '/users/shared/overview_header'
       %section.overview-main
-        meine begegnungen
+        %h3 Eigene Begegnungen
+        = render(:partial => 'users/overview/course', :collection => @user.get_courses) || "keine"
 
+        %h3 Andere Begegnungen
+        = render(:partial => 'users/overview/course', :collection => @user.get_enquired_courses) || "keine"
 
+        %br
+        %a.form-button-petrol.form-nextstep{:href => url_for(new_course_path), :style => 'width: 300px; margin: 0 auto;'}
+          Neue Begegnung erstellen
+          %span
 
 
 

@@ -21,7 +21,7 @@ de:
 
   msg:
     success: Deine Daten wurden erfolgreich aktualisiert
-    fail: Beim Aktualisieren Deiner Daten ist ein Fehler aufgetreten
+    fail: Es ist ein Fehler aufgetreten
     not_found: Der Datensatz wurde leider nicht gefunden
     not_allowed: Sie haben nicht die benötigten Rechte um diesen Datensatz zu bearbeiten
 
@@ -147,6 +147,10 @@ de:
       title: Email Versand
       submit: Abschicken
 
+  user_conversations:
+    create:
+      empty: '%{input} muss ausgefüllt werden'
+
   activerecord:
     errors:
       messages:
@@ -212,6 +216,10 @@ de:
       user_rating:
         rating: Ihre Bewertung*
         body: Ihre Nachricht*
+
+      user_conversations:
+        subject: Betreff*
+        body: Nachricht*
 
   mailer:
     unsubscribe_alternative_link: "Wenn der oben angeführte Link nicht funktioniert, rufe die folgende Adresse in deinem Browser auf"

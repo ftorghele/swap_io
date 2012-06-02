@@ -1,0 +1,30 @@
+%section.detail
+  = render :partial => '/users/shared/user_sidebar', :locals => { :user =>current_user }
+  %article.main
+    %section.overview
+      = render :partial => '/users/shared/overview_header'
+      %section.overview-main
+
+        %ul
+          = content_tag_for(:li, @conversation.receipts_for(current_user)) do |receipt|
+            - message = receipt.message
+            %h3= message.subject
+            %p= message.body
+            %p= @conversation.participants.first.first_name
+
+        = form_tag reply_user_conversation_path, :method => :post do
+
+          %fieldset
+            %div
+              = label_tag :subject, I18n.t('helpers.label.user_conversations.subject')
+              = text_field_tag :subject, params[:subject]
+
+            %div
+              = label_tag :body, I18n.t('helpers.label.user_conversations.body')
+              .body
+                = text_area_tag :body, params[:body]
+            = hidden_field_tag :id, params[:id]
+            %button.form-submit.form-nextstep.right
+              Nachricht senden
+              %span
+

@@ -2,7 +2,7 @@
   %h2 Begegnungswusch von:
   - @course_request.users.each do |user|
     .course-request-members
-      = link_to image_tag(userpic(user, :medium), :alt => username(user), :size => '60x60'), user_path(user)
+      = link_to image_tag(userpic(user, :small), :alt => username(user), :size => '60x60'), user_path(user)
       .course-request-members-desc
         %p= link_to truncate(username(user), :length => 18, :omission => '..'), user_path(user)
         %p.small= "aus #{truncate(user.city, :length => 17, :omission => '..') unless user.city.nil?}"
