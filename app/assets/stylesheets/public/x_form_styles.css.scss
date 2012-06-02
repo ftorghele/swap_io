@@ -112,6 +112,13 @@ a.form-msg, button.form-msg
     height:32px;
   }
 }
+.fieldset-buttons a.form-laststep{
+  width:1px;
+  padding:0;
+  text-indent:-1000px;
+  width:52px;
+  overflow:hidden;
+}
 a.form-msg span, button.form-msg span { background-image: image-url('layout-icon-message.png') }
 a.form-search span, button.form-search span { background-image: image-url('layout-icon-search.png') }
 a.form-laststep span, button.form-laststep span { background-image: image-url('layout-icon-laststep.png') }

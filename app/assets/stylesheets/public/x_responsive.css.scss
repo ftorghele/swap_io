@@ -66,14 +66,25 @@ body{
   }
   section.begegnungssearch{
     width:700px;
+    height:270px;
+    margin-bottom:20px;
     float:none;
     margin:0 auto;
     ul{
 
       li{
         width:140px;
+        height:135px;
 
         a{
+          p{
+            width:140px;
+            margin-left:-23px;
+            overflow:hidden;
+            
+            br:after { content: "\0000a0" }
+            br { content: "" }
+          }
         }
       }
     }
