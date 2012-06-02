@@ -24,7 +24,7 @@
         = I18n.localize(@course.date, :format => :day) unless @course.date.nil?
       %li.time
         %span
-        = I18n.localize(@course.date, :format => :time) unless @course.date.nil?
+        = I18n.localize(@course.time, :format => :time) unless @course.time.nil?
       %li.location
         %span
         = @course.city unless @course.city.nil?
