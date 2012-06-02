@@ -7,6 +7,7 @@ gem 'i18n_routing'
 gem 'paperclip', '~> 3.0'
 gem 'client_side_validations', :git => 'https://github.com/bcardarella/client_side_validations.git'
 gem 'delayed_job_active_record'
+gem 'pusher'
 
 gem 'devise', '2.0.0'
 gem 'omniauth-facebook'
