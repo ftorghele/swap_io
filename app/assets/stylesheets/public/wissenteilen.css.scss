@@ -214,6 +214,10 @@ header{
           height: 156px;
           border:0px;
           display: none;
+          padding:10px 10px 0 10px;
+          background: image-url('layout-headerbar.png') repeat 0 0;
+              border-top:#8b8b8a 1px solid;
+              @include rounded-comb(0, 0, 4px, 4px);
 
           li{
             border:0px;
@@ -223,13 +227,11 @@ header{
             line-height:28px;
             width:100%;
             padding:0;
-            background: image-url('layout-headerbar.png') repeat 0 0;
+            float:left;
             &:first-child{
-              border-top:#8b8b8a 1px solid;
 
             }
             &:last-child{
-              @include rounded-comb(0, 0, 4px, 4px);
             }
             a{
               width:150px;
@@ -413,9 +415,9 @@ h3, h4 {
 .alert {
   margin: 20px 0;
   border: 1px solid #111111;
-  width: 90%;
-  padding: 10px;
-  margin: 10px auto;
+  width: auto;
+  padding: 10px 20px;
+  margin: 10px;
   @include rounded(3px);
 }
 
