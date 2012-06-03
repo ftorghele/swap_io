@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120602103939) do
+ActiveRecord::Schema.define(:version => 20120603105540) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -194,6 +194,12 @@ ActiveRecord::Schema.define(:version => 20120602103939) do
 
   add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"
 
+  create_table "user_keys", :force => true do |t|
+    t.string   "key"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "user_ratings", :force => true do |t|
     t.integer  "user_id",      :null => false
     t.integer  "evaluator_id", :null => false
@@ -241,6 +247,7 @@ ActiveRecord::Schema.define(:version => 20120602103939) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "user_key"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+
+  before_filter :authenticate_user!, :except => [:landingpage, :create, :unsubscribe]
+
   def contact_us
     unless params[:email_field].blank? || params[:subject].blank? || params[:body].blank?
       if SystemMailer.contact_us(params[:email_field], params[:subject], params[:body]).deliver

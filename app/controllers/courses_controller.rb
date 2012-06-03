@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   require 'json'
 
-  before_filter :authenticate_user! , :only => [:new, :create, :destroy]
+  before_filter :authenticate_user! #  , :only => [:new, :create, :destroy]
   before_filter :get_course, :only => [:show, :edit, :update, :destroy]
   before_filter :check_user, :only => [:edit, :update, :destroy]
 

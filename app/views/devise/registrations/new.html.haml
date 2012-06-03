@@ -27,6 +27,11 @@
       = f.label :password
       = f.password_field :password, :validate => false
 
+    %div
+      = f.label :user_key
+      .user_key
+        = f.text_field :user_key
+
     %button.form-submit.form-nextstep.right
       Weiter
       %span

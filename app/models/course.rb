@@ -10,7 +10,8 @@ class Course < ActiveRecord::Base
 
   has_attached_file :image,
                     :styles => { :thumb => "46x46#", :xsmall => "100x100#", :small => "220x220#", :medium => "300x300#", :big => "800x800>" },
-                    :processors => [:cropper]
+                    :processors => [:cropper],
+                    :default_url => "/assets/begegnungen/:style.png"
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :reprocess_image, :if => :cropping?

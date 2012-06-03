@@ -98,6 +98,7 @@ namespace :deploy do
       ln -sf #{shared_path}/secret_token.rb #{latest_release}/config/initializers/secret_token.rb &&
       ln -sf #{shared_path}/airbrake.rb #{latest_release}/config/initializers/airbrake.rb &&
       ln -sf #{shared_path}/production.rb #{latest_release}/config/environments/production.rb &&
+      ln -sf #{shared_path}/pusher.rb #{latest_release}/config/initializers/pusher.rb &&
       ln -sf #{shared_path}/unicorn.rb #{latest_release}/config/unicorn.rb
     CMD
 
