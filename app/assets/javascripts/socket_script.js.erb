@@ -1,0 +1,13 @@
+var appendMessage = function(counter){
+  $('#nav-dashboard-indicator').text(counter)
+  if(counter>0){
+    $('.nav-dashboard-indicator').toggleClass('nav-dashboard-indicator-new')
+    $('.nav-dashboard-indicator-new').toggleClass('nav-dashboard-indicator')
+  }
+}
+var pusher = new Pusher('fd63e5602fa0cd887a25');
+var channel = pusher.subscribe(user_id);
+channel.bind('counter', function(data) {
+  appendMessage(data.message);
+});
+

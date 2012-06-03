@@ -106,6 +106,7 @@ class User < ActiveRecord::Base
   end
 
   def mailboxer_email(object)
+    self.push_message
     email
   end
 
@@ -115,6 +116,14 @@ class User < ActiveRecord::Base
 
   def get_notification_count
     get_unread_message_count
+  end
+
+  def push_message
+    begin
+      Pusher["#{self.id}"].trigger('counter', {:message => self.get_notification_count.to_s})
+    rescue Pusher::Error => e
+      #TODO handle Pusher Error
+    end
   end
 
   private

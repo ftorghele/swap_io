@@ -6,9 +6,12 @@
     %ul#navi-user
       - if user_signed_in?
         %li
+          =javascript_include_tag "http://js.pusher.com/1.11/pusher.min.js"
+          :javascript
+            var user_id = "#{current_user.id}"
+          =javascript_include_tag "socket_script"
           = link_to I18n.t('app.overview_link'), my_courses_path, :id => 'nav-dashboard', :class => action?("my_courses","my_course_requests") || controller?("user_conversations") ? :active : :inactive
-          - notification_count = current_user.get_notification_count
-          = link_to notification_count.to_s, user_conversations_path, :id => 'nav-dashboard-indicator', :class => notification_count > 0 ? 'nav-dashboard-indicator-new' : ''
+          = get_notifications current_user
         %li
           = link_to I18n.t('app.welcome', :name => truncate(current_user.first_name, :length => 16, :omission => '..')), user_path(current_user), :id => 'nav-hellouser', :class => (!@user.nil? && @user == current_user && action?("show")) ? :active : :inactive
           = link_to image_tag(userpic(current_user, :thumb), :class => 'avatar-mini', :size => '45x45'), user_path(current_user), :id => 'nav-profile-avatar'
