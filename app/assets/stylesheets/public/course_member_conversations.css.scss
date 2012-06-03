@@ -1,0 +1,38 @@
+// Place all the styles related to the CourseMemberConversations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "wissenteilen.css.scss";
+
+section.detail {
+  article.main {
+    section.course-member-main {
+      article.course-member-message {
+        .header {
+          background-color:#ffffff;
+          @include rounded-comb(0, 4px, 4px, 4px);
+          @include shadow(rgba(0,0,0, 0.1),0px,1px,2px,0px);
+          min-height: 46px;
+          padding: 5px;
+          img {
+            float: left;
+          }
+          .message-head {
+            margin: 6px 0 0 55px;
+            line-height: 20px;
+            h2 {
+              margin: 0px!important;
+              font-weight: 400;
+              text-transform: none;
+            }
+          }
+        }
+        .message-body {
+          margin: 5px 0 0 55px;
+        }
+
+      }
+    }
+
+  }
+}

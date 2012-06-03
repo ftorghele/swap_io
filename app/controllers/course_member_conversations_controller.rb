@@ -6,18 +6,6 @@ class CourseMemberConversationsController < ApplicationController
 
   def create
     create_or_reply
-  end
-
-  def reply
-    create_or_reply
-  end
-
-  private
-
-  def create_or_reply
-    @cmc = @course_member.course_member_conversations.new(params[:course_member_conversation])
-    @cmc.user_id = current_user.id
-
     if @cmc.valid?
       @cmc.save!
       flash[:info] = I18n.t('course_member.create.success')
@@ -26,6 +14,25 @@ class CourseMemberConversationsController < ApplicationController
       flash[:error] = I18n.t('course_member.create.fail')
       render "course_members/new_request"
     end
+  end
+
+  def reply
+    create_or_reply
+    if @cmc.valid?
+      @cmc.save!
+      flash[:info] = I18n.t('course_member_conversation.reply.success')
+      redirect_to course_member_path(@course_member)
+    else
+      flash[:error] = I18n.t('course_member_conversation.reply.fail')
+      render "course_members/new_request"
+    end
+  end
+
+  private
+
+  def create_or_reply
+    @cmc = @course_member.course_member_conversations.new(params[:course_member_conversation])
+    @cmc.user_id = current_user.id
   end
 
   def get_course

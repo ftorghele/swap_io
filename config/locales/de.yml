@@ -139,6 +139,11 @@ de:
       success: Die Anfrage wurde erfolgreich gelöscht
       fail: Beim Löschen der Anfrage ist ein Fehler aufgetreten
 
+  course_member_conversation:
+    reply:
+      success: Deine Antwort wurde gespeichert
+      fail: Bei Deiner Antwort ist es zu einem Fehler gekommen
+
   mailboxer:
     message_mailer:
       subject_new: "Neue Nachricht auf wissenteilen.com: %{subject}"
@@ -227,6 +232,9 @@ de:
       user_conversations:
         subject: Betreff*
         body: Nachricht*
+
+      course_member_conversations:
+        body: Deine Nachricht*
 
   mailer:
     unsubscribe_alternative_link: "Wenn der oben angeführte Link nicht funktioniert, rufe die folgende Adresse in deinem Browser auf"
