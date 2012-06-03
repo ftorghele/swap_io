@@ -22,7 +22,9 @@ class User < ActiveRecord::Base
   validates_presence_of :city
 
   validates_presence_of :user_key
-  validates_inclusion_of :user_key, :in => UserKey.all.nil? ? [] : UserKey.all.map{|i| i.key},  :message => "Wenn Sie noch keinen Code besitzen, fordern Sie bitte einen via info@wissenteilen.com an!"
+  if ActiveRecord::Base.connection.tables.include?("user_keys")
+    validates_inclusion_of :user_key, :in => UserKey.all.empty? ? [] : UserKey.all.map{|i| i.key},  :message => "Wenn Sie noch keinen Code besitzen, fordern Sie bitte einen via info@wissenteilen.com an!"
+  end
 
   validates :zip, :numericality => { :only_integer => true }
 
