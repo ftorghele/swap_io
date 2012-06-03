@@ -1,6 +1,6 @@
 Swap::Application.routes.draw do
 
-  scope :beta, :as => :beta, :constraints => { :subdomain => "beta" } do
+  scope :constraints => { :subdomain => "beta" } do
 
     ActiveAdmin.routes(self)
     devise_for :admin_users, ActiveAdmin::Devise.config
@@ -85,7 +85,7 @@ Swap::Application.routes.draw do
     root :to => 'pages#welcome'
   end
 
-  scope :www, :as => :www, :constraints => { :subdomain => ["", "www"] } do
+  scope :constraints => { :subdomain => ["", "www"] } do
     localized(I18n.available_locales) do
 
       resources :newsletter_subscribers do
