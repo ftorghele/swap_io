@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
   end
 
   def get_courses
-    self.courses
+    self.courses.unscoped.all
   end
 
   def get_enquired_courses

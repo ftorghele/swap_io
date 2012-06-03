@@ -2,7 +2,7 @@ class Course < ActiveRecord::Base
   include CategorySearch
   include PaperclipProcessors::SharedMethods
 
-  default_scope :order => "#{table_name}.date ASC"
+  default_scope :order => "#{table_name}.date ASC", :conditions => ["courses.date >= ?", Time.now]
 
   belongs_to :user
   has_and_belongs_to_many :categories
