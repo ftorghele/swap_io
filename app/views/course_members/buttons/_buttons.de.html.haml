@@ -1,0 +1,19 @@
+%div
+  %div.right
+    = form_for course_member, :method => :put do |f|
+      %div
+        =hidden_field_tag :acceptance, 0
+        %button.form-button-petrol.right
+          = "Ablehnen"
+          %span
+    .clr
+  %div
+    = form_for course_member, :method => :put do |f|
+      %div
+        =hidden_field_tag :acceptance, 1
+        %button.form-submit.right
+          = "Annehmen"
+          %span
+    .clr
+
+
