@@ -30,7 +30,7 @@
         = @course.city unless @course.city.nil?
       %li.people
         %span
-        = "für #{@course.places_available} Personen" unless @course.places_available.nil?
+        = "für #{@course.places} Personen" unless @course.places.nil?
     .clr
     %br
     .begegnung-host.small

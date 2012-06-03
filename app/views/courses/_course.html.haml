@@ -14,7 +14,7 @@
     %br
     = "in #{truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?}"
     %br
-    = "#{course.places_available unless course.places_available.nil?} freie Plätze"
+    = "#{course.places unless course.places.nil?} freie Plätze"
   %p.begegnung-text
     = truncate(course.description, :length => 125, :omission => '..')
     %br
