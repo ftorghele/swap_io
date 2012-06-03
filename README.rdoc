@@ -1,0 +1,7 @@
+Add the following lines to your /etc/hosts file
+and open the project over the subdomain beta.wtk.com:3000
+
+127.0.0.1	wtk.com
+127.0.0.1	www.wtk.com
+127.0.0.1	beta.wtk.com
+
