@@ -1,0 +1,10 @@
+-unless member.user.nil?
+  %p.begegnung-infos
+    = link_to image_tag(userpic(member.user, :thumb), :alt => username(member.user), :size => '46x46'), user_path(member.user)
+    = link_to truncate(username(member.user), :length => 18, :omission => '..'), user_path(member.user)
+    %br
+    = "0 neue Nachrichten"
+    %br
+    = link_to "zur Anfrage", "#{manage_course_path(member.course.id)}/#{member.id}/"
+  .clr
+

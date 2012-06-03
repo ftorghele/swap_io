@@ -2,13 +2,13 @@ class CourseMembersController < ApplicationController
 
   before_filter :authenticate_user!
   before_filter :get_course, :only => [:new_request, :create]
+  before_filter :get_course_member, :only => [:show]
 
   def new_request
     @course_member_conversation = CourseMemberConversation.new
   end
 
   def show
-    @course_member = CourseMember.find_by_id(params[:id])
     @course_member_conversation = CourseMemberConversation.new
   end
 
@@ -38,6 +38,14 @@ class CourseMembersController < ApplicationController
     unless @course = Course.find_by_id(params[:course_id])
       puts @course.inspect
       flash[:error] = I18n.t('msg.not_found')
+      redirect_to courses_path and return
+    end
+  end
+
+  def get_course_member
+    @course_member = CourseMember.find_by_id(params[:id])
+    unless @course_member.user == current_user
+      flash[:error] = I18n.t('msg.not_allowed')
       redirect_to courses_path and return
     end
   end

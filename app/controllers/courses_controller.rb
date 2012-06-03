@@ -2,8 +2,9 @@ class CoursesController < ApplicationController
   require 'json'
 
   before_filter :authenticate_user! #  , :only => [:new, :create, :destroy]
-  before_filter :get_course, :only => [:show, :edit, :update, :destroy]
-  before_filter :check_user, :only => [:edit, :update, :destroy]
+  before_filter :get_course, :only => [:show, :edit, :update, :destroy, :manage]
+  before_filter :check_user, :only => [:edit, :update, :destroy, :manage]
+  before_filter :get_course_member, :only => [:manage]
 
   def index
     if signed_in?
@@ -40,6 +41,10 @@ class CoursesController < ApplicationController
   end
 
   def edit
+  end
+
+  def manage
+    @course_member_conversation = CourseMemberConversation.new
   end
 
   def create
@@ -98,6 +103,16 @@ class CoursesController < ApplicationController
     unless @course.user == current_user
       flash[:error] = I18n.t('msg.not_allowed')
       redirect_to courses_path and return
+    end
+  end
+
+  def get_course_member
+    unless params[:course_member_id].nil?
+      @course_member = CourseMember.find_by_id(params[:course_member_id])
+      unless @course.course_members.include?(@course_member)
+        flash[:error] = I18n.t('msg.not_allowed')
+        redirect_to courses_path and return
+      end
     end
   end
 

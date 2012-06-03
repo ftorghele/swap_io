@@ -70,7 +70,8 @@ section.detail {
   section.user-sidebar {
     float: left;
     article.user-box,
-    article.tips-box{
+    article.tips-box,
+    article.sidebar-box{
       @extend .side;
       width:200px;
 
@@ -108,7 +109,7 @@ section.detail {
           }
         }
       }
-      h3 a{
+      h3, h3 a{
         padding:0 10px;
         display:inline-block;
         background:$second-color;
@@ -131,9 +132,23 @@ section.detail {
         }
       }
     }
-    article.tips-box{
-      h3 a {
+    article.tips-box,
+    article.sidebar-box{
+      h3, h3 a {
         margin-left: -17px;
+      }
+    }
+    p.begegnung-infos{
+
+      font-family: 'Open Sans', sans-serif;
+      font-size:12px;
+      line-height:16px;
+      color:#2f2f2e;
+      margin-bottom:12px;
+
+      img{
+        float:left;
+        margin-right:10px;
       }
     }
   }

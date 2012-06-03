@@ -55,6 +55,10 @@
             Begegnung ändern
             %span
           %br
+          %a{:href => url_for(manage_course_path(@course)), :class => 'form-submit form-nextstep'}
+            Verwalten
+            %span
+          %br
           =link_to "Begegnung absagen", course_path(@course), :method => :delete,:class => 'form-button-petrol form-nextstep', :confirm => "Wollen Sie den Kurs wirklich absagen?"
         - else
           -if @course_member = CourseMember.find_by_course_id_and_user_id(@course.id, current_user.id)

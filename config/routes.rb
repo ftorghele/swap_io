@@ -32,6 +32,10 @@ Swap::Application.routes.draw do
         collection do
           post :new_with_request
         end
+        member do
+          get :manage
+          match 'manage/:course_member_id', :action => :manage
+        end
       end
 
       resources :course_requests do
@@ -65,6 +69,7 @@ Swap::Application.routes.draw do
       resources :course_member_conversations do
         collection do
           post :reply
+          post :host_reply
         end
       end
 

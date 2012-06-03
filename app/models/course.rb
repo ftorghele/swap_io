@@ -65,6 +65,18 @@ class Course < ActiveRecord::Base
     self.course_members.all
   end
 
+  def get_accepted_course_members
+    self.course_members.find_all_by_accepted(1)
+  end
+
+  def get_refused_course_members
+    self.course_members.find_all_by_accepted(0)
+  end
+
+  def get_open_course_members
+    self.course_members.find_all_by_accepted(2)
+  end
+
   def initialize_places_available
     self.places_available = self.places
   end

@@ -1,0 +1,13 @@
+%section.detail
+  = render :partial => '/courses/manage/sidebar', :locals => { :course => @course }
+  %article.main
+    %h1 Begegnung Verwalten
+
+    %section.course-member-main
+      -unless @course_member.nil?
+        = render(:partial => '/course_member_conversations/course_member_message', :collection => @course_member.course_member_conversations) || "keine"
+        %br
+        %h2 Neue Antwort:
+        = render :partial => '/course_member_conversations/form', :locals => { :cmc => @course_member_conversation, :course => @course_member.course, :form_path => :host_reply_course_member_conversations, :button_text => "Antworten"}
+      -else
+        %h2 Wähle bitte einen der bisherigen Anfragen um diese zu verwalten!
