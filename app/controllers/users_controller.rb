@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate_user! , :only => [:edit, :update, :settings, :my_courses, :my_course_requests, :my_conversations]
+  before_filter :authenticate_user! #, :only => [:edit, :update, :settings, :my_courses, :my_course_requests, :my_conversations]
   before_filter :get_user, :only => [:edit, :update, :settings, :my_courses, :my_course_requests, :my_conversations]
 
   def my_courses

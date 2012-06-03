@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :instantiate_controller_and_action_names
 
-  if Rails.env.production?
-    http_basic_authenticate_with :name => "wtk", :password => "wtf", :except => [:landingpage, :overview, :create, :unsubscribe]
-  end
-
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: :render_500
     rescue_from ActionController::RoutingError, with: :render_404
