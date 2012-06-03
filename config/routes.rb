@@ -81,7 +81,6 @@ Swap::Application.routes.draw do
       get 'welcome',  :to => 'pages#welcome'
       get 'my_courses', :to => 'users#my_courses'
       get 'my_course_requests', :to => 'users#my_course_requests'
-      get 'my_conversations', :to => 'users#my_conversations'
 
       get 'help',     :to => 'pages#help'
       get 'tips',     :to => 'pages#tips'

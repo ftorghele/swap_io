@@ -41,9 +41,7 @@ de:
     my_courses:
       as: uebersicht-begegnungen
     my_course_requests:
-      as: uebersicht-Begegnungswuensche
-    my_conversations:
-      as: uebersicht-nachrichten
+      as: uebersicht-begegnungswuensche
     landingpage:
       as: willkommen
     help:
