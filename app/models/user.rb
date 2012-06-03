@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :user_key
   if ActiveRecord::Base.connection.tables.include?("user_keys")
-    validates_inclusion_of :user_key, :in => UserKey.all.empty? ? [] : UserKey.all.map{|i| i.key},  :message => "Wenn Sie noch keinen Code besitzen, fordern Sie bitte einen via info@wissenteilen.com an!"
+    validates_inclusion_of :user_key, :in => UserKey.all.empty? ? [] : UserKey.all.map{|i| i.key.to_s},  :message => "Wenn Sie noch keinen Code besitzen, fordern Sie bitte einen via info@wissenteilen.com an!"
   end
 
   validates :zip, :numericality => { :only_integer => true }
@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
   end
 
   def get_courses
-    self.courses.unscoped.all
+    self.courses.where("date > #{Time.now.to_date}")
   end
 
   def get_enquired_courses
