@@ -4,6 +4,29 @@
 
 @import "wissenteilen.css.scss";
 
+.acceptance-button{
+  display: inline-block;
+  width:36px;
+  height:36px;
+  margin-right:3px;
+  margin-left:-10px;
+  @include rounded-comb(0, 4px, 4px, 0);
+}
+.acceptance-txt{
+  margin-top: 6px;
+}
+
+#acceptance-pending{
+  background: #cccccc image-url('layout-icon-24x24-warten.png') no-repeat  6px 6px;
+}
+
+#acceptance-true{
+  background: #469529 image-url('layout-icon-24x24-angenommen.png') no-repeat 6px 6px;
+}
+
+#acceptance-false{
+  background: #c03933 image-url('layout-icon-24x24-abgelehnt.png') no-repeat 6px 6px;
+}
 section.detail {
   article.main {
     section.course-member-main {
