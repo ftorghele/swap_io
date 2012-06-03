@@ -5,13 +5,13 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :remember_me,
                   :first_name, :last_name, :zip, :confirmed_at, :user_images_attributes,
-                  :description, :skills, :job, :motivation, :birthday,
+                  :description, :skills, :job, :motivation, :birthday, :user_key,
                   :country, :city, :fb_user, :image, :crop_x, :crop_y, :crop_w, :crop_h
 
   validates_presence_of :first_name
@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
   validates_presence_of :zip
   validates_presence_of :country
   validates_presence_of :city
+
+  validates_presence_of :user_key
+  validates_inclusion_of :user_key, :in => UserKey.all.map{|i| i.key},  :message => "Wenn Sie noch keinen Code besitzen, fordern Sie bitte einen via info@wissenteilen.com an!"
+
   validates :zip, :numericality => { :only_integer => true }
 
   has_many :courses, :dependent => :destroy

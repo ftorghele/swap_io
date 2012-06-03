@@ -203,6 +203,7 @@ de:
         user_images:
           image: neues Profilbild
           _destroy: Profilbild entfernen
+        user_key: Ihr persönlicher Beta Code*
       course:
         title: Titel der Begegnung*
         categories: Kategorien (max. 3)*
@@ -293,6 +294,8 @@ de:
       signed_up_but_locked: "Dieser Account wurde leider gesperrt"
       updated: "Danke, dass Du Deine Daten aktuell hältst."
       destroyed: "Schade, Du hast Dein Nutzerkonto gelöscht. Mach's gut und vielleicht bis bald."
+      user:
+        signed_up: Du hast dich erfolgreich auf Wissen • Teilen • Können registriert!
     unlocks:
       send_instructions: "Eine E-Mail mit Freischalt-Infos ist zu Dir unterwegs."
       unlocked: "Du hast Dein Nutzerkonto soeben freigeschaltet. Du bist nun angemeldet."

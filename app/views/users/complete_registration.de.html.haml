@@ -11,11 +11,18 @@
     = f.hidden_field :fb_user
 
     %div
-      = f.label :country
-      = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]])
-    %div
-      = f.label :zip
-      = f.text_field :zip
+      = f.label :location
+      .location
+        = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]])
+        PLZ:
+        = f.text_field :zip
 
-    = link_to 'Registrierung abbrechen', root_path, :class => 'btn'
-    = f.submit 'Weiter', :class => 'btn'
+    %div
+      = f.label :user_key
+      .user_key
+        = f.text_field :user_key, :style => 'width: 160px;'
+
+    .clr
+    %button.form-submit.form-nextstep.right
+      Registrierung abschließen
+      %span
