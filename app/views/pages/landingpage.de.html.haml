@@ -1,8 +1,15 @@
+#betanav
+  %nav
+    %ul#navi
+      %li= link_to "Anmelden", "http://beta.wissenteilen.com/users/sign_in", :class => :inactive
+      %li= link_to "Registieren", "http://beta.wissenteilen.com/users/sign_up", :class => :inactive
+      %li Beta:
+
 #header
   #header_content
     #hallo
     #hallo_content
-      Bald geht's los
+      Beta jetzt online
 
     #hand_wrapper
       #hand
@@ -37,6 +44,8 @@
 
   %p Auf Wissen • Teilen • Können treffen Fähigkeiten und Erfahrung auf Neugier und Wissenshunger. Hier findest du Menschen mit denen du deine Talente teilen und von den du selber lernen kannst!
 
+  %iframe{:src => "http://player.vimeo.com/video/43348184", :width => "600", :height => "337", :frameborder => "0"}
+
   %p Begegne deiner Stadt und ihren Bewohnern, lerne deine Nachbarn kennen und entdecke die verborgenen Fähigkeiten deiner Mitmenschen. Jeder ist aufgerufen mitzumachen.
 
   .spacer
@@ -51,7 +60,7 @@
         #email_field
           = f.email_field :email, :placeholder=> I18n.t('pages.landingpage.newsletter_sign_up_placeholder')
         #email_button
-          = submit_tag I18n.t('pages.landingpage.newsletter_sign_up_button'), :class => "wtkbtn_green"
+          = submit_tag "Newsletter", :class => "wtkbtn_green"
 
 
 #footer
