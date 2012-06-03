@@ -1,10 +1,11 @@
-%article.overview-begegnung
-  = link_to image_tag(userpic(course_member_message.user, :thumb), :size => '46x46'), user_path(course_member_message.user)
-  .overview-begegnung-head
-    %h2= link_to username(course_member_message.user), user_path(course_member_message.user)
-    %p.small
-      = "am "
-      = I18n.localize(course_member_message.created_at, :format => :day)
-  .clr
-  .overview-begegnung-body
-    = course_member_message.body
+%article.course-member-message
+  .header
+    = link_to image_tag(userpic(course_member_message.user, :thumb), :size => '46x46'), user_path(course_member_message.user)
+    .message-head
+      %h2= link_to username(course_member_message.user), user_path(course_member_message.user)
+      %p.small
+        = "am "
+        = I18n.localize(course_member_message.created_at, :format => :day)
+    .clr
+  .message-body
+    = simple_format course_member_message.body

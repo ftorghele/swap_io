@@ -1,14 +1,17 @@
-= javascript_include_tag 'rails.validations'
-= form_for cmc, :url => form_path, :validate => true do |f|
+%article.course-member-message
+  .header
+    = javascript_include_tag 'rails.validations'
+    = form_for cmc, :url => form_path, :validate => true do |f|
 
-  %fieldset
-    %div
-      = f.label :body
-      .body
-        = f.text_area :body
-        = hidden_field_tag :course_id, course.id
-        = hidden_field_tag :course_member_id, @course_member.id unless @course_member.nil?
+      %fieldset
+        %div
+          = f.label :body, 'Deine Nachricht*', :class => :small
+          .body
+            = f.text_area :body, :style => 'width:90%;'
+            = hidden_field_tag :course_id, course.id
+            = hidden_field_tag :course_member_id, @course_member.id unless @course_member.nil?
+        .clr
+        %button.form-submit.form-nextstep.right
+          = button_text
+          %span
     .clr
-    %button.form-submit.form-nextstep.right
-      Anfrage senden
-      %span

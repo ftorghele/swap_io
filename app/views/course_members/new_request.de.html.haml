@@ -1,8 +1,18 @@
 %section.detail
   = render :partial => '/course_members/show/sidebar', :locals => { :course => @course }
   %article.main
-    %section.course-member-conversation
-      %h1 Begegnungsanfrage
+    %h1 Begegnungsanfrage
+    %section.overview
+      %section.overview-main
+        %article.overview-begegnung
 
-      = render :partial => '/course_member_conversations/form', :locals => { :cmc => @course_member_conversation, :course => @course, :form_path => :course_member_conversations}
+          %p
+            = "für "
+            = link_to @course.title, course_path(@course)
+          %p.small
+            = "von "
+            = link_to username(@course.user), user_path(@course.user)
+            = " am #{I18n.localize(@course.date, :format => :day) unless @course.date.nil?} in #{@course.city unless @course.city.nil?}"
 
+          = render :partial => '/course_member_conversations/form', :locals => { :cmc => @course_member_conversation, :course => @course, :form_path => :course_member_conversations, :button_text => "Anfrage senden"}
+        .clr
