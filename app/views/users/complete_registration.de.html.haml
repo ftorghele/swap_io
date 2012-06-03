@@ -9,6 +9,14 @@
     = f.hidden_field :email
     = f.hidden_field :password
     = f.hidden_field :fb_user
+    %div
+      = f.label :user_key
+      .user_key
+        = f.text_field :user_key, :style => 'width: 100%;'
+        %p.small
+          = "Wenn Du noch keinen Code besitzen, fordere bitte einfach einen über "
+          = mail_to 'info@wissenteilen.com', nil, :subject => "Ich will einen Beta Code"
+          = " an!"
 
     %div
       = f.label :location
@@ -16,11 +24,6 @@
         = f.select :country, options_for_select([["Österreich", "AT"], ["Deutschland", "DE"], ["Schweiz", "CH"]])
         PLZ:
         = f.text_field :zip
-
-    %div
-      = f.label :user_key
-      .user_key
-        = f.text_field :user_key, :style => 'width: 160px;'
 
     .clr
     %button.form-submit.form-nextstep.right

@@ -5,6 +5,15 @@
 
   %fieldset
     %div
+      = f.label :user_key
+      .user_key
+        = f.text_field :user_key
+        %p.small
+          = "Wenn Du noch keinen Code besitzen, fordere bitte einfach einen über "
+          = mail_to 'info@wissenteilen.com', nil, :subject => "Ich will einen Beta Code"
+          = " an!"
+
+    %div
       = f.label :first_name
       = f.text_field :first_name
 
@@ -27,10 +36,6 @@
       = f.label :password
       = f.password_field :password, :validate => false
 
-    %div
-      = f.label :user_key
-      .user_key
-        = f.text_field :user_key
 
     %button.form-submit.form-nextstep.right
       Weiter
