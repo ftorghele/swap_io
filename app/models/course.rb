@@ -54,7 +54,7 @@ class Course < ActiveRecord::Base
     course.destroy
   end
 
-  def self.course_member_request user, id
+  def self.course_member_request_mailer user, id
     course = self.find_by_id(id)
     user_link = "http://wissenteilen.com/#{I18n.t('routes.users.as')}/#{user.id}"
     course_link = "http://wissenteilen.com/#{I18n.t('routes.courses.as')}/#{course.id}"

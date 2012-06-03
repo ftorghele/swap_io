@@ -1,0 +1,2 @@
+module CourseMemberConversationsHelper
+end

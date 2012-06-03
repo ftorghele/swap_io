@@ -75,7 +75,7 @@ class CourseTest < ActiveSupport::TestCase
   #   course.categories << Factory.create(:category)
   #   course.save
   #   assert_difference "ActionMailer::Base.deliveries.count" do
-  #     email_delivery = Course.course_member_request(user, course.id)
+  #     email_delivery = Course.course_member_request_mailer(user, course.id)
   #     assert_equal ActionMailer::Base.deliveries.last, email_delivery
   #   end
   # end

@@ -3,6 +3,8 @@ class CourseMember < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
 
+  has_many :course_member_conversations
+
   attr_accessible :user_id, :course_id
 
   validates_presence_of :user_id, :course_id

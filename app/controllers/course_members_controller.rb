@@ -1,17 +1,15 @@
 class CourseMembersController < ApplicationController
 
   before_filter :authenticate_user!
+  before_filter :get_course, :only => [:new_request, :create]
 
-  def create
-    course_id = params[:course_id]
-    if CourseMember.create(:course_id => course_id, :user_id => current_user.id)
-      Course.course_member_request current_user, course_id
-      flash[:info] = I18n.t('course_member.create.success')
-      redirect_to courses_path
-    else
-      flash[:error] = I18n.t('course_member.create.fail')
-      redirect_to course_path(course_id)
-    end
+  def new_request
+    @course_member_conversation = CourseMemberConversation.new
+  end
+
+  def show
+    @course_member = CourseMember.find_by_id(params[:id])
+    @course_member_conversation = CourseMemberConversation.new
   end
 
   def update
@@ -32,5 +30,15 @@ class CourseMembersController < ApplicationController
       flash[:error] = "Bei der Absage der Begegnungsanfrage ist ein Fehler aufgetreten"
     end
     redirect_to course_path(course_member.course)
+  end
+
+  private
+
+  def get_course
+    unless @course = Course.find_by_id(params[:course_id])
+      puts @course.inspect
+      flash[:error] = I18n.t('msg.not_found')
+      redirect_to courses_path and return
+    end
   end
 end

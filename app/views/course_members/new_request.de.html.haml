@@ -1,0 +1,8 @@
+%section.detail
+  = render :partial => '/course_members/show/sidebar', :locals => { :course => @course }
+  %article.main
+    %section.course-member-conversation
+      %h1 Begegnungsanfrage
+
+      = render :partial => '/course_member_conversations/form', :locals => { :cmc => @course_member_conversation, :course => @course, :form_path => :course_member_conversations}
+

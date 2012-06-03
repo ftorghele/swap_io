@@ -31,7 +31,8 @@ class User < ActiveRecord::Base
   has_many :courses, :dependent => :destroy
   has_many :course_members, :through => :courses
   has_many :category_abonnements
-  has_many :user_ratings, :dependent => :delete_all
+  has_many :user_ratings, :dependent => :destroy
+  has_many :course_member_conversations, :dependent => :destroy
 
   has_and_belongs_to_many :course_requests, :uniq => true
 

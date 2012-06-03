@@ -1,0 +1,12 @@
+%section.detail
+  = render :partial => '/course_members/show/sidebar', :locals => { :course => @course_member.course }
+  %article.main
+    %h1 Deine Anfrage
+    %section.overview
+      %section.overview-main
+
+
+        = render(:partial => '/course_member_conversations/course_member_message', :collection => @course_member.course_member_conversations) || "keine"
+
+        = render :partial => '/course_member_conversations/form', :locals => { :cmc => @course_member_conversation, :course => @course_member.course, :form_path => :reply_course_member_conversations }
+

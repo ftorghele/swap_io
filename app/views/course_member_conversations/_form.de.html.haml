@@ -1,0 +1,14 @@
+= javascript_include_tag 'rails.validations'
+= form_for cmc, :url => form_path, :validate => true do |f|
+
+  %fieldset
+    %div
+      = f.label :body
+      .body
+        = f.text_area :body
+        = hidden_field_tag :course_id, course.id
+        = hidden_field_tag :course_member_id, @course_member.id unless @course_member.nil?
+    .clr
+    %button.form-submit.form-nextstep.right
+      Anfrage senden
+      %span

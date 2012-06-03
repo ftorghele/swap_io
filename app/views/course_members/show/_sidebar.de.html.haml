@@ -1,0 +1,19 @@
+%section.user-sidebar
+  %article.user-box
+    %figure.user-pic
+      = image_tag coursepic(course, :medium), :alt => course.title, :size => '220x220'
+      %h3= link_to course.title, course_path(course)
+    .clr
+
+    %h2 Begegnungen
+    %ul
+      %li= link_to "Erstelle eine neue Begegnung", new_course_path
+      %li= link_to "Erstelle einen neuen Wunsch", new_course_request_path
+
+  .clr
+    - unless @course_member.nil?
+      %article.tips-box
+        %h3 Status deiner Anfrage
+        = @course_member.accepted
+
+

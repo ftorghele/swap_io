@@ -54,7 +54,20 @@ Swap::Application.routes.draw do
       end
 
       resources :newsletters
-      resources :course_members
+
+      resources :course_members do
+        collection do
+          post :new_request
+          get :new_request
+        end
+      end
+
+      resources :course_member_conversations do
+        collection do
+          post :reply
+        end
+      end
+
       resources :categories
 
       resource :mails
