@@ -5,10 +5,10 @@
       = render :partial => '/users/shared/overview_header'
       %section.overview-main
         %h3 Eigene Begegnungen
-        = render(:partial => 'users/overview/course', :collection => @user.get_courses) || "keine"
+        = render(:partial => 'users/overview/course', :collection => @user.get_courses, :locals => { :manage_path => 'course' }) || "keine"
 
         %h3 Andere Begegnungen
-        = render(:partial => 'users/overview/course', :collection => @user.get_enquired_courses) || "keine"
+        = render(:partial => 'users/overview/course', :collection => @user.get_enquired_courses, :locals => { :manage_path => 'course_member' }) || "keine"
 
         %br
         %a.form-button-petrol.form-nextstep{:href => url_for(new_course_path), :style => 'width: 300px; margin: 0 auto;'}

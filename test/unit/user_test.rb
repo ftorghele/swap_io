@@ -178,7 +178,7 @@ class UserTest < ActiveSupport::TestCase
     course2.save!
     Factory.create(:course_member, :user_id => user.id, :course_id => course1.id, :accepted => 1)
     Factory.create(:course_member, :user_id => user.id, :course_id => course2.id, :accepted => 1)
-    assert_equal 2, user.get_accepted_course_memberships.count
+    assert_equal 2, user.get_course_memberships.count
   end
 
   should 'delete all dependent resources' do

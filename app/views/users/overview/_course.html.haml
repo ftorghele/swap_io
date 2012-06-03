@@ -1,6 +1,15 @@
 %article.overview-begegnung
   = link_to image_tag(coursepic(course, :thumb), :size => '46x46'), course_path(course)
   .overview-begegnung-head
+    - if manage_path == 'course'
+      %p.small.right= link_to "Verwalten", manage_course_path(course)
+    - else
+      - if course_member = CourseMember.find_by_course_id_and_user_id(course, current_user)
+        %p.small.right= link_to "Verwalten", course_member_path(course_member.id)
+        -@course_member = course_member
+        %p.small.right= raw course_member_acceptance
+
+
     %h2= link_to course.title, course_path(course)
     %p.small= "am #{I18n.localize(course.date, :format => :day) unless course.date.nil?} in #{course.city unless course.city.nil?}"
   .clr

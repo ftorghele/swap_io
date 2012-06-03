@@ -238,6 +238,9 @@ section.detail {
 
         }
       }
+      .acceptance-txt {
+        display: none;
+      }
       .user-conversation-message-read,
       .user-conversation-message-unread {
         border-bottom: 1px solid #CCC;

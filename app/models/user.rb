@@ -90,15 +90,15 @@ class User < ActiveRecord::Base
   end
 
   def get_enquired_courses
-    get_accepted_course_memberships.map{|i| i.course}
+    get_course_memberships.map{|i| i.course}
   end
 
   def get_course_requests
     self.course_requests
   end
 
-  def get_accepted_course_memberships
-    CourseMember.find_all_by_user_id_and_accepted(self.id, 1)
+  def get_course_memberships
+    CourseMember.find_all_by_user_id(self.id)
   end
 
   def toggle_category_abonnements category
