@@ -579,6 +579,58 @@ section.begegnungssearch{
   }
 }
 
+/* Login Section */
+
+section.login{
+  width:420px;
+  float:left;
+  margin:40px 230px 0;
+  padding: 20px 40px;
+  background:#ffffff;
+  @include rounded(4px);
+  @include shadow(rgba(0,0,0, 0.05),1px,1px,6px,0px);
+  
+  &+section.login{
+    margin-top:20px;
+  }
+  h4.balken{
+    margin-top:-51px;
+    margin-bottom:30px;
+  }
+  
+  fieldset{
+    padding:0px;
+    
+    div{
+      label{
+        width:220px;
+        display:none;
+      }
+      input,textarea{
+        width:378px;
+      }
+      
+      &#user_remember_me{
+        label{
+          display:block !important;
+          font-size:12px;
+          line-height:15px;
+        }
+      }
+    }
+    button.form-nextstep{
+      margin-top:10px;
+      width:215px;
+      
+    }
+  }
+  a.facebook-login{
+    margin:0 auto;
+  }
+  
+  
+}
+
 /* Begegnungen gefunden */
 
 section.begegnungen, section.begegnungswuensche{
