@@ -77,6 +77,6 @@ class Course < ActiveRecord::Base
   private
 
   def date_check
-    self.errors.add(:date, "Datum ist bereits vorbei") unless ((Time.now)..(20.years.from_now)).include?(self.date)
+    self.errors.add(:date, "Datum ist bereits vorbei") unless self.date.future?
   end
 end
