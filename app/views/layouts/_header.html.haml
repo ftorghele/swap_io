@@ -1,3 +1,4 @@
+
 %header
   %nav
     %ul#navi
@@ -14,7 +15,7 @@
           = get_notifications current_user
         %li
           = link_to I18n.t('app.welcome', :name => truncate(current_user.first_name, :length => 16, :omission => '..')), user_path(current_user), :id => 'nav-hellouser', :class => (!@user.nil? && @user == current_user && action?("show")) ? :active : :inactive
-          = link_to image_tag(userpic(current_user, :thumb), :class => 'avatar-mini', :size => '45x45'), user_path(current_user), :id => 'nav-profile-avatar'
+          = link_to image_tag(userpic(current_user, :thumb), :class => 'avatar-mini', :size => '46x46'), user_path(current_user), :id => 'nav-profile-avatar'
           = link_to 'Menü öffnen', '#', :id => 'nav-profile-dropdown'
           %ul#nav-select2
             %li= link_to 'Übersicht', welcome_path, :id => 'nav-select2-dashboard'

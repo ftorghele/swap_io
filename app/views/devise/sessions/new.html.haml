@@ -7,16 +7,17 @@
     %fieldset
       %div
         = f.label :email
-        = f.email_field :email
+        = f.email_field :email, :placeholder => "Email-Adresse"
   
       %div
         = f.label :password
-        = f.password_field :password
+        = f.password_field :password, :placeholder => "Password"
   
       - if devise_mapping.rememberable?
         %div{:id => 'remember_me'}
-          = f.label :remember_me 
           = f.check_box :remember_me
+          = f.label :remember_me, :id => 'remember_label'
+
   
       %button.form-submit.form-nextstep.right
         = I18n.t('devise.sessions.submit')

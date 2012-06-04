@@ -156,7 +156,7 @@ p{
 
 header{
   width:100%;
-  height:49px;
+  height:50px;
   border-bottom:1px solid #ffffff;
   background: image-url('layout-headerbar.png') repeat center 0;
   margin:0 0 120px 0;
@@ -208,7 +208,7 @@ header{
         ul{
           position:absolute;
           z-index:99;
-          top:35px;
+          top:36px;
           right:0;
           width:180px;
           height: 156px;
@@ -611,12 +611,11 @@ section.login{
         width:378px;
       }
       
-      &#user_remember_me{
-        label{
-          display:block !important;
-          font-size:12px;
-          line-height:15px;
-        }
+      #remember_label{
+        display:block!important;
+        font-size:12px;
+        line-height:15px;
+        margin: -18px 0 0 30px;
       }
     }
     button.form-nextstep{

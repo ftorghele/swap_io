@@ -42,15 +42,18 @@
       = content_tag :div, msg, :class => "alert alert-#{name}" if msg.is_a?(String)
   %h1 Lust auf spannende Begegnungen?
 
-  %p Auf Wissen • Teilen • Können treffen Fähigkeiten und Erfahrung auf Neugier und Wissenshunger. Hier findest du Menschen mit denen du deine Talente teilen und von den du selber lernen kannst!
+  %p Werde Pionier, gestalte die ersten Begegnungen und Begegnungswünsche und lass Deiner Neugier freien Lauf. Durch Dich wird Wissen • Teilen • Können zum Leben erweckt!
 
   %iframe{:src => "http://player.vimeo.com/video/43348184", :width => "600", :height => "337", :frameborder => "0"}
 
-  %p Begegne deiner Stadt und ihren Bewohnern, lerne deine Nachbarn kennen und entdecke die verborgenen Fähigkeiten deiner Mitmenschen. Jeder ist aufgerufen mitzumachen.
+  %p Auf Wissen • Teilen • Können treffen Fähigkeiten und Erfahrung auf Neugier und Wissenshunger. Hier findest du Menschen mit denen du deine Talente teilen und von den du selber lernen kannst!
 
   .spacer
 
-  %p Wir geben dir bescheid, sobald es los geht!
+  %p
+    Fordere hier deinen persönlichen Zugangscode an.
+    %br
+    Du erhältst diesen innerhalb der nächsten Tage.
 
 
   #newsletter
@@ -60,7 +63,7 @@
         #email_field
           = f.email_field :email, :placeholder=> I18n.t('pages.landingpage.newsletter_sign_up_placeholder')
         #email_button
-          = submit_tag "Newsletter", :class => "wtkbtn_green"
+          = submit_tag "Code anfordern", :class => "wtkbtn_green"
 
 
 #footer
@@ -76,3 +79,5 @@
       Wir freuen uns über deine Feedback. Schreib uns doch eine Mail an
       = mail_to "info@wissenteilen.com"
       = "."
+  .clr
+  = render :partial => '/shared/social_media_like_buttons', :locals => { :special_url => nil}
