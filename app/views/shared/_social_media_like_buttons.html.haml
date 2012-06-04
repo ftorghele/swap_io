@@ -1,7 +1,7 @@
 .social-media-buttons
   #fb-root
   .g-plusone{ 'data-size' => 'small' }
-  .fb-like{ 'data-send' => 'true', 'data-layout' => 'button_count', 'data-width' => '180', 'data-show-faces' => 'false'}
+  .fb-like{ 'data-href' => special_url.nil? ? 'https://www.facebook.com/wissenteilen' : special_url, 'data-send' => 'true', 'data-layout' => 'button_count', 'data-width' => '180', 'data-show-faces' => 'false'}
 
   :javascript
     window.___gcfg = {lang: 'de'};
@@ -16,6 +16,6 @@
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1&appId=331125026931871";
+      js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1&appId=234910589931839";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));

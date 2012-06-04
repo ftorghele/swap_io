@@ -1,3 +1,4 @@
+
 Swap::Application.routes.draw do
 
   scope :constraints => { :subdomain => "beta" } do
