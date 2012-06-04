@@ -70,6 +70,8 @@
       -unless @course.image.nil?
         %strong Aktuelles Bild 
         = image_tag coursepic(@course, :thumb)
+      %p.small.form-info
+        Dein Bild sollte Mindestausmaße von 300x300 px besitzen und im Format JPG oder PNG sein.
 			
     = f.hidden_field :course_request_id, :value => @course.course_request_id
     .clr
