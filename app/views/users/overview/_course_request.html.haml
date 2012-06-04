@@ -1,9 +1,10 @@
-%article.overview-begegnung
-  .cat-icon{:class => "cat-#{course_request.categories.first.id unless course_request.categories.blank?}"}
-  .overview-begegnung-head
-    %h2= link_to course_request.title, course_request_path(course_request)
-    %p.small= truncate(course_request.description, :length => 200, :omission => '..')
-    %p.small.right= link_to 'Mehr erfahren ...', course_request_path(course_request)
-  .clr
-  .overview-begegnung-body
+- if course_request.is_a?(CourseRequest)
+  %article.overview-begegnung
+    .cat-icon{:class => "cat-#{course_request.categories.first.id unless course_request.categories.blank?}"}
+    .overview-begegnung-head
+      %h2= link_to course_request.title, course_request_path(course_request)
+      %p.small= truncate(course_request.description, :length => 200, :omission => '..')
+      %p.small.right= link_to 'Mehr erfahren ...', course_request_path(course_request)
+    .clr
+    .overview-begegnung-body
 
