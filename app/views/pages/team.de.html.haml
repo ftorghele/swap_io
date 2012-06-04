@@ -1,2 +1,73 @@
 #static-page
   %h1.balken Das Team
+  
+  %p.intro
+    Wissen • Teilen • Können ist eine Collaborative Consumption Plattform, welche im Jahr 2012 an der Fachhochschule Salzburg von MultiMediaArt- und MultiMediaTechnology-Studenten konzipiert und entwickelt wird.
+  
+  %section.column-4
+    - unless @user_1.nil?
+      = link_to image_tag('team/wolfgang.jpg'), user_path(@user_1)
+      
+    %h2 Wolfgang
+    %p.small
+      Wolfgang programmiert die Website. Er freut sich schon auf Begegnungen zu unterschiedlichen Programmiersprachen wie zB Node.js.
+    - unless @user_1.nil?
+    
+      .host-interaction
+        = link_to "Profil ansehen", user_path(@user_1), :class => 'button-profil'
+        
+        = form_tag(new_user_conversation_path, :method => :post) do
+          = hidden_field_tag :recipient_id, @user_1.id
+          %button.button-message
+            Nachricht senden
+            
+  %section.column-4
+    - unless @user_2.nil?
+      = link_to image_tag('team/lilli.jpg'), user_path(@user_2)
+      
+    %h2 Lilli
+    %p.small
+      Lilli hatte die Idee zu Wissen • Teilen • Können. Sie gestaltete das Einführungsvideo und lädt dich auf einen Spaziergang im Zeichen des bewussten Wahrnehmens ein. Augen auf!
+    - unless @user_2.nil?
+    
+      .host-interaction
+        = link_to "Profil ansehen", user_path(@user_2), :class => 'button-profil'
+        
+        = form_tag(new_user_conversation_path, :method => :post) do
+          = hidden_field_tag :recipient_id, @user_2.id
+          %button.button-message
+            Nachricht senden
+      
+  %section.column-4
+    - unless @user_3.nil?
+      = link_to image_tag('team/matthias.jpg'), user_path(@user_3)
+      
+    %h2 Matthias
+    %p.small
+      Matthias gestaltet das Corporate und Interface Design. Er plant bei einer Begegnung einen Ausflug in die Fotografie, bei der Blende, Belichtungszeit und ISO-Wert keine Fremdwörter mehr bleiben werden.
+    - unless @user_3.nil?
+    
+      .host-interaction
+        = link_to "Profil ansehen", user_path(@user_3), :class => 'button-profil'
+        
+        = form_tag(new_user_conversation_path, :method => :post) do
+          = hidden_field_tag :recipient_id, @user_3.id
+          %button.button-message
+            Nachricht senden
+      
+  %section.column-4
+    - unless @user_4.nil?
+      = link_to image_tag('team/franz.jpg'), user_path(@user_4)
+      
+    %h2 Franz
+    %p.small
+      Franz programmiert unsere Plattform. Er zeigt euch beim Snowboarden seine Lieblingsabfahrten um anschließend den Tag auf der Hütte gemütlich ausklingen zu lassen.
+    - unless @user_4.nil?
+    
+      .host-interaction
+        = link_to "Profil ansehen", user_path(@user_4), :class => 'button-profil'
+        
+        = form_tag(new_user_conversation_path, :method => :post) do
+          = hidden_field_tag :recipient_id, @user_4.id
+          %button.button-message
+            Nachricht senden

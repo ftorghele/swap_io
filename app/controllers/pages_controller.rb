@@ -17,6 +17,14 @@ class PagesController < ApplicationController
     @subscriber = NewsletterSubscriber.new
     render :layout => 'landingpage'
   end
+  
+  def team 
+    @user_1 = User.find_by_id(1)
+    @user_2 = User.find_by_id(7)
+    @user_3 = User.find_by_id(3)
+    @user_4 = User.find_by_id(2)
+    
+  end
 
   def welcome
     if signed_in?

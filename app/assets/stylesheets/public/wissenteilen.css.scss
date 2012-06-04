@@ -453,6 +453,7 @@ h1.balken {
   background: image-url('layout-h1-balkenbg.png');
   line-height: 100px;
   font-size: 54px;
+  margin-bottom:20px;
 }
 
 p.intro {
@@ -945,6 +946,7 @@ section.detail{
         height:48px;
         background-repeat:none;
         background-position:0 0;
+        background-color:transparent;
         text-indent:-1000px;
         overflow:hidden;
         opacity:0.9;
@@ -970,6 +972,65 @@ section.detail{
 .social-media-buttons {
   .g-plusone, .fb-like {
     line-height: 20px!important;
+  }
+}
+
+/* Columns */
+
+.column-4{
+  width:220px;
+  margin:10px;
+  float:left;
+  
+  .host-interaction{
+  padding:10px 62px 20px;
+  height:48px;
+
+    a, button{
+      display:block;
+      float:left;
+      width:48px;
+      height:48px;
+      background-repeat:none;
+      background-position:0 0;
+      background-color:transparent;
+      text-indent:-1000px;
+      overflow:hidden;
+      opacity:0.9;
+      border: none;
+  
+      &.button-profil{
+        background-image: image-url('layout-icon-special48-profile.png');
+      }
+      &.button-message{
+        background-image: image-url('layout-icon-special48-message.png');
+        cursor:pointer;cursor:hand;
+      }
+      &:hover{
+        opacity:1.0;
+      }
+    }
+  }
+}
+.center{
+  text-align: center;
+}
+.two-columns{
+  padding:10px;
+  -moz-column-count: 2;
+  -moz-column-gap: 40px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 40px;
+  column-count: 2;
+  column-gap: 40px;
+  margin-top:20px;
+  
+  h2{
+    margin-top:0;
+    
+    &+h2{
+      margin-top:18px;
+    }
   }
 }
 
