@@ -5,7 +5,7 @@
       Wissen • Teilen • Können ist eine Collaborative Consumption Plattform auf der du deine Talente teilen und von anderen lernen kannst.
       = link_to 'Mehr Infos', about_path
 
-    = render('/shared/social_media_like_buttons')
+    = render :partial => '/shared/social_media_like_buttons', :locals => { :special_url => nil}
 
   %section.footer-column
     %h6 Los geht's

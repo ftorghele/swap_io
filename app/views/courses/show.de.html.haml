@@ -5,7 +5,7 @@
         %span{:class => "cat-#{cat.id} category-title"}
           = cat.title
     %h1= @course.title
-    = render('/shared/social_media_like_buttons')
+    = render :partial => '/shared/social_media_like_buttons', :locals => { :special_url => course_path(@course)}
     %p= simple_format (@course.description)
     %h2 Benötigte Vorkenntnisse
     %p= simple_format (@course.precognitions.blank? ? "keine" : @course.precognitions)

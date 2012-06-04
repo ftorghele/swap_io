@@ -4,7 +4,7 @@
       %h3{:class => "cat-#{cat.id}"}
         = cat.title
     %h1= @course_request.title
-    = render('/shared/social_media_like_buttons')
+    = render :partial => '/shared/social_media_like_buttons', :locals => { :special_url => course_request_path(@course_request)}
     %p= simple_format (@course_request.description)
 
 
