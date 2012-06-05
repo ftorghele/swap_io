@@ -10,7 +10,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     course2.categories << Factory.create(:category)
     course2.save
     login_as
-    visit "/Begegnungen"
+    visit "/begegnungen"
     assert page.has_selector?('img')
     assert page.has_content? course1.title
     assert page.has_content?(course1.description)
@@ -35,7 +35,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     course.categories << Factory.create(:category)
     course.save
     login_as
-    visit "/Begegnungen/new"
+    visit "/begegnungen/new"
     assert page.has_content? "Neue Begegnung"
     assert page.has_content? "Titel der Begegnung*"
     assert page.has_content? "Kategorien (max. 3)*"

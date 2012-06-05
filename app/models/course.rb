@@ -39,8 +39,8 @@ class Course < ActiveRecord::Base
     unless self.course_request_id.nil?
       course_request = CourseRequest.find_by_id(self.course_request_id)
       course_request.users.each do |user|
-        user_link = "http://wissenteilen.com/#{I18n.t('routes.users.as')}/#{user.id}"
-        course_request_link = "http://wissenteilen.com/#{I18n.t('routes.courses.as')}/#{self.id}"
+        user_link = "http://beta.wissenteilen.com/#{I18n.t('routes.users.as')}/#{user.id}"
+        course_request_link = "http://beta.wissenteilen.com/#{I18n.t('routes.courses.as')}/#{self.id}"
         SystemMailer.provide_course(user, user_link, course_request_link).deliver unless user == host
       end
     end
@@ -56,8 +56,8 @@ class Course < ActiveRecord::Base
 
   def self.course_member_request_mailer user, id
     course = self.find_by_id(id)
-    user_link = "http://wissenteilen.com/#{I18n.t('routes.users.as')}/#{user.id}"
-    course_link = "http://wissenteilen.com/#{I18n.t('routes.courses.as')}/#{course.id}"
+    user_link = "http://beta.wissenteilen.com/#{I18n.t('routes.users.as')}/#{user.id}"
+    course_link = "http://beta.wissenteilen.com/#{I18n.t('routes.courses.as')}/#{course.id}"
     SystemMailer.request_course(course.user, user_link, course_link).deliver
   end
 

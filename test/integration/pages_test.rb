@@ -3,14 +3,14 @@ require 'integration_test_helper'
 class PagesTest < ActionDispatch::IntegrationTest
 
   should 'show pages' do
-    visit "/Idee"
+    visit "/idee"
     assert page.has_content?("Die Idee")
     visit "/contact"
     assert page.has_content?("Kontakt")
-    visit "/Impressum"
+    visit "/impressum"
     assert page.has_content?("Impressum")
     assert page.has_content?("AGB")
-    visit "/Spielregeln"
+    visit "/spielregeln"
     assert page.has_content?("Spielregeln")
     visit "/help"
     assert page.has_content?("So funktioniert's'")
@@ -21,7 +21,7 @@ class PagesTest < ActionDispatch::IntegrationTest
     visit "/landingpage"
     assert_no_difference "ActionMailer::Base.deliveries.count" do
       fill_in('newsletter_subscriber_email', :with => 'tester@testmail.com')
-      click_on "Gebt mir bescheid."
+      click_on "Code anfordern"
     end
     assert page.has_content?(I18n.t('newsletter_subscriber.create.success'))
   end

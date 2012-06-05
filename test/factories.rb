@@ -19,7 +19,13 @@ FactoryGirl.define do
     sequence(:description){|n| "Beschreibung Nr. #{n}" }
   end
 
+  factory :user_key do |f|
+    sequence(:key){|n| "userkey#{n}" }
+  end
+
   factory :user do |f|
+    key = Factory.create(:user_key).key
+    f.user_key key
     sequence(:email){|n| "Josef#{n}@haunsberg.at" }
     sequence(:first_name){|n| "Josef#{n}" }
     sequence(:last_name){|n| "Haunsberger#{n}" }

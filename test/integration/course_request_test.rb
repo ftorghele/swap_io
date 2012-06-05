@@ -11,7 +11,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     course_request2.categories << Factory.create(:category)
     course_request2.users << Factory.create(:user)
     course_request2.save
-    visit "/Begegnungswuensche"
+    visit "/begegnungswuensche"
     assert page.has_content?(course_request1.title)
     assert page.has_content?(course_request2.title)
   end
@@ -21,7 +21,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     course_request.categories << Factory.create(:category)
     course_request.users << Factory.create(:user)
     course_request.save
-    visit "/Begegnungswuensche"
+    visit "/begegnungswuensche"
     assert page.has_content?(course_request.title)
   end
 
@@ -43,7 +43,7 @@ class CourseTest < ActionDispatch::IntegrationTest
     course_request.users << Factory.create(:user)
     course_request.save
     login_as
-    visit "Begegnungswuensche"
+    visit "begegnungswuensche"
     click_on course_request.title
     assert page.has_content?(course_request.title)
     assert page.has_content?(course_request.description)
@@ -77,23 +77,5 @@ class CourseTest < ActionDispatch::IntegrationTest
     click_on "Kein Interesse mehr"
     assert page.has_content?(I18n.t('course_request.disjoin.success'))
   end
-
-  # should 'be able to receive email if user provides course' do
-  #   Factory.create(:category, :title => "Cooking")
-  #   user = Factory.create(:user)
-  #   user2 = Factory.create(:user)
-  #   course_request = user.course_requests.create(:title => "bli", :description => "blup")
-  #   user2.join_course_request(course_request)
-  #   login_as
-  #   visit courses_path
-  #   click_on I18n.t('app.course_request_link')
-  #   click_on course_request.title
-  #   assert_difference "ActionMailer::Base.deliveries.count", 2 do
-  #     click_on I18n.t('course_request.show.provide_course_request_button')
-  #     select 'Cooking', :from => 'course_category_id'
-  #     click_on I18n.t('course.new.submit')
-  #     assert page.has_content?(I18n.t('course.create.success'))
-  #   end
-  # end
 
 end

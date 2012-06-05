@@ -5,7 +5,6 @@ class UserTest < ActiveSupport::TestCase
   should "be able to create user" do
     assert_difference "User.count" do
       user = Factory.create(:user)
-      assert_kind_of User, user
     end
   end
 

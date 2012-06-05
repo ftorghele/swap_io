@@ -8,7 +8,7 @@ class CourseMembersTest < ActionDispatch::IntegrationTest
     course.categories << Factory.create(:category)
     course.save
     login_as
-    visit "/Begegnungen/#{course.id}"
+    visit "/begegnungen/#{course.id}"
 
     assert_difference "CourseMember.count" do
       assert_difference "ActionMailer::Base.deliveries.count" do
@@ -35,7 +35,7 @@ class CourseMembersTest < ActionDispatch::IntegrationTest
     course = Factory.build(:course, :user => user)
     course.categories << Factory.create(:category)
     course.save
-    visit "/Begegnungen/#{course.id}"
+    visit "/begegnungen/#{course.id}"
     click_on "Teilnahme anfragen"
     assert page.has_content? "Einloggen"
     assert page.has_no_button? "Teilnahme absagen"
@@ -50,15 +50,15 @@ class CourseMembersTest < ActionDispatch::IntegrationTest
     course2.categories << Factory.create(:category)
     course2.save
     login_as
-    visit "/Begegnungen/#{course1.id}"
+    visit "/begegnungen/#{course1.id}"
 
     click_on "Teilnahme anfragen"
     assert page.has_content?(I18n.t('course_member.create.success'))
-    visit "/Begegnungen/#{course1.id}"
+    visit "/begegnungen/#{course1.id}"
 
     assert page.has_no_button? "Teilnahme anfragen"
     click_on "Begegnungen"
-    visit "/Begegnungen/#{course2.id}"
+    visit "/begegnungen/#{course2.id}"
 
     click_on "Teilnahme anfragen"
     assert page.has_content?(I18n.t('course_member.create.success'))
