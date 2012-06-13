@@ -8,7 +8,7 @@
     <table>
       <tr>
         <td>
-          <%= "Du wurdest von #{@user.first_name} #{@user.last_name} zur Begegnung #{@course.title} bestätigt." %>
+          <%= "Du wurdest von #{@course.user.first_name} #{@course.user.last_name} zur Begegnung #{@course.title} bestätigt." %>
         </td>
         <td>
           <a href="http://www.wissenteilen.com/Begegnung/<%=@course.id%>">

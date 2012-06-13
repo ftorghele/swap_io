@@ -8,7 +8,7 @@
     <table>
       <tr>
         <td>
-          <%= "Du wurdest von #{@user.first_name} #{@user.last_name} zur Begegnung #{@course.title} leider abgelehnt." %>
+          <%= "Du wurdest von #{@course.user.first_name} #{@course.user.last_name} zur Begegnung #{@course.title} leider abgelehnt." %>
         </td>
         <td>
           <a href="http://www.wissenteilen.com">
