@@ -35,6 +35,7 @@ class SystemMailer < ActionMailer::Base
   def accept_course_member(user, course)
     @course = course
     @subject = I18n.t('mailer.subject.accept_course_member')
+    @user = user
 
     mail to: user.email, subject: @subject do |format|
       format.html
@@ -45,6 +46,7 @@ class SystemMailer < ActionMailer::Base
   def reject_course_member(user, course)
     @course = course
     @subject = I18n.t('mailer.subject.reject_course_member')
+    @user = user
 
     mail to: user.email, subject: @subject do |format|
       format.html

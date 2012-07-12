@@ -1,3 +1,10 @@
 <%= @subject %>
-<%= "Du wurdest von #{@course.user.first_name} #{@course.user.last_name} zur Begegnung #{@course.title} bestätigt." %>
-<%= "href='http://www.wissenteilen.com/Begegnung/#{@course.id}' " %>
+
+<%= "Lieber #{@user.first_name}, #{@course.user.first_name} hat deiner Anfrage zugestimmt.
+
+Über die unten stehenden Links kommst du zum Begegnungsforum, falls du Fragen an #{@course.user.first_name} oder die anderen TeilnehmerInnen hast.
+Viel Spaß, wir wünschen euch eine tolle Begegnung. #{@course.title} bestätigt." %>
+
+<%= "Dein WissenTeilenKönnen-Team" %>
+
+<%= "http://beta.wissenteilen.com/Begegnung/#{@course.id}" %>

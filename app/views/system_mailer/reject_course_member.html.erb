@@ -8,12 +8,13 @@
     <table>
       <tr>
         <td>
-          <%= "Du wurdest von #{@course.user.first_name} #{@course.user.last_name} zur Begegnung #{@course.title} leider abgelehnt." %>
+          <%= "Lieber #{@user.first_name}, leider kommt die Begegnung mit #{@course.user.first_name} nicht zu Stande.
+          Versuchs doch mit einem Begegnungswunsch, wir drücken dir die Daumen! %>
         </td>
         <td>
-          <a href="http://www.wissenteilen.com">
+          Dein <a href="http://www.wissenteilen.com">
             Wissen Teilen Können
-          </a>
+          </a> - Team
         </td>
       </tr>
     </table>
