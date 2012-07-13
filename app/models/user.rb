@@ -89,6 +89,10 @@ class User < ActiveRecord::Base
     self.courses.where("date > #{Time.now.to_date}")
   end
 
+  def get_old_courses
+    self.courses.unscoped.find(:all, :conditions => ["date < ?",Time.now.to_date ] )
+  end
+
   def get_enquired_courses
     get_course_memberships.map{|i| i.course}
   end
