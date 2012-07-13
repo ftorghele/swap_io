@@ -236,8 +236,6 @@ de:
 
   mailer:
     unsubscribe_alternative_link: "Wenn der oben angeführte Link nicht funktioniert, rufe die folgende Adresse in deinem Browser auf"
-    provide_course_message: "Jemand hat auf wissenteilen.com auf Deinen Begegnungswunsch reagiert. Details zur Person und der Begegnung findest du unter folgenden Links: "
-    join_course_message: "Du hast eine Begegnungsanfrage auf wissenteilen.com erhalten. " 
     newsletter_message: "Was gibt es Neues bei wissenteilen.com"
     greeting_message: "Herzliches Hallo!"
     unsubscribe_link: "Um dich vom Newsletter abzumelden klicke auf folgenden link"

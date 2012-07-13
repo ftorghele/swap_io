@@ -8,9 +8,9 @@ class SystemMailer < ActionMailer::Base
   #
   #   en.system_mailer.info.subject
   #
-  def provide_course(user, user_profile_link, course_request_link )
-    @user_profile_link = user_profile_link
-    @course_request_link = course_request_link
+  def provide_course(user, host, course )
+    @host = host
+    @course = course
     @user = user
     @subject = I18n.t('mailer.subject.provide_course')
 
@@ -20,9 +20,9 @@ class SystemMailer < ActionMailer::Base
     end
   end
 
-  def request_course(user, user_profile_link, course_link )
-    @user_profile_link = user_profile_link
-    @course_link = course_link
+  def request_course(user, requester, course )
+    @requester = requester
+    @course = course
     @user = user
     @subject = I18n.t('mailer.subject.request_course')
 

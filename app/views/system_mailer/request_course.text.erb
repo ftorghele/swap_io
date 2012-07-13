@@ -1,5 +1,4 @@
-<%= I18n.t('mailer.subject.news') %>
-<%= I18n.t('mailer.greeting_message') +" "+ @user.first_name %>
-<%= I18n.t('mailer.join_course_message') %>
-<%= "Benutzerprofil: #{@user_profile_link}" %>
-<%= "Begegnung: #{@course_link}" %>
+<%= "Hallo #{@user.first_name}!" %>
+<%= "Du hast eine Anfrage von #{@requester.first_name} zu Deiner Begegnung auf wissenteilen.com erhalten."%>
+<%= "Profil von #{@requester.first_name} ansehen: http://beta.wissenteilen.com/mitglied/#{@requester.first_name}"%>
+<%= "Deine Begegnung verwalten: http://beta.wissenteilen.com/begegnungen/#{@course.id}"%>
