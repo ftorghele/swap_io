@@ -18,10 +18,6 @@
       %h2 Begegnungswünsche
       = render(:partial => 'users/show/course_request', :collection => @user.get_course_requests) || "keine"
       .clr
-    .user-course-requests
-      %h2 Bereits stattgefundene Begegnungen
-      = render(:partial => 'users/show/old_course', :collection => @user.get_old_courses) || "keine"
-      .clr
     .clr
 
     %section.bewertungen
