@@ -93,7 +93,7 @@ de:
     create:
       success: Ihre Bewertung wurde erstellt
       fail: Es ist ein Fehler aufgetreten
-      fail_self: Sie dürfen sich nicht selbst bewerten
+      fail_self: Du kannst dich nicht selbst bewerten!
   course:
     msg:
      too_much_categories: Du darfst maximal 3 Kategorien für deine Begegnung auswählen!

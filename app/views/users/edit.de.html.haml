@@ -15,7 +15,7 @@
       = f.text_field :last_name
 
     %div
-      = f.label :birthday
+      = f.label "Geburtstag"
       = f.date_select :birthday, :order => [:day, :month, :year], :include_blank => true, :start_year => 1900
 
     %div
@@ -49,11 +49,11 @@
       = f.text_field :job
 
     %div
-      = f.label :motivation
+      = f.label "warum bin ich auf wissen • teilen • können?"
       = f.text_area :motivation
 
     %div
-      = f.label :skills
+      = f.label "hobbies und fähigkeiten"
       = f.text_area :skills
 
     %button.form-submit.form-nextstep.right
