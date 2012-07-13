@@ -93,7 +93,7 @@ class CoursesController < ApplicationController
   private
 
   def get_course
-    unless @course = Course.find_by_id(params[:id])
+    unless @course = Course.unscoped.find_by_id(params[:id])
       flash[:error] = I18n.t('msg.not_found')
       redirect_to courses_path and return
     end

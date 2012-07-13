@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
   end
 
   def get_old_courses
-    self.courses.unscoped.find(:all, :conditions => ["date < ?",Time.now.to_date ] )
+    Course.unscoped.find(:all, :conditions => ["date < ? && user_id = ?",Time.now.to_date, self.id ] )
   end
 
   def get_enquired_courses
