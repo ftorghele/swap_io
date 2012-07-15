@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604122905) do
+ActiveRecord::Schema.define(:version => 20120715110040) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -95,19 +95,21 @@ ActiveRecord::Schema.define(:version => 20120604122905) do
     t.datetime "updated_at",                :null => false
   end
 
+  create_table "course_request_users", :id => false, :force => true do |t|
+    t.integer  "user_id",           :null => false
+    t.integer  "course_request_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "course_request_users", ["user_id", "course_request_id"], :name => "index_course_requests_users_on_user_id_and_course_request_id", :unique => true
+
   create_table "course_requests", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
-
-  create_table "course_requests_users", :id => false, :force => true do |t|
-    t.integer "user_id",           :null => false
-    t.integer "course_request_id", :null => false
-  end
-
-  add_index "course_requests_users", ["user_id", "course_request_id"], :name => "index_course_requests_users_on_user_id_and_course_request_id", :unique => true
 
   create_table "courses", :force => true do |t|
     t.string   "title"
@@ -124,11 +126,11 @@ ActiveRecord::Schema.define(:version => 20120604122905) do
     t.text     "materials"
     t.time     "time"
     t.string   "country"
-    t.integer  "course_request_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "course_request_id"
   end
 
   create_table "delayed_jobs", :force => true do |t|

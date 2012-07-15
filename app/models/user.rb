@@ -34,7 +34,8 @@ class User < ActiveRecord::Base
   has_many :user_ratings, :dependent => :destroy
   has_many :course_member_conversations, :dependent => :destroy
 
-  has_and_belongs_to_many :course_requests, :uniq => true
+  has_many :course_request_users
+  has_many :course_requests, :through => :course_request_users
 
   has_attached_file :image,
                     :styles => { :thumb => "46x46#", :xsmall => "32x32#", :small => "60x60#", :medium => "300x300#", :big => "800x800>" },
