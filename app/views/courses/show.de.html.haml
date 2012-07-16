@@ -51,15 +51,23 @@
     %p
       - if signed_in?
         -if @course.user == current_user
-          %a{:href => url_for(edit_course_path(@course)), :class => 'form-button-petrol form-nextstep'}
-            Begegnung ändern
-            %span
-          %br
-          %a{:href => url_for(manage_course_path(@course)), :class => 'form-submit form-nextstep'}
-            Verwalten
-            %span
-          %br
-          =link_to "Begegnung absagen", course_path(@course), :method => :delete,:class => 'form-button-petrol form-nextstep', :confirm => "Wollen Sie den Kurs wirklich absagen?"
+          -if @course.date > Time.now
+            %a{:href => url_for(edit_course_path(@course)), :class => 'form-button-petrol form-nextstep'}
+              Begegnung ändern
+              %span
+            %br
+            %a{:href => url_for(manage_course_path(@course)), :class => 'form-submit form-nextstep'}
+              Verwalten
+              %span
+            %br
+            =link_to "Begegnung absagen", course_path(@course), :method => :delete,:class => 'form-button-petrol form-nextstep', :confirm => "Wollen Sie den Kurs wirklich absagen?"
+          -else
+            = form_tag({:controller => :courses, :action => :new_with_course}, :method => :post) do
+              = hidden_field_tag :course_id, @course.id
+              %button.form-submit.form-nextstep{:style => 'width: 100%'}
+                Erneut anbieten
+                %span
+
         - else
           -if @course_member = CourseMember.find_by_course_id_and_user_id(@course.id, current_user.id)
             = link_to "Teilnahme verwalten", course_member_path(@course_member), :class => 'form-next-step form-submit'

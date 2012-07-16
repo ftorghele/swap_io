@@ -1,0 +1,21 @@
+%section.detail
+  %article.main
+    .user-courses
+      %h2 Vergangene Begegnungen
+      -@courses.each do |course|
+        %article.begegnung.left
+          %section.description
+            %h2= link_to truncate(course.title, :length => 17, :omission => '..'), course_path(course)
+            %p= I18n.localize(course.date, :format => :day) unless course.date.nil?
+            %p= "in #{truncate(course.city, :length => 17, :omission => '..') unless course.city.nil?}"
+          = link_to image_tag(coursepic(course, :xsmall), :size => '100x100'), course_path(course)
+
+        = form_tag({:controller => :courses, :action => :new_with_course}, :method => :post) do
+          = hidden_field_tag :course_id, course.id
+          %button.form-submit.form-nextstep{:style => 'width: 100%'}
+            Erneut anbieten
+            %span
+
+        %br
+        .clr
+

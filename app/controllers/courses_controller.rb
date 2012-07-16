@@ -24,8 +24,32 @@ class CoursesController < ApplicationController
   def show
   end
 
+  def show_past_courses
+    if signed_in?
+      @courses = Course.unscoped.find(:all, :conditions => ["date < ? && user_id = ?",Time.now.to_date, current_user.id ] )
+    end
+  end
+
   def new
     @course = Course.new
+  end
+
+  def new_with_course
+    if course = Course.unscoped.find_by_id(params[:course_id])
+      @course = Course.new( :title => course.title,
+                            :description => course.description,
+                            :category_ids => course.categories,
+                            :city => course.city,
+                            :places => course.places,
+                            :zip_code => course.zip_code,
+                            :precognitions => course.precognitions,
+                            :materials => course.materials,
+                            :country => course.country,
+                            :course_request_id => course.course_request_id )
+    else
+      @course = Course.new
+    end
+    render :new
   end
 
   def new_with_request

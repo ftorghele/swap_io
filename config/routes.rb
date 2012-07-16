@@ -31,7 +31,9 @@ Swap::Application.routes.draw do
 
       resources :courses do
         collection do
+          get :show_past_courses
           post :new_with_request
+          post :new_with_course
         end
         member do
           get :manage
