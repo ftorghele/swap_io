@@ -6,5 +6,5 @@
       = "von "
       = link_to username(message.message.sender), user_path(message.message.sender)
   .overview-begegnung-head
-    %p= message.message.body
+    %p= simple_format message.message.body
   .clr

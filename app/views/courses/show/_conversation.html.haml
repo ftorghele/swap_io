@@ -1,0 +1,12 @@
+.rating-item
+  - conversation_user = User.find_by_id(conversation.user_id)
+  = link_to image_tag(userpic(conversation_user, :medium), :alt => username(conversation_user), :size => '60x60'), user_path(conversation_user)
+  .header{:style => "height: 12px"}
+    %p{:style => "border-bottom: 1px solid #ccc; height: 25px"}
+      = I18n.localize(conversation.created_at, :format => :long) unless conversation.created_at.nil?
+      von
+      = link_to username(conversation_user), user_path(conversation_user)
+  .body
+    %p.small
+      = simple_format conversation.body
+.clr

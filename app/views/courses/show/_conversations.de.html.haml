@@ -1,0 +1,24 @@
+= javascript_include_tag 'rails.validations'
+= form_for conversation, :validate => true do |f|
+
+  %fieldset
+    %legend
+      %strong Neue Nachricht verfassen:
+
+    %div
+      = f.label :body
+      .body
+        = f.text_area :body, :style => "height: 70px"
+        = hidden_field_tag :course_id, course.id
+
+    %div.right
+      %button.form-submit.form-nextstep
+        Nachricht eintragen
+        %span
+
+    .clr
+
+  %fieldset
+    %legend
+      %strong Bisherige Nachrichten:
+    = render(:partial => 'courses/show/conversation', :collection => course.course_conversations.reject{|i| i.id.nil?}) || "noch keine"

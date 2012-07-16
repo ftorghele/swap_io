@@ -22,6 +22,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @course_conversation = @course.course_conversations.build
   end
 
   def show_past_courses
