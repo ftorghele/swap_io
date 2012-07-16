@@ -1,9 +1,6 @@
 %section.detail
   %article.main
-    %h3
-      - @course.categories.each do |cat|
-        %span{:class => "cat-#{cat.id} category-title"}
-          = cat.title
+    %h3= @course.categories.collect { |r| r.title }.join( ' • ' )
     %h1= @course.title
     = render :partial => '/shared/social_media_like_buttons', :locals => { :special_url => request.original_url}
     %p= simple_format (@course.description)
