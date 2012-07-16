@@ -12,6 +12,9 @@
     %h2 Mitzubringendes Material
     %p= simple_format (@course.materials.blank? ? "keine" : @course.materials)
 
+    %br
+    =render :partial => '/courses/show/conversations', :locals => { :course => @course, :conversation => @course_conversation }
+
   %article.side
     %figure.fancyimg
       %a{:href => coursepic(@course, :big), :class => 'pic', :rel => 'alternate'}

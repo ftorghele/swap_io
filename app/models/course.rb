@@ -7,6 +7,7 @@ class Course < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :categories
   has_many :course_members, :dependent => :destroy
+  has_many :course_conversations, :dependent => :destroy
 
   has_attached_file :image,
                     :styles => { :thumb => "46x46#", :xsmall => "100x100#", :small => "220x220#", :medium => "300x300#", :big => "800x800>" },

@@ -46,6 +46,8 @@ Swap::Application.routes.draw do
         end
       end
 
+      resources :course_conversations
+
       resources :newsletter_subscribers do
         collection do
           get 'unsubscribe'
