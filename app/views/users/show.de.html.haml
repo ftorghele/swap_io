@@ -38,7 +38,8 @@
           Negativ
       .clr
       %br
-      =render :partial => '/users/show/ratings', :locals => { :user => @user, :rating => @rating }
+      -if signed_in? && current_user != @user
+        =render :partial => '/users/show/ratings', :locals => { :user => @user, :rating => @rating }
 
   = render :partial => '/users/show/sidebar', :locals => { :user => @user }
 
