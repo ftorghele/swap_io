@@ -4,8 +4,8 @@ module CoursesHelper
     (current_user.id != @course.user.id) ? (CourseMember.check_attendance(current_user.id, @course.id)) : true
   end
 
-  def check_search_button_state
-    #TODO
+  def places_available?( course )
+    (course.places_available <= 0) ? false : true
   end
 
   def categories(cat)

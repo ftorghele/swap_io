@@ -18,6 +18,8 @@ class CourseMember < ActiveRecord::Base
     course_member = self.find(id)
     course_member.update_attribute(:accepted, acceptance)
     if acceptance == "1"
+      course_member.course.places_available -= 1
+      course_member.course.save
       SystemMailer.accept_course_member(course_member.user, course_member.course).deliver
     elsif acceptance == "0"
       SystemMailer.reject_course_member(course_member.user, course_member.course).deliver
