@@ -74,11 +74,21 @@ class SystemMailer < ActionMailer::Base
     end
   end
 
-  def private_message(user, subject=I18n.t('mailer.subject.private_message'), body)
-    @user = user
+  def delete_course(receiver, course)
+    @sender = course.user
+    @subject = "Begegnung abgesagt"
+    @body = "Hallo #{receiver.first_name}, \nDie Begegnung #{course.title} mit #{@sender.first_name} wurde abgesagt."
+    mail to: receiver.email, subject: @subject do |format|
+      format.html
+      format.text
+    end
+  end
+
+  def private_message(receiver, sender, body, subject=I18n.t('mailer.subject.private_message'))
+    @sender = sender
     @subject = subject
     @body = body
-    mail to: user.email, subject: @subject do |format|
+    mail to: receiver.email, subject: @subject do |format|
       format.html
       format.text
     end
