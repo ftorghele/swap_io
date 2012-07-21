@@ -10,7 +10,8 @@
     %p= simple_format (@course.materials.blank? ? "keine" : @course.materials)
 
     %br
-    =render :partial => '/courses/show/conversations', :locals => { :course => @course, :conversation => @course_conversation }
+    -if signed_in? && @course.course_members.find_by_user_id_and_accepted(current_user.id, 1)
+      =render :partial => '/courses/show/conversations', :locals => { :course => @course, :conversation => @course_conversation }
 
   %article.side
     %figure.fancyimg
