@@ -49,8 +49,13 @@ module ApplicationHelper
     action.include?(params[:action])
   end
 
-   def get_notifications user
-     counter = user.get_notification_count
-     link_to counter.to_s , user_conversations_path, :id => 'nav-dashboard-indicator', :class => (counter==0) ? 'nav-dashboard-indicator' : 'nav-dashboard-indicator-new'
-   end
+  def get_notifications user
+    counter = user.get_notification_count
+    link_to counter.to_s , user_conversations_path, :id => 'nav-dashboard-indicator', :class => (counter==0) ? 'nav-dashboard-indicator' : 'nav-dashboard-indicator-new'
+  end
+
+  def get_course_requests course
+    counter = course.get_course_request_count
+    link_to counter.to_s , manage_course_path(course), :id => 'course-member-indicator', :class => (counter==0) ? 'course-member-indicator' : 'course-member-indicator-new'
+  end
 end

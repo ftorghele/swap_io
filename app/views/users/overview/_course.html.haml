@@ -4,6 +4,7 @@
     .overview-begegnung-head
       - if manage_path == 'course'
         %p.small.right= link_to "Verwalten", manage_course_path(course)
+        %p.small.right= get_course_requests course
       - else
         - if course_member = CourseMember.find_by_course_id_and_user_id(course, current_user)
           %p.small.right= link_to "Verwalten", course_member_path(course_member.id)

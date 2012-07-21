@@ -82,6 +82,10 @@ class Course < ActiveRecord::Base
     self.city = location.nil? ? "n/a" : location.city
   end
 
+  def get_course_request_count
+    self.course_members.find_all_by_accepted(2).count
+  end
+
   private
 
   def date_check
