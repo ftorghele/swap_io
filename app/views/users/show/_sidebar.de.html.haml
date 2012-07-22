@@ -20,10 +20,10 @@
   %ul.facts
     %li.course_client_count
       %span
-      = "#{safe_output(user.course_host_count)} Teilgenommen"
+      = "#{courses_attended} Teilgenommen"
     %li.course_host_count
       %span
-      = "#{safe_output(user.course_client_count)} Gehalten"
+      = "#{courses_organized} Gehalten"
 
   %h2 Bewertungen
   %ul.rating

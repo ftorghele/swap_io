@@ -11,4 +11,12 @@ module CoursesHelper
   def categories(cat)
     @course ? @course.categories.include?(cat) : false
   end
+
+  def courses_organized
+    @user.courses_organized_counter
+  end
+
+  def courses_attended
+    @user.courses_attended_counter
+  end
 end

@@ -132,6 +132,27 @@ class User < ActiveRecord::Base
     get_unread_message_count
   end
 
+  def courses_organized_counter
+    counter = 0
+    courses = Course.unscoped.find(:all, :conditions => ["date < ? && user_id = ?", Time.now, self.id])
+    courses.each do |f|
+      if f.course_members.count > 0
+        counter += 1
+      end
+    end
+    counter
+  end
+
+  def courses_attended_counter
+    counter = 0
+    self.course_members.each do |f|
+      if f.course.date < Time.now
+        counter += 1
+      end
+    end
+    counter
+  end
+
   def push_message
     begin
       Pusher["#{self.id}"].trigger('counter', {:message => self.get_notification_count.to_s})
