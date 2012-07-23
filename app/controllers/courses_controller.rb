@@ -37,9 +37,11 @@ class CoursesController < ApplicationController
 
   def new_with_course
     if course = Course.unscoped.find_by_id(params[:course_id])
+      cat = []
+      course.categories.map{|f| cat << f.id.to_s }
       @course = Course.new( :title => course.title,
                             :description => course.description,
-                            :category_ids => course.categories,
+                            :category_ids => cat,
                             :city => course.city,
                             :places => course.places,
                             :zip_code => course.zip_code,
@@ -55,9 +57,11 @@ class CoursesController < ApplicationController
 
   def new_with_request
     if @course_request = CourseRequest.find_by_id(params[:request_id])
+      cat = []
+      @course_request.categories.map{|f| cat << f.id.to_s }
       @course = Course.new( :title => @course_request.title,
                             :description => @course_request.description,
-                            :category_ids => @course_request.categories,
+                            :category_ids => cat,
                             :course_request_id => @course_request.id )
     else
       @course = Course.new
