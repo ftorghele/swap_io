@@ -5,21 +5,26 @@
     </title>
   </head>
   <body>
-    <table>
+    <table width="80%" height:"80%" >
       <tr>
-        <td>
-          <%= "Lieber #{@user.first_name}, #{@course.user.first_name} hat deiner Anfrage zugestimmt.
-          Über die unten stehenden Links kommst du zum Begegnungsforum, falls du Fragen an #{@course.user.first_name} oder die anderen TeilnehmerInnen hast.
-          Viel Spaß, wir wünschen euch eine tolle Begegnung. #{@course.title} bestätigt." %>
+        <td align: "center">
+          <h2><%="#{@course.title} bestätigt." %></h2>
         </td>
-        <td>
-          <%= "Dein WissenTeilenKönnen-Team" %>
+        <td align: "center">
+          <%= "Hallo #{@user.first_name}, #{@course.user.first_name} hat deiner Anfrage zugestimmt. \n
+          Über den unten stehenden Link kommst du zum Begegnungsforum, falls du Fragen an #{@course.user.first_name} oder \ndie anderen TeilnehmerInnen hast.
+          Viel Spaß, wir wünschen euch eine tolle Begegnung." %>
         </td>
-        <td>
+        <td align: "center">
+          <%= "Dein Wissen • Teilen • Können\nTeam" %>
+        </td>
+
+        <td align: "center">
           <a href="http://www.beta.wissenteilen.com/begegnungen/<%=@course.id%>" >
             Zur Begegnung
           </a>
-        </td>
+        <td>
+
       </tr>
     </table>
   </body>

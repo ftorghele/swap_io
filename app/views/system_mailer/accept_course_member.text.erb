@@ -1,10 +1,11 @@
 <%= @subject %>
 
-<%= "Lieber #{@user.first_name}, #{@course.user.first_name} hat deiner Anfrage zugestimmt.
+<%="#{@course.title} bestätigt.\n
+Hallo #{@user.first_name}, #{@course.user.first_name} hat deiner Anfrage zugestimmt. \n
 
-Über die unten stehenden Links kommst du zum Begegnungsforum, falls du Fragen an #{@course.user.first_name} oder die anderen TeilnehmerInnen hast.
-Viel Spaß, wir wünschen euch eine tolle Begegnung. #{@course.title} bestätigt." %>
+Über den unten stehenden Link kommst du zum Begegnungsforum, falls du Fragen an #{@course.user.first_name} oder \ndie anderen TeilnehmerInnen hast.\n
+Viel Spaß, wir wünschen euch eine tolle Begegnung. "%>
 
-<%= "Dein WissenTeilenKönnen-Team" %>
+<%= "Dein Wissen • Teilen • Können\nTeam" %>
 
 <%= "http://beta.wissenteilen.com/begegnungen/#{@course.id}" %>

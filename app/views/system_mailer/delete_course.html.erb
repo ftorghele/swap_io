@@ -5,10 +5,16 @@
     </title>
   </head>
   <body>
-    <table>
+    <table width:"80%" height:"80%">
       <tr>
+        <td align: "center">
+          <%="Hallo #{receiver.first_name}," %>
+        </td>
+        <td align: "center">
+          <%="leider wurde die Begegnung #{course.title} mit #{@sender.first_name} abgesagt!"%>
+        </td>
         <td>
-          <%= @body %>
+          <%= "Dein Wissen • Teilen • Können\nTeam" %>
         </td>
       </tr>
     </table>
