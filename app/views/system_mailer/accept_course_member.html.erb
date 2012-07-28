@@ -10,14 +10,20 @@
         <td align: "center">
           <h2><%="#{@course.title} bestätigt." %></h2>
         </td>
+      </tr>
+      <tr>
         <td align: "center">
           <%= "Hallo #{@user.first_name}, #{@course.user.first_name} hat deiner Anfrage zugestimmt. \n
           Über den unten stehenden Link kommst du zum Begegnungsforum, falls du Fragen an #{@course.user.first_name} oder \ndie anderen TeilnehmerInnen hast.
           Viel Spaß, wir wünschen euch eine tolle Begegnung." %>
         </td>
+      </tr>
+      <tr>
         <td align: "center">
           <%= "Dein Wissen • Teilen • Können\nTeam" %>
         </td>
+      </tr>
+      <tr>
 
         <td align: "center">
           <a href="http://www.beta.wissenteilen.com/begegnungen/<%=@course.id%>" >
