@@ -77,6 +77,8 @@ class SystemMailer < ActionMailer::Base
   def delete_course(receiver, course)
     @sender = course.user
     @subject = "Begegnung abgesagt"
+    @receiver = receiver
+    @course = course
     mail to: receiver.email, subject: @subject do |format|
       format.html
       format.text

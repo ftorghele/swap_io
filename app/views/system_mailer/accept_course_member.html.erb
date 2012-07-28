@@ -13,9 +13,13 @@
       </tr>
       <tr>
         <td align="center">
-          <%= "Hallo #{@user.first_name}, #{@course.user.first_name} hat deiner Anfrage zugestimmt. \n
-          Über den unten stehenden Link kommst du zum Begegnungsforum, falls du Fragen an #{@course.user.first_name} oder \ndie anderen TeilnehmerInnen hast.
-          Viel Spaß, wir wünschen euch eine tolle Begegnung." %>
+        <%= "Hallo #{@user.first_name}, #{@course.user.first_name} hat deiner Anfrage zugestimmt."%>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <%="Über den unten stehenden Link kommst du zum Begegnungsforum, falls du Fragen an #{@course.user.first_name} oder \ndie anderen TeilnehmerInnen hast.\n" %>
+          <%= "Viel Spaß, wir wünschen euch eine tolle Begegnung." %>
         </td>
       </tr>
       <tr>
