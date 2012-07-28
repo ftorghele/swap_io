@@ -137,11 +137,11 @@ ActiveRecord::Schema.define(:version => 20120716082607) do
     t.text     "materials"
     t.time     "time"
     t.string   "country"
-    t.integer  "course_request_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "course_request_id"
   end
 
   create_table "delayed_jobs", :force => true do |t|
