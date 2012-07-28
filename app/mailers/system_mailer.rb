@@ -24,7 +24,7 @@ class SystemMailer < ActionMailer::Base
     @requester = requester
     @course = course
     @user = user
-    @subject = I18n.t('mailer.subject.request_course')
+    @subject = "Begegnungsanfrage"
 
     mail to: user.email, subject: @subject do |format|
       format.html

@@ -1,4 +1,9 @@
-<%= "Hallo #{@user.first_name}!" %>
-<%= "Du hast eine Anfrage von #{@requester.first_name} zu Deiner Begegnung auf wissenteilen.com erhalten."%>
+<%= "Anfrage zu #{@course.title}!\n"%>
+
+<%= "Hallo #{@user.first_name}!\n" %>
+<%= "Du hast eine Anfrage von #{@requester.first_name} zu Deiner Begegnung auf wissenteilen.com erhalten.\n"%>
+
+<%= "Dein Wissen • Teilen • Können\nTeam\n\n" %>
+
 <%= "Profil von #{@requester.first_name} ansehen: http://beta.wissenteilen.com/mitglied/#{@requester.id}"%>
 <%= "Deine Begegnung verwalten: http://beta.wissenteilen.com/begegnungen/#{@course.id}/manage" %>
