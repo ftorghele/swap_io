@@ -89,6 +89,7 @@ class SystemMailer < ActionMailer::Base
     @sender = sender
     @subject = subject
     @body = body
+    @receiver = receiver
     mail to: receiver.email, subject: @subject do |format|
       format.html
       format.text
