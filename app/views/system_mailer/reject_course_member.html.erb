@@ -8,13 +8,19 @@
     <table>
       <tr>
         <td>
-          <%= "Lieber #{@user.first_name}, leider kommt die Begegnung mit #{@course.user.first_name} nicht zu Stande.
-          Versuchs doch mit einem Begegnungswunsch, wir drücken dir die Daumen! %>
+          <h2><%="Teilnahme abgelehnt!"%></h2>
         </td>
+      </tr>
+      <tr>
         <td>
-          Dein <a href="http://www.wissenteilen.com">
-            Wissen Teilen Können
-          </a> - Team
+          <%= "Hallo #{@user.first_name}, leider kommt die Begegnung mit #{@course.user.first_name} nicht zu Stande.
+          Versuchs doch mit einem Begegnungswunsch, wir drücken dir die Daumen!" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= "Dein Wissen • Teilen • Können" %>
+          <%= "Team" %>
         </td>
       </tr>
     </table>

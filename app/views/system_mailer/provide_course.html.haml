@@ -9,11 +9,13 @@
           %h2= "Erfüllung deines Begegnungswunsches!"
       %tr
         %td{:align => "center"}
-          = "Hallo #{@user.first_name}!"
+          = "Hallo #{@user.first_name},"
       %tr
         %td{:align => "center"}
           = "#{@host.first_name} hat auf wissenteilen.com auf Deinen Begegnungswunsch reagiert."
           = "Details zur Person und der Begegnung findest du unter folgenden Links:"
+      %tr
+        %td{:align => "center"}
           = "Profil von #{@host.first_name} ansehen: http://beta.wissenteilen.com/mitglied/#{@host.id}"
           = "Deine Begegnung verwalten: http://beta.wissenteilen.com/begegnungen/#{@course.id}"
       %tr
