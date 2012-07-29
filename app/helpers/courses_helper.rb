@@ -12,11 +12,11 @@ module CoursesHelper
     @course ? @course.categories.include?(cat) : false
   end
 
-  def courses_organized
-    @user.courses_organized_counter
+  def courses_organized(user)
+    user.courses_organized_counter
   end
 
-  def courses_attended
-    @user.courses_attended_counter
+  def courses_attended(user)
+    user.courses_attended_counter
   end
 end
