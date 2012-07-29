@@ -38,10 +38,17 @@
       Negativ
   .clr
 
-  - unless controller?("user_conversations")
+  - unless controller?("user_conversations") && !signed_in?
     %br
     = form_tag(new_user_conversation_path, :method => :post) do
       = hidden_field_tag :recipient_id, user.id
       %button.form-msg.form-submit{:style => 'width: 100%'}
         Nachricht senden
+        %span
+    = form_tag(new_user_conversation_path, :method => :post) do
+      = hidden_field_tag :recipient_id, 0
+      = hidden_field_tag :subject, "User: #{user.first_name} mit der id #{user.id}"
+      = hidden_field_tag :body, "User wurde auffällig durch: "
+      %button.form-button-petrol.form-submit{:style => 'width: 20%; float: right', :onclick => "return confirm('Willst du diesen Benutzer wirklich melden?')" }
+        !
         %span
