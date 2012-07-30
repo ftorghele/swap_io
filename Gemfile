@@ -13,6 +13,8 @@ gem 'devise', '2.0.0'
 gem 'omniauth-facebook'
 gem 'mailboxer'
 
+gem 'whenever', :require => false
+
 gem 'activeadmin'
 
 gem 'haml'

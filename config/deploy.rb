@@ -1,6 +1,9 @@
+set :whenever_command, "bundle exec whenever"
+
 require "bundler/capistrano"
 require './config/boot'
 require 'airbrake/capistrano'
+require 'whenever/capistrano'
 
 set :scm,             :git
 set :repository,      "deployer@lvps46-163-115-88.dedicated.hosteurope.de:/home/deployer/apps/swap_io/gitrepo"
@@ -10,6 +13,7 @@ set :ssh_options,     { :forward_agent => true }
 set :rails_env,       "production"
 set :deploy_to,       "/home/deployer/apps/swap_io"
 set :normalize_asset_timestamps, false
+set :application,     "swap_io"
 
 set :user,            "deployer"
 set :group,           "staff"
@@ -41,6 +45,11 @@ namespace :deploy do
   task :default do
     update
     restart
+  end
+
+  desc "Update the crontab file"
+  task :update_crontab, :roles => :db do
+    run "cd #{release_path} && whenever --update-crontab #{application}"
   end
 
   after 'deploy:update_code' do

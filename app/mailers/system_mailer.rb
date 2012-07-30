@@ -95,4 +95,14 @@ class SystemMailer < ActionMailer::Base
       format.text
     end
   end
+
+  def send_course_member_notification(user, course)
+    @user = user
+    @course = course
+    @subject = "Begegnung bewerten"
+    mail to: user.email, subject: @subject do |format|
+      format.html
+      format.text
+    end
+  end
 end

@@ -31,4 +31,15 @@ class CourseMember < ActiveRecord::Base
     course_member.course.save
     acceptance == "1" ? true : false
   end
+
+  def self.course_member_notification_task
+    courses = Course.unscoped.find_all_by_date((Time.now - 1.day).strftime("%Y-%m-%d 00:00:00"))
+    courses.each do |c|
+      c.course_members.each do |cm|
+        if cm.accepted.to_s == "1"
+          SystemMailer.send_course_member_notification(cm.user, c)
+        end
+      end
+    end
+  end
 end
