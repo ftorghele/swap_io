@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>
+      <%= @subject %>
+    </title>
+  </head>
+  <body>
+    <table width="80%" height="80%" >
+      <tr>
+        <td align="center">
+          <h2><%="Begegnung: #{@course.title} bewerten." %></h2>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+        <%= "Hallo #{@user.first_name}, deine Begegnung mit #{@course.user.first_name} hat bereits stattgefunden."%>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <%="Über den unten stehenden Link kommst du zur Begegnung, um diese zu bewerten. \n" %>
+          <%= "Wir wünschen dir tolle Begegnungen." %>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <%= "Dein Wissen • Teilen • Können\nTeam" %>
+        </td>
+      </tr>
+      <tr>
+
+        <td align="center">
+          <a href="http://www.beta.wissenteilen.com/begegnungen/<%=@course.id%>" >
+            Zur Begegnung
+          </a>
+        <td>
+
+      </tr>
+    </table>
+  </body>
+</html>

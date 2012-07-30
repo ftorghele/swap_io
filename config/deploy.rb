@@ -1,6 +1,9 @@
+set :whenever_command, "bundle exec whenever"
+
 require "bundler/capistrano"
 require './config/boot'
 require 'airbrake/capistrano'
+require 'whenever/capistrano'
 
 set :scm,             :git
 set :repository,      "deployer@lvps46-163-115-88.dedicated.hosteurope.de:/home/deployer/apps/swap_io/gitrepo"
