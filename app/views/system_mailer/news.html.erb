@@ -19,53 +19,33 @@
         <tr>
           <td>
             <h2>
-              <%= I18n.t('mailer.greeting_message')%>
+              <%= "Wissen Teilen Können Newsletter" %>
             </h2>
           </td>
         </tr>
-        <tr>
-          <td>
-            <% if @body.nil? %>
-              <h3>
-                <%= I18n.t('mailer.newsletter_message')%>
-              </h3>
-            <%else%>
-              <h3>
-                <%= raw @body %>
-              </h3>
-            <%end%>
-          </td>
-        </tr>
+
+        <tr><td align="center">Hallo ihr lieben Helferlein! </tr></td> <tr><td align="center">Heute endet die Beta-Phase von Wissen • Teilen • Können! Dank eurer Hilfe hat sich vieles verbessern und im Ablauf optimieren lassen. <br/>Vielen lieben Dank dafür! </tr></td> <tr><td align="center">Wie geht es nun weiter? <br/> Ab dem 1. August kann sich nun jeder und jede bei Wissen • Teilen • Können registrieren, Begegnungen vorschlagen und besuchen! Um eine solche Idee zum funktionieren und wachsen zu bringen braucht es Menschen die daran glauben und sich aktiv beteiligen. Wenn Dir etwas einfällt, was Du mit anderen teilen oder ihnen beibringen möchtest würden wir uns sehr freuen Deinen Begegnungsvorschlag morgen unter den Ersten zu entdecken! </tr></td> <tr><td align="center">Wir freuen uns sehr, mit Dir gemeinsam etwas schaffen und verändern zu können, gemeinsam zu wachsen! <br/><br/> Liebe Grüße<br/> Lilli, Matthias, Wolfgang und Franz</tr></td>
+
         <tr>
           <td bgcolor= "#5EBD5E">
             <table width=100% frame=void rules=none >
               <td>
-                <a href="http://wissenteilen.com/Idee">
+                <a href="http://wissenteilen.com/team">
                   Die Idee
                 </a>
               </td>
               <td>
-                <a href="http://wissenteilen.com/Presse">
-                  Presse
-                </a>
-              </td>
-              <td>
-                <a href="http://wissenteilen.com/Impressum">
+                <a href="http://wissenteilen.com/impressum">
                   Impressum
                 </a>
               </td>
               <td>
-                <a href="http://wissenteilen.com/AGB">
-                  AGB
-                </a>
-              </td>
-              <td>
-                <a href="http://wissenteilen.com/Kontakt">
+                <a href="http://wissenteilen.com/kontakt">
                   Kontakt
                 </a>
               </td>
               <td>
-                <a href="http://wissenteilen.com/Hilfe">
+                <a href="http://wissenteilen.com/hilfe">
                   Hilfe
                 </a>
               </td>
@@ -73,16 +53,12 @@
           </td>
         </tr>
         <tr>
-          <td style="font-size: 8pt, font-style=italic, font-family=Helvetica">
+          <td align="center" style="font-size: 8pt, font-style=italic, font-family=Helvetica">
             <%= I18n.t('mailer.unsubscribe_link')%>
             <a href="http://www.wissenteilen.com/newsletter_subscribers/unsubscribe?token=<%=@unsubscribe_token%>" >
               Abmelden
             </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= I18n.t('mailer.unsubscribe_alternative_link') %>
+            oder
             <%= "http://www.wissenteilen.com/newsletter_subscribers/unsubscribe?token=#{@unsubscribe_token} " %>
           </td>
         </tr>
