@@ -156,3 +156,5 @@ end
 def run_rake(cmd)
   run "cd #{current_path}; #{rake} #{cmd}"
 end
+
+after "deploy:symlink", "deploy:update_crontab"
