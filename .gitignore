@@ -26,4 +26,5 @@ config/initializers/pusher.rb
 config/unicorn.rb
 .rvmrc
 *.swp
+*.swo
 .DS_Store

@@ -3,5 +3,6 @@ every 1.day, :at => '1:25 am' do
 end
 
 every :hour do
-  command "echo 'testing' >> testfile.txt", :output => {:error => 'error.log', :standard => 'cron.log'}
+  command "echo 'das ist ein test' >> /home/deployer/apps/swap_io/current/cron_test.txt"
+
 end
