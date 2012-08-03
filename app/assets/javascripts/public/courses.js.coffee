@@ -38,4 +38,3 @@ $(".fancyimg a").fancybox
       css:
         "background-color": "#777"
         opacity: "0.7"
-
