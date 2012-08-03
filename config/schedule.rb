@@ -3,5 +3,5 @@ every 1.day, :at => '1:25 am' do
 end
 
 every 1.minute do
-  runner "puts 'hallo'"
+  command "echo 'testing' >> testfile.txt"
 end
