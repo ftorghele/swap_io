@@ -29,4 +29,30 @@ $('#form-laststep').click ->
 $('#form-submit').click ->
   $('.fieldset-buttons').css({'display': 'none'})
   $(".step-one").css({'display': 'block'})
-  $('html,body').animate({scrollTop: $('.step-one').offset().top-20},'slow');
+  $('html,body').animate({scrollTop: top},'slow');
+
+# Spinner
+$("#form-submit").click ->
+  $("#container").css('visibility', 'hidden');
+  $("#preview").css('visibility', 'hidden');
+  $("body").css('background', 'white');
+  $('html,body').animate({scrollTop: top},'slow');
+  $("body").append("<div id='spinner-target' class='fullsize' style='position: absolute; top: 40px; background-color: white;'></div>");
+  opts = {
+    lines: 13,
+    length: 12,
+    width: 8,
+    radius: 20,
+    rotate: 0,
+    color: '#000',
+    speed: 1, 
+    trail: 60, 
+    shadow: false,
+    hwaccel: false,
+    className: 'spinner',
+    zIndex: 2e9,
+    top: 'auto', 
+    left: 'auto'
+  };
+  target = document.getElementById('spinner-target');
+  spinner = new Spinner(opts).spin(target);

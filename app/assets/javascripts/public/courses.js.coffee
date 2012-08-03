@@ -38,25 +38,3 @@ $(".fancyimg a").fancybox
       css:
         "background-color": "#777"
         opacity: "0.7"
-
-
-$("#form-submit").click ->
-  $('#container').add("<div id='spinner-target' class='fullsize' style='position: absolute;'></div>");
-  opts = {
-    lines: 13,
-    length: 12,
-    width: 8,
-    radius: 20,
-    rotate: 0,
-    color: '#000',
-    speed: 1, 
-    trail: 60, 
-    shadow: false,
-    hwaccel: false,
-    className: 'spinner',
-    zIndex: 2e9,
-    top: 'auto', 
-    left: 'auto'
-  };
-  target = document.getElementById('spinner-target');
-  spinner = new Spinner(opts).spin(target);

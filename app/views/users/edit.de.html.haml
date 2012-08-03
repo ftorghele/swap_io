@@ -1,4 +1,4 @@
-= javascript_include_tag 'rails.validations'
+= javascript_include_tag 'rails.validations', 'spin'
 
 
 %h1 Benutzer bearbeiten
@@ -56,7 +56,7 @@
       = f.label "hobbies und fähigkeiten"
       = f.text_area :skills
 
-    %button.form-submit.form-nextstep.right
+    %button#form-submit.form-submit.form-nextstep.right
       Profil speichern
       %span
 
