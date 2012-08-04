@@ -1,7 +1,7 @@
 
 Swap::Application.routes.draw do
 
-  scope :constraints => { :subdomain => "beta" } do
+  scope :constraints => { :subdomain => ["", "www"] } do
 
     ActiveAdmin.routes(self)
     devise_for :admin_users, ActiveAdmin::Devise.config
@@ -107,22 +107,8 @@ Swap::Application.routes.draw do
     root :to => 'pages#welcome'
   end
 
-  scope :constraints => { :subdomain => ["", "www"] } do
-    localized(I18n.available_locales) do
+  scope :constraints => { :subdomain => "beta" } do
 
-      resources :newsletter_subscribers do
-        collection do
-          get 'unsubscribe'
-        end
-      end
-
-      get 'landingpage',  :to => 'pages#landingpage'
-    end
-
-    unless Rails.application.config.consider_all_requests_local
-      match '*not_found', to: 'errors#error_404'
-    end
-
-    root :to => 'pages#landingpage'
+    root :to => 'pages#welcome', :constraints => {:subdomain => "www"}
   end
 end

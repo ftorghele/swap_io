@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:landingpage, :create, :unsubscribe]
-
   def contact_us
     unless params[:email_field].blank? || params[:subject].blank? || params[:body].blank?
       if SystemMailer.contact_us(params[:email_field], params[:subject], params[:body]).deliver
@@ -17,13 +15,13 @@ class PagesController < ApplicationController
     @subscriber = NewsletterSubscriber.new
     render :layout => 'landingpage'
   end
-  
-  def team 
+
+  def team
     @user_1 = User.find_by_id(1)
     @user_2 = User.find_by_id(7)
     @user_3 = User.find_by_id(3)
     @user_4 = User.find_by_id(2)
-    
+
   end
 
   def welcome
