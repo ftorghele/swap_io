@@ -12,7 +12,7 @@
             var user_id = "#{current_user.id}"
           =javascript_include_tag "socket_script"
           = link_to I18n.t('app.overview_link'), my_courses_path, :id => 'nav-dashboard', :class => action?("my_courses","my_course_requests") || controller?("user_conversations") ? :active : :inactive
-          = get_notifications current_user
+          = get_notifications current_user if signed_in?
         %li
           = link_to I18n.t('app.welcome', :name => truncate(current_user.first_name, :length => 16, :omission => '..')), user_path(current_user), :id => 'nav-hellouser', :class => (!@user.nil? && @user == current_user && action?("show")) ? :active : :inactive
           = link_to image_tag(userpic(current_user, :thumb), :class => 'avatar-mini', :size => '46x46'), user_path(current_user), :id => 'nav-profile-avatar'

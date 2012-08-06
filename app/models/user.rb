@@ -143,9 +143,11 @@ class User < ActiveRecord::Base
   end
 
   def get_unread_course_member_conversations_count
-    cmc = get_unread_course_member_conversations(get_course_members) +
-          get_unread_course_member_conversations(get_course_memberships)
-    cmc.nil? ? 0 : cmc.count
+    cmc = []
+    cmc << get_unread_course_member_conversations(get_course_members) << get_unread_course_member_conversations(get_course_memberships)
+    cmc.flatten!
+
+    cmc == [nil] ? 0 : cmc.count
   end
 
   def get_notification_count
