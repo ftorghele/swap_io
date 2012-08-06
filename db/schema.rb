@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120716082607) do
+ActiveRecord::Schema.define(:version => 20120806123559) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -94,8 +94,9 @@ ActiveRecord::Schema.define(:version => 20120716082607) do
     t.text     "body"
     t.integer  "user_id"
     t.integer  "course_member_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "unread",           :default => true
   end
 
   create_table "course_members", :force => true do |t|
@@ -137,11 +138,11 @@ ActiveRecord::Schema.define(:version => 20120716082607) do
     t.text     "materials"
     t.time     "time"
     t.string   "country"
+    t.integer  "course_request_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "course_request_id"
   end
 
   create_table "delayed_jobs", :force => true do |t|

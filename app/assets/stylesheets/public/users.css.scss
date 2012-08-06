@@ -252,6 +252,17 @@ section.detail {
         .overview-begegnung-body {
           margin: 0 0 0 55px;
 
+          .overview-begegnung-msg {
+
+            p {
+              line-height: 15px;
+              margin-bottom: 6px;
+            }
+            img {
+              width: 32px;
+              height: 32px;
+            }
+          }
         }
       }
       .acceptance-txt {

@@ -128,8 +128,30 @@ class User < ActiveRecord::Base
     self.receipts.reject{|i| i.read}.count
   end
 
+  def get_courses_requests_count
+    self.courses.sum{|c| c.get_course_request_count}
+  end
+
+  def get_course_members
+    CourseMember.find_all_by_course_id(self.courses.collect{|course| course.id})
+  end
+
+  def get_unread_course_member_conversations course_members
+    return nil if course_members.nil?
+    cmc = course_members.collect{|cm| cm.course_member_conversations}.flatten
+    cmc.empty? ? nil : cmc.reject{|cmc| cmc.user == self || cmc.unread == false}
+  end
+
+  def get_unread_course_member_conversations_count
+    cmc = get_unread_course_member_conversations(get_course_members) +
+          get_unread_course_member_conversations(get_course_memberships)
+    cmc.nil? ? 0 : cmc.count
+  end
+
   def get_notification_count
-    get_unread_message_count
+    get_unread_message_count +
+    get_courses_requests_count +
+    get_unread_course_member_conversations_count
   end
 
   def courses_organized_counter

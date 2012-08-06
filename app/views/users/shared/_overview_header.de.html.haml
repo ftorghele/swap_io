@@ -9,7 +9,7 @@
 %nav
   %ul
     %li{:class => action?("my_courses") ? :active : :inactive}
-      %h2= link_to "Begegnungen", my_courses_path
+      %h2= link_to "Begegnungen (#{current_user.get_courses_requests_count + current_user.get_unread_course_member_conversations_count})", my_courses_path
     %li{:class => action?("my_course_requests") ? :active : :inactive}
       %h2= link_to "Begegnungswünsche", my_course_requests_path
     %li{:class => controller?("user_conversations") ? :active : :inactive}
