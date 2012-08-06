@@ -10,6 +10,10 @@ class CourseMembersController < ApplicationController
 
   def show
     @course_member_conversation = CourseMemberConversation.new
+
+    if @course_member.present? && cmc = @course_member.course_member_conversations
+      cmc.reject{|cmc| cmc.user == current_user}.all?{|c| c.update_attribute(:unread, :false)}
+    end
   end
 
   def update

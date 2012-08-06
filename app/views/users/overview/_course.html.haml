@@ -2,19 +2,45 @@
   %article.overview-begegnung
     = link_to image_tag(coursepic(course, :thumb), :size => '46x46'), course_path(course)
     .overview-begegnung-head
+      %h2= link_to course.title, course_path(course)
+      - unread_conversations = course.get_unread_course_member_conversations(course.get_course_members, current_user)
+      - counter = course.get_course_request_count + (unread_conversations.nil? ? 0 : unread_conversations.count)
+      - course_member = CourseMember.find_by_course_id_and_user_id(course, current_user)
       - if manage_path == 'course'
         %p.small.right= link_to "Verwalten", manage_course_path(course)
-        %p.small.right= get_course_requests course
+        %p.small.right= link_to counter.to_s , manage_course_path(course), :id => 'course-member-indicator', :class => (counter==0) ? 'course-member-indicator' : 'course-member-indicator-new'
       - else
-        - if course_member = CourseMember.find_by_course_id_and_user_id(course, current_user)
-          %p.small.right= link_to "Verwalten", course_member_path(course_member.id)
-          -@course_member = course_member
-          %p.small.right= raw course_member_acceptance
+        %p.small.right= link_to "Verwalten", course_member_path(course_member.id)
+        %p.small.right= link_to counter.to_s , manage_course_path(course), :id => 'course-member-indicator', :class => (counter==0) ? 'course-member-indicator' : 'course-member-indicator-new'
 
-
-      %h2= link_to course.title, course_path(course)
-      %p.small= "am #{I18n.localize(course.date, :format => :day) unless course.date.nil?} in #{course.city unless course.city.nil?}"
+      %p.small
+        = "am #{I18n.localize(course.date, :format => :day) unless course.date.nil?} in #{course.city unless course.city.nil?}"
+        - unless course_member.nil?
+          (
+          - if course_member.accepted == 2
+            %span
+              versendet
+          - elsif course_member.accepted == 1
+            %span{:style=>'color:green'}
+              angenommen
+          - else
+            %span{:style=>'color:red'}
+              abgelehnt
+          )
     .clr
     .overview-begegnung-body
+      .overview-begegnung-msg
+        - unless unread_conversations.nil?
+          - unread_conversations.each do |cmc|
+            = link_to image_tag(userpic(cmc.user, :xsmall), :size => '32x32'), user_path(cmc.user)
+            - if manage_path == 'course'
+              %p.small.right= link_to "Lesen", "#{manage_course_path(cmc.course_member.course.id)}/#{cmc.course_member.id}/"
+            - else
+              %p.small.right= link_to "Lesen", course_member_path(cmc.course_member)
+            %p.small
+              = link_to username(cmc.user), user_path(cmc.user)
+              = " hat dir geantwortet:"
+            %p.small= truncate(cmc.body, :length => 75, :omission => '..')
+
 
 

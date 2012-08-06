@@ -61,6 +61,12 @@ class Course < ActiveRecord::Base
     self.course_members.all
   end
 
+  def get_unread_course_member_conversations course_members, current_user
+    return nil if course_members.nil?
+    cmc = course_members.collect{|cm| cm.course_member_conversations}.flatten
+    cmc.empty? ? nil : cmc.reject{|cmc| cmc.user == current_user || cmc.unread == false}
+  end
+
   def get_accepted_course_members
     self.course_members.find_all_by_accepted(1)
   end
