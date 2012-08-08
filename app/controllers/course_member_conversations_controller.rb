@@ -21,6 +21,7 @@ class CourseMemberConversationsController < ApplicationController
     create_or_reply
     if @cmc.valid?
       @cmc.save!
+      @course_member.course.user.push_message
       flash[:info] = I18n.t('course_member_conversation.reply.success')
       redirect_to course_member_path(@course_member)
     else
@@ -33,6 +34,7 @@ class CourseMemberConversationsController < ApplicationController
     create_or_reply
     if @cmc.valid?
       @cmc.save!
+      @course_member.user.push_message
       flash[:info] = I18n.t('course_member_conversation.reply.success')
       redirect_to "#{manage_course_path(@course.id)}/#{@course_member.id}/"
     else

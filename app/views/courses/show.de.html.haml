@@ -86,3 +86,10 @@
             %button.form-submit.form-nextstep{:style => 'width: 100%'}
               Teilnahme anfragen
               %span
+      = form_tag(new_user_conversation_path, :method => :post) do
+        = hidden_field_tag :recipient_id, 0
+        = hidden_field_tag :subject, "User: #{@course.user.first_name} mit der id #{@course.user.id}"
+        = hidden_field_tag :body, "User hat die Begegnung #{@course.title} mit der id #{@course.id} erstellt. Die Begegnung enthält folgende auffällige Inhalte:"
+        %button.form-button-petrol.form-submit{:style => 'width: 36px; height: 36px; font-size: 24px; line-height: 30px; margin-top: 10px', :onclick => "return confirm('Willst du diese Begegnung wirklich melden?')" }
+          !
+          %span

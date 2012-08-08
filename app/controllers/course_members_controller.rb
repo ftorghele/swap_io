@@ -20,8 +20,10 @@ class CourseMembersController < ApplicationController
     @course_member = CourseMember.find_by_id(params[:id])
     if cm = CourseMember.update_user_acceptance(params[:id], params[:acceptance])
       flash[:info] = I18n.t('course_member.update.success')
+      @course_member.user.push_message
     elsif cm == false
       flash[:info] = I18n.t('course_member.update.rejected')
+      @course_member.user.push_message
     else
       flash[:error] = I18n.t('course_member.update.fail')
     end
@@ -29,6 +31,7 @@ class CourseMembersController < ApplicationController
   end
 
   def destroy
+    CourseMember.update_user_acceptance(params[:id], "0")
     if course_member = CourseMember.destroy(params[:id])
       flash[:info] = "Du hast deine Begegnungsanfrage erfolgreich abgesagt"
     else

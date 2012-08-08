@@ -15,4 +15,5 @@
       %article.tips-box
         %h3 Status deiner Anfrage
         = raw course_member_acceptance
-        =link_to "Absagen", course_member_path(@course), :method => :delete,:class => 'form-button-petrol form-nextstep', :confirm => "Wollen Sie den Kurs wirklich absagen?"
+        -if @course_member.accepted? || @course_member.accepted == 2
+          = link_to "Absagen", course_member_path(@course_member), :method => :delete,:class => 'form-button-petrol form-nextstep', :confirm => "Wollen Sie den Kurs wirklich absagen?"
