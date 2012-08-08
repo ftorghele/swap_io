@@ -19,13 +19,14 @@
         %button.form-submit.form-nextstep{:style => 'width: 100%'}
           Wunsch erfüllen
           %span
-      = form_tag(new_user_conversation_path, :method => :post) do
-        = hidden_field_tag :recipient_id, 0
-        = hidden_field_tag :subject, "Begegnungswunsch: #{@course_request.title} mit der id #{@course_request.id}"
-        = hidden_field_tag :body, "Der Begegnungswunsch #{@course_request.title} mit der id #{@course_request.id} enthält folgende auffällige Inhalte:"
-        %button.form-button-petrol.form-submit{:style => 'width: 36px; height: 36px; font-size: 24px; line-height: 30px; margin-top: 10px', :onclick => "return confirm('Willst du diesen Begegnungswunsch wirklich melden?')" }
-          !
-          %span
+      -if signed_in?
+        = form_tag(new_user_conversation_path, :method => :post) do
+          = hidden_field_tag :recipient_id, 0
+          = hidden_field_tag :subject, "Begegnungswunsch: #{@course_request.title} mit der id #{@course_request.id}"
+          = hidden_field_tag :body, "Der Begegnungswunsch #{@course_request.title} mit der id #{@course_request.id} enthält folgende auffällige Inhalte:"
+          %button.form-button-petrol.form-submit{:style => 'width: 36px; height: 36px; font-size: 24px; line-height: 30px; margin-top: 10px', :onclick => "return confirm('Willst du diesen Begegnungswunsch wirklich melden?')" }
+            !
+            %span
 
 
 
