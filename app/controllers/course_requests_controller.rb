@@ -1,6 +1,6 @@
 class CourseRequestsController < ApplicationController
 
-  before_filter :authenticate_user! #, :only => [:new, :create, :join, :disjoin]
+  before_filter :authenticate_user! , :only => [:new, :create, :join, :disjoin]
   before_filter :get_course_request, :only => [:show, :edit, :update, :destroy]
 
   def index
