@@ -40,6 +40,7 @@ class Course < ActiveRecord::Base
     unless self.course_request_id.nil?
       course_request = CourseRequest.find_by_id(self.course_request_id)
       course_request.users.each do |user|
+        user.push_message
         SystemMailer.provide_course(user, host, self).deliver unless user == host
       end
     end
@@ -47,6 +48,7 @@ class Course < ActiveRecord::Base
 
   def self.delete_course course
     course.get_course_members.each do |member|
+      member.user.push_message
       SystemMailer.delete_course(member.user, course).deliver
     end
     course.destroy
@@ -54,6 +56,7 @@ class Course < ActiveRecord::Base
 
   def self.course_member_request_mailer requester, id
     course = self.find_by_id(id)
+    course.user.push_message
     SystemMailer.request_course(course.user, requester, course).deliver
   end
 

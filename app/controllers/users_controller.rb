@@ -28,7 +28,6 @@ class UsersController < ApplicationController
       if params[:user][:image].blank? || params[:javascript].blank?
         redirect_to user_path(@user)
       else
-        puts params[:javascript]
         render "shared/crop", :locals => {:obj => @user}
       end
     else

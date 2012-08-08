@@ -137,7 +137,7 @@ class User < ActiveRecord::Base
   end
 
   def get_unread_course_member_conversations course_members
-    return nil if course_members.nil?
+    return nil if course_members.empty?
     cmc = course_members.collect{|cm| cm.course_member_conversations}.flatten
     cmc.empty? ? nil : cmc.reject{|cmc| cmc.user == self || cmc.unread == false}
   end
@@ -146,8 +146,8 @@ class User < ActiveRecord::Base
     cmc = []
     cmc << get_unread_course_member_conversations(get_course_members) << get_unread_course_member_conversations(get_course_memberships)
     cmc.flatten!
-
-    cmc == [nil] ? 0 : cmc.count
+    cmc.reject!{|i| i.nil? }
+    cmc.empty? ? 0 : cmc.count
   end
 
   def get_notification_count

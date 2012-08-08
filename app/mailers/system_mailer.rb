@@ -54,6 +54,10 @@ class SystemMailer < ActionMailer::Base
     end
   end
 
+  #regex to replace html tags from string
+  # <([^>]*)>
+  # find html tag and replace by line ending
+  # gsub!(/<([^>]*)>/){"\n"}
   def news(email, body)
     @body = body
     @subject = I18n.t('mailer.subject.news')
