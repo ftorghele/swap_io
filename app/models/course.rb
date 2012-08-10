@@ -40,8 +40,17 @@ class Course < ActiveRecord::Base
     unless self.course_request_id.nil?
       course_request = CourseRequest.find_by_id(self.course_request_id)
       course_request.users.each do |user|
-        user.push_message
-        SystemMailer.provide_course(user, host, self).deliver unless user == host
+        @user = User.find(user.id)
+        @user.push_message
+        @host = host
+        unless user == host
+          msg = "Dein Begegnungswunsch! \n\n Hallo #{@user.first_name}!\n #{@host.first_name} hat auf wissenteilen.com auf Deinen Begegnungswunsch reagiert.\n Details zur Person und der Begegnung findest du unter folgenden Links: \n Profil von #{@host.first_name} ansehen: http://wissenteilen.com/mitglied/#{@host.id}\n Deine Begegnung verwalten: http://wissenteilen.com/begegnungen/#{self.id}\n\n Dein Wissen Teilen\nTeam"
+          receipt = self.user.send_message(user, msg,  I18n.t('mailer.subject.provide_course'))
+          if (receipt.errors.blank?)
+            @conversation = receipt.conversation
+          end
+          SystemMailer.provide_course(user, host, self).deliver
+        end
       end
     end
   end
