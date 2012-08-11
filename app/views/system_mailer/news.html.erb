@@ -1,68 +1,66 @@
 <html>
   <head>
     <title>
-      <%= I18n.t('mailer.subject.news') %>
+      <%= "Newsletter von Wissen • Teilen • Können" %>
     </title>
   </head>
   <body style="text-align: center" >
-
-    <table border="1" rules="groups" cellspacing="20" cellpadding="40" width="80%">
-      <thead>
-        <tr>
-          <td bgcolor= "#5EBD5E">
-            <img src="http://wissenteilen.com/assets/sprechblase.png" alt="Wissen Teilen Können">
-          </td>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td>
-            <h2>
-              <%= "Wissen Teilen Können Newsletter" %>
-            </h2>
-          </td>
-        </tr>
-
-        <tr><td align="center">Hallo ihr lieben Helferlein! </tr></td> <tr><td align="center">Heute endet die Beta-Phase von Wissen • Teilen • Können! Dank eurer Hilfe hat sich vieles verbessern und im Ablauf optimieren lassen. <br/>Vielen lieben Dank dafür! </tr></td> <tr><td align="center">Wie geht es nun weiter? <br/> Ab dem 1. August kann sich nun jeder und jede bei Wissen • Teilen • Können registrieren, Begegnungen vorschlagen und besuchen! Um eine solche Idee zum funktionieren und wachsen zu bringen braucht es Menschen die daran glauben und sich aktiv beteiligen. Wenn Dir etwas einfällt, was Du mit anderen teilen oder ihnen beibringen möchtest würden wir uns sehr freuen Deinen Begegnungsvorschlag morgen unter den Ersten zu entdecken! </tr></td> <tr><td align="center">Wir freuen uns sehr, mit Dir gemeinsam etwas schaffen und verändern zu können, gemeinsam zu wachsen! <br/><br/> Liebe Grüße<br/> Lilli, Matthias, Wolfgang und Franz</tr></td>
-
-        <tr>
-          <td bgcolor= "#5EBD5E">
-            <table width=100% frame=void rules=none >
-              <td>
-                <a href="http://wissenteilen.com/team">
-                  Die Idee
-                </a>
-              </td>
-              <td>
-                <a href="http://wissenteilen.com/impressum">
-                  Impressum
-                </a>
-              </td>
-              <td>
-                <a href="http://wissenteilen.com/kontakt">
-                  Kontakt
-                </a>
-              </td>
-              <td>
-                <a href="http://wissenteilen.com/hilfe">
-                  Hilfe
-                </a>
-              </td>
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <td align="center" style="font-size: 8pt, font-style=italic, font-family=Helvetica">
-            <%= I18n.t('mailer.unsubscribe_link')%>
-            <a href="http://www.wissenteilen.com/newsletter_subscribers/unsubscribe?token=<%=@unsubscribe_token%>" >
-              Abmelden
-            </a>
-            oder
-            <%= "http://www.wissenteilen.com/newsletter_subscribers/unsubscribe?token=#{@unsubscribe_token} " %>
-          </td>
-        </tr>
-      </tbody>
+    <table border="0" rules="groups" cellspacing="10" cellpadding="10" width="80%">
+      <tr>
+        <td align="center">
+          <a href="http://www.wissenteilen.com"><img src="http://wissenteilen.com/assets/layout-logo-wissenteilen.png" alt="Wissen Teilen Können"></a>
+        </td>
+      </tr>
+      <tr><td align="center">Hallo ihr lieben Helferlein! </tr></td> <tr><td align="center">Heute endet die Beta-Phase von Wissen • Teilen • Können! Dank eurer Hilfe hat sich vieles verbessern und im Ablauf optimieren lassen. <br/>Vielen lieben Dank dafür! </tr></td> <tr><td align="center">Wie geht es nun weiter? <br/> Ab dem 12. August kann sich nun jeder und jede bei Wissen • Teilen • Können registrieren, Begegnungen vorschlagen und besuchen! Um eine solche Idee zum funktionieren und wachsen zu bringen braucht es Menschen die daran glauben und sich aktiv beteiligen. Wenn Dir etwas einfällt, was Du mit anderen teilen oder ihnen beibringen möchtest würden wir uns sehr freuen Deinen Begegnungsvorschlag morgen unter den Ersten zu entdecken! </tr></td> <tr><td align="center">Wir freuen uns sehr, mit Dir gemeinsam etwas schaffen und verändern zu können,<br/> gemeinsam zu wachsen! <br/><br/> Liebe Grüße<br/> Lilli, Matthias, Wolfgang und Franz</tr></td>
+      <tr>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <table width=50% frame=void rules=none >
+            <td>
+              <a href="http://wissenteilen.com/idee">
+                <i>Die Idee</i>
+              </a>
+            </td>
+			      <td>
+              <a href="http://wissenteilen.com/team">
+                <i>Das Team</i>
+              </a>
+            </td>
+            <td>
+              <a href="http://wissenteilen.com/impressum">
+                <i>Impressum</i>
+              </a>
+            </td>
+            <td>
+              <a href="http://wissenteilen.com/kontakt">
+                <i>Kontakt</i>
+              </a>
+            </td>
+            <td>
+              <a href="http://wissenteilen.com/hilfe">
+                <i>Hilfe</i>
+              </a>
+            </td>
+          </table>
+        </td>
+      </tr>
+	    <tr>
+        <td>
+		    </td>
+		  </tr>
+      <tr>
+        <td align="center" style="font-size: 8px, font-style=italic, font-family=Helvetica">
+          <%= I18n.t('mailer.unsubscribe_link')%>
+          <a href="http://www.wissenteilen.com/newsletter_subscribers/unsubscribe?token=<%=@unsubscribe_token%>" >
+            <i>Abmelden</i>
+          </a>
+          oder
+          <%= "http://www.wissenteilen.com/newsletter_subscribers/unsubscribe?token=#{@unsubscribe_token} " %>
+        </td>
+      </tr>
     </table>
   </body>
 </html>
