@@ -7,9 +7,7 @@ class Newsletter < ActiveRecord::Base
     newsletter = self.find(newsletter_id)
     NewsletterSubscriber.all.each do |subscriber|
       begin
-        if subscriber.if > 10
-          SystemMailer.news(subscriber.email, newsletter.body).deliver
-        end
+        SystemMailer.news(subscriber.email, newsletter.body).deliver
       rescue
       end
     end
