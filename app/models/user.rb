@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
@@ -21,10 +21,10 @@ class User < ActiveRecord::Base
   validates_presence_of :country
   validates_presence_of :city
 
-#  validates_presence_of :user_key
-  if ActiveRecord::Base.connection.tables.include?("user_keys")
-    validates_inclusion_of :user_key, :in => UserKey.all.empty? ? [] : UserKey.all.collect{|i| i.key.to_s}.to_enum,  :message => "Dieser Code ist uns leider nicht bekannt"
-  end
+#   validates_presence_of :user_key
+#   if ActiveRecord::Base.connection.tables.include?("user_keys")
+#     validates_inclusion_of :user_key, :in => UserKey.all.empty? ? [] : UserKey.all.collect{|i| i.key.to_s}.to_enum,  :message => "Dieser Code ist uns leider nicht bekannt"
+#   end
 
   validates :zip, :numericality => { :only_integer => true }
 
