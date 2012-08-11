@@ -6,7 +6,10 @@ class Newsletter < ActiveRecord::Base
     return if self.find(newsletter_id).sent
     newsletter = self.find(newsletter_id)
     NewsletterSubscriber.all.each do |subscriber|
-      SystemMailer.news(subscriber.email, newsletter.body).deliver
+      begin
+        SystemMailer.news(subscriber.email, newsletter.body).deliver
+      rescue
+      end
     end
     newsletter.update_attribute(:sent, true)
   end
