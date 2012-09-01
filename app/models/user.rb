@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   has_many :user_ratings, :dependent => :destroy
   has_many :course_member_conversations, :dependent => :destroy
 
-  has_many :course_request_users
+  has_many :course_request_users, :dependent => :destroy
   has_many :course_requests, :through => :course_request_users
 
   has_attached_file :image,

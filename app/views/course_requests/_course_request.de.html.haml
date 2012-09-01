@@ -1,16 +1,19 @@
-%article.begegnungswunsch
-  %a{:href => course_request_path(course_request),:class => 'begegnungswunsch-title'}
-    %h3= truncate(course_request.title, :length => 20, :omission => '..')
-  %p.begegnung-infos
-    = link_to image_tag(userpic(course_request.course_request_users.first.user, :medium), :alt => username(course_request.course_request_users.first.user), :size => '60x60'), user_path(course_request.course_request_users.first.user)
-    Ein Wunsch von
-    %br
-    = link_to truncate(username(course_request.course_request_users.first.user), :length => 18, :omission => '..'), user_path(course_request.course_request_users.first.user)
-    %br
-    aus
-    = truncate(course_request.course_request_users.first.user.city, :length => 17, :omission => '..') unless course_request.course_request_users.first.user.city.nil?
-  .clr
-  %p.begegnungswunsch-text
-    = truncate(course_request.description, :length => 100, :omission => '..')
-    %br
-    = link_to "Mehr darüber", course_request_path(course_request)
+- user =  course_request.course_request_users.first.user
+
+- unless user.nil?
+  %article.begegnungswunsch
+    %a{:href => course_request_path(course_request),:class => 'begegnungswunsch-title'}
+      %h3= truncate(course_request.title, :length => 20, :omission => '..')
+    %p.begegnung-infos
+      = link_to image_tag(userpic(user, :medium), :alt => username(user), :size => '60x60'), user_path(user)
+      Ein Wunsch von
+      %br
+      = link_to truncate(username(user), :length => 18, :omission => '..'), user_path(user)
+      %br
+      aus
+      = truncate(user.city, :length => 17, :omission => '..') unless user.city.nil?
+    .clr
+    %p.begegnungswunsch-text
+      = truncate(course_request.description, :length => 100, :omission => '..')
+      %br
+      = link_to "Mehr darüber", course_request_path(course_request)

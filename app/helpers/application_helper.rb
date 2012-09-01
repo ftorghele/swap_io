@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def username(user)
-    "#{user.first_name} #{user.last_name}"
+    user.nil? ? "n/a" : "#{user.first_name} #{user.last_name}"
   end
 
   def userpic(user, size = :medium)
