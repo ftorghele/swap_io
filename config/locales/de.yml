@@ -280,8 +280,8 @@ de:
       title: Einloggen
       submit: Einloggen
       cancel: Neu registrieren
-      signed_in: "Hallo, Du bist jetzt angemeldet."
-      signed_out: "Auf wiedersehen, Du bist jetzt abgemeldet."
+      signed_in: 'Hallo %{name}, Du bist jetzt angemeldet.'
+      signed_out: 'Auf wiedersehen %{name}, Du bist jetzt abgemeldet.'
     passwords:
       title_edit: "Passwort ändern"
       title_resend: "Passwort vergessen?"
@@ -310,7 +310,7 @@ de:
       send_instructions: "Eine E-Mail mit Freischalt-Infos ist zu Dir unterwegs."
       unlocked: "Du hast Dein Nutzerkonto soeben freigeschaltet. Du bist nun angemeldet."
     omniauth_callbacks:
-      success: "Du hast Dich erfolgreich per %{kind} angemeldet."
+      success: "Hallo %{name}! Du hast Dich erfolgreich per %{kind} angemeldet."
       failure: 'Die Anmeldung per %{kind} hat leider nicht geklappt: "%{reason}"'
     mailer:
       confirmation_instructions:

@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     unless @user.valid?
       render :complete_registration
     else
-      flash[:info] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
+      flash[:info] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook", :name => @user.first_name
       #@user.confirm!
       @user.save!
       sign_in_and_redirect @user, :event => :authentication
