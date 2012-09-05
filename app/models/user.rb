@@ -104,7 +104,9 @@ class User < ActiveRecord::Base
   end
 
   def get_course_memberships
-    CourseMember.find_all_by_user_id(self.id)
+    cms = CourseMember.find_all_by_user_id(self.id)
+    cms.reject!{|cm| cm.course.nil?}.reject!{|cm| cm.course.date < Time.now } unless cms.blank?   #
+    cms
   end
 
   def toggle_category_abonnements category
